@@ -61,7 +61,6 @@ if __name__ == "__main__":
     #   [country] in each prompt will be replaced by specific country names
     #   [farm_type] == "dairy": [country] = ["the United States", "Germany", "New Zealand"]
     #   [farm_type] == "pig": [country] = ["the United States", "Spain", "Australia"]
-    #
     generation_types = [
         "reality",
         "reality_no_revise",
@@ -87,9 +86,8 @@ if __name__ == "__main__":
 
     start_index = 11  # the starting index (ID) of images
     n = 90  # the total number of images you wish to generate in this batch
-    max_retries = 3 # the maximum number of times we will retry prompting the model if the previous prompt failed due to safety reasons.
-    retry_delay = 2 # the total number of seconds we wait to let the model reset before trying again
-
+    max_retries = 3  # the maximum number of times we will retry prompting the model if the previous prompt failed due to safety reasons.
+    retry_delay = 2  # the total number of seconds we wait to let the model reset before trying again
 
     # Loop through each combination of generation_type and farm_type
     for generation_type in generation_types:
@@ -115,33 +113,20 @@ if __name__ == "__main__":
                     generation_type=generation_type,
                     start_index=start_index,
                     n=n,
-                    max_retries = max_retries, 
-                    retry_delay = retry_delay
+                    max_retries=max_retries,
+                    retry_delay=retry_delay,
                 )
 
             # Add a delay to avoid hitting the rate limit
             time.sleep(8)  # Wait 8 seconds before the next request
 
-    """
-    utils.gen_image_train(
-        client,
-        country="Australia",
-        farm_type="pig",
-        generation_type="reality_country_no_revise",
-        start_index=start_index,
-        n=n,
-        max_retries = max_retries, 
-        retry_delay = retry_delay
-    )
-    """
-
     generation_types = [
-            "basic",
-            "basic_no_revise",
-            "basic_country",
-            "basic_country_no_revise",
-            "typical",
-            "typical_no_revise",
-            "typical_country",
-            "typical_country_no_revise",
-        ]
+        "basic",
+        "basic_no_revise",
+        "basic_country",
+        "basic_country_no_revise",
+        "typical",
+        "typical_no_revise",
+        "typical_country",
+        "typical_country_no_revise",
+    ]

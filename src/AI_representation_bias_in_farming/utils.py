@@ -62,7 +62,9 @@ def get_prompt(country, farm_type, generation_type):
     return cur_prompt
 
 
-def prompt_for_img(client, country, farm_type, generation_type, max_retries=3, retry_delay=2):
+def prompt_for_img(
+    client, country, farm_type, generation_type, max_retries=3, retry_delay=2
+):
     """
     Prompt chatGPT API to generate an image response in base 64 encoded jason format
 
@@ -92,18 +94,29 @@ def prompt_for_img(client, country, farm_type, generation_type, max_retries=3, r
             )
             return {"response": response, "prompt": cur_prompt}
         except openai.BadRequestError:
-            print(f"Attempt {attempt + 1} in reprompting the model after last attempt failed due to safety reasons (openai.BadRequestError). Retrying...")
-            
-            if attempt == (max_retries -1):
-                print("Maximum number of retries reached, terminating the image generation process.")
-                raise openai.BadRequestError # re-raise the error and terminate the program
+            print(
+                f"Attempt {attempt + 1} in reprompting the model after last attempt failed due to safety reasons (openai.BadRequestError). Retrying..."
+            )
+
+            if attempt == (max_retries - 1):
+                print(
+                    "Maximum number of retries reached, terminating the image generation process."
+                )
+                raise openai.BadRequestError  # re-raise the error and terminate the program
 
             time.sleep(retry_delay)
 
-    
 
-
-def gen_image_train(client, country, farm_type, generation_type, start_index, n, max_retries, retry_delay):
+def gen_image_train(
+    client,
+    country,
+    farm_type,
+    generation_type,
+    start_index,
+    n,
+    max_retries=3,
+    retry_delay=2,
+):
     """
     Generate n images in a roll, save the images into local folder, save the megadata related to each image into a csv file.
 
@@ -124,7 +137,9 @@ def gen_image_train(client, country, farm_type, generation_type, start_index, n,
     # generate n images
     for img_count in range(start_index, (start_index + n)):
         # prompt API for a image response
-        result = prompt_for_img(client, country, farm_type, generation_type, max_retries, retry_delay)
+        result = prompt_for_img(
+            client, country, farm_type, generation_type, max_retries, retry_delay
+        )
         response = result["response"]
         cur_prompt = result["prompt"]  # generate prompt
 
