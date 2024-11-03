@@ -9,6 +9,7 @@
 import os
 import base64
 from pathlib import Path
+import time
 
 import pandas as pd
 import numpy as np
@@ -76,23 +77,16 @@ if __name__ == "__main__":
         "typical_country_no_revise",
     ]
 
-    generation_types = [
-        "reality",
-        "reality_no_revise",
-        "reality_country",
-        "reality_country_no_revise",
-        "basic_country",
-        "basic_country_no_revise",
-        "typical_country",
-        "typical_country_no_revise",
-    ]
-
     farm_types = ["dairy", "pig"]  # type of livestock farms
 
     countries_by_farm_type = {
         "dairy": ["the United States", "Germany", "New Zealand"],
         "pig": ["the United States", "Spain", "Australia"],
-    }
+    }  # list of countries with the biggest number of dairy cows and pigs in
+    # North America, Europe and Oceania
+
+    start_index = 11  # the starting index (ID) of images
+    n = 10 # the total number of images you wish to generate in this batch
 
     # Loop through each combination of generation_type and farm_type
     for generation_type in generation_types:
@@ -106,8 +100,8 @@ if __name__ == "__main__":
                         country=country,
                         farm_type=farm_type,
                         generation_type=generation_type,
-                        start_index=1,
-                        n=10,
+                        start_index=start_index,
+                        n=n,
                     )
             else:
                 # If no "country" in generation_type, set country to pd.NA
@@ -116,6 +110,9 @@ if __name__ == "__main__":
                     country=pd.NA,
                     farm_type=farm_type,
                     generation_type=generation_type,
-                    start_index=1,
-                    n=10,
+                    start_index=start_index,
+                    n=n,
                 )
+
+            # Add a delay to avoid hitting the rate limit
+            time.sleep(8)  # Wait 8 seconds before the next request
