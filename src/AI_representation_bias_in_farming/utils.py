@@ -1,3 +1,7 @@
+"""Library of functions used to prompt chatGPT's text-to-image generative 
+    AI models.
+"""
+
 import base64
 import os
 from pathlib import Path

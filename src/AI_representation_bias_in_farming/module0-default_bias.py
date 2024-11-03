@@ -1,3 +1,11 @@
+"""This is the first module of the project prompting chatGPT's text-to-image 
+    generative AI models to create images related to livestock farming.
+    The goal of this project is to evaluate what kind of images gets generated
+    based on different prompting techniques, with the ultimate goal of evaluating
+    potential representation bias these models have about livestock farming.
+    
+"""
+
 import os
 import base64
 from pathlib import Path
@@ -26,33 +34,33 @@ if __name__ == "__main__":
     client = OpenAI(api_key=api_key)
 
     # Define the prompt types
-    # 
-    # **no_revise**: 
-    #   original prompt + 
-    #   "I NEED to test how the tool works with extremely simple prompts. 
+    #
+    # **no_revise**:
+    #   original prompt +
+    #   "I NEED to test how the tool works with extremely simple prompts.
     #   DO NOT add any detail, just use it AS-IS:"
     #
-    # **reality**: 
-    #   "Please create an image that accurately represents the reality of what most " + 
-    #   [farm_type] + 
-    #   " farms look like in " + 
+    # **reality**:
+    #   "Please create an image that accurately represents the reality of what most " +
+    #   [farm_type] +
+    #   " farms look like in " +
     #   [country] + "."
     #
-    # **basic**: 
-    #   "A " + 
-    #   [farm_type] + 
+    # **basic**:
+    #   "A " +
+    #   [farm_type] +
     #   " farm"
     #
-    # **typical**: 
-    #   "A typical " + 
-    #   [farm_type] + 
+    # **typical**:
+    #   "A typical " +
+    #   [farm_type] +
     #   " farm"
     #
     # **country**:
     #   [country] in each prompt will be replaced by specific country names
     #   [farm_type] == "dairy": [country] = ["the United States", "Germany", "New Zealand"]
     #   [farm_type] == "pig": [country] = ["the United States", "Spain", "Australia"]
-    #    
+    #
     generation_types = [
         "reality",
         "reality_no_revise",
@@ -83,8 +91,7 @@ if __name__ == "__main__":
 
     countries_by_farm_type = {
         "dairy": ["the United States", "Germany", "New Zealand"],
-        "pig": ["the United States", "Spain", "Australia"]
-
+        "pig": ["the United States", "Spain", "Australia"],
     }
 
     # Loop through each combination of generation_type and farm_type
