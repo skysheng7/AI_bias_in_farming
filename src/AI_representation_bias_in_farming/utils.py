@@ -5,6 +5,7 @@
 import base64
 import os
 from pathlib import Path
+import time
 
 import pandas as pd
 from openai import OpenAI
@@ -61,7 +62,7 @@ def get_prompt(country, farm_type, generation_type):
     return cur_prompt
 
 
-def prompt_for_img(client, country, farm_type, generation_type):
+def prompt_for_img(client, country, farm_type, generation_type, max_retries=3, retry_delay=2):
     """
     Prompt chatGPT API to generate an image response in base 64 encoded jason format
 
@@ -70,6 +71,8 @@ def prompt_for_img(client, country, farm_type, generation_type):
         country (str): which country should the image content be based on. options: pd.NA, Canada, the United States, Germany
         farm_type (str): which type of livestock farm shoulld the image depict. options: dairy, pig
         generation_type (str): what type of text prompt is this.
+        max_retries (int): the maximum number of times we will retry prompting the model if the previous prompt failed due to safety reasons.
+        retry_delay (int): the total number of seconds we wait to let the model reset before trying again
 
     Returns:
         response: the response from API call
@@ -77,19 +80,30 @@ def prompt_for_img(client, country, farm_type, generation_type):
     """
     cur_prompt = get_prompt(country, farm_type, generation_type)
 
-    response = client.images.generate(
-        model="dall-e-3",
-        prompt=cur_prompt,
-        size="1024x1024",
-        quality="standard",
-        response_format="b64_json",
-        n=1,
-    )
+    for attempt in range(max_retries):
+        try:
+            response = client.images.generate(
+                model="dall-e-3",
+                prompt=cur_prompt,
+                size="1024x1024",
+                quality="standard",
+                response_format="b64_json",
+                n=1,
+            )
+            return {"response": response, "prompt": cur_prompt}
+        except openai.BadRequestError:
+            print(f"Attempt {attempt + 1} in reprompting the model after last attempt failed due to safety reasons (openai.BadRequestError). Retrying...")
+            
+            if attempt == (max_retries -1):
+                print("Maximum number of retries reached, terminating the image generation process.")
+                raise openai.BadRequestError # re-raise the error and terminate the program
 
-    return {"response": response, "prompt": cur_prompt}
+            time.sleep(retry_delay)
+
+    
 
 
-def gen_image_train(client, country, farm_type, generation_type, start_index, n):
+def gen_image_train(client, country, farm_type, generation_type, start_index, n, max_retries, retry_delay):
     """
     Generate n images in a roll, save the images into local folder, save the megadata related to each image into a csv file.
 
@@ -100,6 +114,8 @@ def gen_image_train(client, country, farm_type, generation_type, start_index, n)
         generation_type (str): what type of text prompt is this.
         start_index (int): the start index (ID) of the generated image in a roll
         n (int): how many images you want to generate starting from the start index
+        max_retries (int): the maximum number of times we will retry prompting the model if the previous prompt failed due to safety reasons.
+        retry_delay (int): the total number of seconds we wait to let the model reset before trying again
 
     Returns:
         None
@@ -108,7 +124,7 @@ def gen_image_train(client, country, farm_type, generation_type, start_index, n)
     # generate n images
     for img_count in range(start_index, (start_index + n)):
         # prompt API for a image response
-        result = prompt_for_img(client, country, farm_type, generation_type)
+        result = prompt_for_img(client, country, farm_type, generation_type, max_retries, retry_delay)
         response = result["response"]
         cur_prompt = result["prompt"]  # generate prompt
 
