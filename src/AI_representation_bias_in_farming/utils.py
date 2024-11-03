@@ -5,6 +5,7 @@ from pathlib import Path
 import pandas as pd
 from openai import OpenAI
 
+
 def get_prompt(country, farm_type, generation_type):
     """
     generate a text prompt based on the country, type of farms, and image generation style.
