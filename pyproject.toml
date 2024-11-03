@@ -63,9 +63,9 @@ dev = [
 only-packages = true
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/ai's_representation_bias_about_livestock_farming"]
+packages = ["src/AI_representation_bias_in_farming"]
 [tool.hatch.build.hooks.vcs]
-version-file = "src/ai's_representation_bias_about_livestock_farming/_version.py"
+version-file = "src/AI_representation_bias_in_farming/_version.py"
 
 [tool.hatch.version]
 source = "vcs"
@@ -75,15 +75,15 @@ markers = ["raises"]
 
 [tool.coverage.paths]
 source = [
-    "src/ai's_representation_bias_about_livestock_farming",
-    "*/site-packages/ai's_representation_bias_about_livestock_farming",
+    "src/AI_representation_bias_in_farming",
+    "*/site-packages/AI_representation_bias_in_farming",
 ]
 
 [tool.coverage.run]
 branch = true
 parallel = true
 omit = [
-    "src/ai's_representation_bias_about_livestock_farming/_version.py",
+    "src/AI_representation_bias_in_farming/_version.py",
 ]
 
 [tool.coverage.report]
@@ -105,7 +105,7 @@ ignore = [
     "ANN102",  # 'Missing type annotation for {cls} in classmethod'.
 ]
 exclude = [
-    "src/ai's_representation_bias_about_livestock_farming/_version.py",
+    "src/AI_representation_bias_in_farming/_version.py",
     "docs/conf.py",
 ]
 
@@ -124,7 +124,7 @@ exclude = [
 
 [tool.ruff.lint.isort]
 case-sensitive = true
-known-first-party = ["src", "ai's_representation_bias_about_livestock_farming"]
+known-first-party = ["src", "AI_representation_bias_in_farming"]
 lines-after-imports = 1
 
 [tool.pydoclint]
@@ -182,7 +182,7 @@ dependencies = [
 ]
 
 [tool.hatch.envs.types.scripts]
-check = "mypy src/ai's_representation_bias_about_livestock_farming"
+check = "mypy src/AI_representation_bias_in_farming"
 [tool.hatch.envs.docs]
 description = """Build or serve the documentation."""
 dependencies = [
@@ -193,8 +193,8 @@ dependencies = [
 ]
 
 [tool.hatch.envs.docs.scripts]
-build = ["sphinx-apidoc -o docs/api src/ai's_representation_bias_about_livestock_farming", "sphinx-build {args:-W -b html docs docs/_build}"]
-serve = ["sphinx-apidoc -o docs/api src/ai's_representation_bias_about_livestock_farming", "sphinx-autobuild docs --watch src/ai's_representation_bias_about_livestock_farming {args:-b html docs/_build/serve}"]
+build = ["sphinx-apidoc -o docs/api src/AI_representation_bias_in_farming", "sphinx-build {args:-W -b html docs docs/_build}"]
+serve = ["sphinx-apidoc -o docs/api src/AI_representation_bias_in_farming", "sphinx-autobuild docs --watch src/AI_representation_bias_in_farming {args:-b html docs/_build/serve}"]
 
 [tool.hatch.envs.install]
 description = """Test the installation the package."""
@@ -224,4 +224,4 @@ extra-dependencies = [
 python = ["3.10", "3.11", "3.12", "3.13"]
 
 [tool.hatch.envs.test.scripts]
-run = "pytest {args:--cov=ai's_representation_bias_about_livestock_farming --cov-report=term-missing}"
+run = "pytest {args:--cov=AI_representation_bias_in_farming --cov-report=term-missing}"
