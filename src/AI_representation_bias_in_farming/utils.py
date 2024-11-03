@@ -115,7 +115,7 @@ def gen_image_train(
     start_index,
     n,
     max_retries=3,
-    retry_delay=2,
+    retry_delay=30,
 ):
     """
     Generate n images in a roll, save the images into local folder, save the megadata related to each image into a csv file.
