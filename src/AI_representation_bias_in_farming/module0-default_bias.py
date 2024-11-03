@@ -86,7 +86,7 @@ if __name__ == "__main__":
 
     start_index = 11  # the starting index (ID) of images
     n = 90  # the total number of images you wish to generate in this batch
-    max_retries = 3  # the maximum number of times we will retry prompting the model if the previous prompt failed due to safety reasons.
+    max_retries = 30  # the maximum number of times we will retry prompting the model if the previous prompt failed due to safety reasons.
     retry_delay = 2  # the total number of seconds we wait to let the model reset before trying again
 
     # Loop through each combination of generation_type and farm_type

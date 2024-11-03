@@ -63,7 +63,7 @@ def get_prompt(country, farm_type, generation_type):
 
 
 def prompt_for_img(
-    client, country, farm_type, generation_type, max_retries=3, retry_delay=2
+    client, country, farm_type, generation_type, max_retries=3, retry_delay=30
 ):
     """
     Prompt chatGPT API to generate an image response in base 64 encoded jason format
@@ -93,18 +93,18 @@ def prompt_for_img(
                 n=1,
             )
             return {"response": response, "prompt": cur_prompt}
-        except openai.BadRequestError:
+        except (openai.BadRequestError, openai.RateLimitError) as e:
             print(
-                f"Attempt {attempt + 1} in reprompting the model after last attempt failed due to safety reasons (openai.BadRequestError). Retrying..."
+                f"Attempt {attempt + 1} in reprompting the model after last attempt failed due to {e}. Retrying..."
             )
 
             if attempt == (max_retries - 1):
                 print(
                     "Maximum number of retries reached, terminating the image generation process."
                 )
-                raise openai.BadRequestError  # re-raise the error and terminate the program
+                raise e  # re-raise the error and terminate the program
 
-            time.sleep(retry_delay)
+            time.sleep(retry_delay)  # wait for a while to let the model reset
 
 
 def gen_image_train(
@@ -264,3 +264,7 @@ def save_megadata(
         combined_df = result_df
 
     combined_df.to_csv(megadata_file, index=False)
+
+
+def test_package():
+    print("package updated!")
