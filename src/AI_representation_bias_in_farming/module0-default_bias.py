@@ -13,6 +13,7 @@ import time
 
 import pandas as pd
 import numpy as np
+import openai
 from openai import OpenAI
 
 from AI_representation_bias_in_farming import utils

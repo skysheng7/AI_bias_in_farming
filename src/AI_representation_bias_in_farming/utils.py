@@ -8,6 +8,7 @@ from pathlib import Path
 import time
 
 import pandas as pd
+import openai
 from openai import OpenAI
 
 
@@ -267,4 +268,4 @@ def save_megadata(
 
 
 def test_package():
-    print("package updated!")
+    print("package updated2!")
