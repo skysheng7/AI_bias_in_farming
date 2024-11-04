@@ -95,6 +95,7 @@ def prompt_for_img(
             )
             return {"response": response, "prompt": cur_prompt}
         except (openai.BadRequestError, openai.RateLimitError) as e:
+            print(f"{generation_type} for {farm_type} in {country}:")
             print(
                 f"Attempt {attempt + 1} in reprompting the model after last attempt failed due to {e}. Retrying..."
             )

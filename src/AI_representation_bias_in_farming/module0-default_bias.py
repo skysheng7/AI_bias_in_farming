@@ -76,6 +76,16 @@ if __name__ == "__main__":
         "typical_country",
         "typical_country_no_revise",
     ]
+    
+    generation_types = [
+        "basic_no_revise",
+        "basic_country",
+        "basic_country_no_revise",
+        "typical",
+        "typical_no_revise",
+        "typical_country",
+        "typical_country_no_revise",
+    ]
 
     farm_types = ["dairy", "pig"]  # type of livestock farms
 
@@ -104,6 +114,8 @@ if __name__ == "__main__":
                         generation_type=generation_type,
                         start_index=start_index,
                         n=n,
+                        max_retries=max_retries,
+                        retry_delay=retry_delay,
                     )
             else:
                 # If no "country" in generation_type, set country to pd.NA
