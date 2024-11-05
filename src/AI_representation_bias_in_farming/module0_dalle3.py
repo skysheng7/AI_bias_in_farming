@@ -13,7 +13,13 @@ from AI_representation_bias_in_farming import utils
 
 
 def dalle3_prompt_for_img(
-    client, country, farm_type, generation_type, max_retries=3, retry_delay=30
+    client,
+    country,
+    farm_type,
+    generation_type,
+    max_retries=3,
+    retry_delay=30,
+    model="dall-e-3",
 ):
     """
     Prompt chatGPT API to generate an image response in base 64 encoded jason format
@@ -25,6 +31,7 @@ def dalle3_prompt_for_img(
         generation_type (str): what type of text prompt is this. e.g., "basic", "basic_no_revise", "typical", "typical_no_revise"
         max_retries (int): the maximum number of times we will retry prompting the model if the previous prompt failed due to safety reasons.
         retry_delay (int): the total number of seconds we wait to let the model reset before trying again
+        model (str): which model did we use, Options: 'dall-e-3'
 
     Returns:
         response: the response from API call
@@ -35,7 +42,7 @@ def dalle3_prompt_for_img(
     for attempt in range(max_retries):
         try:
             response = client.images.generate(
-                model="dall-e-3",
+                model=model,
                 prompt=cur_prompt,
                 size="1024x1024",
                 quality="standard",
@@ -81,7 +88,7 @@ def dalle3_gen_image(
         n (int): how many images you want to generate starting from the start index
         max_retries (int): the maximum number of times we will retry prompting the model if the previous prompt failed due to safety reasons.
         retry_delay (int): the total number of seconds we wait to let the model reset before trying again
-        model (str): which model did we use, Options: 'dall-e-3', 'sd3.5-large', 'imagen3'.
+        model (str): which model did we use, Options: 'dall-e-3'
 
     Returns:
         None
@@ -94,7 +101,7 @@ def dalle3_gen_image(
     for img_count in range(start_index, (start_index + n)):
         # prompt API for a image response
         result = dalle3_prompt_for_img(
-            client, country, farm_type, generation_type, max_retries, retry_delay
+            client, country, farm_type, generation_type, max_retries, retry_delay, model
         )
         response = result["response"]
         cur_prompt = result["prompt"]  # generate prompt
