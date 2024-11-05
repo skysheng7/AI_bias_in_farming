@@ -1,4 +1,6 @@
 """Library of general functions used to prompting Google Gemini's Imagen3 model
+   CAUTION: this script is not tested because I did not have permission to access Imagen3 API.
+            Imagen3 API is private preview only at this stage (2024-11-05)
 """
 
 import os
