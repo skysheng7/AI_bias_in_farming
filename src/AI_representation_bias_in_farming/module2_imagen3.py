@@ -40,7 +40,7 @@ def imagen3_prompt_for_img(
 
     for attempt in range(max_retries):
         try:
-            result = imagen.generate_content(
+            result = imagen.generate_images(
                 prompt=cur_prompt,
                 number_of_images=1,
                 safety_filter_level="block_only_high",
