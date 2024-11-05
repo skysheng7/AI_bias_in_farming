@@ -296,4 +296,6 @@ def gen_image(
             model=model,
         )
     else:
-        
+        raise ValueError(
+            "Invalid model value provided. Please enter: 'dall-e-3', or 'sd3.5-large', or 'imagen-3.0-generate-001'"
+        )
