@@ -1,7 +1,6 @@
 """Library of general functions used to prompting Stable Diffusion 3.5 model
 """
 
-import os
 from pathlib import Path
 import time
 
@@ -17,9 +16,10 @@ def sd_prompt_for_img(key, country, farm_type, generation_type):
 
     Parameters:
         key (str): API key to access Gemini imagen3 model
-        country (str): which country should the image content be based on. options: pd.NA, Canada, the United States, Germany
+        country (str): which country should the image content be based on.
         farm_type (str): which type of livestock farm shoulld the image depict. options: dairy, pig
-        generation_type (str): what type of text prompt is this.
+        generation_type (str): what type of text prompt is this. e.g., "basic", "basic_no_revise", "typical", "typical_no_revise"
+
 
     Returns:
         response: the response from API call
@@ -32,7 +32,7 @@ def sd_prompt_for_img(key, country, farm_type, generation_type):
         headers={"authorization": f"Bearer {key}", "accept": "image/*"},
         files={"none": ""},
         data={
-            "model": "SD3 Large",
+            "model": "sd3.5-large",  #'sd3.5-large' | 'sd3.5-large-turbo' | 'sd3.5-medium'
             "prompt": cur_prompt,
             "output_format": "png",
         },
@@ -50,21 +50,21 @@ def sd_gen_image(
     n,
     max_retries=3,
     retry_delay=30,
-    model="stable-diffusion3.5-large",
+    model="sd3.5-large",
 ):
     """
     Generate n images in a roll, save the images into local folder, save the megadata related to each image into a csv file.
 
     Parameters:
         key (str): API key to access DALLE-3 model
-        country (str): which country should the image content be based on. options: pd.NA, Canada, the United States, Germany
+        country (str): which country should the image content be based on.
         farm_type (str): which type of livestock farm shoulld the image depict. options: dairy, pig
-        generation_type (str): what type of text prompt is this.
+        generation_type (str): what type of text prompt is this. e.g., "basic", "basic_no_revise", "typical", "typical_no_revise"
         start_index (int): the start index (ID) of the generated image in a roll
         n (int): how many images you want to generate starting from the start index
         max_retries (int): the maximum number of times we will retry prompting the model if the previous prompt failed due to safety reasons.
         retry_delay (int): the total number of seconds we wait to let the model reset before trying again
-        model (str): which model did we use, dall-e-3 or imagen3, or stable-diffusion-3.5
+        model (str, optional): The AI model to use for image generation. Options: 'dall-e-3', 'sd3.5-large', 'imagen3'.
 
     Returns:
         None
@@ -78,10 +78,8 @@ def sd_gen_image(
             cur_prompt, response = sd_prompt_for_img(
                 key, country, farm_type, generation_type
             )
-            revised_input = (
-                pd.NA
-            )  # stable diffusion model does not automaticaly revise prompt
             image_bytes = response.content  # get the image data
+            finish_reason = response.headers.get("Finish-Reason")
 
             if response.status_code == 200:
                 utils.save_imag(
@@ -93,9 +91,10 @@ def sd_gen_image(
                     farm_type,
                     generation_type,
                     cur_prompt,
-                    revised_input,
-                    model,
+                    revised_input=pd.NA,  # stable diffusion model does not automaticaly revise prompt
+                    model=model,
                     response_type="bytes",
+                    finish_reason=finish_reason,
                 )
             elif response.status_code == 429:
                 print(f"{generation_type} for {farm_type} in {country}:")

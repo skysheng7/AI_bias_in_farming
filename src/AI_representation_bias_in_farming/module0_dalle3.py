@@ -2,14 +2,12 @@
 """
 
 import base64
-import os
 from pathlib import Path
 import time
 
 import pandas as pd
 import openai
 from openai import OpenAI
-import requests
 
 from AI_representation_bias_in_farming import utils
 
@@ -22,9 +20,9 @@ def dalle3_prompt_for_img(
 
     Parameters:
         client: openAI API client for generating images
-        country (str): which country should the image content be based on. options: pd.NA, Canada, the United States, Germany
+        country (str): which country should the image content be based on.
         farm_type (str): which type of livestock farm shoulld the image depict. options: dairy, pig
-        generation_type (str): what type of text prompt is this.
+        generation_type (str): what type of text prompt is this. e.g., "basic", "basic_no_revise", "typical", "typical_no_revise"
         max_retries (int): the maximum number of times we will retry prompting the model if the previous prompt failed due to safety reasons.
         retry_delay (int): the total number of seconds we wait to let the model reset before trying again
 
@@ -76,14 +74,14 @@ def dalle3_gen_image(
 
     Parameters:
         key (str): API key to access DALLE-3 model
-        country (str): which country should the image content be based on. options: pd.NA, Canada, the United States, Germany
+        country (str): which country should the image content be based on.
         farm_type (str): which type of livestock farm shoulld the image depict. options: dairy, pig
-        generation_type (str): what type of text prompt is this.
+        generation_type (str): what type of text prompt is this. e.g., "basic", "basic_no_revise", "typical", "typical_no_revise"
         start_index (int): the start index (ID) of the generated image in a roll
         n (int): how many images you want to generate starting from the start index
         max_retries (int): the maximum number of times we will retry prompting the model if the previous prompt failed due to safety reasons.
         retry_delay (int): the total number of seconds we wait to let the model reset before trying again
-        model (str): which model did we use, dall-e-3 or imagen3, or stable-diffusion-3.5
+        model (str): which model did we use, Options: 'dall-e-3', 'sd3.5-large', 'imagen3'.
 
     Returns:
         None
@@ -119,4 +117,5 @@ def dalle3_gen_image(
             revised_input,
             model,
             response_type="b64_json",
+            finish_reason=pd.NA,
         )

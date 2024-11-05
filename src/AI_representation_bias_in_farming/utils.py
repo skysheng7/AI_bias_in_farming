@@ -2,15 +2,15 @@
    generated in the text-to-image generation process
 """
 
-import base64
 import os
 from pathlib import Path
-import time
 
 import pandas as pd
-import openai
-from openai import OpenAI
-import requests
+from dotenv import load_dotenv
+
+from AI_representation_bias_in_farming import module0_dalle3
+from AI_representation_bias_in_farming import module1_sd
+from AI_representation_bias_in_farming import module2_imagen3
 
 
 def get_prompt(country, farm_type, generation_type):
@@ -117,15 +117,16 @@ def save_megadata(
     revised_input,
     model,
     response_type,
+    finish_reason,
 ):
     """
     Save the generated images into the local folder
 
     Parameters:
         img_count (int): the current index (ID) of the generated image
-        country (str): which country should the image content be based on. options: pd.NA, Canada, the United States, Germany
+        country (str): which country should the image content be based on.
         farm_type (str): which type of livestock farm shoulld the image depict. options: dairy, pig
-        generation_type (str): what type of text prompt is this. options: default, default_no_revise, default_country, reality_country
+        generation_type (str): what type of text prompt is this. e.g., "basic", "basic_no_revise", "typical", "typical_no_revise"
         cur_prompt (str): the generated tect prompt
         revised_input (str): what GPT-4o automatically rephrased the prompt into based on cur_prompt (the prompt we generated)
         model (str): which model did we use, dall-e-3 or imagen3, or stable-diffusion-3.5
@@ -168,6 +169,7 @@ def save_megadata(
             "size": ["1024x1024"],
             "quality": ["standard"],
             "response_format": [response_type],
+            "finish_reason": [finish_reason],
         }
     )
     megadata_file = data_output_dir / "image_megadata.csv"
@@ -182,3 +184,114 @@ def save_megadata(
         combined_df = result_df
 
     combined_df.to_csv(megadata_file, index=False)
+
+
+def get_key(model):
+    """
+    Retrieve the API key corresponding to the specified AI model.
+
+    This function loads environment variables and returns the appropriate API key based on the provided model name.
+
+    Parameters:
+        model (str): The name of the AI model for which the API key is required.
+                     Accepted values are:
+                     - "dall-e-3"
+                     - "sd3.5-large"
+                     - "imagen3"
+
+    Returns:
+        str or None: The API key as a string if found; otherwise, None.
+
+    Raises:
+        ValueError: If the provided model name is not recognized.
+
+    Notes:
+        - Ensure that the environment variables 'openai_key', 'stable_diffusion_key', and 'imagen3_key' are set in your environment or in a .env file.
+        - The function uses the python-dotenv package to load environment variables from a .env file if present.
+    """
+
+    # Load and set the API key
+    load_dotenv()
+
+    if model == "dall-e-3":
+        key = os.getenv("openai_key")
+    elif model == "sd3.5-large":
+        key = os.getenv("stable_diffusion_key")
+    else:
+        key = os.getenv("imagen3_key")
+
+    return key
+
+
+def gen_image(
+    country,
+    farm_type,
+    generation_type,
+    start_index,
+    n,
+    max_retries,
+    retry_delay,
+    model="dall-e-3",
+):
+    """
+    Generate images based on specified parameters using the selected AI model.
+
+    This function interfaces with different AI models to generate images according to the provided parameters. It supports models such as DALL·E 3, Stable Diffusion 3.5 Large, and Imagen 3.
+
+    Parameters:
+        country (str): which country should the image content be based on.
+        farm_type (str): which type of livestock farm shoulld the image depict. options: dairy, pig
+        generation_type (str): what type of text prompt is this. e.g., "basic", "basic_no_revise", "typical", "typical_no_revise"
+        start_index (int): the start index (ID) of the generated image in a roll
+        n (int): how many images you want to generate starting from the start index
+        max_retries (int): the maximum number of times we will retry prompting the model if the previous prompt failed due to safety reasons.
+        retry_delay (int): the total number of seconds we wait to let the model reset before trying again
+        model (str, optional): The AI model to use for image generation. Defaults to 'dall-e-3'. Options: 'dall-e-3', 'sd3.5-large', 'imagen3'.
+
+    Returns:
+        None
+
+    Notes:
+        - Ensure that the appropriate API keys are configured for each model in .env
+        - The function delegates the image generation task to model-specific functions based on the 'model' parameter.
+    """
+
+    key = get_key(model)
+
+    # prompt DALLE-3
+    if model == "dall-e-3":
+        module0_dalle3.dalle3_gen_image(
+            key=key,
+            country=country,
+            farm_type=farm_type,
+            generation_type=generation_type,
+            start_index=start_index,
+            n=n,
+            max_retries=max_retries,
+            retry_delay=retry_delay,
+            model="dall-e-3",
+        )
+    elif model == "sd3.5-large":  # prompt Stable Diffusion
+        module1_sd.sd_gen_image(
+            key=key,
+            country=country,
+            farm_type=farm_type,
+            generation_type=generation_type,
+            start_index=start_index,
+            n=n,
+            max_retries=max_retries,
+            retry_delay=retry_delay,
+            model="sd3.5-large",
+        )
+    else:  # prompt imagen3
+        module2_imagen3.imagen3_gen_image(
+            key=key,
+            country=country,
+            farm_type=farm_type,
+            generation_type=generation_type,
+            start_index=start_index,
+            n=n,
+            max_retries=max_retries,
+            retry_delay=retry_delay,
+            model="sd3.5-large",
+        )

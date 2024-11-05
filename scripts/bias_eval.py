@@ -6,29 +6,14 @@
     
 """
 
-import os
-import base64
 from pathlib import Path
-import time
 
 import pandas as pd
-import numpy as np
-import openai
-from openai import OpenAI
-from dotenv import load_dotenv
 
 from AI_representation_bias_in_farming import utils
-from AI_representation_bias_in_farming import module0_dalle3
-from AI_representation_bias_in_farming import module1_sd
-from AI_representation_bias_in_farming import module2_imagen3
 
 # Only execute this code if the script is run directly
 if __name__ == "__main__":
-    # Load and set the API key
-    load_dotenv()
-    openai_key = os.getenv("openai_key")
-    sd_key = os.getenv("stable_diffusion_key")
-    imagen_key = os.getenv("imagen3_key")
 
     # Define the prompt types
     #
@@ -77,13 +62,13 @@ if __name__ == "__main__":
     countries_by_farm_type = {
         "dairy": ["the United States", "Germany", "New Zealand"],
         "pig": ["the United States", "Spain", "Australia"],
-    }  # list of countries with the biggest number of dairy cows and pigs in
-    # North America, Europe and Oceania
+    }  # list of countries with the biggest number of dairy cows and pigs in North America, Europe and Oceania
 
-    start_index = 11  # the starting index (ID) of images
-    n = 90  # the total number of images you wish to generate in this batch
+    start_index = 101  # the starting index (ID) of images
+    n = 10  # the total number of images you wish to generate in this batch
     max_retries = 3  # the maximum number of times we will retry prompting the model if the previous prompt failed due to safety reasons.
     retry_delay = 30  # the total number of seconds we wait to let the model reset before trying again
+    model = "sd3.5-large"  # which text-to-image generative model to use. Options: 'dall-e-3', 'sd3.5-large', 'imagen3'.
 
     # Loop through each combination of generation_type and farm_type
     for generation_type in generation_types:
@@ -91,28 +76,17 @@ if __name__ == "__main__":
             if "country" in generation_type:
                 # If generation_type includes "country", loop through each country
                 countries = countries_by_farm_type[farm_type]
-                for country in countries:
-                    utils.dalle3_gen_image(
-                        openai_key,
-                        country=country,
-                        farm_type=farm_type,
-                        generation_type=generation_type,
-                        start_index=start_index,
-                        n=n,
-                        max_retries=max_retries,
-                        retry_delay=retry_delay,
-                        model="dall-e-3",
-                    )
             else:
-                # If no "country" in generation_type, set country to pd.NA
-                utils.dalle3_gen_image(
-                    openai_key,
-                    country=pd.NA,
-                    farm_type=farm_type,
-                    generation_type=generation_type,
-                    start_index=start_index,
-                    n=n,
-                    max_retries=max_retries,
-                    retry_delay=retry_delay,
-                    model="dall-e-3",
+                countries = [pd.NA]
+
+            for country in countries:
+                utils.gen_image(
+                    country,
+                    farm_type,
+                    generation_type,
+                    start_index,
+                    n,
+                    max_retries,
+                    retry_delay,
+                    model=model,
                 )
