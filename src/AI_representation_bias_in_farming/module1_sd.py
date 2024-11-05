@@ -96,6 +96,7 @@ def sd_gen_image(
                     response_type="bytes",
                     finish_reason=finish_reason,
                 )
+                break
             elif response.status_code == 429:
                 print(f"{generation_type} for {farm_type} in {country}:")
                 print(

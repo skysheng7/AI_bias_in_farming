@@ -1,6 +1,7 @@
 ### Customized for this project
 # Result images because files are too big for GitHub
 results/dall-e-3-images/
+results/sd3.5-large-images/
 
 # IDE configuration files
 .vscode/
