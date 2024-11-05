@@ -246,7 +246,7 @@ def gen_image(
         n (int): how many images you want to generate starting from the start index
         max_retries (int): the maximum number of times we will retry prompting the model if the previous prompt failed due to safety reasons.
         retry_delay (int): the total number of seconds we wait to let the model reset before trying again
-        model (str, optional): The AI model to use for image generation. Defaults to 'dall-e-3'. Options: 'dall-e-3', 'sd3.5-large', 'imagen3'.
+        model (str, optional): The AI model to use for image generation. Defaults to 'dall-e-3'. Options: 'dall-e-3', 'sd3.5-large', "imagen-3.0-generate-001"
 
     Returns:
         None
@@ -269,7 +269,7 @@ def gen_image(
             n=n,
             max_retries=max_retries,
             retry_delay=retry_delay,
-            model="dall-e-3",
+            model=model,
         )
     elif model == "sd3.5-large":  # prompt Stable Diffusion
         module1_sd.sd_gen_image(
@@ -281,9 +281,9 @@ def gen_image(
             n=n,
             max_retries=max_retries,
             retry_delay=retry_delay,
-            model="sd3.5-large",
+            model=model,
         )
-    else:  # prompt imagen3
+    elif model == "imagen-3.0-generate-001":  # prompt imagen3
         module2_imagen3.imagen3_gen_image(
             key=key,
             country=country,
@@ -293,5 +293,7 @@ def gen_image(
             n=n,
             max_retries=max_retries,
             retry_delay=retry_delay,
-            model="sd3.5-large",
+            model=model,
         )
+    else:
+        

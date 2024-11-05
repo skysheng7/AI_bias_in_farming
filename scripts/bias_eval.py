@@ -64,11 +64,11 @@ if __name__ == "__main__":
         "pig": ["the United States", "Spain", "Australia"],
     }  # list of countries with the biggest number of dairy cows and pigs in North America, Europe and Oceania
 
-    start_index = 101  # the starting index (ID) of images
+    start_index = 201  # the starting index (ID) of images
     n = 10  # the total number of images you wish to generate in this batch
     max_retries = 3  # the maximum number of times we will retry prompting the model if the previous prompt failed due to safety reasons.
     retry_delay = 30  # the total number of seconds we wait to let the model reset before trying again
-    model = "sd3.5-large"  # which text-to-image generative model to use. Options: 'dall-e-3', 'sd3.5-large', 'imagen3'.
+    model = "imagen-3.0-generate-001"  # which text-to-image generative model to use. Options: 'dall-e-3', 'sd3.5-large', 'imagen-3.0-generate-001'
 
     # Loop through each combination of generation_type and farm_type
     for generation_type in generation_types:
