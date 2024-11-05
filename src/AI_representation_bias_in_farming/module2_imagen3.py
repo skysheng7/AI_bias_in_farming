@@ -10,6 +10,7 @@ import pandas as pd
 
 from AI_representation_bias_in_farming import utils
 
+
 def imagen3_prompt_for_img(
     imagen,
     country,
@@ -44,7 +45,7 @@ def imagen3_prompt_for_img(
                 number_of_images=1,
                 safety_filter_level="block_only_high",
                 person_generation="allow_adult",
-                aspect_ratio="1:1"
+                aspect_ratio="1:1",
             )
             return {"response": result, "prompt": cur_prompt}
         except google.api_core.exceptions.InvalidArgument as e:
@@ -102,7 +103,7 @@ def imagen3_gen_image(
         result, cur_prompt = imagen3_prompt_for_img(
             imagen, country, farm_type, generation_type, max_retries, retry_delay, model
         )
-        image_bytes = result.images # get the image data
+        image_bytes = result.images  # get the image data
 
         utils.save_imag(
             generation_type, img_count, farm_type, image_bytes, country, model
@@ -113,8 +114,8 @@ def imagen3_gen_image(
             farm_type,
             generation_type,
             cur_prompt,
-            revised_input = pd.NA,
-            model = model,
+            revised_input=pd.NA,
+            model=model,
             response_type="bytes",
             finish_reason=pd.NA,
         )
