@@ -1,4 +1,4 @@
-"""This is the first module of the project prompting chatGPT's text-to-image 
+"""This is the first module of the project prompting multiple text-to-image 
     generative AI models to create images related to livestock farming.
     The goal of this project is to evaluate what kind of images gets generated
     based on different prompting techniques, with the ultimate goal of evaluating
@@ -15,25 +15,20 @@ import pandas as pd
 import numpy as np
 import openai
 from openai import OpenAI
+from dotenv import load_dotenv
 
 from AI_representation_bias_in_farming import utils
+from AI_representation_bias_in_farming import module0_dalle3
+from AI_representation_bias_in_farming import module1_sd
+from AI_representation_bias_in_farming import module2_imagen3
 
 # Only execute this code if the script is run directly
 if __name__ == "__main__":
-    # Read the API key from the file, Define the path to your API key file
-    key_file_path = (
-        Path.home()
-        / "Library"
-        / "CloudStorage"
-        / "OneDrive-UBC"
-        / "R package project and Git"
-        / "API_keys"
-        / "AI_bias_API_key.txt"
-    )
-    with open(key_file_path, "r") as file:
-        api_key = file.read().strip()
-    # Set the API key for OpenAI
-    client = OpenAI(api_key=api_key)
+    # Load and set the API key
+    load_dotenv()
+    openai_key = os.getenv("openai_key")
+    sd_key = os.getenv("stable_diffusion_key")
+    imagen_key = os.getenv("imagen3_key")
 
     # Define the prompt types
     #
@@ -76,16 +71,6 @@ if __name__ == "__main__":
         "typical_country",
         "typical_country_no_revise",
     ]
-    
-    generation_types = [
-        "basic_no_revise",
-        "basic_country",
-        "basic_country_no_revise",
-        "typical",
-        "typical_no_revise",
-        "typical_country",
-        "typical_country_no_revise",
-    ]
 
     farm_types = ["dairy", "pig"]  # type of livestock farms
 
@@ -107,8 +92,8 @@ if __name__ == "__main__":
                 # If generation_type includes "country", loop through each country
                 countries = countries_by_farm_type[farm_type]
                 for country in countries:
-                    utils.gen_image_train(
-                        client,
+                    utils.dalle3_gen_image(
+                        openai_key,
                         country=country,
                         farm_type=farm_type,
                         generation_type=generation_type,
@@ -116,11 +101,12 @@ if __name__ == "__main__":
                         n=n,
                         max_retries=max_retries,
                         retry_delay=retry_delay,
+                        model="dall-e-3",
                     )
             else:
                 # If no "country" in generation_type, set country to pd.NA
-                utils.gen_image_train(
-                    client,
+                utils.dalle3_gen_image(
+                    openai_key,
                     country=pd.NA,
                     farm_type=farm_type,
                     generation_type=generation_type,
@@ -128,4 +114,5 @@ if __name__ == "__main__":
                     n=n,
                     max_retries=max_retries,
                     retry_delay=retry_delay,
+                    model="dall-e-3",
                 )
