@@ -11,9 +11,17 @@ def main():
     detail_level = "high"
     max_completion_tokens = 1000
     temperature = 1
+    start_index = 0
+    end_index = 2
 
     megadata = module3_GPT4o.describe_all_images(
-        model, prompt, detail_level, max_completion_tokens, temperature
+        model,
+        prompt,
+        detail_level,
+        max_completion_tokens,
+        temperature,
+        start_index,
+        end_index,
     )
 
 

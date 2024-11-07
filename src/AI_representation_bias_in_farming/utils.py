@@ -213,12 +213,14 @@ def get_key(model):
     # Load and set the API key
     load_dotenv()
 
-    if model == "dall-e-3":
+    if model == "dall-e-3" or model == "gpt-4o-2024-08-06":
         key = os.getenv("openai_key")
     elif model == "sd3.5-large":
         key = os.getenv("stable_diffusion_key")
-    else:
+    elif model == "imagen-3.0-generate-001":
         key = os.getenv("imagen3_key")
+    else:
+        key = None
 
     return key
 

@@ -32,16 +32,49 @@ def find_file_path(model, generation_type, file):
 
 
 def describe_all_images(
-    model, prompt, detail_level, max_completion_tokens, temperature
+    model,
+    prompt,
+    detail_level,
+    max_completion_tokens,
+    temperature,
+    start_index=0,
+    end_index=None,
 ):
+    """
+    Generates and stores descriptions for images in a specified index range within a dataframe.
+
+    This function iterates over a range of rows in the provided dataframe, `megadata`, and generates
+    descriptions for images using the `describe_1_image` function. The generated descriptions and their
+    token counts are stored in the dataframe under specified columns.
+
+    Parameters:
+        model (str): Model name used for generating the description.
+        prompt (str): Prompt provided to the model to guide the description generation.
+        detail_level (str): resolution level for the input image, options: "high", "low"
+        max_completion_tokens (int): Maximum tokens allowed in the model's output.
+        temperature (float): Sampling temperature for the model, controlling output randomness.
+        start_index (int, optional): Starting index of the dataframe rows to process. Defaults to 0.
+        end_index (int, optional): Ending index (exclusive) of the dataframe rows to process. Defaults to None,
+                                   which processes up to the last row.
+
+    Returns:
+        pd.DataFrame: The modified `megadata` DataFrame with added descriptions and token counts.
+
+    """
     megadata = read_megadata()  # read in megadata
 
     # get API key
     key = utils.get_key(model)
     client = OpenAI(api_key=key)
 
-    # iterate through every image in the dataframe
-    for index, row in megadata.iterrows():
+    # Set end_index to the last index if not specified
+    if end_index is None:
+        end_index = len(megadata)
+
+    # Iterate through the specified range of images
+    for index in range(start_index, end_index):
+        row = megadata.iloc[index]
+
         result = describe_1_image(
             row, model, client, prompt, detail_level, max_completion_tokens, temperature
         )
@@ -51,6 +84,7 @@ def describe_all_images(
         ].message.content  # extract content from result
         output_token = result.usage.completion_tokens
 
+        # Store the results back in the dataframe
         megadata.at[index, "GPT4o_description"] = result_content
         megadata.at[index, "GPT4o_description_token_count"] = output_token
 
