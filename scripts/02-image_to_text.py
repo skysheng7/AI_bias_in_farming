@@ -12,7 +12,7 @@ def main():
     max_completion_tokens = 1000
     temperature = 0.2
     start_index = 0
-    end_index = 479
+    end_index = 2
 
     megadata = module3_GPT4o.describe_all_images(
         model,

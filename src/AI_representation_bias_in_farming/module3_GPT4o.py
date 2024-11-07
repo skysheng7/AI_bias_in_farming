@@ -93,7 +93,7 @@ def describe_all_images(
         megadata.at[index, "GPT4o_temperature"] = temperature
         megadata.at[index, "GPT4o_system_fingerprint"] = result.system_fingerprint
 
-    save_megadata_with_description(megadata)
+        save_megadata_with_description(megadata)
 
     return megadata
 
