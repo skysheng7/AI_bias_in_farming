@@ -85,8 +85,13 @@ def describe_all_images(
         output_token = result.usage.completion_tokens
 
         # Store the results back in the dataframe
+        megadata.at[index, "description_model"] = model
         megadata.at[index, "GPT4o_description"] = result_content
         megadata.at[index, "GPT4o_description_token_count"] = output_token
+        megadata.at[index, "GPT4o_prompt"] = prompt
+        megadata.at[index, "GPT4o_image_resolution"] = detail_level
+        megadata.at[index, "GPT4o_temperature"] = temperature
+        megadata.at[index, "GPT4o_system_fingerprint"] = result.system_fingerprint
 
     save_megadata_with_description(megadata)
 
