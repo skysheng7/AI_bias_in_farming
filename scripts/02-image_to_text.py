@@ -9,11 +9,11 @@ def main():
     model = "gpt-4o-2024-08-06"
     prompt = "Describe the image in detail."
     detail_level = "high"
-    max_tokens = 1000
-    temperature = 0.2
+    max_completion_tokens = 1000
+    temperature = 1
 
     megadata = module3_GPT4o.describe_all_images(
-        model, prompt, detail_level, max_tokens, temperature
+        model, prompt, detail_level, max_completion_tokens, temperature
     )
 
 

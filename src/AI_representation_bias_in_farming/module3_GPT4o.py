@@ -31,7 +31,9 @@ def find_file_path(model, generation_type, file):
     return input_file
 
 
-def describe_all_images(model, prompt, detail_level, max_tokens, temperature):
+def describe_all_images(
+    model, prompt, detail_level, max_completion_tokens, temperature
+):
     megadata = read_megadata()  # read in megadata
 
     # get API key
@@ -41,7 +43,7 @@ def describe_all_images(model, prompt, detail_level, max_tokens, temperature):
     # iterate through every image in the dataframe
     for index, row in megadata.iterrows():
         result = describe_1_image(
-            row, model, client, prompt, detail_level, max_tokens, temperature
+            row, model, client, prompt, detail_level, max_completion_tokens, temperature
         )
 
         result_content = result.choices[
@@ -57,7 +59,9 @@ def describe_all_images(model, prompt, detail_level, max_tokens, temperature):
     return megadata
 
 
-def describe_1_image(row, model, client, prompt, detail_level, max_tokens, temperature):
+def describe_1_image(
+    row, model, client, prompt, detail_level, max_completion_tokens, temperature
+):
     input_file = find_file_path(row["model"], row["generation_type"], row["file"])
     base64_image = convert_png_to_base64(input_file)
 
@@ -82,7 +86,7 @@ def describe_1_image(row, model, client, prompt, detail_level, max_tokens, tempe
     params = {
         "model": model,
         "messages": prompt_messages,
-        "max_tokens": max_tokens,
+        "max_completion_tokens": max_completion_tokens,
         "temperature": temperature,
     }
 
