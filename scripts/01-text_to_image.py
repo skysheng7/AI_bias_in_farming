@@ -12,9 +12,8 @@ import pandas as pd
 
 from AI_representation_bias_in_farming import utils
 
-# Only execute this code if the script is run directly
-if __name__ == "__main__":
 
+def main():
     # Define the prompt types
     #
     # **no_revise**:
@@ -90,3 +89,8 @@ if __name__ == "__main__":
                     retry_delay,
                     model=model,
                 )
+
+
+# Only execute this code if the script is run directly
+if __name__ == "__main__":
+    main()

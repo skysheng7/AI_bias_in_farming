@@ -4,12 +4,19 @@
 
 from AI_representation_bias_in_farming import module3_GPT4o
 
-model = "gpt-4o-2024-08-06"
-prompt = "Describe the image in detail."
-detail_level = "high"
-max_tokens = 1000
-temperature = 0.2
 
-megadata = module3_GPT4o.describe_all_images(
-    model, prompt, detail_level, max_tokens, temperature
-)
+def main():
+    model = "gpt-4o-2024-08-06"
+    prompt = "Describe the image in detail."
+    detail_level = "high"
+    max_tokens = 1000
+    temperature = 0.2
+
+    megadata = module3_GPT4o.describe_all_images(
+        model, prompt, detail_level, max_tokens, temperature
+    )
+
+
+# Only execute this code if the script is run directly
+if __name__ == "__main__":
+    main()
