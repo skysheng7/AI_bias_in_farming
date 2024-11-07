@@ -301,3 +301,33 @@ def gen_image(
         raise ValueError(
             "Invalid model value provided. Please enter: 'dall-e-3', or 'sd3.5-large', or 'imagen-3.0-generate-001'"
         )
+
+
+def read_megadata():
+    """
+    Reads the 'image_megadata.csv' file from the 'results/megadata' directory.
+
+    This function loads the 'image_megadata.csv' file located in the specified directory
+    into a pandas DataFrame and returns it.
+
+    Returns:
+        pd.DataFrame: A DataFrame containing the contents of 'image_megadata.csv'.
+    """
+    megadata_file = Path() / "results" / "megadata" / "image_megadata.csv"
+    megadata = pd.read_csv(megadata_file, header=0)
+    return megadata
+
+
+def save_megadata_with_description(megadata):
+    """
+    Saves the given DataFrame to 'image_megadata.csv' in the 'results/megadata' directory.
+
+    This function writes the contents of the provided DataFrame to 'image_megadata.csv',
+    overwriting any existing file in the specified directory.
+
+    Parameters:
+        megadata (pd.DataFrame): The DataFrame to be saved.
+    """
+    # Define output directory
+    megadata_file = Path() / "results" / "megadata" / "image_megadata.csv"
+    megadata.to_csv(megadata_file, index=False)

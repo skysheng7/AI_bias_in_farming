@@ -61,7 +61,7 @@ def describe_all_images(
         pd.DataFrame: The modified `megadata` DataFrame with added descriptions and token counts.
 
     """
-    megadata = read_megadata()  # read in megadata
+    megadata = utils.read_megadata()  # read in megadata
 
     # get API key
     key = utils.get_key(model)
@@ -93,7 +93,7 @@ def describe_all_images(
         megadata.at[index, "GPT4o_temperature"] = temperature
         megadata.at[index, "GPT4o_system_fingerprint"] = result.system_fingerprint
 
-        save_megadata_with_description(megadata)
+        utils.save_megadata_with_description(megadata)
 
     return megadata
 
@@ -101,6 +101,26 @@ def describe_all_images(
 def describe_1_image(
     row, model, client, prompt, detail_level, max_completion_tokens, temperature
 ):
+    """
+    Generates a description for a single image using an external API.
+
+    This function retrieves an image file path based on parameters in the provided row,
+    converts the image to a Base64 string, constructs a prompt message with the image,
+    and sends a request to an API to generate a description.
+
+    Parameters:
+        row (pd.Series): A row from a DataFrame containing image metadata, including
+                         model, generation type, and file name.
+        model (str): The name of the model to use for generating the description.
+        client (object): The API client used to make the request.
+        prompt (str): The prompt text to guide the description generation.
+        detail_level (str): resolution level for the input image, options: "high", "low"
+        max_completion_tokens (int): Maximum tokens allowed for the API completion response.
+        temperature (float): Sampling temperature to control output randomness.
+
+    Returns:
+        object: The result object from the API containing the generated description.
+    """
     input_file = find_file_path(row["model"], row["generation_type"], row["file"])
     base64_image = convert_png_to_base64(input_file)
 
@@ -155,15 +175,3 @@ def convert_png_to_base64(png_image_path):
         # Get the byte stream and encode it to Base64
         png_base64 = base64.b64encode(buffer.getvalue()).decode()
     return png_base64
-
-
-def read_megadata():
-    megadata_file = Path() / "results" / "megadata" / "image_megadata.csv"
-    megadata = pd.read_csv(megadata_file, header=0)
-    return megadata
-
-
-def save_megadata_with_description(megadata):
-    # define output dir
-    megadata_file = Path() / "results" / "megadata" / "image_megadata.csv"
-    megadata.to_csv(megadata_file, index=False)
