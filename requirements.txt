@@ -1,4 +1,4 @@
--e git+https://github.com/skysheng7/AI_bias_in_farming.git@8ad439a2f350d581e7d1d69ec46a4286809df53e#egg=AI_representation_bias_in_farming
+-e git+https://github.com/skysheng7/AI_bias_in_farming.git@84ced465c3dea8501f1d669486f5f264b8e0d1ed#egg=AI_representation_bias_in_farming
 annotated-types==0.7.0
 anyio==4.6.2.post1
 appnope==0.1.4
