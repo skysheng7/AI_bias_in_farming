@@ -261,6 +261,7 @@ def add_grey_to_no_revise_col(
             row_height,  # Position and size of the rectangle
             transform=fig.transFigure,
             color="lightgrey",
+            alpha=0.2,  # Adjust alpha for lighter grey
             zorder=0,
         )
         fig.add_artist(rect)
