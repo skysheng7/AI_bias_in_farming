@@ -154,7 +154,7 @@ def plot_text(ax, text, max_character_per_line=27):
     words = text.split()
 
     # Group words into lines based on words_per_line
-    wrapped_text = textwrap.fill(text, max_character_per_line=27)
+    wrapped_text = textwrap.fill(text, width=max_character_per_line)
 
     # Display wrapped text in the center of the axis
     ax.text(0.5, 0.5, wrapped_text, ha="center", va="center", fontsize=18, wrap=True)
@@ -344,19 +344,3 @@ def save_plt(plt, generation_type, farm_type=None):
         os.makedirs(img_dir)  # create the directory if the directory does not exist
 
     plt.savefig(img_dir, format="png", dpi=300)  # Save plot with high resolution
-
-
-
-megadata_file = Path("results") / "megadata" / "image_megadata.csv"
-megadata = pd.read_csv(megadata_file, header=0)
-num_cols = 4
-seed = 7
-additional_stop_list_dir = {
-    "dairy": {"farm", "farms", "cow", "cows"},
-    "pig": {"farm", "farms", "pig", "pigs"}, 
-}
-model = "dall-e-3"
-# Define generation types and farm types
-generation_types = ["reality", "reality_no_revise"]
-farm_types = megadata['farm_type'].unique()
-title = f"Prompt DALL·E 3 for realistic depiction of farms"
