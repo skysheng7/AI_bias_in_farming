@@ -147,7 +147,7 @@ def generate_stopwords(prompt_text, additional_stop_list=set()):
     return custom_stopwords
 
 
-def plot_text(ax, text, farm_type, max_character_per_line=27):
+def plot_text(ax, text, farm_type, max_character_per_line=27, country=None):
     """
     Display wrapped text in an axis with centered alignment, wrapping by number of words.
 
@@ -160,6 +160,8 @@ def plot_text(ax, text, farm_type, max_character_per_line=27):
     """
     # Make "dairy" or "pig" bold by using Matplotlib's mathtext
     bold_text = text.replace(farm_type, rf"$\mathbf{{{farm_type}}}$")
+    if country is not None:
+        bold_text = bold_text.replace(farm_type, rf"$\mathbf{{{country}}}$")
 
     # Group words into lines based on words_per_line
     wrapped_text = textwrap.fill(bold_text, width=max_character_per_line)
@@ -189,7 +191,13 @@ def plot_wordcloud(ax, text_list, prompt_text, additional_stop_list, seed):
 
 
 def plot_revised_prompt(
-    ax, revised_prompt_col, prompt_text, additional_stop_list, seed, farm_type
+    ax,
+    revised_prompt_col,
+    prompt_text,
+    additional_stop_list,
+    seed,
+    farm_type,
+    country=None,
 ):
     """
     Display either a single revised prompt as text or a word cloud of multiple revised prompts on a given axis.
@@ -208,7 +216,7 @@ def plot_revised_prompt(
     """
     unique_list = revised_prompt_col.unique()
     if len(unique_list) <= 3:  # if there is only 1-3 unique prompts
-        plot_text(ax, unique_list[0], farm_type)
+        plot_text(ax, unique_list[0], farm_type, country)
     else:  # if there are multiple, use word cloud
         revised_prompt_text = revised_prompt_col.tolist()
         plot_wordcloud(ax, revised_prompt_text, prompt_text, additional_stop_list, seed)
@@ -380,6 +388,122 @@ def plot_grid(
                 )
 
     save_plt(plt, generation_types[0])  # save the plot
+    plt.show()
+
+
+def plot_grid_country(
+    megadata,
+    generation_types,
+    farm_type,
+    countries,
+    title,
+    additional_stop_list_dir,
+    col_num=4,
+    model="dall-e-3",
+    seed=7,
+):
+    """
+    Plot a grid with rows for each combination of generation type and farm type, and columns for
+    various visualizations: prompt text, revised prompt word cloud, sample image, and GPT-4 description word cloud.
+
+    Args:
+        megadata (pd.DataFrame): The DataFrame containing the data.
+        generation_types (list): List of generation types to display.
+        title (str): Title for the entire plot.
+        additional_stop_list_dir (dict): Dictionary of additional stopwords for each farm type.
+        col_num (int, optional): Number of columns in the grid. Defaults to 4.
+        model (str, optional): The model used for generating images. Defaults to 'dall-e-3'.
+        seed (int, optional): Random seed for reproducibility when selecting sample images. Defaults to 7.
+    """
+    row_num = len(generation_types) * len(countries)
+    content_top = 0.94  # top position of the plot grid in this figure
+    content_bottom = 0.03  # bottom position of the plot grid in this figure
+
+    # Create a figure with two grids, one for the header and one for content
+    fig = plt.figure(figsize=(18, 30))
+    fig.suptitle(title, fontsize=25, y=1)
+
+    # Add background rectangles for the 2nd and 4th rows
+    rows_to_highlight = [1, 3, 5]  # Index of rows to highlight
+    fig = add_grey_to_no_revise_col(
+        rows_to_highlight, fig, content_top, content_bottom, row_num
+    )
+
+    # Header row for column names
+    gs_header = fig.add_gridspec(1, col_num, top=0.96, bottom=content_top)
+    header_axes = [fig.add_subplot(gs_header[0, i]) for i in range(col_num)]
+
+    # Content rows
+    gs_content = fig.add_gridspec(
+        row_num,
+        col_num,
+        top=content_top,
+        bottom=content_bottom,
+        hspace=0.03,
+        wspace=0.05,
+    )
+    content_axes = [
+        [fig.add_subplot(gs_content[i, j]) for j in range(col_num)]
+        for i in range(row_num)
+    ]
+
+    # Set column headers
+    column_titles = ["Prompt", "Revised Prompt", "Example Image", "Description"]
+    for idx, col_title in enumerate(column_titles):
+        header_axes[idx].text(
+            0.5, 0.5, col_title, ha="center", va="center", fontsize=20, weight="bold"
+        )
+        header_axes[idx].axis("off")
+
+    # Plot content in the main grid
+    for i, country in enumerate(countries):
+        for j, generation_type in enumerate(generation_types):
+            row = i * len(generation_types) + j  # Row index for content_axes
+            additional_stop_list = additional_stop_list_dir.get(farm_type, set())
+            filtered_df = filter_data(
+                megadata, [generation_type], [farm_type], model, country=country
+            )
+
+            if not filtered_df.empty:
+                # Column 1: Prompt Text
+                prompt_text = filtered_df["prompt"].values[0]
+                plot_text(content_axes[row][0], prompt_text, farm_type, country=country)
+
+                # Column 2: Revised Prompt Word Cloud
+                revised_prompt_col = filtered_df["revised_prompt"].dropna()
+                plot_revised_prompt(
+                    content_axes[row][1],
+                    revised_prompt_col,
+                    prompt_text,
+                    additional_stop_list,
+                    seed,
+                    farm_type,
+                    country,
+                )
+
+                # Column 3: Sample Image
+                random.seed(seed)
+                file_name = random.choice(filtered_df["file"].values)
+                image_path = (
+                    Path("..")
+                    / "results"
+                    / f"{model}-images"
+                    / generation_type
+                    / file_name
+                )
+                plot_image(content_axes[row][2], image_path)
+
+                # Column 4: GPT-4 Description Word Cloud
+                gpt4_description = filtered_df["GPT4o_description"].dropna().tolist()
+                plot_wordcloud(
+                    content_axes[row][3],
+                    gpt4_description,
+                    prompt_text,
+                    additional_stop_list,
+                    seed,
+                )
+
+    save_plt(plt, generation_types[0], farm_type)  # save the plot
     plt.show()
 
 
