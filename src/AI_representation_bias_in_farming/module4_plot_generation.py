@@ -38,7 +38,9 @@ def filter_data(df, generation_types, farm_type=None, model="dall-e-3", country=
     return filtered_df
 
 
-def generate_word_cloud(text_list, prompt_text=None, additional_stop_list=set(), seed = 7):
+def generate_word_cloud(
+    text_list, prompt_text=None, additional_stop_list=set(), seed=7
+):
     """
     Generate a word cloud image from a list of descriptions or prompts, excluding words found
     in the original prompt and any additional specified stopwords.
@@ -70,7 +72,11 @@ def generate_word_cloud(text_list, prompt_text=None, additional_stop_list=set(),
 
     # Generate the word cloud, excluding words in the prompt
     wordcloud = WordCloud(
-        colormap="ocean", width=400, height=400, background_color="white", random_state= seed
+        colormap="ocean",
+        width=400,
+        height=400,
+        background_color="white",
+        random_state=seed,
     ).generate_from_frequencies(ngram_frequencies)
 
     return wordcloud.to_image()
@@ -141,20 +147,22 @@ def generate_stopwords(prompt_text, additional_stop_list=set()):
     return custom_stopwords
 
 
-def plot_text(ax, text, max_character_per_line=27):
+def plot_text(ax, text, farm_type, max_character_per_line=27):
     """
     Display wrapped text in an axis with centered alignment, wrapping by number of words.
 
     Args:
         ax (matplotlib.axes._axes.Axes): The axis to plot the text.
         text (str): The text to be displayed.
+        farm_types (list): List of farm types to display.
         words_per_line (int): Number of words per line for wrapping. Defaults to 7.
+        max_character_per_line (int): max number of characters per line in a plot
     """
-    # Split text into words
-    words = text.split()
+    # Make "dairy" or "pig" bold by using Matplotlib's mathtext
+    bold_text = text.replace(farm_type, rf"$\mathbf{{{farm_type}}}$")
 
     # Group words into lines based on words_per_line
-    wrapped_text = textwrap.fill(text, width=max_character_per_line)
+    wrapped_text = textwrap.fill(bold_text, width=max_character_per_line)
 
     # Display wrapped text in the center of the axis
     ax.text(0.5, 0.5, wrapped_text, ha="center", va="center", fontsize=18, wrap=True)
@@ -172,13 +180,17 @@ def plot_wordcloud(ax, text_list, prompt_text, additional_stop_list, seed):
         prompt_text (str): The original prompt text to exclude words from the word cloud.
         additional_stop_list (set): Additional words to exclude from the word cloud.
     """
-    wordcloud_image = generate_word_cloud(text_list, prompt_text, additional_stop_list, seed)
+    wordcloud_image = generate_word_cloud(
+        text_list, prompt_text, additional_stop_list, seed
+    )
     ax.imshow(wordcloud_image)
     ax.axis("off")
     ax.grid(True)
 
 
-def plot_revised_prompt(ax, revised_prompt_col, prompt_text, additional_stop_list, seed):
+def plot_revised_prompt(
+    ax, revised_prompt_col, prompt_text, additional_stop_list, seed, farm_type
+):
     """
     Display either a single revised prompt as text or a word cloud of multiple revised prompts on a given axis.
 
@@ -188,13 +200,15 @@ def plot_revised_prompt(ax, revised_prompt_col, prompt_text, additional_stop_lis
                                         it will be displayed as text; otherwise, a word cloud is generated.
         prompt_text (str): The original prompt text to exclude words from the word cloud.
         additional_stop_list (set): Additional words to exclude from the word cloud.
+        seed (int, optional): Random seed for reproducibility when selecting sample images. Defaults to 7.
+        farm_types (list): List of farm types to display.
 
     Returns:
         None
     """
     unique_list = revised_prompt_col.unique()
     if len(unique_list) == 1:  # if there is only one unique revised prompt
-        plot_text(ax, unique_list[0])
+        plot_text(ax, unique_list[0], farm_type)
     else:  # if there are multiple, use word cloud
         revised_prompt_text = revised_prompt_col.tolist()
         plot_wordcloud(ax, revised_prompt_text, prompt_text, additional_stop_list, seed)
@@ -216,6 +230,7 @@ def plot_image(ax, image_path):
         ax.text(0.5, 0.5, "Image not found", ha="center", va="center")
     ax.grid(True)
 
+git rm --cached ./results/plots/reality_plot_grid.png
 
 def plot_grid(
     megadata,
@@ -234,7 +249,6 @@ def plot_grid(
     Args:
         megadata (pd.DataFrame): The DataFrame containing the data.
         generation_types (list): List of generation types to display.
-        farm_types (list): List of farm types to display.
         title (str): Title for the entire plot.
         additional_stop_list_dir (dict): Dictionary of additional stopwords for each farm type.
         col_num (int, optional): Number of columns in the grid. Defaults to 4.
@@ -253,7 +267,7 @@ def plot_grid(
 
     # Content rows
     gs_content = fig.add_gridspec(
-        row_num, col_num, top=0.94, bottom=0.02, hspace=0.02, wspace=0.05
+        row_num, col_num, top=0.94, bottom=0.03, hspace=0.03, wspace=0.05
     )
     content_axes = [
         [fig.add_subplot(gs_content[i, j]) for j in range(col_num)]
@@ -280,7 +294,7 @@ def plot_grid(
             if not filtered_df.empty:
                 # Column 1: Prompt Text
                 prompt_text = filtered_df["prompt"].values[0]
-                plot_text(content_axes[row][0], prompt_text)
+                plot_text(content_axes[row][0], prompt_text, farm_type)
 
                 # Column 2: Revised Prompt Word Cloud
                 revised_prompt_col = filtered_df["revised_prompt"].dropna()
@@ -289,7 +303,8 @@ def plot_grid(
                     revised_prompt_col,
                     prompt_text,
                     additional_stop_list,
-                    seed
+                    seed,
+                    farm_type,
                 )
 
                 # Column 3: Sample Image
@@ -311,7 +326,7 @@ def plot_grid(
                     gpt4_description,
                     prompt_text,
                     additional_stop_list,
-                    seed
+                    seed,
                 )
 
     save_plt(plt, generation_types[0])  # save the plot
