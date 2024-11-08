@@ -38,7 +38,7 @@ def filter_data(df, generation_types, farm_type=None, model="dall-e-3", country=
     return filtered_df
 
 
-def generate_word_cloud(text_list, prompt_text=None, additional_stop_list=set()):
+def generate_word_cloud(text_list, prompt_text=None, additional_stop_list=set(), seed = 7):
     """
     Generate a word cloud image from a list of descriptions or prompts, excluding words found
     in the original prompt and any additional specified stopwords.
@@ -70,7 +70,7 @@ def generate_word_cloud(text_list, prompt_text=None, additional_stop_list=set())
 
     # Generate the word cloud, excluding words in the prompt
     wordcloud = WordCloud(
-        colormap="ocean", width=400, height=400, background_color="white"
+        colormap="ocean", width=400, height=400, background_color="white", random_state= seed
     ).generate_from_frequencies(ngram_frequencies)
 
     return wordcloud.to_image()
@@ -162,7 +162,7 @@ def plot_text(ax, text, max_character_per_line=27):
     ax.grid(True)
 
 
-def plot_wordcloud(ax, text_list, prompt_text, additional_stop_list):
+def plot_wordcloud(ax, text_list, prompt_text, additional_stop_list, seed):
     """
     Display a word cloud image on an axis.
 
@@ -172,13 +172,13 @@ def plot_wordcloud(ax, text_list, prompt_text, additional_stop_list):
         prompt_text (str): The original prompt text to exclude words from the word cloud.
         additional_stop_list (set): Additional words to exclude from the word cloud.
     """
-    wordcloud_image = generate_word_cloud(text_list, prompt_text, additional_stop_list)
+    wordcloud_image = generate_word_cloud(text_list, prompt_text, additional_stop_list, seed)
     ax.imshow(wordcloud_image)
     ax.axis("off")
     ax.grid(True)
 
 
-def plot_revised_prompt(ax, revised_prompt_col, prompt_text, additional_stop_list):
+def plot_revised_prompt(ax, revised_prompt_col, prompt_text, additional_stop_list, seed):
     """
     Display either a single revised prompt as text or a word cloud of multiple revised prompts on a given axis.
 
@@ -197,7 +197,7 @@ def plot_revised_prompt(ax, revised_prompt_col, prompt_text, additional_stop_lis
         plot_text(ax, unique_list[0])
     else:  # if there are multiple, use word cloud
         revised_prompt_text = revised_prompt_col.tolist()
-        plot_wordcloud(ax, revised_prompt_text, prompt_text, additional_stop_list)
+        plot_wordcloud(ax, revised_prompt_text, prompt_text, additional_stop_list, seed)
 
 
 def plot_image(ax, image_path):
@@ -289,6 +289,7 @@ def plot_grid(
                     revised_prompt_col,
                     prompt_text,
                     additional_stop_list,
+                    seed
                 )
 
                 # Column 3: Sample Image
@@ -310,6 +311,7 @@ def plot_grid(
                     gpt4_description,
                     prompt_text,
                     additional_stop_list,
+                    seed
                 )
 
     save_plt(plt, generation_types[0])  # save the plot
