@@ -230,7 +230,6 @@ def plot_image(ax, image_path):
         ax.text(0.5, 0.5, "Image not found", ha="center", va="center")
     ax.grid(True)
 
-git rm --cached ./results/plots/reality_plot_grid.png
 
 def plot_grid(
     megadata,
