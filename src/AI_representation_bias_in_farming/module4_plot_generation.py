@@ -257,7 +257,7 @@ def plot_grid(
     row_num = len(generation_types) * len(farm_types)
 
     # Create a figure with two grids, one for the header and one for content
-    fig = plt.figure(figsize=(18, 15))
+    fig = plt.figure(figsize=(18, 17))
     fig.suptitle(title, fontsize=25, y=1)
 
     # Header row for column names
@@ -266,7 +266,7 @@ def plot_grid(
 
     # Content rows
     gs_content = fig.add_gridspec(
-        row_num, col_num, top=0.94, bottom=0.03, hspace=0.03, wspace=0.05
+        row_num, col_num, top=0.94, bottom=0.04, hspace=0.04, wspace=0.05
     )
     content_axes = [
         [fig.add_subplot(gs_content[i, j]) for j in range(col_num)]
