@@ -261,7 +261,7 @@ def add_grey_to_no_revise_col(
             row_height,  # Position and size of the rectangle
             transform=fig.transFigure,
             color="lightgrey",
-            alpha=0.2,  # Adjust alpha for lighter grey
+            alpha=0.5,  # Adjust alpha for lighter grey
             zorder=0,
         )
         fig.add_artist(rect)
@@ -412,3 +412,34 @@ def save_plt(plt, generation_type, farm_type=None):
 
     output_file = img_dir / file_name
     plt.savefig(output_file, format="png", dpi=300)  # Save plot with high resolution
+
+
+"""
+# TEST
+# set number of columns in the grid of plots, words that we want to remove from wordclowd
+megadata_file = Path() / "results" / "megadata" / "image_megadata.csv"
+import pandas as pd
+megadata = pd.read_csv(megadata_file, header=0)
+num_cols = 4
+seed = 7
+additional_stop_list_dir = {
+    "dairy": {"farm", "farms", "cow", "cows"},
+    "pig": {"farm", "farms", "pig", "pigs"},
+}
+model = "dall-e-3"
+# Define generation types and farm types
+gen_types = ["reality", "reality_no_revise"]
+farm_types = megadata["farm_type"].unique()
+title = f"Prompt DALL·E 3 for realistic depiction of farms"
+
+plot_grid(
+    megadata,
+    gen_types,
+    farm_types,
+    title,
+    additional_stop_list_dir,
+    col_num=num_cols,
+    model=model,
+    seed=seed,
+)
+"""
