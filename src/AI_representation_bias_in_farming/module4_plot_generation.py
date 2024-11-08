@@ -1,15 +1,16 @@
 """Library of functions used to generate grid plots based on image metadata
 """
 
-import re
 import os
-import pandas as pd
+import re
+import random
+import textwrap
 from pathlib import Path
+from PIL import Image
+
+import pandas as pd
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud, STOPWORDS
-import random
-from PIL import Image
-import textwrap
 from nltk import FreqDist
 from nltk.util import ngrams
 
@@ -343,3 +344,19 @@ def save_plt(plt, generation_type, farm_type=None):
         os.makedirs(img_dir)  # create the directory if the directory does not exist
 
     plt.savefig(img_dir, format="png", dpi=300)  # Save plot with high resolution
+
+
+
+megadata_file = Path("results") / "megadata" / "image_megadata.csv"
+megadata = pd.read_csv(megadata_file, header=0)
+num_cols = 4
+seed = 7
+additional_stop_list_dir = {
+    "dairy": {"farm", "farms", "cow", "cows"},
+    "pig": {"farm", "farms", "pig", "pigs"}, 
+}
+model = "dall-e-3"
+# Define generation types and farm types
+generation_types = ["reality", "reality_no_revise"]
+farm_types = megadata['farm_type'].unique()
+title = f"Prompt DALL·E 3 for realistic depiction of farms"
