@@ -473,7 +473,7 @@ def plot_grid_country(
             if not filtered_df.empty:
                 # Column 1: Prompt Text
                 prompt_text = filtered_df["prompt"].values[0]
-                plot_text(content_axes[row][0], prompt_text, farm_type, country=country)
+                plot_text(content_axes[row][0], prompt_text, farm_type, country)
 
                 # Column 2: Revised Prompt Word Cloud
                 revised_prompt_col = filtered_df["revised_prompt"].dropna()
