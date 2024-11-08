@@ -207,7 +207,7 @@ def plot_revised_prompt(
         None
     """
     unique_list = revised_prompt_col.unique()
-    if len(unique_list) == 1:  # if there is only one unique revised prompt
+    if len(unique_list) <= 3:  # if there is only 1-3 unique prompts
         plot_text(ax, unique_list[0], farm_type)
     else:  # if there are multiple, use word cloud
         revised_prompt_text = revised_prompt_col.tolist()
@@ -414,11 +414,11 @@ def save_plt(plt, generation_type, farm_type=None):
     plt.savefig(output_file, format="png", dpi=300)  # Save plot with high resolution
 
 
-"""
 # TEST
 # set number of columns in the grid of plots, words that we want to remove from wordclowd
 megadata_file = Path() / "results" / "megadata" / "image_megadata.csv"
 import pandas as pd
+
 megadata = pd.read_csv(megadata_file, header=0)
 num_cols = 4
 seed = 7
@@ -428,7 +428,7 @@ additional_stop_list_dir = {
 }
 model = "dall-e-3"
 # Define generation types and farm types
-gen_types = ["reality", "reality_no_revise"]
+gen_types = ["basic", "basic_no_revise"]
 farm_types = megadata["farm_type"].unique()
 title = f"Prompt DALL·E 3 for realistic depiction of farms"
 
@@ -442,4 +442,3 @@ plot_grid(
     model=model,
     seed=seed,
 )
-"""
