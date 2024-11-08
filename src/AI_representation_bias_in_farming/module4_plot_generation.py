@@ -8,7 +8,7 @@ import textwrap
 from pathlib import Path
 from PIL import Image
 
-import pandas as pd
+import matplotlib.patches as patches
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud, STOPWORDS
 from nltk import FreqDist
@@ -231,6 +231,43 @@ def plot_image(ax, image_path):
     ax.grid(True)
 
 
+def add_grey_to_no_revise_col(
+    rows_to_highlight, fig, content_top, content_bottom, row_num
+):
+    """
+    Adds light grey background rectangles to highlight specific rows in a figure.
+
+    Args:
+        rows_to_highlight (list): a list of index of rows to highlight
+        fig (matplotlib.figure.Figure): The figure to add background rectangles to.
+        content_top (float): The top boundary of the content area in figure coordinates.
+        content_bottom (float): The bottom boundary of the content area in figure coordinates.
+        row_num (int): The total number of rows in the content area.
+
+    Returns:
+        matplotlib.figure.Figure: The figure with added background rectangles on specified rows.
+    """
+
+    row_height = (
+        content_top - content_bottom
+    ) / row_num  # Calculate row height based on layout
+
+    for row_idx in rows_to_highlight:
+        # Calculate bottom position for each row based on row index
+        bottom_position = content_top - (row_idx + 1) * row_height
+        rect = patches.Rectangle(
+            (0, bottom_position),
+            1,
+            row_height,  # Position and size of the rectangle
+            transform=fig.transFigure,
+            color="lightgrey",
+            zorder=0,
+        )
+        fig.add_artist(rect)
+
+    return fig
+
+
 def plot_grid(
     megadata,
     generation_types,
@@ -255,18 +292,31 @@ def plot_grid(
         seed (int, optional): Random seed for reproducibility when selecting sample images. Defaults to 7.
     """
     row_num = len(generation_types) * len(farm_types)
+    content_top = 0.94  # top position of the plot grid in this figure
+    content_bottom = 0.03  # bottom position of the plot grid in this figure
 
     # Create a figure with two grids, one for the header and one for content
-    fig = plt.figure(figsize=(18, 17))
+    fig = plt.figure(figsize=(18, 16))
     fig.suptitle(title, fontsize=25, y=1)
 
+    # Add background rectangles for the 2nd and 4th rows
+    rows_to_highlight = [1, 3]  # Index of rows to highlight
+    fig = add_grey_to_no_revise_col(
+        rows_to_highlight, fig, content_top, content_bottom, row_num
+    )
+
     # Header row for column names
-    gs_header = fig.add_gridspec(1, col_num, top=0.96, bottom=0.94)
+    gs_header = fig.add_gridspec(1, col_num, top=0.96, bottom=content_top)
     header_axes = [fig.add_subplot(gs_header[0, i]) for i in range(col_num)]
 
     # Content rows
     gs_content = fig.add_gridspec(
-        row_num, col_num, top=0.94, bottom=0.04, hspace=0.04, wspace=0.05
+        row_num,
+        col_num,
+        top=content_top,
+        bottom=content_bottom,
+        hspace=0.03,
+        wspace=0.05,
     )
     content_axes = [
         [fig.add_subplot(gs_content[i, j]) for j in range(col_num)]
