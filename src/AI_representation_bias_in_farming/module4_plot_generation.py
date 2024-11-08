@@ -161,7 +161,9 @@ def plot_text(ax, text, farm_type, max_character_per_line=27, country=None):
     # Make "dairy" or "pig" bold by using Matplotlib's mathtext
     bold_text = text.replace(farm_type, rf"$\mathbf{{{farm_type}}}$")
     if country is not None:
-        bold_text = bold_text.replace(country, rf"$\mathbf{{{country}}}$")
+        # Split the country name into words, bold each word separately, and join them with spaces
+        bold_country = "".join([rf"$\mathbf{{{word}}}$" for word in country.split()])
+        bold_text = bold_text.replace(country, bold_country)
 
     # Group words into lines based on words_per_line
     wrapped_text = textwrap.fill(bold_text, width=max_character_per_line)
@@ -420,7 +422,7 @@ def plot_grid_country(
     content_bottom = 0.03  # bottom position of the plot grid in this figure
 
     # Create a figure with two grids, one for the header and one for content
-    fig = plt.figure(figsize=(18, 30))
+    fig = plt.figure(figsize=(18, 25))
     fig.suptitle(title, fontsize=25, y=1)
 
     # Add background rectangles for the 2nd and 4th rows
