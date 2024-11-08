@@ -461,7 +461,7 @@ def plot_grid_country(
             row = i * len(generation_types) + j  # Row index for content_axes
             additional_stop_list = additional_stop_list_dir.get(farm_type, set())
             filtered_df = filter_data(
-                megadata, [generation_type], [farm_type], model, country=country
+                megadata, [generation_type], [farm_type], model, [country]
             )
 
             if not filtered_df.empty:
