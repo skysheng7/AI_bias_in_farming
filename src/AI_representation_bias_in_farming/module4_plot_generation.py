@@ -414,6 +414,7 @@ def save_plt(plt, generation_type, farm_type=None):
     plt.savefig(output_file, format="png", dpi=300)  # Save plot with high resolution
 
 
+"""
 # TEST
 # set number of columns in the grid of plots, words that we want to remove from wordclowd
 megadata_file = Path() / "results" / "megadata" / "image_megadata.csv"
@@ -442,3 +443,4 @@ plot_grid(
     model=model,
     seed=seed,
 )
+"""
