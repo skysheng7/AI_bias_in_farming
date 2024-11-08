@@ -161,7 +161,7 @@ def plot_text(ax, text, farm_type, max_character_per_line=27, country=None):
     # Make "dairy" or "pig" bold by using Matplotlib's mathtext
     bold_text = text.replace(farm_type, rf"$\mathbf{{{farm_type}}}$")
     if country is not None:
-        bold_text = bold_text.replace(farm_type, rf"$\mathbf{{{country}}}$")
+        bold_text = bold_text.replace(country, rf"$\mathbf{{{country}}}$")
 
     # Group words into lines based on words_per_line
     wrapped_text = textwrap.fill(bold_text, width=max_character_per_line)
