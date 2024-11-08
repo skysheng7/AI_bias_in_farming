@@ -147,7 +147,7 @@ def generate_stopwords(prompt_text, additional_stop_list=set()):
     return custom_stopwords
 
 
-def plot_text(ax, text, farm_type, max_character_per_line=27, country=None):
+def plot_text(ax, text, farm_type, country=None, max_character_per_line=23):
     """
     Display wrapped text in an axis with centered alignment, wrapping by number of words.
 
@@ -160,13 +160,14 @@ def plot_text(ax, text, farm_type, max_character_per_line=27, country=None):
     """
     # Make "dairy" or "pig" bold by using Matplotlib's mathtext
     bold_text = text.replace(farm_type, rf"$\mathbf{{{farm_type}}}$")
-    if country is not None:
-        # Split the country name into words, bold each word separately, and join them with spaces
-        bold_country = "".join([rf"$\mathbf{{{word}}}$" for word in country.split()])
-        bold_text = bold_text.replace(country, bold_country)
 
     # Group words into lines based on words_per_line
     wrapped_text = textwrap.fill(bold_text, width=max_character_per_line)
+
+    if country is not None:
+        # Split the country name into words, bold each word separately, and join them with spaces
+        bold_country = " ".join([rf"$\mathbf{{{word}}}$" for word in country.split()])
+        wrapped_text = wrapped_text.replace(country, bold_country)
 
     # Display wrapped text in the center of the axis
     ax.text(0.5, 0.5, wrapped_text, ha="center", va="center", fontsize=18, wrap=True)
@@ -217,8 +218,11 @@ def plot_revised_prompt(
         None
     """
     unique_list = revised_prompt_col.unique()
-    if len(unique_list) <= 3:  # if there is only 1-3 unique prompts
-        plot_text(ax, unique_list[0], farm_type, country)
+    if (len(unique_list)) <= 3:  # if there is only 1-3 unique prompts
+        if country is not None:
+            plot_text(ax, unique_list[0], farm_type, country)
+        else:
+            plot_text(ax, unique_list[0], farm_type)
     else:  # if there are multiple, use word cloud
         revised_prompt_text = revised_prompt_col.tolist()
         plot_wordcloud(ax, revised_prompt_text, prompt_text, additional_stop_list, seed)
@@ -555,18 +559,25 @@ additional_stop_list_dir = {
 }
 model = "dall-e-3"
 # Define generation types and farm types
-gen_types = ["basic", "basic_no_revise"]
-farm_types = megadata["farm_type"].unique()
-title = f"Prompt DALL·E 3 for realistic depiction of farms"
+gen_types = ["basic_country", "basic_country_no_revise"]
+farm_type = megadata["farm_type"].unique()[0]
+countries_by_farm_type = {
+    "dairy": ["the United States", "Germany", "New Zealand"],
+    "pig": ["the United States", "Spain", "Australia"],
+}  # list of countries with the biggest number of dairy cows and pigs in North America, Europe and Oceania
 
-plot_grid(
+countries = countries_by_farm_type[farm_type]
+title = f"Prompt DALL·E 3 for general {farm_type} farms at 3 different countries"
+
+plot_grid_country(
     megadata,
     gen_types,
-    farm_types,
+    farm_type,
+    countries,
     title,
     additional_stop_list_dir,
-    col_num=num_cols,
-    model=model,
-    seed=seed,
+    num_cols,
+    model,
+    seed,
 )
 """
