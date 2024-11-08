@@ -248,12 +248,12 @@ def plot_grid(
     fig.suptitle(title, fontsize=25, y=1)
 
     # Header row for column names
-    gs_header = fig.add_gridspec(1, col_num, top=0.97, bottom=0.95)
+    gs_header = fig.add_gridspec(1, col_num, top=0.96, bottom=0.94)
     header_axes = [fig.add_subplot(gs_header[0, i]) for i in range(col_num)]
 
     # Content rows
     gs_content = fig.add_gridspec(
-        row_num, col_num, top=0.95, bottom=0.02, hspace=0.02, wspace=0.05
+        row_num, col_num, top=0.94, bottom=0.02, hspace=0.02, wspace=0.05
     )
     content_axes = [
         [fig.add_subplot(gs_content[i, j]) for j in range(col_num)]
@@ -339,9 +339,9 @@ def save_plt(plt, generation_type, farm_type=None):
             + "_by_country_plot_grid.png"
         )
 
-    img_dir = Path("..")/ "results" / "plots" 
+    img_dir = Path("..") / "results" / "plots"
     if not os.path.exists(img_dir):
         os.makedirs(img_dir)  # create the directory if the directory does not exist
-        
-    output_file = img_dir/ file_name
+
+    output_file = img_dir / file_name
     plt.savefig(output_file, format="png", dpi=300)  # Save plot with high resolution
