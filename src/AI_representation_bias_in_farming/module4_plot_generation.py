@@ -339,8 +339,9 @@ def save_plt(plt, generation_type, farm_type=None):
             + "_by_country_plot_grid.png"
         )
 
-    img_dir = Path("results") / "plots" / file_name
+    img_dir = Path("..")/ "results" / "plots" 
     if not os.path.exists(img_dir):
         os.makedirs(img_dir)  # create the directory if the directory does not exist
-
-    plt.savefig(img_dir, format="png", dpi=300)  # Save plot with high resolution
+        
+    output_file = img_dir/ file_name
+    plt.savefig(output_file, format="png", dpi=300)  # Save plot with high resolution
