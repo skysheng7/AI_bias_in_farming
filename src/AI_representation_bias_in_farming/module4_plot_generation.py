@@ -6,8 +6,8 @@ import re
 import random
 import textwrap
 from pathlib import Path
-from PIL import Image
 
+from PIL import Image
 import matplotlib.patches as patches
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud, STOPWORDS
