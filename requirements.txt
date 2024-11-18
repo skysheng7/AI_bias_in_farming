@@ -1,4 +1,4 @@
--e git+https://github.com/skysheng7/AI_bias_in_farming.git@4d2f309e2d3c5dfc51d940d5749bed57e96a3435#egg=AI_representation_bias_in_farming
+#-e git+https://github.com/skysheng7/AI_bias_in_farming.git@4d2f309e2d3c5dfc51d940d5749bed57e96a3435#egg=AI_representation_bias_in_farming
 annotated-types==0.7.0
 anyio==4.6.2.post1
 appnope==0.1.4
@@ -32,7 +32,7 @@ google-api-core==2.22.0
 google-api-python-client==2.151.0
 google-auth==2.35.0
 google-auth-httplib2==0.2.0
-google-generativeai @ git+https://github.com/google-gemini/generative-ai-python@c72aa6b3c417ad4f91c862de1482b0847b190e6e
+#google-generativeai @ git+https://github.com/google-gemini/generative-ai-python@c72aa6b3c417ad4f91c862de1482b0847b190e6e
 googleapis-common-protos==1.65.0
 grpcio==1.67.1
 grpcio-status==1.67.1
