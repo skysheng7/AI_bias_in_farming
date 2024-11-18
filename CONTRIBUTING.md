@@ -15,7 +15,7 @@ You can contribute in many ways, for example:
 
 ### Report Bugs
 
-Report bugs at https://github.com/skysheng7/ai's-representation-bias-about-livestock-farming/issues.
+Report bugs at <https://github.com/skysheng7/AI_representation_bias_in_farming/issues>.
 
 **If you are reporting a bug, please follow the template guidelines. The more
 detailed your report, the easier and thus faster we can help you.**
@@ -41,28 +41,28 @@ happy for any support that they can get.
 
 AI's representation bias about livestock farming could always use more documentation, whether as
 part of the official documentation, in docstrings, or even on the web in blog
-posts, articles, and such. Just [open an issue](https://github.com/skysheng7/
-ai's-representation-bias-about-livestock-farming/issues) to let us know what you will be working on
+posts, articles, and such. Just [open an issue](<https://github.com/skysheng7/>
+AI_representation_bias_in_farming/issues) to let us know what you will be working on
 so that we can provide you with guidance.
 
 ### Submit Feedback
 
-The best way to send feedback is to file an issue at https://github.com/
-skysheng7/ai's-representation-bias-about-livestock-farming/issues. If your feedback fits the format of one of
+The best way to send feedback is to file an issue at <https://github.com/>
+skysheng7/AI_representation_bias_in_farming/issues. If your feedback fits the format of one of
 the issue templates, please use that. Remember that this is a volunteer-driven
 project and everybody has limited time.
 
-## Get Started!
+## Get Started
 
 Ready to contribute? Here's how to set up AI's representation bias about livestock farming for
 local development.
 
-1. Fork the https://github.com/skysheng7/ai's-representation-bias-about-livestock-farming
+1. Fork the <https://github.com/skysheng7/AI_representation_bias_in_farming>
    repository on GitHub.
 2. Clone your fork locally
 
     ```shell
-    git clone git@github.com:your_name_here/ai's-representation-bias-about-livestock-farming.git
+    git clone git@github.com:your_name_here/AI_representation_bias_in_farming.git
     ```
 
 3. [Install hatch](https://hatch.pypa.io/latest/install/).
