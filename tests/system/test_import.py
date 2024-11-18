@@ -27,4 +27,4 @@
 
 def test_import():
     """Test that the package can be imported."""
-    import ai's_representation_bias_about_livestock_farming  # noqa: F401
+    import AI_representation_bias_in_farming  # noqa: F401
