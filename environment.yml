@@ -10,4 +10,7 @@ dependencies:
   - requests
   - nltk
   - wordcloud
+  - conda-lock
+  - mamba
+  - six
 prefix: /Users/skysheng/miniforge3/envs/conda_env
