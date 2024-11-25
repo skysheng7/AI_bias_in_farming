@@ -1,16 +1,15 @@
-name: conda_env
+name: ai_env
 channels:
   - conda-forge
 dependencies:
-  - python=3.12.7
-  - matplotlib
-  - numpy
+  - python=3.11
   - pandas
-  - python-dotenv
+  - openai
   - requests
+  - pillow
+  - matplotlib
   - nltk
   - wordcloud
+  - python-dotenv
   - conda-lock
-  - mamba
-  - six
-prefix: /Users/skysheng/miniforge3/envs/conda_env
+prefix: /Users/skysheng/miniforge3/envs/ai_env
