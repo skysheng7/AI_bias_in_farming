@@ -10,69 +10,246 @@ from pathlib import Path
 megadata_file = Path(".") / "results" / "megadata" / "image_megadata.csv"
 megadata = pd.read_csv(megadata_file, header=0)
 
+# define a list of words to exclude from analysis because they are not setting the difference between images
+# fluffy white always show up as "fluffy white clouds", that's why i just deleted "fluffy white", because "fluffy white clouds" already included
+# MAYBE: remove descriptions like "south asian", "middle eastern", "caucasian hispanic", "" because it's describing human's culture background to ensure EDI, irelevant to our study
+words_to_exclude_1gram = [
+    "cows",
+    "cow",
+    "farm",
+    "farms",
+    "pig",
+    "pigs",
+    "dairy",
+    "scene",
+    "background",
+    "picture",
+    "depicts",
+    "depiction",
+    "depicting",
+    "image",
+    "typical",
+    "representation",
+    "representing",
+    "showcase",
+    "showcasing",
+    "include",
+    "including",
+    "elements",
+    "united",
+    "states",
+    "america",
+    "american",
+    "germany",
+    "german",
+    "new",
+    "zealand",
+    "spain",
+    "spanish",
+    "australia",
+    "australian",
+    "seen",
+    "nearby",
+]
+words_to_exclude_23gram = [
+    "dairy cows",
+    "dairy cow",
+    "dairy farm",
+    "dairy farms",
+    "pig farms",
+    "pig farm",
+    "typical dairy",
+    "typical dairy farm",
+    "typical dairy farms",
+    "typical pig",
+    "typical pig farm",
+    "typical pig farms",
+    "image typical",
+    "image typical dairy",
+    "image typical pig",
+    "representation typical",
+    "representation typical dairy",
+    "representation typical pig",
+    "depiction typical",
+    "depiction typical dairy",
+    "depiction typical pig",
+    "depicting typical",
+    "farm scene",
+    "pig farm scene",
+    "dairy farm scence",
+    "realistic depiction",
+    "realistic depiction typical",
+    "accurate representation",
+    "accurate representation typical",
+    "realistic image",
+    "realistic representation",
+    "realistic representation typical",
+    "accurate depiction",
+    "generate image",
+    "create image",
+    "scene include",
+    "scene depicting",
+    "farm scene includes",
+    "united states",
+    "new zealand",
+    "dairy farm united",
+    "dairy farms united",
+    "pig farm united",
+    "pig farms united",
+    "farm united",
+    "farms united",
+    "farm united states",
+    "farms united states",
+    "states scene",
+    "united states image",
+    "united states scene",
+    "dairy farm germany",
+    "dairy farms germany",
+    "farm germany",
+    "farms germany",
+    "germany scene",
+    "farm germany scene",
+    "farms germany scene",
+    "farm new",
+    "farm new zealand",
+    "dairy farm new",
+    "dairy farms new",
+    "new zealand scene",
+    "zealand scene",
+    "farm spain",
+    "farms spain",
+    "pig farm spain",
+    "pig farms spain",
+    "spain scene",
+    "farm spain scene",
+    "farms spain scene",
+    "farm australia",
+    "farms australia",
+    "pig farm australia",
+    "pig farms australia",
+    "australia scene",
+    "farm australia scene",
+    "farms australia scene",
+    "typical australian",
+    "fluffy white",
+]
+words_to_exclude = words_to_exclude_1gram + words_to_exclude_23gram
 
-def count_word_freq_in_revised_prompt(megadata, min_freq=20):
+
+def exclude_words_in_bag(bag_of_words, words_to_exclude):
+    """this function excludes certain words that are creating noise for our analysis from
+        the bag of words
+
+    Parameters:
+    --------
+    bag_of_words (list): a list of all relevant words extracted from text pieces
+    words_to_exclude (list): a list of words to be excluded from analysis, as they are
+                            creating noise in analysis
+
+    Return:
+    --------
+    bag_of_words2 (list): a list of all relevant words extracted from text pieces, after word exclusion
+    """
+
+    #  Create a set of lowercase versions of words to exclude for efficient comparison
+    # Using a set makes lookups faster than using a list
+    excluded_words_lower = set(word.lower() for word in words_to_exclude)
+
+    # Filter our bag of words by checking the lowercase version of each word
+    # This ensures we catch all variations regardless of capitalization
+    bag_of_words2 = [
+        word for word in bag_of_words if word.lower() not in excluded_words_lower
+    ]
+
+    return bag_of_words2
+
+
+def mark_word_presence(megadata, words_to_exclude, col_of_interest = "revised_prompt", ngram_range = (1,1), min_freq=20):
     """This function creates bag of word to count if certain words appear in the text
     description in each row.
 
     Parameters:
+    --------
     megadata (dataframe): the dataframe recording megadata about generated images
+    
+    words_to_exclude (list): a list of words to be excluded from analysis, as they are
+                            creating noise in analysis
+    ngram_range (range): range of how many grams (words) you want to count as a phrase, 
+    `                       to extract freq from text pieces
+    col_of_interest (str): what's the column name of interest that you will extract
+                            text descriptions from
     min_freq (int, optional): sets a minimum document frequency threshold,
                             a filter that says "only keep words that appear in
                             at least min_freq documents." Defaults to 10.
 
     Returns:
+    --------
     pandas.DataFrame: Original megadata with additional columns for word frequencies
     array: the bag of words generated by vectorization
     """
 
     # Create the vectorizer with specified parameters
-    vec = CountVectorizer(min_df=min_freq, binary=True, stop_words="english")
+    vec = CountVectorizer(
+        min_df=min_freq,
+        binary=True,
+        ngram_range=ngram_range,
+        stop_words="english",
+    )
 
     # Extract the revised prompts and convert them to a list
-    revised_prompts = megadata["revised_prompt"].fillna(
+    revised_prompts = megadata[col_of_interest].fillna(
         ""
     )  # Handle any potential NaN values
 
     # Fit and transform the revised prompts into a binary bag of words
-    prompts_vec = vec.fit_transform(revised_prompts)
-
-    # The bag of words generated by vec
+    temp_vec = vec.fit_transform(revised_prompts)
     bag_of_words = vec.get_feature_names_out()
+    bag_of_words2 = exclude_words_in_bag(bag_of_words, words_to_exclude)
 
-    # Now we need to replace 'country' with 'Country' in this list of feature names
+    # Create a NEW vectorizer with our filtered vocabulary
+    vec2 = CountVectorizer(
+        min_df=min_freq,
+        binary=True,
+        vocabulary=bag_of_words2,  # Use our filtered vocabulary
+        ngram_range=ngram_range,
+        stop_words="english",
+    )
+
+    # Now transform the text with filtered vocabulary
+    prompts_vec = vec2.fit_transform(revised_prompts)
+
+    # capitalize first letter in all words if it's 1-gram(1 word)
     # this is because "country" column already exist in the megadata frame
-    bag_of_words = [
-        word.replace("country", "Country") if word == "country" else word
-        for word in bag_of_words
-    ]
+    if ngram_range == (1, 1):
+        # For single words only, we apply straightforward capitalization
+        bag_of_words = [word.title() for word in bag_of_words]
 
-    # Create a DataFrame from the vectorized prompts
-    # Each column will represent a word, and each row will show whether that word appears
+    # Create the DataFrame with matching dimensions
     prompts_vec_df = pd.DataFrame(
-        data=prompts_vec.toarray(),
-        columns=bag_of_words,
-        index=megadata.index,  # Preserve the original index for proper alignment
+        data=prompts_vec.toarray(), columns=bag_of_words2, index=megadata.index
     )
 
     # Combine the original megadata with the word frequency data
     # Using axis=1 to concatenate horizontally (add new columns)
     result_df = pd.concat([megadata, prompts_vec_df], axis=1)
 
-    return (result_df, bag_of_words)
+    return (result_df, bag_of_words2)
 
 
-def create_detailed_word_summary(result_df, feature_names):
+def word_freq_summary(result_df, feature_names, top_word_n = 20):
     """
     Creates a summary DataFrame showing word frequencies for each unique combination of
     categorical variables, with an additional column listing the top 20 most frequent
     words and their frequencies as a readable string.
 
     Parameters:
+    --------
     result_df (DataFrame): The DataFrame output from count_word_freq_in_revised_prompt
     feature_names (array): The vocabulary from vec.get_feature_names_out()
+    top_word_n (int): the top n most frequent words to show
 
     Returns:
+    --------
     DataFrame: A summary with base columns, word frequency columns, and a top_20_words column
     """
     # Define our grouping columns for finding unique instances
@@ -88,10 +265,7 @@ def create_detailed_word_summary(result_df, feature_names):
     for _, combo in unique_combinations.iterrows():
         # Get all rows matching this combination
         matching_rows = result_df[
-            (result_df["generation_type"] == combo["generation_type"])
-            & (result_df["country"] == combo["country"])
-            & (result_df["farm_type"] == combo["farm_type"])
-            & (result_df["prompt"] == combo["prompt"])
+            (result_df["prompt"] == combo["prompt"])
             & (result_df["model"] == combo["model"])
         ]
 
@@ -105,16 +279,17 @@ def create_detailed_word_summary(result_df, feature_names):
             row_dict[word] = freq
             word_freq_dict[word] = freq
 
-        # Create the top 20 words summary
-        # Sort words by frequency and get top 20
-        top_words = sorted(word_freq_dict.items(), key=lambda x: (-x[1], x[0]))[:20]
+        # Create the top_word_n words summary
+        # Sort words by frequency and get top top_word_n
+        top_words = sorted(word_freq_dict.items(), key=lambda x: (-x[1], x[0]))[:top_word_n]
 
         # Format the top words as a readable string
         # Example format: "word1 (10), word2 (8), word3 (5)..."
         top_words_str = ", ".join(f"{word} ({freq})" for word, freq in top_words)
 
         # Add the top words summary to our row dictionary
-        row_dict["top_20_words"] = top_words_str
+        new_col_name = "top_" + top_word_n + "_words"
+        row_dict[new_col_name] = top_words_str
 
         summary_data.append(row_dict)
 
@@ -122,17 +297,55 @@ def create_detailed_word_summary(result_df, feature_names):
     summary_df = pd.DataFrame(summary_data)
 
     # Ensure columns are in a logical order: grouping columns first,
-    # then all word columns, then top_20_words at the end
+    # then top_n_words at the end
     final_column_order = (
         group_columns
-        + [col for col in feature_names if col in summary_df.columns]
-        + ["top_20_words"]
+        + [new_col_name]
     )
     summary_df = summary_df[final_column_order]
 
     return summary_df
 
+def count_word_freq(megadata, words_to_exclude, col_of_interest = "revised_prompt", ngram_range = (1,1), min_freq_to_include=20, top_word_n_to_show = 20):
+    """
+    Analyzes word frequencies in text data by marking word presence and generating frequency summaries.
+    This function processes text through two main steps: first marking the presence of words or phrases
+    in the text (0: not exist; 1:exist), then creating a summary of their frequencies.
 
-# Example usage:
-result_df, feature_names = count_word_freq_in_revised_prompt(megadata, min_freq=20)
-summary_df = create_detailed_word_summary(result_df, feature_names)
+    Parameters:
+    -----------
+    megadata (pandas.DataFrame):
+        The input DataFrame containing text data to analyze.
+    
+    words_to_exclude (list):
+        A list of words to exclude from the analysis. These words will be filtered out
+        before frequency counting begins.
+    
+    col_of_interest (str): default="revised_prompt"
+        The name of the column in megadata containing the text to analyze.
+    
+    ngram_range (tuple): default=(1,1)
+        A tuple specifying the range of n-gram lengths to consider.
+        - (1,1) captures single words only
+        - (1,2) captures single words and pairs of words
+        - (1,3) captures single words, pairs, and triplets of words
+    
+    min_freq_to_include (int): default=20
+        The minimum frequency threshold for including a word or phrase.
+        Only terms appearing at least this many times will be included in the analysis.
+    
+    top_word_n_to_show (int): default=20
+        The number of most frequent words/phrases to include in the summary.
+        For example, if set to 20, shows the 20 most frequently occurring terms.
+
+    Returns:
+    --------
+    nothing
+    """
+    revised_prompt_1gram, words_1gram = mark_word_presence(megadata, words_to_exclude, col_of_interest = col_of_interest, ngram_range = ngram_range, min_freq=min_freq_to_include)
+    revised_prompt_1gram_summary = word_freq_summary(revised_prompt_1gram, words_1gram, top_word_n = top_word_n_to_show)
+
+    output_file = Path() / "results" / "megadata" / "revised_prompt_1gram_freq_summary.csv"
+    revised_prompt_1gram_summary.to_csv("output_file", index=False)
+    
+    
