@@ -56,6 +56,7 @@ This project explores the bias text-to-image generative AI models have about liv
 ### Setting up using conda-lock
 
 1. Clone this GitHub repository:
+    In your terminal or command line, navigate to the folder (use ``` cd ```) where you want this project to live in
 
     ```bash
     git clone https://github.com/skysheng7/AI_bias_in_farming.git
@@ -69,7 +70,13 @@ This project explores the bias text-to-image generative AI models have about liv
     conda activate ai_env
     ```
 
-3. To terminate the environment
+3. Install the AI_representation_bias_In_farming python package
+
+    ```bash
+    python -m pip install -e .
+    ```
+
+4. To terminate the environment
 
     ```bash
     conda deactivate
