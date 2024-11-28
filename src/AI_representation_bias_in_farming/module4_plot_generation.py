@@ -38,37 +38,18 @@ def filter_data(df, generation_types, farm_type=None, model="dall-e-3", country=
     return filtered_df
 
 
-def generate_word_cloud(
-    text_list, prompt_text=None, additional_stop_list=set(), seed=7
-):
+def generate_word_cloud(ngram_frequencies, seed=7):
     """
     Generate a word cloud image from a list of descriptions or prompts, excluding words found
     in the original prompt and any additional specified stopwords.
 
     Args:
-        text_list (list of str): A list of strings, such as revised prompts or descriptions,
-                                 to be combined and visualized in the word cloud.
-        prompt_text (str, optional): The original prompt text. Words in this prompt will be excluded
-                                     from the word cloud. Defaults to None.
-        additional_stop_list (set, optional): Additional words to exclude from the word cloud.
-                                              Defaults to an empty set.
+    ngram_frequencies (dictionary): a dictionary that summaries for each prompt, the freq of each word occurring
+    seed (int): a random seed for reproducibility
 
     Returns:
         PIL.Image.Image: The generated word cloud image as a PIL image object.
     """
-    # Concatenate the list of text into a single string
-    if text_list is not None:
-        combined_text = " ".join(text_list)
-    else:
-        combined_text = ""
-
-    # Create a set of stopwords from the prompt
-    custom_stopwords = generate_stopwords(prompt_text, additional_stop_list)
-
-    # count uni-grams, bi-grams, and tri-grams frequency
-    ngram_frequencies = compute_ngram_frequencies(
-        combined_text, custom_stopwords, max_ngram=3
-    )
 
     # Generate the word cloud, excluding words in the prompt
     wordcloud = WordCloud(
@@ -80,71 +61,6 @@ def generate_word_cloud(
     ).generate_from_frequencies(ngram_frequencies)
 
     return wordcloud.to_image()
-
-
-def compute_ngram_frequencies(text, custom_stopwords, max_ngram=3):
-    """
-    Compute the frequencies of uni-grams, bi-grams, tri-grams, etc., up to the specified n-gram length,
-    combining them into a single frequency dictionary without duplication. Higher-order n-grams take precedence.
-
-    Args:
-        text (str): The input text to analyze.
-        custom_stopwords (set): A set of stopwords combining the standard stopwords, words from the prompt,
-                                and any additional specified words.
-        max_ngram (int): The maximum length of n-grams to include (e.g., 3 includes uni-grams, bi-grams, and tri-grams). Default is 3.
-
-    Returns:
-        dict: A dictionary where keys are n-grams (as strings) and values are their frequencies in the text.
-    """
-    # Step 1: Tokenize text into words
-    tokens = [
-        word.lower()
-        for word in re.findall(r"\b\w+\b", text)
-        if word.lower() not in custom_stopwords
-    ]
-
-    # Step 2: Create n-grams and count frequencies for each n up to max_ngram
-    ngram_dicts = []
-    for n in range(1, max_ngram + 1):
-        ngrams_freq = FreqDist(ngrams(tokens, n))
-        # Convert n-grams to strings and add to list of dictionaries
-        ngram_dicts.append({" ".join(k): v for k, v in ngrams_freq.items()})
-
-    # Step 3: Combine frequencies without duplication, prioritizing higher-order n-grams
-    combined_freq = {}
-    for ngram_dict in reversed(ngram_dicts):  # Start with the highest-order n-grams
-        for phrase, freq in ngram_dict.items():
-            if phrase not in combined_freq:
-                combined_freq[phrase] = freq
-
-    return combined_freq
-
-
-def generate_stopwords(prompt_text, additional_stop_list=set()):
-    """
-    Generate a custom set of stopwords by combining standard stopwords, words from a given prompt,
-    and any additional specified stopwords.
-
-    Args:
-        prompt_text (str): The original prompt text to extract words from for custom stopwords.
-                           Words in this text will be excluded from the word cloud.
-        additional_stop_list (set, optional): Additional words to include in the stopwords.
-                                              Defaults to an empty set.
-
-    Returns:
-        set: A set of stopwords combining the standard stopwords, words from the prompt,
-             and any additional specified words.
-    """
-    # Create a set of stopwords from the prompt
-    if prompt_text is not None:
-        # Combine original stopwords with words from the prompt
-        custom_stopwords = STOPWORDS.union(set(prompt_text.lower().split()))
-        custom_stopwords = custom_stopwords.union(additional_stop_list)
-
-    else:
-        custom_stopwords = STOPWORDS
-
-    return custom_stopwords
 
 
 def plot_text(ax, text, farm_type, country=None, max_character_per_line=23):
@@ -175,19 +91,16 @@ def plot_text(ax, text, farm_type, country=None, max_character_per_line=23):
     ax.grid(True)
 
 
-def plot_wordcloud(ax, text_list, prompt_text, additional_stop_list, seed):
+def plot_wordcloud(ax, ngram_frequencies, seed):
     """
     Display a word cloud image on an axis.
 
     Args:
         ax (matplotlib.axes._axes.Axes): The axis to plot the word cloud.
-        text_list (list of str): A list of strings to be included in the word cloud.
-        prompt_text (str): The original prompt text to exclude words from the word cloud.
+        ngram_frequencies (dictionary): a dictionary recording freq of word occurring
         additional_stop_list (set): Additional words to exclude from the word cloud.
     """
-    wordcloud_image = generate_word_cloud(
-        text_list, prompt_text, additional_stop_list, seed
-    )
+    wordcloud_image = generate_word_cloud(ngram_frequencies, seed)
     ax.imshow(wordcloud_image)
     ax.axis("off")
     ax.grid(True)
@@ -196,8 +109,7 @@ def plot_wordcloud(ax, text_list, prompt_text, additional_stop_list, seed):
 def plot_revised_prompt(
     ax,
     revised_prompt_col,
-    prompt_text,
-    additional_stop_list,
+    ngram_frequencies,
     seed,
     farm_type,
     country=None,
@@ -209,8 +121,7 @@ def plot_revised_prompt(
         ax (matplotlib.axes._axes.Axes): The axis to display the revised prompt or word cloud.
         revised_prompt_col (pd.Series): A column of revised prompts. If only one unique prompt is present,
                                         it will be displayed as text; otherwise, a word cloud is generated.
-        prompt_text (str): The original prompt text to exclude words from the word cloud.
-        additional_stop_list (set): Additional words to exclude from the word cloud.
+        ngram_frequencies (dictionary): a dictionary recording the freq of each word occurring
         seed (int, optional): Random seed for reproducibility when selecting sample images. Defaults to 7.
         farm_types (list): List of farm types to display.
 
@@ -224,8 +135,7 @@ def plot_revised_prompt(
         else:
             plot_text(ax, unique_list[0], farm_type)
     else:  # if there are multiple, use word cloud
-        revised_prompt_text = revised_prompt_col.tolist()
-        plot_wordcloud(ax, revised_prompt_text, prompt_text, additional_stop_list, seed)
+        plot_wordcloud(ax, ngram_frequencies, seed)
 
 
 def plot_image(ax, image_path):
@@ -283,12 +193,89 @@ def add_grey_to_no_revise_col(
     return fig
 
 
+def extract_word_frequencies(
+    word_freq_summary,
+    generation_type,
+    farm_type,
+    model,
+    top_word_n_to_show=20,
+    country=None,
+):
+    """
+    Extracts word frequencies from a summary DataFrame for a specific combination of
+    generation type, farm type, and model, converting the filtered data into a dictionary
+    of word frequencies.
+
+    This function performs three main steps:
+    1. Filters the summary data for the specified conditions
+    2. Removes metadata columns that aren't word frequencies
+    3. Converts the remaining frequency data into a dictionary format
+
+    Parameters:
+    -----------
+    word_freq_summary : pandas.DataFrame
+        The input DataFrame containing word frequency summaries across different
+        conditions. Should contain columns for metadata (generation_type, country, etc.)
+        and word frequency counts.
+
+    generation_type : str
+        The specific generation type to filter for (e.g., 'basic').
+
+    farm_type : str
+        The type of farm to analyze (e.g., 'dairy', 'pig').
+
+    model : str
+        The model used for generation (e.g., 'dall-e-3').
+
+    top_word_n_to_show : int
+        The number used in the summary column name (e.g., if 20, will remove
+        'top_20_words' column).
+
+    country : str, optional
+        The specific country to filter for.
+        Default is None.
+
+    Returns:
+    --------
+    dict
+        A dictionary where keys are words/phrases and values are their frequencies.
+        For example: {'green pasture': 15, 'sunny day': 10}
+
+    """
+    # First, filter the data for our specific conditions
+    filtered_data = filter_data(
+        word_freq_summary, [generation_type], [farm_type], model, country=country
+    )
+
+    # Define columns to remove (metadata and summary columns)
+    columns_to_drop = [
+        "generation_type",
+        "country",
+        "farm_type",
+        "prompt",
+        "model",
+        f"top_{top_word_n_to_show}_words",
+    ]
+
+    # Remove these columns to leave only frequency data
+    frequency_data = filtered_data.drop(columns=columns_to_drop)
+
+    # Convert to dictionary format - we expect only one row
+    # to_dict('records') returns a list of dictionaries, one per row
+    # We take the first (and should be only) row with [0]
+    word_frequencies = frequency_data.to_dict("records")[0]
+
+    return word_frequencies
+
+
 def plot_grid(
     megadata,
     generation_types,
     farm_types,
     title,
     additional_stop_list_dir,
+    word_freq_summary,
+    top_word_n_to_show=20,
     col_num=4,
     model="dall-e-3",
     seed=7,
@@ -302,6 +289,10 @@ def plot_grid(
         generation_types (list): List of generation types to display.
         title (str): Title for the entire plot.
         additional_stop_list_dir (dict): Dictionary of additional stopwords for each farm type.
+        word_freq_summary (dataframe): the dataframe recording the frequency of each word occurring
+        top_word_n_to_show (int): default=20
+            The number of most frequent words/phrases to include in the summary.
+            For example, if set to 20, shows the 20 most frequently occurring terms.
         col_num (int, optional): Number of columns in the grid. Defaults to 4.
         model (str, optional): The model used for generating images. Defaults to 'dall-e-3'.
         seed (int, optional): Random seed for reproducibility when selecting sample images. Defaults to 7.
@@ -355,6 +346,16 @@ def plot_grid(
                 megadata, [generation_type], [farm_type], model, country=None
             )
 
+            # extract the ngram frequency count from preivious calculation
+            ngram_frequencies = extract_word_frequencies(
+                word_freq_summary,
+                generation_type,
+                farm_type,
+                model,
+                top_word_n_to_show,
+                country=None,
+            )
+
             if not filtered_df.empty:
                 # Column 1: Prompt Text
                 prompt_text = filtered_df["prompt"].values[0]
@@ -365,8 +366,7 @@ def plot_grid(
                 plot_revised_prompt(
                     content_axes[row][1],
                     revised_prompt_col,
-                    prompt_text,
-                    additional_stop_list,
+                    ngram_frequencies,
                     seed,
                     farm_type,
                 )
@@ -387,9 +387,7 @@ def plot_grid(
                 gpt4_description = filtered_df["GPT4o_description"].dropna().tolist()
                 plot_wordcloud(
                     content_axes[row][3],
-                    gpt4_description,
-                    prompt_text,
-                    additional_stop_list,
+                    ngram_frequencies,
                     seed,
                 )
 
@@ -404,6 +402,8 @@ def plot_grid_country(
     countries,
     title,
     additional_stop_list_dir,
+    word_freq_summary,
+    top_word_n_to_show=20,
     col_num=4,
     model="dall-e-3",
     seed=7,
@@ -417,6 +417,10 @@ def plot_grid_country(
         generation_types (list): List of generation types to display.
         title (str): Title for the entire plot.
         additional_stop_list_dir (dict): Dictionary of additional stopwords for each farm type.
+        word_freq_summary (dataframe): the dataframe recording the frequency of each word occurring
+        top_word_n_to_show (int): default=20
+            The number of most frequent words/phrases to include in the summary.
+            For example, if set to 20, shows the 20 most frequently occurring terms.
         col_num (int, optional): Number of columns in the grid. Defaults to 4.
         model (str, optional): The model used for generating images. Defaults to 'dall-e-3'.
         seed (int, optional): Random seed for reproducibility when selecting sample images. Defaults to 7.
@@ -470,6 +474,16 @@ def plot_grid_country(
                 megadata, [generation_type], [farm_type], model, [country]
             )
 
+            # extract the ngram frequency count from preivious calculation
+            ngram_frequencies = extract_word_frequencies(
+                word_freq_summary,
+                generation_type,
+                farm_type,
+                model,
+                top_word_n_to_show,
+                country=None,
+            )
+
             if not filtered_df.empty:
                 # Column 1: Prompt Text
                 prompt_text = filtered_df["prompt"].values[0]
@@ -480,8 +494,7 @@ def plot_grid_country(
                 plot_revised_prompt(
                     content_axes[row][1],
                     revised_prompt_col,
-                    prompt_text,
-                    additional_stop_list,
+                    ngram_frequencies,
                     seed,
                     farm_type,
                     country,
@@ -500,12 +513,9 @@ def plot_grid_country(
                 plot_image(content_axes[row][2], image_path)
 
                 # Column 4: GPT-4 Description Word Cloud
-                gpt4_description = filtered_df["GPT4o_description"].dropna().tolist()
                 plot_wordcloud(
                     content_axes[row][3],
-                    gpt4_description,
-                    prompt_text,
-                    additional_stop_list,
+                    ngram_frequencies,
                     seed,
                 )
 
