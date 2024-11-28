@@ -273,7 +273,6 @@ def plot_grid(
     generation_types,
     farm_types,
     title,
-    additional_stop_list_dir,
     revised_word_freq_summary,
     description_word_freq_summary,
     top_word_n_to_show=20,
@@ -289,7 +288,6 @@ def plot_grid(
         megadata (pd.DataFrame): The DataFrame containing the data.
         generation_types (list): List of generation types to display.
         title (str): Title for the entire plot.
-        additional_stop_list_dir (dict): Dictionary of additional stopwords for each farm type.
         revised_word_freq_summary (dataframe): the dataframe recording the frequency of each word occurring in revised prompts
         description_word_freq_summary (dataframe): the dataframe recording the frequency of each word occurring in GPT4o descriptions
         top_word_n_to_show (int): default=20
@@ -413,7 +411,6 @@ def plot_grid_country(
     farm_type,
     countries,
     title,
-    additional_stop_list_dir,
     revised_word_freq_summary,
     description_word_freq_summary,
     top_word_n_to_show=20,
@@ -429,7 +426,6 @@ def plot_grid_country(
         megadata (pd.DataFrame): The DataFrame containing the data.
         generation_types (list): List of generation types to display.
         title (str): Title for the entire plot.
-        additional_stop_list_dir (dict): Dictionary of additional stopwords for each farm type.
         revised_word_freq_summary (dataframe): the dataframe recording the frequency of each word occurring in revised prompts
         description_word_freq_summary (dataframe): the dataframe recording the frequency of each word occurring in GPT4o descriptions
         top_word_n_to_show (int): default=20
