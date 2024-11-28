@@ -242,148 +242,18 @@ def count_word_freq(
 
     if ngram_range == (1, 1):
         output_file = (
-            Path() / "results" / "megadata" / (col_of_interest + "_1gram_freq_summary.csv")
+            Path()
+            / "results"
+            / "megadata"
+            / (col_of_interest + "_1gram_freq_summary.csv")
         )
     else:
         output_file = (
-            Path() / "results" / "megadata" / (col_of_interest + "_2_3gram_freq_summary.csv")
+            Path()
+            / "results"
+            / "megadata"
+            / (col_of_interest + "_2_3gram_freq_summary.csv")
         )
     n_gram_freq_summary.to_csv(output_file, index=False)
 
     return (n_gram_presence, words_n_gram, n_gram_freq_summary)
-
-# import the megadata dataframe, and sort by the length of revised prompts
-megadata_file = Path(".") / "results" / "megadata" / "image_megadata.csv"
-megadata = pd.read_csv(megadata_file, header=0)
-words_to_exclude_1gram = [
-    "cows",
-    "cow",
-    "farm",
-    "farms",
-    "pig",
-    "pigs",
-    "dairy",
-    "scene",
-    "background",
-    "picture",
-    "depicts",
-    "depiction",
-    "depicting",
-    "image",
-    "typical",
-    "representation",
-    "representing",
-    "showcase",
-    "showcasing",
-    "include",
-    "including",
-    "elements",
-    "united",
-    "states",
-    "america",
-    "american",
-    "germany",
-    "german",
-    "new",
-    "zealand",
-    "spain",
-    "spanish",
-    "australia",
-    "australian",
-    "seen",
-    "nearby",
-]
-words_to_exclude_2_3gram = [
-    "dairy cows",
-    "dairy cow",
-    "dairy farm",
-    "dairy farms",
-    "pig farms",
-    "pig farm",
-    "typical dairy",
-    "typical dairy farm",
-    "typical dairy farms",
-    "typical pig",
-    "typical pig farm",
-    "typical pig farms",
-    "image typical",
-    "image typical dairy",
-    "image typical pig",
-    "representation typical",
-    "representation typical dairy",
-    "representation typical pig",
-    "depiction typical",
-    "depiction typical dairy",
-    "depiction typical pig",
-    "depicting typical",
-    "farm scene",
-    "pig farm scene",
-    "dairy farm scence",
-    "realistic depiction",
-    "realistic depiction typical",
-    "accurate representation",
-    "accurate representation typical",
-    "realistic image",
-    "realistic representation",
-    "realistic representation typical",
-    "accurate depiction",
-    "generate image",
-    "create image",
-    "scene include",
-    "scene depicting",
-    "farm scene includes",
-    "united states",
-    "new zealand",
-    "dairy farm united",
-    "dairy farms united",
-    "pig farm united",
-    "pig farms united",
-    "farm united",
-    "farms united",
-    "farm united states",
-    "farms united states",
-    "states scene",
-    "united states image",
-    "united states scene",
-    "dairy farm germany",
-    "dairy farms germany",
-    "farm germany",
-    "farms germany",
-    "germany scene",
-    "farm germany scene",
-    "farms germany scene",
-    "farm new",
-    "farm new zealand",
-    "dairy farm new",
-    "dairy farms new",
-    "new zealand scene",
-    "zealand scene",
-    "farm spain",
-    "farms spain",
-    "pig farm spain",
-    "pig farms spain",
-    "spain scene",
-    "farm spain scene",
-    "farms spain scene",
-    "farm australia",
-    "farms australia",
-    "pig farm australia",
-    "pig farms australia",
-    "australia scene",
-    "farm australia scene",
-    "farms australia scene",
-    "typical australian",
-    "fluffy white",
-]
-words_to_exclude = words_to_exclude_1gram + words_to_exclude_2_3gram
-
-revised_prompt_1gram, revised_prompt_words_1gram, revised_prompt_1gram_summary = (
-    module5_word_freq_count.count_word_freq(
-        megadata,
-        words_to_exclude = words_to_exclude_1gram,
-        col_of_interest="revised_prompt",
-        ngram_range=(1, 1),
-        min_freq_to_include=20,
-        top_word_n_to_show=20,
-    )
-)
