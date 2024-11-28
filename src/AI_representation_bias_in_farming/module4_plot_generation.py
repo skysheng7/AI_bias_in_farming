@@ -274,7 +274,8 @@ def plot_grid(
     farm_types,
     title,
     additional_stop_list_dir,
-    word_freq_summary,
+    revised_word_freq_summary,
+    description_word_freq_summary,
     top_word_n_to_show=20,
     col_num=4,
     model="dall-e-3",
@@ -289,7 +290,8 @@ def plot_grid(
         generation_types (list): List of generation types to display.
         title (str): Title for the entire plot.
         additional_stop_list_dir (dict): Dictionary of additional stopwords for each farm type.
-        word_freq_summary (dataframe): the dataframe recording the frequency of each word occurring
+        revised_word_freq_summary (dataframe): the dataframe recording the frequency of each word occurring in revised prompts
+        description_word_freq_summary (dataframe): the dataframe recording the frequency of each word occurring in GPT4o descriptions
         top_word_n_to_show (int): default=20
             The number of most frequent words/phrases to include in the summary.
             For example, if set to 20, shows the 20 most frequently occurring terms.
@@ -346,9 +348,19 @@ def plot_grid(
                 megadata, [generation_type], [farm_type], model, country=None
             )
 
-            # extract the ngram frequency count from preivious calculation
-            ngram_frequencies = extract_word_frequencies(
-                word_freq_summary,
+            # extract the ngram frequency count from revised prompts
+            revised_ngram_frequencies = extract_word_frequencies(
+                revised_word_freq_summary,
+                generation_type,
+                farm_type,
+                model,
+                top_word_n_to_show,
+                country=None,
+            )
+            
+            # extract the ngram frequency count from gpt4o descriptions
+            description_ngram_frequencies = extract_word_frequencies(
+                description_word_freq_summary,
                 generation_type,
                 farm_type,
                 model,
@@ -366,7 +378,7 @@ def plot_grid(
                 plot_revised_prompt(
                     content_axes[row][1],
                     revised_prompt_col,
-                    ngram_frequencies,
+                    revised_ngram_frequencies,
                     seed,
                     farm_type,
                 )
@@ -387,7 +399,7 @@ def plot_grid(
                 gpt4_description = filtered_df["GPT4o_description"].dropna().tolist()
                 plot_wordcloud(
                     content_axes[row][3],
-                    ngram_frequencies,
+                    description_ngram_frequencies,
                     seed,
                 )
 
@@ -402,7 +414,8 @@ def plot_grid_country(
     countries,
     title,
     additional_stop_list_dir,
-    word_freq_summary,
+    revised_word_freq_summary,
+    description_word_freq_summary,
     top_word_n_to_show=20,
     col_num=4,
     model="dall-e-3",
@@ -417,7 +430,8 @@ def plot_grid_country(
         generation_types (list): List of generation types to display.
         title (str): Title for the entire plot.
         additional_stop_list_dir (dict): Dictionary of additional stopwords for each farm type.
-        word_freq_summary (dataframe): the dataframe recording the frequency of each word occurring
+        revised_word_freq_summary (dataframe): the dataframe recording the frequency of each word occurring in revised prompts
+        description_word_freq_summary (dataframe): the dataframe recording the frequency of each word occurring in GPT4o descriptions
         top_word_n_to_show (int): default=20
             The number of most frequent words/phrases to include in the summary.
             For example, if set to 20, shows the 20 most frequently occurring terms.
@@ -474,9 +488,19 @@ def plot_grid_country(
                 megadata, [generation_type], [farm_type], model, [country]
             )
 
-            # extract the ngram frequency count from preivious calculation
-            ngram_frequencies = extract_word_frequencies(
-                word_freq_summary,
+            # extract the ngram frequency count from revised prompts
+            revised_ngram_frequencies = extract_word_frequencies(
+                revised_word_freq_summary,
+                generation_type,
+                farm_type,
+                model,
+                top_word_n_to_show,
+                country=None,
+            )
+            
+            # extract the ngram frequency count from gpt4o descriptions
+            description_ngram_frequencies = extract_word_frequencies(
+                description_word_freq_summary,
                 generation_type,
                 farm_type,
                 model,
@@ -494,7 +518,7 @@ def plot_grid_country(
                 plot_revised_prompt(
                     content_axes[row][1],
                     revised_prompt_col,
-                    ngram_frequencies,
+                    revised_ngram_frequencies,
                     seed,
                     farm_type,
                     country,
@@ -515,7 +539,7 @@ def plot_grid_country(
                 # Column 4: GPT-4 Description Word Cloud
                 plot_wordcloud(
                     content_axes[row][3],
-                    ngram_frequencies,
+                    description_ngram_frequencies,
                     seed,
                 )
 
