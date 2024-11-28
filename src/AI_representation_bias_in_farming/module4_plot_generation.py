@@ -357,7 +357,7 @@ def plot_grid(
                 top_word_n_to_show,
                 country=None,
             )
-            
+
             # extract the ngram frequency count from gpt4o descriptions
             description_ngram_frequencies = extract_word_frequencies(
                 description_word_freq_summary,
@@ -497,7 +497,7 @@ def plot_grid_country(
                 top_word_n_to_show,
                 country=None,
             )
-            
+
             # extract the ngram frequency count from gpt4o descriptions
             description_ngram_frequencies = extract_word_frequencies(
                 description_word_freq_summary,
