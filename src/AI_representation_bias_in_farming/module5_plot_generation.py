@@ -48,7 +48,7 @@ def create_darker_ocean_colormap():
         matplotlib.colors.LinearSegmentedColormap: The modified ocean colormap
     """
     # Get the original ocean colormap colors
-    ocean_colors = plt.cm.ocean(np.linspace(0, 1, 256))
+    ocean_colors = plt.cm.ocean(np.linspace(0.45, 1, 256))
 
     # Adjust the brightness range to ensure minimum darkness
     # We'll compress the brightness range to stay within darker values
