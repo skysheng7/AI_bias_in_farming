@@ -40,8 +40,7 @@ def filter_data(df, generation_types, farm_type=None, model="dall-e-3", country=
 
 def generate_word_cloud(ngram_frequencies, seed=7):
     """
-    Generate a word cloud image from a list of descriptions or prompts, excluding words found
-    in the original prompt and any additional specified stopwords.
+    Generate a word cloud image from a dictionary of word fre counts
 
     Args:
     ngram_frequencies (dictionary): a dictionary that summaries for each prompt, the freq of each word occurring
@@ -98,7 +97,7 @@ def plot_wordcloud(ax, ngram_frequencies, seed):
     Args:
         ax (matplotlib.axes._axes.Axes): The axis to plot the word cloud.
         ngram_frequencies (dictionary): a dictionary recording freq of word occurring
-        additional_stop_list (set): Additional words to exclude from the word cloud.
+        seed (int): random seed for reproducibility
     """
     wordcloud_image = generate_word_cloud(ngram_frequencies, seed)
     ax.imshow(wordcloud_image)
@@ -341,7 +340,6 @@ def plot_grid(
     for i, farm_type in enumerate(farm_types):
         for j, generation_type in enumerate(generation_types):
             row = i * len(generation_types) + j  # Row index for content_axes
-            additional_stop_list = additional_stop_list_dir.get(farm_type, set())
             filtered_df = filter_data(
                 megadata, [generation_type], [farm_type], model, country=None
             )
@@ -479,7 +477,6 @@ def plot_grid_country(
     for i, country in enumerate(countries):
         for j, generation_type in enumerate(generation_types):
             row = i * len(generation_types) + j  # Row index for content_axes
-            additional_stop_list = additional_stop_list_dir.get(farm_type, set())
             filtered_df = filter_data(
                 megadata, [generation_type], [farm_type], model, [country]
             )
