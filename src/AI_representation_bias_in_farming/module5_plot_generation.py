@@ -7,6 +7,7 @@ import random
 import textwrap
 from pathlib import Path
 
+import numpy as np
 from PIL import Image
 import matplotlib.patches as patches
 import matplotlib.pyplot as plt
@@ -51,8 +52,8 @@ def create_darker_ocean_colormap():
 
     # Adjust the brightness range to ensure minimum darkness
     # We'll compress the brightness range to stay within darker values
-    min_brightness = 0.3  # Minimum darkness level (0 is black, 1 is white)
-    max_brightness = 0.8  # Maximum brightness level
+    min_brightness = 0.1  # Minimum darkness level (0 is black, 1 is white)
+    max_brightness = 0.7  # Maximum brightness level
 
     # Create new color array with adjusted brightness
     new_colors = ocean_colors.copy()
