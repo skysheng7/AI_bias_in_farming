@@ -526,7 +526,7 @@ def plot_grid_country(
                 farm_type,
                 model,
                 top_word_n_to_show,
-                country=None,
+                country=country,
             )
 
             # extract the ngram frequency count from gpt4o descriptions
@@ -536,7 +536,7 @@ def plot_grid_country(
                 farm_type,
                 model,
                 top_word_n_to_show,
-                country=None,
+                country=country,
             )
 
             if not filtered_df.empty:
