@@ -52,11 +52,16 @@ def generate_word_cloud(ngram_frequencies, seed=7):
 
     # Generate the word cloud, excluding words in the prompt
     wordcloud = WordCloud(
-        colormap="ocean",
+        colormap="YlGnBu_r",
         width=400,
         height=400,
         background_color="white",
         random_state=seed,
+        min_font_size=10,
+        max_font_size=60,
+        prefer_horizontal=0.7,  # Allow some vertical text for better space usage
+        relative_scaling=0.5,  # Adjust size based on frequency, but not too extremely
+        collocations=False,  # Important: disable automatic collocation detection
     ).generate_from_frequencies(ngram_frequencies)
 
     return wordcloud.to_image()
