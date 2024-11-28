@@ -10,9 +10,8 @@ from pathlib import Path
 from PIL import Image
 import matplotlib.patches as patches
 import matplotlib.pyplot as plt
-from wordcloud import WordCloud, STOPWORDS
-from nltk import FreqDist
-from nltk.util import ngrams
+from matplotlib.colors import LinearSegmentedColormap
+from wordcloud import WordCloud
 
 
 def filter_data(df, generation_types, farm_type=None, model="dall-e-3", country=None):
@@ -38,6 +37,39 @@ def filter_data(df, generation_types, farm_type=None, model="dall-e-3", country=
     return filtered_df
 
 
+def create_darker_ocean_colormap():
+    """
+    Creates a modified version of the 'ocean' colormap where the minimum blue shade
+    is darker for better visibility. This preserves the beautiful ocean color progression
+    while ensuring all text remains readable against a white background.
+
+    Returns:
+        matplotlib.colors.LinearSegmentedColormap: The modified ocean colormap
+    """
+    # Get the original ocean colormap colors
+    ocean_colors = plt.cm.ocean(np.linspace(0, 1, 256))
+
+    # Adjust the brightness range to ensure minimum darkness
+    # We'll compress the brightness range to stay within darker values
+    min_brightness = 0.3  # Minimum darkness level (0 is black, 1 is white)
+    max_brightness = 0.8  # Maximum brightness level
+
+    # Create new color array with adjusted brightness
+    new_colors = ocean_colors.copy()
+    for i in range(len(new_colors)):
+        # Calculate the original position in the color range (0 to 1)
+        position = i / (len(new_colors) - 1)
+        # Adjust the brightness to stay within our desired range
+        brightness = min_brightness + position * (max_brightness - min_brightness)
+        # Apply the brightness adjustment while preserving the color's hue
+        new_colors[i] = np.clip(ocean_colors[i] * brightness, 0, 1)
+
+    # Create new colormap with adjusted colors
+    darker_ocean = LinearSegmentedColormap.from_list("darker_ocean", new_colors)
+
+    return darker_ocean
+
+
 def generate_word_cloud(ngram_frequencies, seed=7):
     """
     Generate a word cloud image from a dictionary of word fre counts
@@ -52,14 +84,14 @@ def generate_word_cloud(ngram_frequencies, seed=7):
 
     # Generate the word cloud, excluding words in the prompt
     wordcloud = WordCloud(
-        colormap="YlGnBu_r",
+        colormap=create_darker_ocean_colormap(),
         width=400,
         height=400,
         background_color="white",
         random_state=seed,
         min_font_size=10,
-        max_font_size=60,
-        prefer_horizontal=0.7,  # Allow some vertical text for better space usage
+        max_font_size=70,
+        prefer_horizontal=0.8,  # Allow some vertical text for better space usage
         relative_scaling=0.5,  # Adjust size based on frequency, but not too extremely
         collocations=False,  # Important: disable automatic collocation detection
     ).generate_from_frequencies(ngram_frequencies)
