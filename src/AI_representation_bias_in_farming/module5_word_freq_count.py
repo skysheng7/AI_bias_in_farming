@@ -247,6 +247,13 @@ def count_word_freq(
             / "megadata"
             / (col_of_interest + "_1gram_freq_summary.csv")
         )
+    elif ngram_range == (2, 2):
+        output_file = (
+            Path("..")
+            / "results"
+            / "megadata"
+            / (col_of_interest + "_2gram_freq_summary.csv")
+        )
     else:
         output_file = (
             Path("..")
