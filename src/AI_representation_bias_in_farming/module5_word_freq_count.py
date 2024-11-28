@@ -229,25 +229,25 @@ def count_word_freq(
     --------
     nothing
     """
-    revised_prompt_n_gram, words_n_gram = mark_word_presence(
+    n_gram_presence, words_n_gram = mark_word_presence(
         megadata,
         words_to_exclude,
         col_of_interest=col_of_interest,
         ngram_range=ngram_range,
         min_freq=min_freq_to_include,
     )
-    revised_prompt_n_gram_summary = word_freq_summary(
-        revised_prompt_n_gram, words_n_gram, top_word_n=top_word_n_to_show
+    n_gram_freq_summary = word_freq_summary(
+        n_gram_presence, words_n_gram, top_word_n=top_word_n_to_show
     )
 
     if ngram_range == (1, 1):
         output_file = (
-            Path() / "results" / "megadata" / "revised_prompt_1gram_freq_summary.csv"
+            Path() / "results" / "megadata" / (col_of_interest + "_1gram_freq_summary.csv")
         )
     else:
         output_file = (
-            Path() / "results" / "megadata" / "revised_prompt_2_3gram_freq_summary.csv"
+            Path() / "results" / "megadata" / (col_of_interest + "_2_3gram_freq_summary.csv")
         )
-    revised_prompt_n_gram_summary.to_csv("output_file", index=False)
+    n_gram_freq_summary.to_csv("output_file", index=False)
 
-    return (revised_prompt_n_gram, words_n_gram, revised_prompt_n_gram_summary)
+    return (n_gram_presence, words_n_gram, n_gram_freq_summary)
