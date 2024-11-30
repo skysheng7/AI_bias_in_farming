@@ -324,7 +324,7 @@ def select_col_names(col_num):
         column_titles = ["Prompt", "Example Image", "Description"]
     elif col_num == 4:
         column_titles = ["Prompt", "Revised Prompt", "Example Image", "Description"]
-    return col_num
+    return column_titles
 
 
 def plot_grid(
