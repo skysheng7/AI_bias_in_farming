@@ -241,33 +241,25 @@ def count_word_freq(
     )
 
     if ngram_range == (1, 1):
-        output_file = (
-            Path("..")
-            / "results"
-            / "megadata"
-            / (col_of_interest + "_1gram_freq_summary.csv")
-        )
+        output_bag_of_word = "_1gram_bag_of_words.csv"
+        output_summary = "_1gram_freq_summary.csv"
     elif ngram_range == (2, 2):
-        output_file = (
-            Path("..")
-            / "results"
-            / "megadata"
-            / (col_of_interest + "_2gram_freq_summary.csv")
-        )
+        output_bag_of_word = "_2gram_bag_of_words.csv"
+        output_summary = "_2gram_freq_summary.csv"
     elif ngram_range == (1, 2):
-        output_file = (
-            Path("..")
-            / "results"
-            / "megadata"
-            / (col_of_interest + "_1_2gram_freq_summary.csv")
-        )
+        output_bag_of_word = "_1_2gram_bag_of_words.csv"
+        output_summary = "_1_2gram_freq_summary.csv"
     elif ngram_range == (2, 3):
-        output_file = (
-            Path("..")
-            / "results"
-            / "megadata"
-            / (col_of_interest + "_2_3gram_freq_summary.csv")
-        )
-    n_gram_freq_summary.to_csv(output_file, index=False)
+        output_bag_of_word = "_2_3gram_bag_of_words.csv"
+        output_summary = "_2_3gram_freq_summary.csv"
+
+    output_bag_of_word_file = (
+        Path("..") / "results" / "megadata" / (col_of_interest + output_bag_of_word)
+    )
+    output_summary_file = (
+        Path("..") / "results" / "megadata" / (col_of_interest + output_summary)
+    )
+    n_gram_presence.to_csv(output_bag_of_word_file, index=False)
+    n_gram_freq_summary.to_csv(output_summary_file, index=False)
 
     return (n_gram_presence, words_n_gram, n_gram_freq_summary)
