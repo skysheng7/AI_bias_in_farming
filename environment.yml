@@ -2,16 +2,16 @@ name: ai_env
 channels:
   - conda-forge
 dependencies:
-  - python=3.11
-  - pandas=2.2.3
-  - openai=1.55.0
-  - requests=2.32.3
-  - pillow=11.0.0
-  - matplotlib=3.9.2
-  - nltk=3.9.1
-  - wordcloud=1.9.4
-  - python-dotenv=1.0.1 
   - conda-lock=2.5.7
   - ipykernel=6.29.5
+  - matplotlib=3.9.2
+  - nltk=3.9.1
+  - openai=1.55.0
+  - pandas=2.2.3
+  - pillow=11.0.0
+  - python-dotenv=1.0.1
+  - python=3.11
+  - requests=2.32.3
   - scikit-learn=1.5.2
+  - wordcloud=1.9.4
 prefix: /Users/skysheng/miniforge3/envs/ai_env
