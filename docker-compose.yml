@@ -1,0 +1,9 @@
+services:
+  analysis-env:
+    image: skysheng7/ai_bias:0f62816
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/home/ai_project
+    environment:
+    
