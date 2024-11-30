@@ -310,6 +310,23 @@ def extract_word_frequencies(
     return word_frequencies
 
 
+def select_col_names(col_num):
+    """
+    create a list of column names in the plot based on how many columns we want to plot
+
+    Args:
+        col_num (int, optional): Number of columns in the grid. Defaults to 4.
+
+    Return:
+        List: a list of column names
+    """
+    if col_num == 3:
+        column_titles = ["Prompt", "Example Image", "Description"]
+    elif col_num == 4:
+        column_titles = ["Prompt", "Revised Prompt", "Example Image", "Description"]
+    return col_num
+
+
 def plot_grid(
     megadata,
     generation_types,
@@ -372,7 +389,7 @@ def plot_grid(
     ]
 
     # Set column headers
-    column_titles = ["Prompt", "Revised Prompt", "Example Image", "Description"]
+    column_titles = select_col_names(col_num)
     for idx, col_title in enumerate(column_titles):
         header_axes[idx].text(
             0.5, 0.5, col_title, ha="center", va="center", fontsize=20, weight="bold"
@@ -388,14 +405,15 @@ def plot_grid(
             )
 
             # extract the ngram frequency count from revised prompts
-            revised_ngram_frequencies = extract_word_frequencies(
-                revised_word_freq_summary,
-                generation_type,
-                farm_type,
-                model,
-                top_word_n_to_show,
-                country=None,
-            )
+            if col_num == 4:  # DALLE-3 has revised prompts, and needs 4 columns in plot
+                revised_ngram_frequencies = extract_word_frequencies(
+                    revised_word_freq_summary,
+                    generation_type,
+                    farm_type,
+                    model,
+                    top_word_n_to_show,
+                    country=None,
+                )
 
             # extract the ngram frequency count from gpt4o descriptions
             description_ngram_frequencies = extract_word_frequencies(
@@ -410,17 +428,20 @@ def plot_grid(
             if not filtered_df.empty:
                 # Column 1: Prompt Text
                 prompt_text = filtered_df["prompt"].values[0]
-                plot_text(content_axes[row][0], prompt_text, farm_type)
+                cur_col = 0
+                plot_text(content_axes[row][cur_col], prompt_text, farm_type)
 
                 # Column 2: Revised Prompt Word Cloud
-                revised_prompt_col = filtered_df["revised_prompt"].dropna()
-                plot_revised_prompt(
-                    content_axes[row][1],
-                    revised_prompt_col,
-                    revised_ngram_frequencies,
-                    seed,
-                    farm_type,
-                )
+                if col_num == 4:
+                    revised_prompt_col = filtered_df["revised_prompt"].dropna()
+                    cur_col += 1
+                    plot_revised_prompt(
+                        content_axes[row][cur_col],
+                        revised_prompt_col,
+                        revised_ngram_frequencies,
+                        seed,
+                        farm_type,
+                    )
 
                 # Column 3: Sample Image
                 random.seed(seed)
@@ -432,12 +453,14 @@ def plot_grid(
                     / generation_type
                     / file_name
                 )
-                plot_image(content_axes[row][2], image_path)
+                cur_col += 1
+                plot_image(content_axes[row][cur_col], image_path)
 
                 # Column 4: GPT-4 Description Word Cloud
                 gpt4_description = filtered_df["GPT4o_description"].dropna().tolist()
+                cur_col += 1
                 plot_wordcloud(
-                    content_axes[row][3],
+                    content_axes[row][cur_col],
                     description_ngram_frequencies,
                     seed,
                 )
@@ -509,7 +532,7 @@ def plot_grid_country(
     ]
 
     # Set column headers
-    column_titles = ["Prompt", "Revised Prompt", "Example Image", "Description"]
+    column_titles = select_col_names(col_num)
     for idx, col_title in enumerate(column_titles):
         header_axes[idx].text(
             0.5, 0.5, col_title, ha="center", va="center", fontsize=20, weight="bold"
@@ -524,15 +547,16 @@ def plot_grid_country(
                 megadata, [generation_type], [farm_type], model, [country]
             )
 
-            # extract the ngram frequency count from revised prompts
-            revised_ngram_frequencies = extract_word_frequencies(
-                revised_word_freq_summary,
-                generation_type,
-                farm_type,
-                model,
-                top_word_n_to_show,
-                country=country,
-            )
+            if col_num == 4:  # DALLE-3 has revised prompts, and needs 4 columns in plot
+                # extract the ngram frequency count from revised prompts
+                revised_ngram_frequencies = extract_word_frequencies(
+                    revised_word_freq_summary,
+                    generation_type,
+                    farm_type,
+                    model,
+                    top_word_n_to_show,
+                    country=country,
+                )
 
             # extract the ngram frequency count from gpt4o descriptions
             description_ngram_frequencies = extract_word_frequencies(
@@ -547,18 +571,23 @@ def plot_grid_country(
             if not filtered_df.empty:
                 # Column 1: Prompt Text
                 prompt_text = filtered_df["prompt"].values[0]
-                plot_text(content_axes[row][0], prompt_text, farm_type, country)
+                cur_col = 0
+                plot_text(content_axes[row][cur_col], prompt_text, farm_type, country)
 
-                # Column 2: Revised Prompt Word Cloud
-                revised_prompt_col = filtered_df["revised_prompt"].dropna()
-                plot_revised_prompt(
-                    content_axes[row][1],
-                    revised_prompt_col,
-                    revised_ngram_frequencies,
-                    seed,
-                    farm_type,
-                    country,
-                )
+                if (
+                    col_num == 4
+                ):  # DALLE-3 has revised prompts, and needs 4 columns in plot
+                    # Column 2: Revised Prompt Word Cloud
+                    revised_prompt_col = filtered_df["revised_prompt"].dropna()
+                    cur_col += 1
+                    plot_revised_prompt(
+                        content_axes[row][cur_col],
+                        revised_prompt_col,
+                        revised_ngram_frequencies,
+                        seed,
+                        farm_type,
+                        country,
+                    )
 
                 # Column 3: Sample Image
                 random.seed(seed)
@@ -570,11 +599,13 @@ def plot_grid_country(
                     / generation_type
                     / file_name
                 )
-                plot_image(content_axes[row][2], image_path)
+                cur_col += 1
+                plot_image(content_axes[row][cur_col], image_path)
 
                 # Column 4: GPT-4 Description Word Cloud
+                cur_col += 1
                 plot_wordcloud(
-                    content_axes[row][3],
+                    content_axes[row][cur_col],
                     description_ngram_frequencies,
                     seed,
                 )
