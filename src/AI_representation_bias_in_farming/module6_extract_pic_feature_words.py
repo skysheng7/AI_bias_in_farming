@@ -223,7 +223,9 @@ def intensive_extensive_calculation(
     # Calculate statistics
     summary_df = calculate_feature_stats(df)
 
-    output_file = Path("..") / "results" / "megadata" / "intensive_extensive_summary"
+    output_file = (
+        Path("..") / "results" / "megadata" / "intensive_extensive_summary.csv"
+    )
     summary_df.to_csv(output_file, index=False)
 
     return summary_df
