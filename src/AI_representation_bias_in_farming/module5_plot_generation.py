@@ -465,7 +465,7 @@ def plot_grid(
                     seed,
                 )
 
-    save_plt(plt, generation_types[0])  # save the plot
+    save_plt(plt, generation_types[0], model)  # save the plot
     plt.show()
 
 
@@ -610,11 +610,11 @@ def plot_grid_country(
                     seed,
                 )
 
-    save_plt(plt, generation_types[0], farm_type)  # save the plot
+    save_plt(plt, generation_types[0], farm_type, model)  # save the plot
     plt.show()
 
 
-def save_plt(plt, generation_type, farm_type=None):
+def save_plt(plt, generation_type, farm_type=None, model="dall-e-3"):
     """
     Save a matplotlib plot as a PNG file in a specified directory, creating the directory if it does not exist.
 
@@ -628,12 +628,14 @@ def save_plt(plt, generation_type, farm_type=None):
         `generation_type` and `farm_type`. The file is saved at 300 dpi for high quality.
     """
     if farm_type is None:
-        file_name = generation_type.split("_")[0] + "_plot_grid.png"
+        file_name = generation_type.split("_")[0] + "_" + model + "_plot_grid.png"
     else:
         file_name = (
             generation_type.split("_")[0]
             + "_"
             + farm_type
+            + "_"
+            + model
             + "_by_country_plot_grid.png"
         )
 
