@@ -3,6 +3,7 @@
 results/dall-e-3-images/
 results/sd3.5-large-images/
 results/plots/
+results/cluster_eda
 
 # IDE configuration files
 .vscode/
