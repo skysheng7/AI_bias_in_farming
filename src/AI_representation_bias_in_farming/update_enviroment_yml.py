@@ -90,6 +90,11 @@ def update_environment_yml(env_name, yml_file="./environment.yml"):
 @click.option("--env_name", type=str)
 def main(root_dir, env_name):
     """grab environment.yml, and add version numbers after each package"""
+
+    # in case anyone just entered "" to indicate it's root directory
+    if root_dir.strip() == "":
+        root_dir = "."
+
     # using the functions
     yml_path = Path(root_dir) / "environment.yml"
     update_environment_yml(env_name, yml_path)
