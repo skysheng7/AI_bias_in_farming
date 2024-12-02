@@ -8,26 +8,120 @@ import pandas as pd
 from PIL import Image
 
 
+def image_copy_and_paste_all_rows(filtered_rows, source_base, dest_folder, model):
+    """
+    Copy and resize multiple images based on filtered DataFrame rows.
+
+    Parameters
+    ----------
+    filtered_rows (pandas.DataFrame): DataFrame containing rows with image information,
+                                    must have 'generation_type' and 'file' columns
+    source_base (Path): Base path where source images are stored
+    dest_folder (Path): Destination folder path where processed images will be saved
+    model (str): Model name used to construct source image path (e.g., 'dall-e-3')
+
+    Returns
+    -----
+    None
+    """
+
+    if len(filtered_rows) > 0:
+        for _, row in filtered_rows.iterrows():
+            # Get source image path
+            source_file = (
+                source_base / (model + "-images") / row["generation_type"] / row["file"]
+            )
+
+            image_copy_and_paste(source_file, dest_folder)
+
+
+def image_copy_and_paste(source_file, dest_folder):
+    """
+    Copy an image file to a destination folder with resizing and quality reduction.
+
+    Parameters
+    ----------
+    source_file (Path): Source path of the image file to be processed
+    dest_folder (Path): Destination folder path where the processed image will be saved
+
+    Side Effects
+    -----------
+    - Creates a resized copy of the source image in the destination folder
+    - Prints error messages if source file is not found or processing fails
+
+    Retunrs
+    -----
+    None
+    """
+    if source_file.exists():
+        try:
+            # Open and resize image
+            img = Image.open(source_file)
+            # Reduce quality by resizing to 50% of original size
+            new_size = tuple(dim // 2 for dim in img.size)
+            img_resized = img.resize(new_size, Image.Resampling.LANCZOS)
+
+            # Save to destination
+            dest_file = dest_folder / source_file.name
+            img_resized.save(dest_file, quality=85, optimize=True)
+
+        except Exception as e:
+            print(f"Error processing {source_file}: {e}")
+    else:
+        print(f"Source file not found: {source_file}")
+
+
 def process_farm_images(
-    df, farm_type, condition_type, word_list, source_base, dest_base, model
+    df,
+    farm_type,
+    condition_type,
+    word_list,
+    source_base,
+    dest_base,
+    model,
+    grouping_style="by word",
+    negative_word_list=None,
 ):
     """
     Filter images based on word occurrences and organize them into folders.
 
-    Parameters:
-    df (DataFrame): dataframe with image metadata
-    farm_type (string): 'dairy' or 'pig'
-    condition_type (string): 'extensive' or 'intensive'
-    word_list (list): list of words to filter by
-    source_base (path): base path for source images
-    dest_base (path): base path for destination folders
+    Parameters
+    ----------
+    df (pandas.DataFrame):
+        DataFrame with image metadata, must include 'farm_type' and 'model' columns
+    farm_type (str):
+        Farm type to filter for ('dairy' or 'pig')
+    condition_type (str):
+        Condition type for folder organization ('extensive' or 'intensive')
+    word_list (list):
+        List of words to filter by (must be column names in df)
+    source_base (Path):
+        Base path for source images
+    dest_base (Path):
+        Base path for destination folders
+    model (str):
+        Model name for filtering and path construction (e.g., 'dall-e-3')
+    grouping_style (str), optional:
+        How to organize output folders:
+        - "by word": separate folder for each word
+        - "combine": single folder for all matches
+        Default is "by word"
+    negative_word_list (list), optional:
+        List of words that must have count of 0 in filtered results
+        Default is None
 
-    Return:
+    Returns
+    -------
     None
     """
     for word in word_list:
+
+        if grouping_style == "by word":
+            dest_folder = dest_base / farm_type / condition_type / word
+        elif grouping_style == "combine":
+            dest_folder = dest_base / farm_type / condition_type
+
         # Create destination folder if it doesn't exist
-        dest_folder = dest_base / farm_type / condition_type / word
         if not dest_folder.exists():
             dest_folder.mkdir(parents=True)
 
@@ -36,35 +130,19 @@ def process_farm_images(
             (df[word] == 1) & (df["farm_type"] == farm_type) & (df["model"] == model)
         ]
 
-        if len(filtered_rows) > 0:
-            for _, row in filtered_rows.iterrows():
-                # Get source image path
-                source_file = (
-                    source_base
-                    / (model + "-images")
-                    / row["generation_type"]
-                    / row["file"]
-                )
+        # More efficient negative word filtering
+        if negative_word_list is not None:
+            # Filter rows where all columns in negative_word_list are 0
+            filtered_rows = filtered_rows[
+                filtered_rows[negative_word_list].eq(0).all(axis=1)
+            ]
 
-                if source_file.exists():
-                    try:
-                        # Open and resize image
-                        img = Image.open(source_file)
-                        # Reduce quality by resizing to 50% of original size
-                        new_size = tuple(dim // 2 for dim in img.size)
-                        img_resized = img.resize(new_size, Image.Resampling.LANCZOS)
-
-                        # Save to destination
-                        dest_file = dest_folder / row["file"]
-                        img_resized.save(dest_file, quality=85, optimize=True)
-
-                    except Exception as e:
-                        print(f"Error processing {source_file}: {e}")
-                else:
-                    print(f"Source file not found: {source_file}")
+        image_copy_and_paste_all_rows(filtered_rows, source_base, dest_folder, model)
 
 
-def create_feature_column(df, farm_type_filter, word_list, feature_name):
+def create_feature_column(
+    df, farm_type_filter, word_list, feature_name, negative_word_list=None
+):
     """
     Create a binary column in a DataFrame based on farm type and word list conditions.
 
@@ -74,6 +152,9 @@ def create_feature_column(df, farm_type_filter, word_list, feature_name):
     farm_type_filter (str): The farm type to filter for (e.g., 'dairy' or 'pig')
     word_list (list of str): List of words to check for in the DataFrame columns
     feature_name (str):  Name of the new binary column to create
+    negative_word_list (list), optional:
+        List of words that must have count of 0 in filtered results
+        Default is None
 
     Returns
     -------
@@ -94,6 +175,13 @@ def create_feature_column(df, farm_type_filter, word_list, feature_name):
     for word in word_list:
         if word in df.columns:
             df.loc[mask & (df[word] == 1), feature_name] = 1
+
+    # For each word in the negative_word_list, if any negative word exist (==1),
+    # revert the feature name to be 0
+    if negative_word_list is not None:
+        for neg_word in negative_word_list:
+            if neg_word in df.columns:
+                df.loc[mask & (df[neg_word] == 1), feature_name] = 0
 
     return df
 
@@ -181,7 +269,15 @@ def calculate_feature_stats(df):
 
 
 def intensive_extensive_calculation(
-    raw_freq_df, dairy_extensive, dairy_intensive, pig_extensive, pig_intensive
+    raw_freq_df,
+    dairy_extensive,
+    dairy_intensive,
+    pig_extensive,
+    pig_intensive,
+    dairy_extensive_negative_list,
+    dairy_intensive_negative_list,
+    pig_extensive_negative_list,
+    pig_intensive_negative_list,
 ):
     """
     Calculate intensive and extensive feature statistics for dairy and pig farms and save results.
@@ -215,10 +311,34 @@ def intensive_extensive_calculation(
     raw_freq_df["exten"] = 0
     raw_freq_df["inten"] = 0
     # Create feature columns
-    df = create_feature_column(raw_freq_df, "dairy", dairy_extensive, "exten")
-    df = create_feature_column(df, "dairy", dairy_intensive, "inten")
-    df = create_feature_column(df, "pig", pig_extensive, "exten")
-    df = create_feature_column(df, "pig", pig_intensive, "inten")
+    df = create_feature_column(
+        raw_freq_df,
+        "dairy",
+        dairy_extensive,
+        "exten",
+        negative_word_list=dairy_extensive_negative_list,
+    )
+    df = create_feature_column(
+        df,
+        "dairy",
+        dairy_intensive,
+        "inten",
+        negative_word_list=dairy_intensive_negative_list,
+    )
+    df = create_feature_column(
+        df,
+        "pig",
+        pig_extensive,
+        "exten",
+        negative_word_list=pig_extensive_negative_list,
+    )
+    df = create_feature_column(
+        df,
+        "pig",
+        pig_intensive,
+        "inten",
+        negative_word_list=pig_intensive_negative_list,
+    )
 
     # Calculate statistics
     summary_df = calculate_feature_stats(df)
