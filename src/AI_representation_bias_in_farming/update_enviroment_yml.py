@@ -5,6 +5,7 @@ import re
 import subprocess
 from pathlib import Path
 import yaml
+import click
 
 
 def process_dependency(dep, installed_packages):
@@ -84,7 +85,14 @@ def update_environment_yml(env_name, yml_file="./environment.yml"):
     print(f"Updated {yml_file} with versions from the {env_name} environment.")
 
 
-# using the functions
-yml_file = Path(".") / "environment.yml"
-env_name = "ai_env"
-update_environment_yml("ai_env", yml_file)
+@click.command()
+@click.option("--yml_path", type=str)
+@click.option("--env_name", type=str)
+def main(yml_path, env_name):
+    """grab environment.yml, and add version numbers after each package"""
+    # using the functions
+    update_environment_yml(env_name, yml_path)
+
+
+if __name__ == "__main__":
+    main()
