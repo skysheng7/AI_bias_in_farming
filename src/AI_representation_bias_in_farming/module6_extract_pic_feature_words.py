@@ -5,7 +5,6 @@ from pathlib import Path
 
 import pandas as pd
 from PIL import Image
-import seaborn as sns
 import matplotlib.pyplot as plt
 
 def image_copy_and_paste_all_rows(filtered_rows, source_base, dest_folder, model):
