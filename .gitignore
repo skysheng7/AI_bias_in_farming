@@ -5,6 +5,7 @@ results/sd3.5-large-images/
 results/plots/
 results/cluster_eda
 results/cluster_eda2
+results/cluster_eda3
 
 # IDE configuration files
 .vscode/

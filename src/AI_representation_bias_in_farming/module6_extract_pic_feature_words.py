@@ -343,6 +343,9 @@ def intensive_extensive_calculation(
     # Calculate statistics
     summary_df = calculate_feature_stats(df)
 
+    # sort
+    summary_df = summary_df.sort_values(["model", "farm_type", "generation_type"])
+
     output_file = (
         Path("..") / "results" / "megadata" / "intensive_extensive_summary.csv"
     )
