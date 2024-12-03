@@ -1,4 +1,8 @@
 """Library of functions used to append package versions in environment.yml files 
+
+   Example command line usage: 
+   python src/AI_representation_bias_in_farming/update_enviroment_yml.py --root_dir="." --env_name="ai_env"
+   
 """
 
 import re
@@ -102,3 +106,5 @@ def main(root_dir, env_name):
 
 if __name__ == "__main__":
     main()
+
+

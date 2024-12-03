@@ -15,4 +15,5 @@ dependencies:
 - scikit-learn=1.5.2
 - wordcloud=1.9.4
 - jupyterlab=4.3.1
+- seaborn=0.13.2
 prefix: /Users/skysheng/miniforge3/envs/ai_env
