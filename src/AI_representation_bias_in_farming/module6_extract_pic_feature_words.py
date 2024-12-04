@@ -431,6 +431,17 @@ def create_plot_grid(summary_df):
         wspace=0.08,
     )  # width space between plots
 
+    # Add subplot labels (A), (B), (C), (D)
+    label_coords = [
+        (0.01, 0.98, "(A)"),  # top left
+        (0.01, 0.48, "(B)"),  # bottom left
+        (0.50, 0.98, "(C)"),  # top right
+        (0.50, 0.48, "(D)"),  # bottom right
+    ]
+
+    for x, y, label in label_coords:
+        fig.text(x, y, label, fontsize=27, fontweight="bold")
+
     summary_df["model"] = summary_df["model"].apply(
         lambda x: "DALL-E-3" if "dall-e-3" in x else x
     )
