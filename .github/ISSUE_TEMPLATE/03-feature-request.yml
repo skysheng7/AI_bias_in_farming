@@ -9,7 +9,7 @@ body:
       description: >
         Please make sure you check all these items before submitting your feature request.
       options:
-        - label: There are [no similar issues or pull requests](https://github.com/skysheng7/ai's-representation-bias-about-livestock-farming/issues) for this yet.
+        - label: There are [no similar issues or pull requests](https://github.com/skysheng7/AI_representation_bias_in_farming/issues) for this yet.
           required: true
 
   - type: textarea
