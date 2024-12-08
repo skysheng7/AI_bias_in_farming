@@ -1,6 +1,6 @@
 # AI's representation bias about livestock farming
 
-This project explores the bias text-to-image generative AI models have about livestock farming.
+This project explores the representation bias about livestock farming in text-to-image generative AI models (DALL-E 3 and Stable Diffusion 3.5-large).
 
 ## Dataset Information
 
@@ -31,8 +31,8 @@ This project explores the bias text-to-image generative AI models have about liv
 
 ## Dependencies
 
-- [Python 3.11](https://www.python.org/downloads/release/python-3110/)
-- Python packages listed in [environment.yml](./environment.yml).
+- [Python 3.11.10](https://www.python.org/downloads/release/python-3110/)
+- Python packages listed in [environment.yml](./environment.yml)
 
 ## Environment setup instructions
 
