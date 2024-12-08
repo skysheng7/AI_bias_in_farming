@@ -11,28 +11,8 @@ from AI_representation_bias_in_farming import module2_GPT4o
 
 def get_prompt_list():
     prompt_list = {
-        "dairy": {
-            "Please classify this image into one of these 3 categories. "
-            "Provide a brief explanation of why you chose this category.\n\n"
-            "[1] outdoor: Multiple cows (2 or more) visible in an outdoor setting with clear access "
-            "to pasture or grassland\n\n"
-            "[2] indoor: All visible cows are housed inside buildings or structures\n\n"
-            "[3] other: Any image that either:\n"
-            "   - Does not clearly fit the outdoor or indoor categories\n"
-            "   - Is not clearly a dairy farm setting\n"
-            "   - Has ambiguous or unclear background"
-        },
-        "pig": {
-            "Please classify this image into one of these 3 categories. "
-            "Provide a brief explanation of why you chose this category.\n\n"
-            "[1] outdoor: Multiple pigs (2 or more) visible in an outdoor setting with access "
-            "to pasture, grassland, mud, or snow\n\n"
-            "[2] indoor: All visible pigs are housed inside buildings or structures\n\n"
-            "[3] other: Any image that either:\n"
-            "   - Does not clearly fit the outdoor or indoor categories\n"
-            "   - Is not clearly a pig farm setting\n"
-            "   - Has ambiguous or unclear background"
-        },
+        "dairy": "Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.\n\n[1] outdoor: Multiple cows (2 or more) visible in an outdoor setting with clear access to pasture or grassland\n\n[2] indoor: All visible cows are housed inside buildings or structures\n\n[3] other: Any image that either:\n   - Does not clearly fit the outdoor or indoor categories\n   - Is not clearly a dairy farm setting\n   - Has ambiguous or unclear background",
+        "pig": "Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.\n\n[1] outdoor: Multiple pigs (2 or more) visible in an outdoor setting with access to pasture, grassland, mud, or snow\n\n[2] indoor: All visible pigs are housed inside buildings or structures\n\n[3] other: Any image that either:\n   - Does not clearly fit the outdoor or indoor categories\n   - Is not clearly a pig farm setting\n   - Has ambiguous or unclear background",
     }
 
     return prompt_list
@@ -61,7 +41,4 @@ def main():
 
 # Only execute this code if the script is run directly
 if __name__ == "__main__":
-    #main()
-    dict = get_prompt_list()
-    print(dict["dairy"])
-    print(dict["pig"])
+    main()
