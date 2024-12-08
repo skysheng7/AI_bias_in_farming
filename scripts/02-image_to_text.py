@@ -2,7 +2,7 @@
     and generate a detailed text description for each image using OpenAI's GPT-4o model
 """
 
-from AI_representation_bias_in_farming import module3_GPT4o
+from AI_representation_bias_in_farming import module2_GPT4o
 
 
 def main():
@@ -14,7 +14,7 @@ def main():
     start_index = 480
     end_index = None
 
-    megadata = module3_GPT4o.describe_all_images(
+    megadata = module2_GPT4o.describe_all_images(
         model,
         prompt,
         detail_level,

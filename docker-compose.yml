@@ -4,7 +4,9 @@ services:
     ports:
       - "8888:8888"
     volumes:
-      - .:/home/ai_project
-    environment:
-
-
+      - .:/home/jovyan
+    deploy:
+      resources:
+        limits:
+          memory: 5G
+    platform: linux/amd64

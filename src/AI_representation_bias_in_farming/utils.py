@@ -10,7 +10,6 @@ from dotenv import load_dotenv
 
 from AI_representation_bias_in_farming import module0_dalle3
 from AI_representation_bias_in_farming import module1_sd
-from AI_representation_bias_in_farming import module2_imagen3
 
 
 def get_prompt(country, farm_type, generation_type):
@@ -73,7 +72,7 @@ def save_imag(generation_type, img_count, farm_type, image_bytes, country, model
         img_count (int): the current index (ID) of the generated image
         farm_type (str): which type of livestock farm shoulld the image depict. options: dairy, pig
         country (str): which country should the image content be based on. options: pd.NA, Canada, the United States, Germany
-        model (str): which model did we use, dall-e-3 or imagen3, or stable-diffusion-3.5
+        model (str): which model did we use, dall-e-3 or stable-diffusion-3.5
 
     Returns:
         None
@@ -129,7 +128,7 @@ def save_megadata(
         generation_type (str): what type of text prompt is this. e.g., "basic", "basic_no_revise", "typical", "typical_no_revise"
         cur_prompt (str): the generated tect prompt
         revised_input (str): what GPT-4o automatically rephrased the prompt into based on cur_prompt (the prompt we generated)
-        model (str): which model did we use, dall-e-3 or imagen3, or stable-diffusion-3.5
+        model (str): which model did we use, dall-e-3 or stable-diffusion-3.5
 
     Returns:
         None
@@ -197,7 +196,6 @@ def get_key(model):
                      Accepted values are:
                      - "dall-e-3"
                      - "sd3.5-large"
-                     - "imagen3"
 
     Returns:
         str or None: The API key as a string if found; otherwise, None.
@@ -206,7 +204,7 @@ def get_key(model):
         ValueError: If the provided model name is not recognized.
 
     Notes:
-        - Ensure that the environment variables 'openai_key', 'stable_diffusion_key', and 'imagen3_key' are set in your environment or in a .env file.
+        - Ensure that the environment variables 'openai_key', 'stable_diffusion_key' are set in your environment or in a .env file.
         - The function uses the python-dotenv package to load environment variables from a .env file if present.
     """
 
@@ -217,8 +215,6 @@ def get_key(model):
         key = os.getenv("openai_key")
     elif model == "sd3.5-large":
         key = os.getenv("stable_diffusion_key")
-    elif model == "imagen-3.0-generate-001":
-        key = os.getenv("imagen3_key")
     else:
         key = None
 
@@ -238,7 +234,7 @@ def gen_image(
     """
     Generate images based on specified parameters using the selected AI model.
 
-    This function interfaces with different AI models to generate images according to the provided parameters. It supports models such as DALL·E 3, Stable Diffusion 3.5 Large, and Imagen 3.
+    This function interfaces with different AI models to generate images according to the provided parameters. It supports models such as DALL·E 3, Stable Diffusion 3.5 Large.
 
     Parameters:
         country (str): which country should the image content be based on.
@@ -248,7 +244,7 @@ def gen_image(
         n (int): how many images you want to generate starting from the start index
         max_retries (int): the maximum number of times we will retry prompting the model if the previous prompt failed due to safety reasons.
         retry_delay (int): the total number of seconds we wait to let the model reset before trying again
-        model (str, optional): The AI model to use for image generation. Defaults to 'dall-e-3'. Options: 'dall-e-3', 'sd3.5-large', "imagen-3.0-generate-001"
+        model (str, optional): The AI model to use for image generation. Defaults to 'dall-e-3'. Options: 'dall-e-3', 'sd3.5-large'
 
     Returns:
         None
@@ -285,21 +281,9 @@ def gen_image(
             retry_delay=retry_delay,
             model=model,
         )
-    elif model == "imagen-3.0-generate-001":  # prompt imagen3
-        module2_imagen3.imagen3_gen_image(
-            key=key,
-            country=country,
-            farm_type=farm_type,
-            generation_type=generation_type,
-            start_index=start_index,
-            n=n,
-            max_retries=max_retries,
-            retry_delay=retry_delay,
-            model=model,
-        )
     else:
         raise ValueError(
-            "Invalid model value provided. Please enter: 'dall-e-3', or 'sd3.5-large', or 'imagen-3.0-generate-001'"
+            "Invalid model value provided. Please enter: 'dall-e-3', or 'sd3.5-large'"
         )
 
 

@@ -3,10 +3,10 @@
     categories are: 
     [1] outdoor (in this image, there are cows that are outside on pasture or grassland, and there are pigs outside on pasture, grassland, mud or snow)
     [2] indoor (all cows or pigs in this image are kept indoors)
-    [3] others (everything else, including images that are irrelevant to a depiction of a dairy of pig farm, and images whose background is too ambuguous to tell if it's indoor or outdoor)
+    [3] other (everything else)
 """
 
-from AI_representation_bias_in_farming import module3_GPT4o
+from AI_representation_bias_in_farming import module2_GPT4o
 
 
 def get_prompt_list():
@@ -48,7 +48,7 @@ def main():
     start_index = 0
     end_index = 1
 
-    megadata = module3_GPT4o.cluster_all_images(
+    megadata = module2_GPT4o.cluster_all_images(
         model,
         prompt_list,
         detail_level,
