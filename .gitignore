@@ -175,6 +175,8 @@ docs/api
 target/
 
 # Jupyter Notebook
+.jupyter/
+.local/
 
 # IPython
 

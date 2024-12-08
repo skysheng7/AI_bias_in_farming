@@ -61,4 +61,7 @@ def main():
 
 # Only execute this code if the script is run directly
 if __name__ == "__main__":
-    main()
+    #main()
+    dict = get_prompt_list()
+    print(dict["dairy"])
+    print(dict["pig"])
