@@ -50,9 +50,25 @@ This project explores the representation bias about livestock farming in text-to
 
 - New to git and GitHub? Please follow the official [setup guide](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git) to get started.
 
+2. To run text-to-image or image-to-text models yourself, you'll need to set up API authentication:
+
+- Create a file named `.env` in the project's root directory
+- Add your API keys to this file in the following format:
+
+    ```
+    OPENAI_API_KEY=your_openai_key_here
+    stable_diffusion_key=your_stability_key_here
+    ```
+
+- To obtain API keys:
+  - For OpenAI (DALL-E 3): Follow the [OpenAI API setup guide](https://platform.openai.com/docs/quickstart)
+  - For Stable Diffusion: Register and get your key from the [Stability AI platform](https://platform.stability.ai/docs/getting-started)
+
+Note: The `.env` file contains sensitive information and is automatically ignored by git (listed in .gitignore) to protect your API keys.
+
 ### Starting the Analysis
 
-1. In your terminal, ensure you're in the project's root directory, then launch the Docker container:
+1. In your terminal, ensure you're in the project's root directory, and have created your own `.env` file, then launch the Docker container:
 
 ```
 docker compose up
@@ -68,21 +84,13 @@ Copy this URL and open it in your web browser to access the Jupyter Lab interfac
 3. In Jupyter Lab, you'll find all analysis notebooks in the "notebooks" directory on the left sidebar.
 Double-click any notebook to begin exploring the analysis.
 
-4. To run text-to-image or image-to-text models yourself, you'll need to set up API authentication:
+4. The rest of the project's code is organized into two main components for clarity and reusability:
 
-- Create a file named `.env` in the project's root directory
-- Add your API keys to this file in the following format:
+   **Core Scripts** (in the "scripts" directory):  
+   These contain the main workflow for generating images from text prompts and analyzing images using text descriptions. You can explore these scripts to understand the primary analysis pipeline.
 
-    ```
-    OPENAI_API_KEY=your_openai_key_here
-    stable_diffusion_key=your_stability_key_here
-    ```
-
-- To obtain API keys:
-  - For OpenAI (DALL-E 3): Follow the [OpenAI API setup guide](https://platform.openai.com/docs/quickstart)
-  - For Stable Diffusion: Register and get your key from the [Stability AI platform](https://platform.stability.ai/docs/getting-started)
-
-Note: The `.env` file contains sensitive information and is automatically ignored by git (listed in .gitignore) to protect your API keys.
+   **Helper Functions** (in "src/AI_representation_bias_in_farming"):**  
+   To maintain clean and modular code, I've packaged commonly used functions into a local Python package. This package has been pre-installed in the Docker environment as a dynamic version, meaning you can modify the source code and see changes reflected immediately without reinstallation.
 
 ### Project Cleanup
 
@@ -104,7 +112,10 @@ If you find this research valuable or interesting, please consider:
 - Creating a fork if you'd like to build upon or extend this research
 - Opening issues or pull requests if you have suggestions for improvements
 
-Your engagement helps advance our understanding of AI bias in agricultural contexts.
+## Questions Welcome
+
+I'm committed to making my research fully reproducible and accessible to all. If you encounter any difficulties running the code or need clarification on any part of this project, I welcome you to reach out directly at <skysheng7@gmail.com>.
+Open and reproducible data science workflow is my passion. Your ability to understand and build upon this work matters to me, and I'm here to support.
 
 ## Copyright
 
