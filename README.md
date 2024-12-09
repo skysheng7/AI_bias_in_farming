@@ -79,7 +79,7 @@ This project explores the representation bias about livestock farming in text-to
 You'll see it displayed as highlighted in the example screenshot below.
 Copy this URL and open it in your web browser to access the Jupyter Lab interface.
 
-<img src="img/docker_demo.png" width=400>
+    <img src="img/docker_demo.png" width=400>
 
 3. In Jupyter Lab, you'll find all analysis notebooks in the "notebooks" directory on the left sidebar.
 Double-click any notebook to begin exploring the analysis.
