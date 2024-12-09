@@ -41,28 +41,28 @@ This project explores the representation bias about livestock farming in text-to
 
 1. First, obtain a copy of this GitHub repository on your local machine.
 
-  - Open your terminal or command prompt and navigate to your preferred project directory using the `cd` command. Then execute these commands:
+    - Open your terminal or command prompt and navigate to your preferred project directory using the `cd` command. Then execute these commands:
 
-      ```bash
-      git clone https://github.com/skysheng7/AI_bias_in_farming.git
-      cd AI_bias_in_farming
-      ```
+        ```bash
+        git clone https://github.com/skysheng7/AI_bias_in_farming.git
+        cd AI_bias_in_farming
+        ```
 
-  - New to git and GitHub? Please follow the official [setup guide](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git) to get started.
+    - New to git and GitHub? Please follow the official [setup guide](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git) to get started.
 
 2. To run text-to-image or image-to-text models yourself, you'll need to set up API authentication:
 
-  - Create a file named `.env` in the project's root directory
-  - Add your API keys to this file in the following format:
+    - Create a file named `.env` in the project's root directory
+    - Add your API keys to this file in the following format:
 
-      ```
-      OPENAI_API_KEY=your_openai_key_here
-      stable_diffusion_key=your_stability_key_here
-      ```
+        ```
+        OPENAI_API_KEY=your_openai_key_here
+        stable_diffusion_key=your_stability_key_here
+        ```
 
-  - To obtain API keys:
-    - For OpenAI (DALL-E 3): Follow the [OpenAI API setup guide](https://platform.openai.com/docs/quickstart)
-    - For Stable Diffusion: Register and get your key from the [Stability AI platform](https://platform.stability.ai/docs/getting-started)
+    - To obtain API keys:
+        - For OpenAI (DALL-E 3): Follow the [OpenAI API setup guide](https://platform.openai.com/docs/quickstart)
+        - For Stable Diffusion: Register and get your key from the [Stability AI platform](https://platform.stability.ai/docs/getting-started)
 
     Note: The `.env` file contains sensitive information and is automatically ignored by git (listed in .gitignore) to protect your API keys.
 
@@ -86,11 +86,11 @@ Double-click any notebook to begin exploring the analysis.
 
 4. The rest of the project's code is organized into two main components for clarity and reusability:
 
-   - **Core Scripts** (in the "scripts" directory):  
-   These contain the main workflow for generating images from text prompts and analyzing images using text descriptions. You can explore these scripts to understand the primary analysis pipeline.
+    - **Core Scripts** (in the "scripts" directory):  
+    These contain the main workflow for generating images from text prompts and analyzing images using text descriptions. You can explore these scripts to understand the primary analysis pipeline.
 
-   - **Helper Functions** (in "src/AI_representation_bias_in_farming"):**  
-   To maintain clean and modular code, I've packaged commonly used functions into a local Python package. This package has been pre-installed in the Docker environment as a dynamic version, meaning you can modify the source code and see changes reflected immediately without reinstallation.
+    - **Helper Functions** (in "src/AI_representation_bias_in_farming"):**  
+    To maintain clean and modular code, I've packaged commonly used functions into a local Python package. This package has been pre-installed in the Docker environment as a dynamic version, meaning you can modify the source code and see changes reflected immediately without reinstallation.
 
 ### Project Cleanup
 
