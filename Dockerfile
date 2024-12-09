@@ -11,4 +11,5 @@ RUN mamba update --quiet --file /tmp/conda-linux-64.lock \
     && fix-permissions "${CONDA_DIR}" \
     && fix-permissions "/home/${NB_USER}"
 
-RUN python -m pip install -e /tmp
+RUN pip install openai==1.57.0 \
+    && python -m pip install -e /tmp 
