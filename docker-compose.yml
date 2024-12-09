@@ -5,6 +5,8 @@ services:
       - "8888:8888"
     volumes:
       - .:/home/jovyan
+    env_file:
+      - .env
     deploy:
       resources:
         limits:
