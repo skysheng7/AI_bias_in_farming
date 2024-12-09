@@ -12,6 +12,7 @@ from PIL import Image
 import openai
 from openai import OpenAI
 from pydantic import BaseModel
+from dotenv import load_dotenv
 
 from AI_representation_bias_in_farming import utils
 
@@ -64,9 +65,9 @@ def describe_all_images(
     """
     megadata = utils.read_megadata()  # read in megadata
 
-    # get API key
-    key = utils.get_key(model)
-    client = OpenAI(api_key=key)
+    # Load and set the API key
+    load_dotenv()
+    client = OpenAI()
 
     # Set end_index to the last index if not specified
     if end_index is None:
@@ -211,8 +212,9 @@ def cluster_all_images(
     megadata = utils.read_megadata()  # read in megadata
 
     # get API key
-    key = utils.get_key(model)
-    client = OpenAI(api_key=key)
+    # Load and set the API key
+    load_dotenv()
+    client = OpenAI()
 
     # Set end_index to the last index if not specified
     if end_index is None:

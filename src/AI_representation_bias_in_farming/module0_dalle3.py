@@ -8,6 +8,7 @@ import time
 import pandas as pd
 import openai
 from openai import OpenAI
+from dotenv import load_dotenv
 
 from AI_representation_bias_in_farming import utils
 
@@ -94,8 +95,9 @@ def dalle3_gen_image(
         None
 
     """
-
-    client = OpenAI(api_key=key)
+    # Load and set the API key
+    load_dotenv()
+    client = OpenAI()
 
     # generate n images
     for img_count in range(start_index, (start_index + n)):
