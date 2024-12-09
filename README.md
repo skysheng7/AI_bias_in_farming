@@ -64,6 +64,7 @@ This project explores the representation bias about livestock farming in text-to
         - For Stable Diffusion: Register and get your key from the [Stability AI platform](https://platform.stability.ai/docs/getting-started)
 
     - If you only want to analyze the existing image dataset without generating new images, you can create a placeholder .env file. This ensures the Docker container runs properly without real API keys. Create a file named .env in your project's root directory and add these placeholder values:
+
         ```
         OPENAI_API_KEY=test
         stable_diffusion_key=test
@@ -92,7 +93,13 @@ Double-click any notebook to begin exploring the analysis.
 4. The rest of the project's code is organized into two main components for clarity and reusability:
 
     - **Core Scripts** (in the "scripts" directory):  
-    These contain the main workflow for generating images from text prompts and analyzing images using text descriptions. You can explore these scripts to understand the primary analysis pipeline.
+    These contain the main workflow for generating images from text prompts and analyzing images using text descriptions. You can explore these scripts to understand the primary analysis pipeline. To run scripts please use (if you are at root directory):
+
+    ```
+    python "scripts/SCRIPT_NAME.py"
+    # example:
+    # python "scripts/03-image_cluster.py"
+    ```
 
     - **Helper Functions** (in "src/AI_representation_bias_in_farming"):**  
     To maintain clean and modular code, I've packaged commonly used functions into a local Python package. This package has been pre-installed in the Docker environment as a dynamic version, meaning you can modify the source code and see changes reflected immediately without reinstallation.
@@ -121,6 +128,26 @@ If you find this research valuable or interesting, please consider:
 
 I'm committed to making my research fully reproducible and accessible to all. If you encounter any difficulties running the code or need clarification on any part of this project, I welcome you to reach out directly at <skysheng7@gmail.com>.
 Open and reproducible data science workflow is my passion. Your ability to understand and build upon this work matters to me, and I'm here to support.
+
+I'll help create a clear repository structure section. Since you want a brief explanation for each item, I'll integrate this into your README.md:
+
+## Repository Structure
+
+This repository is organized as follows:
+
+- `img/`: Contains an images to demo the use of docker, inserted in README
+- `notebooks/`: Jupyter notebooks to analyze metadata of all generated images, generate wordcloud and plots
+- `results/`: Stores generated images (in database), and image metadata results from running the "scripts" and "src"
+- `scripts/`: Houses the main Python scripts that generate image from text, and generate text from images
+- `src/`: Contains the source code for our local Python package with helper functions and utilities
+- `CODE_OF_CONDUCT.md`: Guidelines for maintaining a welcoming and inclusive community atmosphere
+- `conda-linux-64.lock`: Specifies exact versions of Python dependencies for reproducible environments
+- `CONTRIBUTING.md`: Instructions and guidelines for contributing to this project
+- `docker-compose.yml`: Docker configuration for setting up the analysis environment
+- `Dockerfile`: Instructions for building the project's Docker container
+- `environment.yml`: Conda environment specifications for managing Python dependencies
+- `LICENSE`: Legal terms under which this project's code can be used and distributed
+- `pyproject.toml`: Python project metadata and build system requirements for Python packaging
 
 ## Copyright
 
