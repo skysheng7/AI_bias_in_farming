@@ -212,7 +212,7 @@ def get_key(model):
     load_dotenv()
 
     if model == "dall-e-3" or model == "gpt-4o-2024-08-06":
-        key = os.getenv("openai_key")
+        key = os.getenv("OPENAI_API_KEY")
     elif model == "sd3.5-large":
         key = os.getenv("stable_diffusion_key")
     else:
