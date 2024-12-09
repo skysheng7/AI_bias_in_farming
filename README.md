@@ -41,38 +41,38 @@ This project explores the representation bias about livestock farming in text-to
 
 1. First, obtain a copy of this GitHub repository on your local machine.
 
-- Open your terminal or command prompt and navigate to your preferred project directory using the `cd` command. Then execute these commands:
+  - Open your terminal or command prompt and navigate to your preferred project directory using the `cd` command. Then execute these commands:
 
       ```bash
       git clone https://github.com/skysheng7/AI_bias_in_farming.git
       cd AI_bias_in_farming
       ```
 
-- New to git and GitHub? Please follow the official [setup guide](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git) to get started.
+  - New to git and GitHub? Please follow the official [setup guide](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git) to get started.
 
 2. To run text-to-image or image-to-text models yourself, you'll need to set up API authentication:
 
-- Create a file named `.env` in the project's root directory
-- Add your API keys to this file in the following format:
+  - Create a file named `.env` in the project's root directory
+  - Add your API keys to this file in the following format:
 
       ```
       OPENAI_API_KEY=your_openai_key_here
       stable_diffusion_key=your_stability_key_here
       ```
 
-- To obtain API keys:
-  - For OpenAI (DALL-E 3): Follow the [OpenAI API setup guide](https://platform.openai.com/docs/quickstart)
-  - For Stable Diffusion: Register and get your key from the [Stability AI platform](https://platform.stability.ai/docs/getting-started)
+  - To obtain API keys:
+    - For OpenAI (DALL-E 3): Follow the [OpenAI API setup guide](https://platform.openai.com/docs/quickstart)
+    - For Stable Diffusion: Register and get your key from the [Stability AI platform](https://platform.stability.ai/docs/getting-started)
 
-  Note: The `.env` file contains sensitive information and is automatically ignored by git (listed in .gitignore) to protect your API keys.
+    Note: The `.env` file contains sensitive information and is automatically ignored by git (listed in .gitignore) to protect your API keys.
 
 ### Starting the Analysis
 
 1. In your terminal, ensure you're in the project's root directory, and have created your own `.env` file, then launch the Docker container:
 
-  ```
-  docker compose up
-  ```
+    ```
+    docker compose up
+    ```
 
 2. Watch your terminal output for a unique URL beginning with
 `http://127.0.0.1:8888/lab?token=`.
