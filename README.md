@@ -68,6 +68,22 @@ Copy this URL and open it in your web browser to access the Jupyter Lab interfac
 3. In Jupyter Lab, you'll find all analysis notebooks in the "notebooks" directory on the left sidebar.
 Double-click any notebook to begin exploring the analysis.
 
+4. To run text-to-image or image-to-text models yourself, you'll need to set up API authentication:
+
+- Create a file named `.env` in the project's root directory
+- Add your API keys to this file in the following format:
+
+    ```
+    OPENAI_API_KEY=your_openai_key_here
+    stable_diffusion_key=your_stability_key_here
+    ```
+
+- To obtain API keys:
+  - For OpenAI (DALL-E 3): Follow the [OpenAI API setup guide](https://platform.openai.com/docs/quickstart)
+  - For Stable Diffusion: Register and get your key from the [Stability AI platform](https://platform.stability.ai/docs/getting-started)
+
+Note: The `.env` file contains sensitive information and is automatically ignored by git (listed in .gitignore) to protect your API keys.
+
 ### Project Cleanup
 
 1. When you're finished, properly shut down the container and remove associated resources:
