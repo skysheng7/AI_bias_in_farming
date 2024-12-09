@@ -96,6 +96,16 @@ Press `Cntrl` + `C` in your terminal where the container is running, then execut
 - `conda` (>= 24.11.0)
 - `conda-lock` (>= 2.5.7)
 
+## Collaboration Welcome
+
+If you find this research valuable or interesting, please consider:
+
+- Starring this repository to help others discover this work
+- Creating a fork if you'd like to build upon or extend this research
+- Opening issues or pull requests if you have suggestions for improvements
+
+Your engagement helps advance our understanding of AI bias in agricultural contexts.
+
 ## Copyright
 
 - Copyright © 2024 Kehan (Sky) Sheng.
