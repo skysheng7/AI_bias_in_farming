@@ -31,58 +31,56 @@ This project explores the representation bias about livestock farming in text-to
 
 ## Dependencies
 
-- [Python 3.11.10](https://www.python.org/downloads/release/python-3110/)
-- Python packages listed in [environment.yml](./environment.yml)
+- [Docker](https://docs.docker.com/get-started/)
 
-## Environment setup instructions
+## Usage
 
-### Prerequisites
+### Setup
 
-- Install [Conda](https://docs.conda.io/en/latest/miniconda.html) to handle dependencies.
-- Install conda-lock
+> If you are using Windows or Mac, make sure [Docker Desktop](https://docs.docker.com/get-started/) is running.
 
-    ```bash
-    conda install -c conda-forge conda-lock
-    ```
+1. Clone this GitHub repository.
 
-- Install git
-
-    ```bash
-    conda install -c conda-forge git
-    ```
-
-- If you are unfamiliar with git and GitHub, please setup using this [guide](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git)
-
-### Setting up using conda-lock
-
-1. Clone this GitHub repository:
-    In your terminal or command line, navigate to the folder (use ``` cd ```) where you want this project to live in
+- In your terminal or command line, navigate to the folder (use ``` cd ```) where you want this project to live in
 
     ```bash
     git clone https://github.com/skysheng7/AI_bias_in_farming.git
     cd AI_bias_in_farming
     ```
 
-2. Alternatively, create and activate the environment using `conda-lock`:
+- If you are unfamiliar with git and GitHub, please setup using this [guide](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git)
 
-    ```bash
-    conda-lock install --name ai_env --file conda-lock.yml
-    conda activate ai_env
-    ```
+### Running the analysis
 
-3. Install the AI_representation_bias_In_farming python package
+1. Navigate to the root of this project on your computer using the
+   command line and enter the following command:
 
-    ```bash
-    python -m pip install -e .
-    ```
+```
+docker compose up
+```
 
-4. To terminate the environment
+2. In the terminal, look for a URL that starts with
+`http://127.0.0.1:8888/lab?token=`
+(for an example, see the highlighted text in the terminal below).
+Copy and paste that URL into your browser. You should see jupyter lab running in your browser
 
-    ```bash
-    conda deactivate
-    ```
+<img src="img/docker_demo.png" width=400>
 
-### Setting up using Docker
+3. To run the analysis,
+navigate to "notebooks" folder on your left hand side, and double click to open any jupyter notebook that you wish to run.
+
+### Clean up
+
+1. To shut down the container and clean up the resources,
+type `Cntrl` + `C` in the terminal
+where you launched the container, and then type `docker compose rm`
+
+## Developer notes
+
+### Developer dependencies
+
+- `conda` (version 24.11.0 or higher)
+- `conda-lock` (version 2.5.7 or higher)
 
 ## Copyright
 

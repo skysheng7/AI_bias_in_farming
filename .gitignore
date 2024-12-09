@@ -178,6 +178,7 @@ target/
 .jupyter/
 .local/
 .python_history
+.bash_history
 
 # IPython
 
