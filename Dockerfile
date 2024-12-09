@@ -1,11 +1,14 @@
 FROM quay.io/jupyter/minimal-notebook:afe30f0c9ad8
 
-# copy all necessary files for building the docker image into the notbook
+# copy conda environment dependencies
 COPY conda-linux-64.lock /tmp/conda-linux-64.lock
+
+# copy my local python package files to pip install in docker
 COPY pyproject.toml /tmp/pyproject.toml
 COPY src /tmp/src
 COPY README.md /tmp/README.md
 
+# conda install all the other packages
 RUN mamba update --quiet --file /tmp/conda-linux-64.lock \
     && mamba clean --all -y -f \
     && fix-permissions "${CONDA_DIR}" \
