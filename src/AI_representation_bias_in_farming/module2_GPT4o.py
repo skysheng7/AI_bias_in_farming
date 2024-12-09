@@ -311,6 +311,6 @@ def cluster_1_image(
         "response_format": clusterExtraction,
     }
 
-    # Assuming client.chat.completions.create is a function call to an external API
-    result = client.chat.completions.create(**params)
+    # ask for json format
+    result = client.beta.chat.completions.parse(**params)
     return result

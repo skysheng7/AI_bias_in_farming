@@ -259,7 +259,6 @@ def gen_image(
     # prompt DALLE-3
     if model == "dall-e-3":
         module0_dalle3.dalle3_gen_image(
-            key=key,
             country=country,
             farm_type=farm_type,
             generation_type=generation_type,

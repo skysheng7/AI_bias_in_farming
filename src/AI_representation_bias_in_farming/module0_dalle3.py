@@ -67,7 +67,6 @@ def dalle3_prompt_for_img(
 
 
 def dalle3_gen_image(
-    key,
     country,
     farm_type,
     generation_type,
@@ -81,7 +80,6 @@ def dalle3_gen_image(
     Generate n images in a roll, save the images into local folder, save the megadata related to each image into a csv file.
 
     Parameters:
-        key (str): API key to access DALLE-3 model
         country (str): which country should the image content be based on.
         farm_type (str): which type of livestock farm shoulld the image depict. options: dairy, pig
         generation_type (str): what type of text prompt is this. e.g., "basic", "basic_no_revise", "typical", "typical_no_revise"
