@@ -50,10 +50,9 @@ This project explores the representation bias about livestock farming in text-to
 
     - New to git and GitHub? Please follow the official [setup guide](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git) to get started.
 
-2. To run text-to-image or image-to-text models yourself, you'll need to set up API authentication:
+2. To run text-to-image(T2I) or image-to-text(I2T) models yourself, you'll need to set up API authentication:
 
-    - Create a file named `.env` in the project's root directory
-    - Add your API keys to this file in the following format:
+    - Create a file named `.env` in the project's root directory. Add your API keys to this file in the following format:
 
         ```
         OPENAI_API_KEY=your_openai_key_here
@@ -63,6 +62,12 @@ This project explores the representation bias about livestock farming in text-to
     - To obtain API keys:
         - For OpenAI (DALL-E 3): Follow the [OpenAI API setup guide](https://platform.openai.com/docs/quickstart)
         - For Stable Diffusion: Register and get your key from the [Stability AI platform](https://platform.stability.ai/docs/getting-started)
+
+    - If you only want to analyze the existing image dataset without generating new images, you can create a placeholder .env file. This ensures the Docker container runs properly without real API keys. Create a file named .env in your project's root directory and add these placeholder values:
+        ```
+        OPENAI_API_KEY=test
+        stable_diffusion_key=test
+        ```
 
     Note: The `.env` file contains sensitive information and is automatically ignored by git (listed in .gitignore) to protect your API keys.
 
