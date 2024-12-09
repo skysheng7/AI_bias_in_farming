@@ -177,6 +177,7 @@ target/
 # Jupyter Notebook
 .jupyter/
 .local/
+.python_history
 
 # IPython
 
