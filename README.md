@@ -33,54 +33,52 @@ This project explores the representation bias about livestock farming in text-to
 
 - [Docker](https://docs.docker.com/get-started/)
 
-## Usage
+## Usage Guide
 
-### Setup
+### Initial Setup
 
-> If you are using Windows or Mac, make sure [Docker Desktop](https://docs.docker.com/get-started/) is running.
+> Important: For Windows and Mac users, ensure [Docker Desktop](https://docs.docker.com/get-started/) is actively running before proceeding.
 
-1. Clone this GitHub repository.
+1. First, obtain a copy of this GitHub repository on your local machine.
 
-- In your terminal or command line, navigate to the folder (use ``` cd ```) where you want this project to live in
+- Open your terminal or command prompt and navigate to your preferred project directory using the `cd` command. Then execute these commands:
 
     ```bash
     git clone https://github.com/skysheng7/AI_bias_in_farming.git
     cd AI_bias_in_farming
     ```
 
-- If you are unfamiliar with git and GitHub, please setup using this [guide](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git)
+- New to git and GitHub? Please follow the official [setup guide](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git) to get started.
 
-### Running the analysis
+### Starting the Analysis
 
-1. Navigate to the root of this project on your computer using the
-   command line and enter the following command:
+1. In your terminal, ensure you're in the project's root directory, then launch the Docker container:
 
 ```
 docker compose up
 ```
 
-2. In the terminal, look for a URL that starts with
-`http://127.0.0.1:8888/lab?token=`
-(for an example, see the highlighted text in the terminal below).
-Copy and paste that URL into your browser. You should see jupyter lab running in your browser
+2. Watch your terminal output for a unique URL beginning with
+`http://127.0.0.1:8888/lab?token=`.
+You'll see it displayed as highlighted in the example screenshot below.
+Copy this URL and open it in your web browser to access the Jupyter Lab interface.
 
 <img src="img/docker_demo.png" width=400>
 
-3. To run the analysis,
-navigate to "notebooks" folder on your left hand side, and double click to open any jupyter notebook that you wish to run.
+3. In Jupyter Lab, you'll find all analysis notebooks in the "notebooks" directory on the left sidebar.
+Double-click any notebook to begin exploring the analysis.
 
-### Clean up
+### Project Cleanup
 
-1. To shut down the container and clean up the resources,
-type `Cntrl` + `C` in the terminal
-where you launched the container, and then type `docker compose rm`
+1. When you're finished, properly shut down the container and remove associated resources:
+Press `Cntrl` + `C` in your terminal where the container is running, then execute `docker compose rm`
 
 ## Developer notes
 
 ### Developer dependencies
 
-- `conda` (version 24.11.0 or higher)
-- `conda-lock` (version 2.5.7 or higher)
+- `conda` (>= 24.11.0)
+- `conda-lock` (>= 2.5.7)
 
 ## Copyright
 
