@@ -1,5 +1,5 @@
 """Library of functions used to see which words are the key features for describing images of 
-   extensive VS intensive farms
+   outdoor VS indoor farms
 """
 
 from pathlib import Path
@@ -73,130 +73,59 @@ def image_copy_and_paste(source_file, dest_folder):
         print(f"Source file not found: {source_file}")
 
 
-def process_farm_images(
+def cluster_farm_images(
     df,
-    farm_type,
-    condition_type,
-    word_list,
     source_base,
-    dest_base,
-    model,
-    grouping_style="by word",
-    negative_word_list=None,
+    dest_base
 ):
     """
-    Filter images based on word occurrences and organize them into folders.
+    Filter images based on the cluster GPT-4o assiigned to them ("outdoor", "indoor" or "other")
+    and organize them into folders.
 
     Parameters
     ----------
     df (pandas.DataFrame):
         DataFrame with image metadata, must include 'farm_type' and 'model' columns
-    farm_type (str):
-        Farm type to filter for ('dairy' or 'pig')
-    condition_type (str):
-        Condition type for folder organization ('extensive' or 'intensive')
-    word_list (list):
-        List of words to filter by (must be column names in df)
     source_base (Path):
         Base path for source images
     dest_base (Path):
         Base path for destination folders
-    model (str):
-        Model name for filtering and path construction (e.g., 'dall-e-3')
-    grouping_style (str), optional:
-        How to organize output folders:
-        - "by word": separate folder for each word
-        - "combine": single folder for all matches
-        Default is "by word"
-    negative_word_list (list), optional:
-        List of words that must have count of 0 in filtered results
-        Default is None
 
     Returns
     -------
     None
     """
-    for word in word_list:
+    condition_types = df["GPT4o_cluter"].unique()
+    farm_types = df["farm_type"].unique()
+    models = df["model"].unique()
+    
+    for model in models:
+        for farm_type in farm_types:
+            for condition_type in condition_types:
+                dest_folder = dest_base / model / farm_type / condition_type
 
-        if grouping_style == "by word":
-            dest_folder = dest_base / farm_type / condition_type / word
-        elif grouping_style == "combine":
-            dest_folder = dest_base / farm_type / condition_type
+                # Create destination folder if it doesn't exist
+                if not dest_folder.exists():
+                    dest_folder.mkdir(parents=True)
 
-        # Create destination folder if it doesn't exist
-        if not dest_folder.exists():
-            dest_folder.mkdir(parents=True)
-
-        # Filter rows where the word count is 1
-        filtered_rows = df[
-            (df[word] == 1) & (df["farm_type"] == farm_type) & (df["model"] == model)
-        ]
-
-        # More efficient negative word filtering
-        if negative_word_list is not None:
-            # Filter rows where all columns in negative_word_list are 0
-            filtered_rows = filtered_rows[
-                filtered_rows[negative_word_list].eq(0).all(axis=1)
-            ]
-
-        image_copy_and_paste_all_rows(filtered_rows, source_base, dest_folder, model)
+                # Filter rows based on model, farm_type and the cluster GPT4o assigns
+                filtered_rows = df[
+                    (df["GPT4o_cluter"] == condition_type) & (df["farm_type"] == farm_type) & (df["model"] == model)
+                ]
+                
+                # put the images belonging to this condition into the same folder
+                image_copy_and_paste_all_rows(filtered_rows, source_base, dest_folder, model)
 
 
-def create_feature_column(
-    df, farm_type_filter, word_list, feature_name, negative_word_list=None
-):
+def summarize_clusters(df, output_file="cluster_summary.csv"):
     """
-    Create a binary column in a DataFrame based on farm type and word list conditions.
+    Calculate summary statistics for indoor and outdoor images grouped by specific columns.
 
     Parameters
     ----------
-    df (pandas.DataFrame): Input DataFrame containing farm data and word count columns
-    farm_type_filter (str): The farm type to filter for (e.g., 'dairy' or 'pig')
-    word_list (list of str): List of words to check for in the DataFrame columns
-    feature_name (str):  Name of the new binary column to create
-    negative_word_list (list), optional:
-        List of words that must have count of 0 in filtered results
-        Default is None
-
-    Returns
-    -------
-    pandas.DataFrame
-        DataFrame with new binary column ("inten" stands for intensive; and "exten" stands
-        for extensive) where 1 indicates rows matching the farm type
-        and having a count of 1 for any word in word_list that are features of a intensive
-        or extensive farm, 0 otherwise.
-
-    """
-    # Create copy of dataframe to avoid warnings
-    df = df.copy()
-
-    # Filter for farm type
-    mask = df["farm_type"] == farm_type_filter
-
-    # For each word in list, update feature column if word count is 1
-    for word in word_list:
-        if word in df.columns:
-            df.loc[mask & (df[word] == 1), feature_name] = 1
-
-    # For each word in the negative_word_list, if any negative word exist (==1),
-    # revert the feature name to be 0
-    if negative_word_list is not None:
-        for neg_word in negative_word_list:
-            if neg_word in df.columns:
-                df.loc[mask & (df[neg_word] == 1), feature_name] = 0
-
-    return df
-
-
-def calculate_feature_stats(df):
-    """
-    Calculate summary statistics for intensive and extensive images grouped by specific columns.
-
-    Parameters
-    ----------
-    df (pandas.DataFrame): Input DataFrame containing farm data with 'inten'
-                            and 'exten' columns and grouping columns
-                            ('generation_type', 'country', 'farm_type', 'prompt', 'model')
+    df (pandas.DataFrame): Input DataFrame containing farm data with 'GPT4o_cluter' labeled
+                            as either 'indoor', 'outdoor', or 'other'
+    output_file (str): the name of the output file
 
     Returns
     -------
@@ -212,16 +141,20 @@ def calculate_feature_stats(df):
         Prompt used
     - model : str
         Model used
-    - total_rows : int
+    - total sum : int
         Total number of rows for each unique combination of generation_type, country, farm_typem, model
-    - inten_sum : int
-        total number of images including intensive features
-    - exten_sum : int
-        total number of images including extensive features
-    - inten_pct : float
-        Percentage of intensive images
-    - exten_pct : float
-        Percentage of extensive images
+    - indoor_sum : int
+        total number of images showing animals kept indoor
+    - outdoor_sum : int
+        total number of images showing animals kept outdoor
+    - other_sum : int
+        total number of images not classified as either indoor or outdoor
+    - indoor_pct : float
+        Percentage of images showing animals kept indoor
+    - outdoor_pct : float
+        Percentage of images showing animals kept outdoor
+    - other_pct : float
+        Percentage of images not classified
 
     """
 
@@ -242,10 +175,12 @@ def calculate_feature_stats(df):
         ]
 
         total_rows = len(matching_rows)
-        inten_sum = matching_rows["inten"].sum()
-        exten_sum = matching_rows["exten"].sum()
-        inten_pct = round((inten_sum / total_rows), 2)
-        exten_pct = round((exten_sum / total_rows), 2)
+        indoor_sum = len(matching_rows[matching_rows["GPT4o_cluter"] == "indoor"])
+        outdoor_sum = len(matching_rows[matching_rows["GPT4o_cluter"] == "outdoor"])
+        other_sum = len(matching_rows[matching_rows["GPT4o_cluter"] == "other"])
+        indoor_pct = round((indoor_sum / total_rows), 2)
+        outdoor_pct = round((outdoor_sum / total_rows), 2)
+        other_pct = round((other_sum / total_rows), 2)
 
         # Create a dictionary with all the information
         row_data = {
@@ -255,10 +190,12 @@ def calculate_feature_stats(df):
             "prompt": combo["prompt"],
             "model": combo["model"],
             "total_rows": total_rows,
-            "inten_sum": inten_sum,
-            "exten_sum": exten_sum,
-            "inten_pct": inten_pct,
-            "exten_pct": exten_pct,
+            "indoor_sum": indoor_sum,
+            "outdoor_sum": outdoor_sum,
+            "other_sum": other_sum,
+            "indoor_pct": indoor_pct,
+            "outdoor_pct": outdoor_pct,
+            "other_pct": other_pct,
         }
 
         # Add this combination's data to our summary list
@@ -266,91 +203,14 @@ def calculate_feature_stats(df):
 
     # Create DataFrame from our summary data
     summary_df = pd.DataFrame(summary_data)
-
-    return summary_df
-
-
-def intensive_extensive_calculation(
-    raw_freq_df,
-    dairy_extensive,
-    dairy_intensive,
-    pig_extensive,
-    pig_intensive,
-    dairy_extensive_negative_list,
-    dairy_intensive_negative_list,
-    pig_extensive_negative_list,
-    pig_intensive_negative_list,
-):
-    """
-    Calculate intensive and extensive feature statistics for dairy and pig farms and save results.
-
-    Parameters
-    ----------
-    raw_freq_df (pandas.DataFrame): Input DataFrame containing farm data with
-                                    word frequency columns and metadata
-                                    (must include 'farm_type' and specified word columns)
-    dairy_extensive (list): a list of words that are features of an image of extensive dairy farm
-    dairy_intensive (list): a list of words that are features of an image of intensive dairy farm
-    pig_extensive (list): a list of words that are features of an image of extensive pig farm
-    pig_intensive (list): a list of words that are features of an image of intensive pig farm
-
-    Returns
-    -------
-    pandas.DataFrame
-        Summary DataFrame containing statistics for intensive and extensive features,
-        including:
-        - Grouping columns (generation_type, country, farm_type, prompt, model)
-        - Feature sums and percentages for both intensive and extensive characteristics
-        - Total rows for each unique combination
-
-    Side Effects
-    -----------
-    Saves the summary DataFrame to '../results/megadata/intensive_extensive_summary'
-    as a CSV file without index
-    """
-    raw_freq_df = raw_freq_df.copy()
-    # Initialize feature column with 0
-    raw_freq_df["exten"] = 0
-    raw_freq_df["inten"] = 0
-    # Create feature columns
-    df = create_feature_column(
-        raw_freq_df,
-        "dairy",
-        dairy_extensive,
-        "exten",
-        negative_word_list=dairy_extensive_negative_list,
-    )
-    df = create_feature_column(
-        df,
-        "dairy",
-        dairy_intensive,
-        "inten",
-        negative_word_list=dairy_intensive_negative_list,
-    )
-    df = create_feature_column(
-        df,
-        "pig",
-        pig_extensive,
-        "exten",
-        negative_word_list=pig_extensive_negative_list,
-    )
-    df = create_feature_column(
-        df,
-        "pig",
-        pig_intensive,
-        "inten",
-        negative_word_list=pig_intensive_negative_list,
-    )
-
-    # Calculate statistics
-    summary_df = calculate_feature_stats(df)
-
+    
     output_file = (
-        Path("..") / "results" / "megadata" / "intensive_extensive_summary.csv"
+        Path("..") / "results" / "megadata" / output_file
     )
     summary_df.to_csv(output_file, index=False)
 
     return summary_df
+
 
 
 # Function to group generation types
@@ -407,12 +267,12 @@ def wrap_labels(text, width=20):
 
 def create_plot_grid(summary_df):
     """
-    Create a 2x2 grid of plots showing intensive and extensive percentages for different farm types and models.
+    Create a 2x2 grid of plots showing indoor and outdoor percentages for different farm types and models.
 
     Parameters
     ----------
     summary_df (pandas.DataFrame): DataFrame containing columns: generation_type,
-                                    country, farm_type, model, inten_pct, exten_pct
+                                    country, farm_type, model, indoor_pct, outdoor_pct
 
     Returns
     -------
@@ -454,8 +314,8 @@ def create_plot_grid(summary_df):
     farm_types = summary_df["farm_type"].unique()
 
     # Define colors
-    inten_color = "#1f77b4"  # blue
-    exten_color = "#2ecc71"  # green
+    indoor_color = "#1f77b4"  # blue
+    outdoor_color = "#2ecc71"  # green
 
     # Process each subplot
     for i, farm_type in enumerate(farm_types):
@@ -492,13 +352,13 @@ def create_plot_grid(summary_df):
             width = 0.6  # Reduced bar width
             x = np.arange(len(plot_data)) * 1.2  # Increased spacing between bars
 
-            # Create twin axis for extensive percentages (bottom)
+            # Create twin axis for outdoor percentages (bottom)
             ax_bottom = ax
             ax_bottom.bar(
                 x,
-                (plot_data["exten_pct"] * 100),
+                (plot_data["outdoor_pct"] * 100),
                 width=width,
-                color=exten_color,
+                color=outdoor_color,
                 alpha=0.7,
                 label="On pasture/mud %",
             )
@@ -506,13 +366,13 @@ def create_plot_grid(summary_df):
             ax_bottom.set_ylabel("")
             ax_bottom.tick_params(axis="y", labelsize=30)  # Increased tick font size
 
-            # Plot intensive percentages (top)
+            # Plot outdoor percentages (top)
             ax_top = ax_bottom.twinx()
             ax_top.bar(
                 x,
-                -(plot_data["inten_pct"] * 100),
+                -(plot_data["indoor_pct"] * 100),
                 width=width,
-                color=inten_color,
+                color=indoor_color,
                 alpha=0.7,
                 label="Indoor packed %",
             )
