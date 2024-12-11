@@ -77,23 +77,33 @@ def describe_all_images(
     for index in range(start_index, end_index):
         row = megadata.iloc[index]
 
-        result = describe_1_image(
-            row, model, client, prompt, detail_level, max_completion_tokens, temperature
-        )
+        # if there are existing GPT4o descriptions, don't regenerate
+        if (index > 0) and (row["GPT4o_description"] != ""):
+            megadata = megadata
+        else:  # if there is no pre-existing GPT4o descriptions
+            result = describe_1_image(
+                row,
+                model,
+                client,
+                prompt,
+                detail_level,
+                max_completion_tokens,
+                temperature,
+            )
 
-        result_content = result.choices[
-            0
-        ].message.content  # extract content from result
-        output_token = result.usage.completion_tokens
+            result_content = result.choices[
+                0
+            ].message.content  # extract content from result
+            output_token = result.usage.completion_tokens
 
-        # Store the results back in the dataframe
-        megadata.at[index, "description_model"] = model
-        megadata.at[index, "GPT4o_description"] = result_content
-        megadata.at[index, "GPT4o_description_token_count"] = output_token
-        megadata.at[index, "GPT4o_prompt"] = prompt
-        megadata.at[index, "GPT4o_image_resolution"] = detail_level
-        megadata.at[index, "GPT4o_temperature"] = temperature
-        megadata.at[index, "GPT4o_system_fingerprint"] = result.system_fingerprint
+            # Store the results back in the dataframe
+            megadata.at[index, "description_model"] = model
+            megadata.at[index, "GPT4o_description"] = result_content
+            megadata.at[index, "GPT4o_description_token_count"] = output_token
+            megadata.at[index, "GPT4o_prompt"] = prompt
+            megadata.at[index, "GPT4o_image_resolution"] = detail_level
+            megadata.at[index, "GPT4o_temperature"] = temperature
+            megadata.at[index, "GPT4o_system_fingerprint"] = result.system_fingerprint
 
         utils.save_megadata_with_description(megadata)
 
