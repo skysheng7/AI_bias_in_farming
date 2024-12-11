@@ -77,33 +77,29 @@ def describe_all_images(
     for index in range(start_index, end_index):
         row = megadata.iloc[index]
 
-        # if there are existing GPT4o descriptions, don't regenerate
-        if (index > 0) and (row["GPT4o_description"] != ""):
-            megadata = megadata
-        else:  # if there is no pre-existing GPT4o descriptions
-            result = describe_1_image(
-                row,
-                model,
-                client,
-                prompt,
-                detail_level,
-                max_completion_tokens,
-                temperature,
-            )
+        result = describe_1_image(
+            row,
+            model,
+            client,
+            prompt,
+            detail_level,
+            max_completion_tokens,
+            temperature,
+        )
 
-            result_content = result.choices[
-                0
-            ].message.content  # extract content from result
-            output_token = result.usage.completion_tokens
+        result_content = result.choices[
+            0
+        ].message.content  # extract content from result
+        output_token = result.usage.completion_tokens
 
-            # Store the results back in the dataframe
-            megadata.at[index, "description_model"] = model
-            megadata.at[index, "GPT4o_description"] = result_content
-            megadata.at[index, "GPT4o_description_token_count"] = output_token
-            megadata.at[index, "GPT4o_prompt"] = prompt
-            megadata.at[index, "GPT4o_image_resolution"] = detail_level
-            megadata.at[index, "GPT4o_temperature"] = temperature
-            megadata.at[index, "GPT4o_system_fingerprint"] = result.system_fingerprint
+        # Store the results back in the dataframe
+        megadata.at[index, "description_model"] = model
+        megadata.at[index, "GPT4o_description"] = result_content
+        megadata.at[index, "GPT4o_description_token_count"] = output_token
+        megadata.at[index, "GPT4o_prompt"] = prompt
+        megadata.at[index, "GPT4o_image_resolution"] = detail_level
+        megadata.at[index, "GPT4o_temperature"] = temperature
+        megadata.at[index, "GPT4o_system_fingerprint"] = result.system_fingerprint
 
         utils.save_megadata_with_description(megadata)
 
@@ -236,24 +232,38 @@ def cluster_all_images(
         farm_type = row["farm_type"]
         prompt = prompt_list[farm_type]
 
-        result = cluster_1_image(
-            row, model, client, prompt, detail_level, max_completion_tokens, temperature
-        )
+        # if there are existing GPT4o cluster, don't regenerate
+        if (
+            "GPT4o_cluter" in row.keys()
+            and pd.notna(row["GPT4o_cluter"])
+            and row["GPT4o_cluter"] != ""
+        ):
+            megadata = megadata
+        else:  # if there is no pre-existing GPT4o cluster
+            result = cluster_1_image(
+                row,
+                model,
+                client,
+                prompt,
+                detail_level,
+                max_completion_tokens,
+                temperature,
+            )
 
-        json_response = result.choices[0].message.parsed
-        category = json_response.category
-        explanation = json_response.explanation
-        output_token = result.usage.completion_tokens
+            json_response = result.choices[0].message.parsed
+            category = json_response.category
+            explanation = json_response.explanation
+            output_token = result.usage.completion_tokens
 
-        # Store the results back in the dataframe
-        megadata.at[index, "cluter_model"] = model
-        megadata.at[index, "GPT4o_cluter"] = category
-        megadata.at[index, "GPT4o_cluster_explanation"] = explanation
-        megadata.at[index, "GPT4o_cluster_token_count"] = output_token
-        megadata.at[index, "GPT4o_cluster_prompt"] = prompt
-        megadata.at[index, "GPT4o_cluster_system_fingerprint"] = (
-            result.system_fingerprint
-        )
+            # Store the results back in the dataframe
+            megadata.at[index, "cluter_model"] = model
+            megadata.at[index, "GPT4o_cluter"] = category
+            megadata.at[index, "GPT4o_cluster_explanation"] = explanation
+            megadata.at[index, "GPT4o_cluster_token_count"] = output_token
+            megadata.at[index, "GPT4o_cluster_prompt"] = prompt
+            megadata.at[index, "GPT4o_cluster_system_fingerprint"] = (
+                result.system_fingerprint
+            )
 
         utils.save_megadata_with_description(megadata)
 
