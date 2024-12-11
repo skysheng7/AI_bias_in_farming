@@ -11,8 +11,8 @@ from AI_representation_bias_in_farming import module2_GPT4o
 
 def get_prompt_list():
     prompt_list = {
-        "dairy": "Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.\n\n[1] outdoor: at least one cow depicted in this image is clearly visible outdoors on pasture or grassland\n\n[2] indoor: All visible cows are housed inside buildings or structures\n\n[3] other: Any other images that either:\n   - Does not clearly fit the outdoor or indoor categories\n   - background is too ambiguous or unclear to classify",
-        "pig": "Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.\n\n[1] outdoor: at least one pig depicted in this image is clearly visible outdoors on pasture, mud, snow, or grassland\n\n[2] indoor: All visible pigs are housed inside buildings or structures\n\n[3] other: Any other image that either:\n   - Does not clearly fit the outdoor or indoor categories\n   - background is too ambiguous or unclear to classify",
+        "dairy": "Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.\n\n[1] pasture: at least one cow depicted in this image is clearly standing, lying or grazing on pasture or grassland\n\n[2] indoor: All visible cows are housed inside buildings or structures\n\n[3] other: Any other images that either:\n   - Does not clearly fit the pasture or indoor categories\n   - background is too ambiguous or unclear to classify",
+        "pig": "Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.\n\n[1] pasture_or_mud: at least one pig depicted in this image is clearly standing, lying or grazing on pasture, mud, snow, or grassland\n\n[2] indoor: All visible pigs are housed inside buildings or structures\n\n[3] other: Any other image that either:\n   - Does not clearly fit the pasture or mud or indoor categories\n   - background is too ambiguous or unclear to classify",
     }
 
     return prompt_list
@@ -25,8 +25,8 @@ def main():
     detail_level = "high"
     max_completion_tokens = 1000
     temperature = 0.2
-    start_index = 0
-    end_index = None
+    start_index = 2958
+    end_index = 2959
 
     megadata = module2_GPT4o.cluster_all_images(
         model,

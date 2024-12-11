@@ -18850,15 +18850,15 @@ Two figures, likely farmers, are walking along a path carrying buckets, contribu
    - background is too ambiguous or unclear to classify",fp_f785eb5f47
 dairy_farm_reality_country_no_revise_the United States_78.png,reality_country_no_revise,the United States,dairy,"Please create an image that accurately represents the reality of what most dairy farms look like in the United States.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",Please create an image that accurately represents the reality of most dairy farms in the United States.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a serene rural scene with a large barn in the foreground and a majestic mountain range in the background. The barn is made of light-colored metal, with a sloped roof and several windows. In front of the barn, a group of black and white cows is feeding on hay, which is spread out along the ground. The cows are positioned on either side of the barn entrance, some with their heads down eating, while others are looking around.
 
-The background features a stunning mountain range with snow-capped peaks, rising dramatically against a clear blue sky. The mountains are partially shrouded in mist or low clouds, adding to the sense of grandeur and scale. The lighting is bright and clear, suggesting a sunny day, which enhances the vivid colors and contrasts in the scene. The overall atmosphere is peaceful and idyllic, combining elements of agriculture and natural beauty.",174,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,indoor,"The cows are housed inside a building or structure, as indicated by the barn-like setting.",28.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+The background features a stunning mountain range with snow-capped peaks, rising dramatically against a clear blue sky. The mountains are partially shrouded in mist or low clouds, adding to the sense of grandeur and scale. The lighting is bright and clear, suggesting a sunny day, which enhances the vivid colors and contrasts in the scene. The overall atmosphere is peaceful and idyllic, combining elements of agriculture and natural beauty.",174,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,indoor,"The cows are visible inside a building or structure, indicating they are housed indoors.",26.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
 
-[1] pasture: at least one cow depicted in this image is clearly standing, lying or grazing on pasture or grassland
+[1] outdoor: at least one cow depicted in this image is clearly visible outdoors on pasture or grassland
 
 [2] indoor: All visible cows are housed inside buildings or structures
 
 [3] other: Any other images that either:
-   - Does not clearly fit the pasture or indoor categories
-   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
+   - Does not clearly fit the outdoor or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 dairy_farm_reality_country_no_revise_the United States_79.png,reality_country_no_revise,the United States,dairy,"Please create an image that accurately represents the reality of what most dairy farms look like in the United States.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A realistic depiction of typical dairy farms in the United States,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a picturesque rural farm scene set against a backdrop of rolling hills and distant mountains. In the foreground, there is a large, traditional farmhouse with a dark blue roof and white walls, accented with red window frames. The house is surrounded by a wooden fence, and several black and white cows are grazing peacefully in the grassy area nearby.
 
 To the left of the farmhouse, there are two tall silos, indicating the presence of grain storage. The landscape is lush and green, with trees scattered throughout the fields. A dirt road winds through the farm, leading to other farm buildings visible in the distance, including a barn.
@@ -30230,50 +30230,50 @@ Farm workers can be seen tending to the land and animals, contributing to the se
    - background is too ambiguous or unclear to classify",fp_f785eb5f47
 dairy_farm_basic_country_Germany_12.png,basic_country,Germany,dairy,A dairy farm in Germany.,"Portray a typical dairy farm situated in the German countryside. The landscape should depict vast green fields under a bright blue sky with white fluffy clouds. In the fields, there should primarily be black and white cows, some grazing on the grass while others rest under the shade of a tree, their udders full. Nearby, there is a traditional red barn with a spacious interior for storing hay and housing some of the animals. The farm workers, a middle-aged Caucasian woman in overalls and a South Asian man in a checkered shirt and jeans, are tending to the cows and going about their chores.",dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a picturesque rural farm scene. In the foreground, there are several black and white cows grazing on lush green grass. Two farmers, dressed in traditional attire with checkered shirts and overalls, are tending to the animals and handling hay. One farmer is placing hay on the ground, while the other is holding a bucket.
 
-In the background, there are two large red barns with sloped roofs. The barn on the right has a sign that reads ""Diana's Schwein."" The barns are surrounded by more cows and a few trees, which provide shade and add to the idyllic setting. The sky is bright blue with large, fluffy white clouds, suggesting a clear and pleasant day. The overall atmosphere is serene and pastoral, capturing the essence of farm life.",155,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture,"The image depicts cows standing and grazing on grassland, which fits the definition of pasture.",28.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+In the background, there are two large red barns with sloped roofs. The barn on the right has a sign that reads ""Diana's Schwein."" The barns are surrounded by more cows and a few trees, which provide shade and add to the idyllic setting. The sky is bright blue with large, fluffy white clouds, suggesting a clear and pleasant day. The overall atmosphere is serene and pastoral, capturing the essence of farm life.",155,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,outdoor,"The image shows cows clearly visible outdoors on pasture or grassland, indicating an outdoor setting.",28.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
 
-[1] pasture: at least one cow depicted in this image is clearly standing, lying or grazing on pasture or grassland
+[1] outdoor: at least one cow depicted in this image is clearly visible outdoors on pasture or grassland
 
 [2] indoor: All visible cows are housed inside buildings or structures
 
 [3] other: Any other images that either:
-   - Does not clearly fit the pasture or indoor categories
-   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
+   - Does not clearly fit the outdoor or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 dairy_farm_basic_country_Germany_13.png,basic_country,Germany,dairy,A dairy farm in Germany.,"Imagine a scenic view of a traditional dairy farm in Germany. It's a lovely sunny afternoon, with gentle breezes rustling the leaves in the lush bordering forests. The rolling pastures are dotted with healthy, content cows of various breeds. Right in the heart of the view is the main farmhouse showing its charming Bavarian architecture with timber-framed structures and cross-grained panels. Nearby, a couple of industrious dairy workers, one female of Hispanic descent and one male of Middle-Eastern descent, are tending to their chores. In the distance, the magnificent Alps serve as a breathtaking backdrop.",dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a picturesque rural scene set in a mountainous region. In the foreground, there is a lush green pasture with a herd of cows grazing peacefully. The cows are a mix of black, white, and brown, adding a lively contrast to the verdant grass.
 
 In the middle ground, there are two traditional Alpine-style farmhouses with wooden balconies and steep roofs. The larger house has intricate woodwork and flower boxes under the windows, suggesting a well-maintained and charming residence. Nearby, a few people are engaged in farm activities, such as tending to the cows and handling farm equipment.
 
-The background features rolling hills covered with dense forests of evergreen trees, leading up to majestic snow-capped mountains under a clear blue sky. The landscape is bathed in warm sunlight, creating a serene and idyllic atmosphere. The overall composition conveys a sense of tranquility and harmony with nature.",175,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture,"The image shows cows standing and grazing on grassland, indicating they are in a pasture setting.",29.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+The background features rolling hills covered with dense forests of evergreen trees, leading up to majestic snow-capped mountains under a clear blue sky. The landscape is bathed in warm sunlight, creating a serene and idyllic atmosphere. The overall composition conveys a sense of tranquility and harmony with nature.",175,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,outdoor,"The image shows cows clearly visible outdoors on pasture or grassland, with a scenic background of mountains and trees.",32.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
 
-[1] pasture: at least one cow depicted in this image is clearly standing, lying or grazing on pasture or grassland
-
-[2] indoor: All visible cows are housed inside buildings or structures
-
-[3] other: Any other images that either:
-   - Does not clearly fit the pasture or indoor categories
-   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
-dairy_farm_basic_country_Germany_14.png,basic_country,Germany,dairy,A dairy farm in Germany.,"A picturesque scene of a traditional dairy farm tucked amidst the rolling countryside of Germany. The wide, green pastures are dotted with Holstein cows peacefully grazing. Close by stands an old, rustic barn, its red paint faded by time. Lines of white fences stretch out into the distance. A small babbling brook runs through the fields, and a stone farmhouse rests on the hillside featuring traditional German architecture. The farm operates in harmony with nature, representing the sustainable approach to farming prevalent in Germany. The sky overhead is a clear blue, with a few fluffy white clouds.",dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a picturesque rural landscape featuring a farm nestled in rolling green hills. In the foreground, a small stream meanders through the scene, bordered by white fences. The farm consists of several rustic buildings with red-tiled roofs, including a barn and a silo. Numerous black and white cows graze peacefully in the lush pastures surrounding the farm. The landscape is dotted with trees, and the hills stretch into the distance under a partly cloudy sky, creating a serene and idyllic countryside setting.",99,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture,"The image shows cows standing and grazing on open grassland, indicating they are on pasture.",28.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
-
-[1] pasture: at least one cow depicted in this image is clearly standing, lying or grazing on pasture or grassland
+[1] outdoor: at least one cow depicted in this image is clearly visible outdoors on pasture or grassland
 
 [2] indoor: All visible cows are housed inside buildings or structures
 
 [3] other: Any other images that either:
-   - Does not clearly fit the pasture or indoor categories
-   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
+   - Does not clearly fit the outdoor or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
+dairy_farm_basic_country_Germany_14.png,basic_country,Germany,dairy,A dairy farm in Germany.,"A picturesque scene of a traditional dairy farm tucked amidst the rolling countryside of Germany. The wide, green pastures are dotted with Holstein cows peacefully grazing. Close by stands an old, rustic barn, its red paint faded by time. Lines of white fences stretch out into the distance. A small babbling brook runs through the fields, and a stone farmhouse rests on the hillside featuring traditional German architecture. The farm operates in harmony with nature, representing the sustainable approach to farming prevalent in Germany. The sky overhead is a clear blue, with a few fluffy white clouds.",dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a picturesque rural landscape featuring a farm nestled in rolling green hills. In the foreground, a small stream meanders through the scene, bordered by white fences. The farm consists of several rustic buildings with red-tiled roofs, including a barn and a silo. Numerous black and white cows graze peacefully in the lush pastures surrounding the farm. The landscape is dotted with trees, and the hills stretch into the distance under a partly cloudy sky, creating a serene and idyllic countryside setting.",99,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,outdoor,The image shows cows clearly visible outdoors on pasture or grassland.,23.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] outdoor: at least one cow depicted in this image is clearly visible outdoors on pasture or grassland
+
+[2] indoor: All visible cows are housed inside buildings or structures
+
+[3] other: Any other images that either:
+   - Does not clearly fit the outdoor or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 dairy_farm_basic_country_Germany_15.png,basic_country,Germany,dairy,A dairy farm in Germany.,"A picturesque scene of a dairy farm located in the beautiful countryside of Germany. Expect to see an old-style, rustic barn with a wide-open pasture surrounded by lush trees. Holstein cows with black and white patches leisurely grazing under the soft, late afternoon light. To bring life to the scene, include a farmer, a middle-aged Hispanic woman in work clothes, milking a cow with a traditional bucket. Nearby, a Caucasian man, perhaps in his early thirties, feeds another group of cows. Both are working diligently, embodying the spirit of traditional farming.",dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a serene rural scene on a farm during what appears to be early morning. In the foreground, a man and a woman are engaged in milking cows, with several metal buckets around them. The man is wearing overalls and a hat, while the woman is dressed in a traditional long dress with an apron and bonnet.
 
 Several black and white cows are grazing peacefully on the lush green pasture. The farm buildings, including a large barn, are visible in the background, with a wooden fence enclosing the area. The barn has a rustic appearance, with a sloped roof and multiple windows.
 
-The landscape is bathed in soft, golden sunlight, casting long shadows and creating a warm, inviting atmosphere. A line of dense trees borders the field, and a light mist hangs in the distance, adding to the tranquil and idyllic setting. The sky is clear with a few scattered clouds, enhancing the peaceful rural ambiance.",184,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture,"The image shows cows standing and grazing on grassland, indicating they are on pasture.",27.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+The landscape is bathed in soft, golden sunlight, casting long shadows and creating a warm, inviting atmosphere. A line of dense trees borders the field, and a light mist hangs in the distance, adding to the tranquil and idyllic setting. The sky is clear with a few scattered clouds, enhancing the peaceful rural ambiance.",184,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,outdoor,"The image shows cows clearly visible outdoors on pasture or grassland, indicating an outdoor setting.",28.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
 
-[1] pasture: at least one cow depicted in this image is clearly standing, lying or grazing on pasture or grassland
+[1] outdoor: at least one cow depicted in this image is clearly visible outdoors on pasture or grassland
 
 [2] indoor: All visible cows are housed inside buildings or structures
 
 [3] other: Any other images that either:
-   - Does not clearly fit the pasture or indoor categories
-   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
+   - Does not clearly fit the outdoor or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 dairy_farm_basic_country_Germany_16.png,basic_country,Germany,dairy,A dairy farm in Germany.,"A typical dairy farm located in the picturesque countryside of Germany. The scene shows wide green pastures with Holstein cows dotted across the field, grazing peacefully. There is a well-maintained rustic barn with a weather vane on top in the background. The sky is clear with a few fluffy white clouds. German Alps can be seen in the far distance. The farm exudes a sense of serenity and the beauty of rural living.",dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a picturesque rural scene with a traditional farm setting. In the foreground, there is a lush green pasture where several black and white cows are grazing peacefully. The grass appears vibrant and well-maintained, suggesting a healthy environment for the livestock.
 
 Central to the image is a large barn with a rustic design, featuring a wooden exterior and a red-tiled roof. The barn has a prominent tower with a weather vane on top, adding a charming touch to the structure. Adjacent to the main barn, there are smaller outbuildings, likely used for storage or additional farm activities.
@@ -36720,46 +36720,46 @@ dairy_farm_basic_country_no_revise_Germany_12.png,basic_country_no_revise,German
 
 To the right, there is a barn or farm building with a sloped roof, its windows reflecting the soft light. The pathway leading to the barn is lined with feeding troughs and containers, suggesting a well-maintained and organized farm environment.
 
-In the background, rolling hills and lush green fields stretch towards a range of majestic mountains. The mountains are partially shrouded in mist, adding depth and a sense of tranquility to the scene. The sky is filled with dramatic clouds, illuminated by the golden hues of the sun, enhancing the overall peaceful and idyllic atmosphere of the landscape.",184,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,other,"The cows are outside but not clearly on pasture or grassland, as they are in a fenced area with a path, making it ambiguous.",37.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+In the background, rolling hills and lush green fields stretch towards a range of majestic mountains. The mountains are partially shrouded in mist, adding depth and a sense of tranquility to the scene. The sky is filled with dramatic clouds, illuminated by the golden hues of the sun, enhancing the overall peaceful and idyllic atmosphere of the landscape.",184,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,outdoor,"The image shows cows outside on a farm with visible grassland and open sky, indicating an outdoor setting.",31.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
 
-[1] pasture: at least one cow depicted in this image is clearly standing, lying or grazing on pasture or grassland
+[1] outdoor: at least one cow depicted in this image is clearly visible outdoors on pasture or grassland
 
 [2] indoor: All visible cows are housed inside buildings or structures
 
 [3] other: Any other images that either:
-   - Does not clearly fit the pasture or indoor categories
-   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
+   - Does not clearly fit the outdoor or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 dairy_farm_basic_country_no_revise_Germany_13.png,basic_country_no_revise,Germany,dairy,"A dairy farm in Germany.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A dairy farm in Germany,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a serene and picturesque farm scene at sunrise or sunset. The foreground features a modern barn with a wooden roof and large skylights, allowing natural light to flood the interior. Inside the barn, a row of black and white cows is visible, each in its own stall, calmly feeding. The barn is clean and well-maintained, with a large bucket placed on the ledge.
 
-In the background, there is a stunning view of snow-capped mountains, partially obscured by a layer of mist, adding to the tranquil atmosphere. The landscape includes a line of evergreen trees, and the soft, golden light casts long shadows, enhancing the peaceful rural setting. The overall composition conveys a sense of harmony between agriculture and nature.",147,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,indoor,"The cows are housed inside a structure with a roof, indicating they are in an indoor setting.",29.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+In the background, there is a stunning view of snow-capped mountains, partially obscured by a layer of mist, adding to the tranquil atmosphere. The landscape includes a line of evergreen trees, and the soft, golden light casts long shadows, enhancing the peaceful rural setting. The overall composition conveys a sense of harmony between agriculture and nature.",147,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,indoor,"The cows are housed inside a structure with a roof, indicating they are indoors.",26.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
 
-[1] pasture: at least one cow depicted in this image is clearly standing, lying or grazing on pasture or grassland
-
-[2] indoor: All visible cows are housed inside buildings or structures
-
-[3] other: Any other images that either:
-   - Does not clearly fit the pasture or indoor categories
-   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
-dairy_farm_basic_country_no_revise_Germany_14.png,basic_country_no_revise,Germany,dairy,"A dairy farm in Germany.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A dairy farm in Germany,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts the interior of a spacious, rustic barn with a high, wooden-beamed ceiling. Sunlight streams in from large open doors on the left, illuminating the wooden floor and casting long shadows. On the right side, a row of cows is visible, each with its head through a feeding station, munching on hay. Above them, bundles of hay are stored. The barn is well-organized, with metal railings separating the feeding area. Outside, a lush green field and a line of trees are visible, with the sun low in the sky, suggesting early morning or late afternoon. The overall atmosphere is serene and pastoral.",129,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,indoor,"The cows are housed inside a barn or structure, as indicated by the wooden beams, roof, and feeding stations.",33.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
-
-[1] pasture: at least one cow depicted in this image is clearly standing, lying or grazing on pasture or grassland
+[1] outdoor: at least one cow depicted in this image is clearly visible outdoors on pasture or grassland
 
 [2] indoor: All visible cows are housed inside buildings or structures
 
 [3] other: Any other images that either:
-   - Does not clearly fit the pasture or indoor categories
-   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
+   - Does not clearly fit the outdoor or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
+dairy_farm_basic_country_no_revise_Germany_14.png,basic_country_no_revise,Germany,dairy,"A dairy farm in Germany.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A dairy farm in Germany,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts the interior of a spacious, rustic barn with a high, wooden-beamed ceiling. Sunlight streams in from large open doors on the left, illuminating the wooden floor and casting long shadows. On the right side, a row of cows is visible, each with its head through a feeding station, munching on hay. Above them, bundles of hay are stored. The barn is well-organized, with metal railings separating the feeding area. Outside, a lush green field and a line of trees are visible, with the sun low in the sky, suggesting early morning or late afternoon. The overall atmosphere is serene and pastoral.",129,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,indoor,"The image shows cows inside a barn or structure, with visible walls and a roof, indicating they are housed indoors.",33.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] outdoor: at least one cow depicted in this image is clearly visible outdoors on pasture or grassland
+
+[2] indoor: All visible cows are housed inside buildings or structures
+
+[3] other: Any other images that either:
+   - Does not clearly fit the outdoor or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 dairy_farm_basic_country_no_revise_Germany_15.png,basic_country_no_revise,Germany,dairy,"A dairy farm in Germany.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A dairy farm in Germany,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a woman standing in a modern dairy farm setting. She is wearing a white lab coat over a green turtleneck and has long, blonde hair. Notably, she has small horns on her head, adding a whimsical or fantastical element to the scene. The woman stands confidently with her arms crossed.
 
-In the background, there are several cows lined up in feeding stalls, eating from troughs filled with feed. The farm is open-air, with a roof overhead, and the setting is surrounded by picturesque mountains and lush greenery, suggesting a rural or alpine location. The sky is clear, contributing to the serene and clean atmosphere of the farm.",132,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,other,"The image shows cows in a covered area with a visible outdoor background, making it unclear whether they are indoors or on pasture.",34.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+In the background, there are several cows lined up in feeding stalls, eating from troughs filled with feed. The farm is open-air, with a roof overhead, and the setting is surrounded by picturesque mountains and lush greenery, suggesting a rural or alpine location. The sky is clear, contributing to the serene and clean atmosphere of the farm.",132,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,other,"The image shows cows in a structure with a roof, but the background is open and shows mountains, making it unclear if the cows are fully indoors or outdoors.",41.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
 
-[1] pasture: at least one cow depicted in this image is clearly standing, lying or grazing on pasture or grassland
+[1] outdoor: at least one cow depicted in this image is clearly visible outdoors on pasture or grassland
 
 [2] indoor: All visible cows are housed inside buildings or structures
 
 [3] other: Any other images that either:
-   - Does not clearly fit the pasture or indoor categories
-   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
+   - Does not clearly fit the outdoor or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 dairy_farm_basic_country_no_revise_Germany_16.png,basic_country_no_revise,Germany,dairy,"A dairy farm in Germany.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A dairy farm in Germany.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a spacious and well-organized dairy farm interior. The barn features a high, wooden ceiling with exposed beams and several skylights, allowing natural light to illuminate the space. Rows of black and white cows are lined up on the right side, each with its head through a metal stanchion, feeding from rectangular troughs filled with milk.
 
 On the left side, there are long wooden tables and benches, suggesting a space for workers or visitors. The floor is clean and appears to be made of concrete, reflecting the light from overhead lamps. In the foreground, a metal milk can is visible, adding to the farm setting. The barn is open at the far end, providing a view of green fields and distant hills, enhancing the rural atmosphere. The overall scene conveys a sense of order and efficiency in a pastoral setting.",167,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,indoor,"The image shows cows inside a barn-like structure with a roof and walls, indicating they are housed indoors.",31.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
@@ -36910,37 +36910,37 @@ dairy_farm_basic_country_no_revise_Germany_29.png,basic_country_no_revise,German
    - background is too ambiguous or unclear to classify",fp_f785eb5f47
 dairy_farm_basic_country_no_revise_Germany_30.png,basic_country_no_revise,Germany,dairy,"A dairy farm in Germany.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A dairy farm in Germany,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a serene farm scene at sunrise or sunset. A long, paved path runs through the center, flanked by rows of black and white dairy cows on either side, feeding from troughs. The cows are housed in open-sided barns, allowing them to be partially sheltered while still exposed to the fresh air. 
 
-In the background, a tall, cylindrical silo stands prominently, silhouetted against the vibrant sky. The sun is low on the horizon, casting a warm, golden light across the scene and creating long shadows on the ground. The sky is a mix of orange, pink, and blue hues, with scattered clouds adding texture. The landscape in the distance features gentle hills and a few trees, contributing to the peaceful rural atmosphere.",149,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,other,"The cows are in a structure that is open to the outside, which does not clearly fit the 'pasture' or 'indoor' categories.",39.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+In the background, a tall, cylindrical silo stands prominently, silhouetted against the vibrant sky. The sun is low on the horizon, casting a warm, golden light across the scene and creating long shadows on the ground. The sky is a mix of orange, pink, and blue hues, with scattered clouds adding texture. The landscape in the distance features gentle hills and a few trees, contributing to the peaceful rural atmosphere.",149,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,indoor,"The cows are housed inside a structure, as indicated by the roof and walls visible in the image.",30.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
 
-[1] pasture: at least one cow depicted in this image is clearly standing, lying or grazing on pasture or grassland
-
-[2] indoor: All visible cows are housed inside buildings or structures
-
-[3] other: Any other images that either:
-   - Does not clearly fit the pasture or indoor categories
-   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
-dairy_farm_basic_country_no_revise_Germany_31.png,basic_country_no_revise,Germany,dairy,"A dairy farm in Germany.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A dairy farm in Germany,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts the interior of a modern dairy farm with rows of black and white Holstein cows standing in a barn. The cows are lined up on both sides of a central aisle, facing the camera. Each cow is positioned in a stall with feeding troughs and milking equipment visible. The barn has a high, arched roof with skylights that allow natural light to illuminate the space. The floor is clean, with some feed scattered along the aisle. The cows appear healthy and are tagged with identification markers on their ears. The overall atmosphere is orderly and well-maintained, reflecting a contemporary agricultural setting.",122,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,indoor,"The image shows cows inside a building or structure, indicating they are housed indoors.",26.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
-
-[1] pasture: at least one cow depicted in this image is clearly standing, lying or grazing on pasture or grassland
+[1] outdoor: at least one cow depicted in this image is clearly visible outdoors on pasture or grassland
 
 [2] indoor: All visible cows are housed inside buildings or structures
 
 [3] other: Any other images that either:
-   - Does not clearly fit the pasture or indoor categories
-   - background is too ambiguous or unclear to classify",fp_831e067d82
+   - Does not clearly fit the outdoor or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
+dairy_farm_basic_country_no_revise_Germany_31.png,basic_country_no_revise,Germany,dairy,"A dairy farm in Germany.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A dairy farm in Germany,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts the interior of a modern dairy farm with rows of black and white Holstein cows standing in a barn. The cows are lined up on both sides of a central aisle, facing the camera. Each cow is positioned in a stall with feeding troughs and milking equipment visible. The barn has a high, arched roof with skylights that allow natural light to illuminate the space. The floor is clean, with some feed scattered along the aisle. The cows appear healthy and are tagged with identification markers on their ears. The overall atmosphere is orderly and well-maintained, reflecting a contemporary agricultural setting.",122,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,indoor,"The image shows cows inside a structure, likely a barn, with visible walls and a roof, indicating they are housed indoors.",35.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] outdoor: at least one cow depicted in this image is clearly visible outdoors on pasture or grassland
+
+[2] indoor: All visible cows are housed inside buildings or structures
+
+[3] other: Any other images that either:
+   - Does not clearly fit the outdoor or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 dairy_farm_basic_country_no_revise_Germany_32.png,basic_country_no_revise,Germany,dairy,"A dairy farm in Germany.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A dairy farm in Germany,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a picturesque rural scene at sunrise. In the foreground, there are two rows of cows feeding on hay, lined up along a barn. The barn is made of wood, with a rustic appearance, and is situated on the left side of the image. The cows are black and white, typical of dairy breeds.
 
 The background features a stunning landscape of rolling green hills and majestic mountains. The mountains are partially covered with snow, adding to the scenic beauty. The sun is rising between the peaks, casting warm, golden rays across the scene. The sky is filled with dramatic clouds, illuminated by the sunlight, creating a vibrant and serene atmosphere.
 
-The overall composition captures the tranquility and beauty of rural life, with the interplay of light and shadow enhancing the idyllic setting.",154,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,other,"The cows are outside but not on pasture or grassland; they are in a feeding area next to a building. The setting is outdoors, but it doesn't fit the 'pasture' category as defined.",50.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+The overall composition captures the tranquility and beauty of rural life, with the interplay of light and shadow enhancing the idyllic setting.",154,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,outdoor,"The image shows cows outside on a farm with visible grassland and a scenic mountain background, indicating they are outdoors.",33.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
 
-[1] pasture: at least one cow depicted in this image is clearly standing, lying or grazing on pasture or grassland
+[1] outdoor: at least one cow depicted in this image is clearly visible outdoors on pasture or grassland
 
 [2] indoor: All visible cows are housed inside buildings or structures
 
 [3] other: Any other images that either:
-   - Does not clearly fit the pasture or indoor categories
-   - background is too ambiguous or unclear to classify",fp_831e067d82
+   - Does not clearly fit the outdoor or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 dairy_farm_basic_country_no_revise_Germany_33.png,basic_country_no_revise,Germany,dairy,"A dairy farm in Germany.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A dairy farm in Germany,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts the interior of a large, modern dairy farm. The scene is set in a spacious barn with high ceilings, featuring rows of cows on either side of a central walkway. The cows are predominantly black and white, typical of Holstein Friesians, and are positioned in individual stalls, feeding from troughs. The barn is well-lit, with natural light streaming in from windows along the sides and a skylight above, creating a bright and airy atmosphere. 
 
 A person, wearing a red jacket, is walking down the central aisle, which is clean and well-maintained. The perspective of the image is from above, providing a comprehensive view of the orderly arrangement of the cows and the symmetry of the barn's architecture. The overall impression is one of efficiency and modern agricultural practices.",158,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,indoor,"The image shows cows housed inside a building or structure, indicating an indoor setting.",26.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
@@ -36987,15 +36987,15 @@ The barn is divided into sections with concrete barriers, and there are rows of 
    - background is too ambiguous or unclear to classify",fp_f785eb5f47
 dairy_farm_basic_country_no_revise_Germany_37.png,basic_country_no_revise,Germany,dairy,"A dairy farm in Germany.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A dairy farm in Germany,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a picturesque rural scene at sunrise or sunset, featuring a well-organized dairy farm nestled in a lush, rolling landscape. In the foreground, there are rows of black and white dairy cows feeding from troughs, lined up neatly along a fenced area. The farm buildings, including a large barn with a metal roof and two tall silos, are centrally located. 
 
-The landscape is bathed in warm, golden light, casting long shadows across the fields. The fields are expansive and dotted with a few solitary trees, adding to the serene atmosphere. In the background, majestic mountains rise, partially shrouded in mist, creating a dramatic backdrop. The sky is clear, with soft hues of orange and pink, enhancing the tranquil and idyllic setting. The overall composition conveys a sense of calm and productivity in a rural environment.",167,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,other,"The image shows cows in a farm setting with a mix of indoor and outdoor elements. The cows are near a structure, but the setting includes open fields, making it ambiguous whether they are primarily indoors or on pasture.",52.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+The landscape is bathed in warm, golden light, casting long shadows across the fields. The fields are expansive and dotted with a few solitary trees, adding to the serene atmosphere. In the background, majestic mountains rise, partially shrouded in mist, creating a dramatic backdrop. The sky is clear, with soft hues of orange and pink, enhancing the tranquil and idyllic setting. The overall composition conveys a sense of calm and productivity in a rural environment.",167,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,outdoor,"The image shows cows clearly visible outdoors on pasture or grassland, with a scenic background of fields and mountains.",32.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
 
-[1] pasture: at least one cow depicted in this image is clearly standing, lying or grazing on pasture or grassland
+[1] outdoor: at least one cow depicted in this image is clearly visible outdoors on pasture or grassland
 
 [2] indoor: All visible cows are housed inside buildings or structures
 
 [3] other: Any other images that either:
-   - Does not clearly fit the pasture or indoor categories
-   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
+   - Does not clearly fit the outdoor or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 dairy_farm_basic_country_no_revise_Germany_38.png,basic_country_no_revise,Germany,dairy,"A dairy farm in Germany.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A dairy farm in Germany,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a woman standing in a barn, holding a glass bottle filled with milk. She is smiling and wearing a blue plaid shirt. Her hair is tied up in a bun. In the background, there are several black and white cows lined up in stalls, feeding on hay. The barn is spacious with a high ceiling, and sunlight is streaming in, creating a warm and inviting atmosphere. The sun is setting or rising, casting a bright glow that adds a serene and picturesque quality to the scene.",101,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,indoor,"The cows are inside a barn or structure, as indicated by the visible roof and walls.",28.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
 
 [1] outdoor: at least one cow depicted in this image is clearly visible outdoors on pasture or grassland
@@ -37035,15 +37035,15 @@ dairy_farm_basic_country_no_revise_Germany_41.png,basic_country_no_revise,German
 
 Inside the barn, there are numerous black and white Holstein cows lined up in individual stalls. They are feeding on hay and silage from long troughs that run parallel to the stalls. The cows appear healthy and well-kept, with some standing and others bending down to eat.
 
-The barn is equipped with metal railings and feeding systems, indicating a well-organized and efficient setup. Overhead, there are lights and ventilation systems to maintain a comfortable environment for the animals. The overall atmosphere is clean and orderly, suggesting a focus on animal welfare and productivity.",162,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,indoor,"The image shows cows housed inside a building or structure, indicating an indoor environment.",26.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+The barn is equipped with metal railings and feeding systems, indicating a well-organized and efficient setup. Overhead, there are lights and ventilation systems to maintain a comfortable environment for the animals. The overall atmosphere is clean and orderly, suggesting a focus on animal welfare and productivity.",162,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,indoor,"The image shows cows inside a barn or structure, with visible walls and a roof, indicating they are housed indoors.",33.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
 
-[1] pasture: at least one cow depicted in this image is clearly standing, lying or grazing on pasture or grassland
+[1] outdoor: at least one cow depicted in this image is clearly visible outdoors on pasture or grassland
 
 [2] indoor: All visible cows are housed inside buildings or structures
 
 [3] other: Any other images that either:
-   - Does not clearly fit the pasture or indoor categories
-   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
+   - Does not clearly fit the outdoor or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 dairy_farm_basic_country_no_revise_Germany_42.png,basic_country_no_revise,Germany,dairy,"A dairy farm in Germany.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A dairy farm in Germany.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a serene farm scene during what appears to be early morning or late afternoon, as indicated by the warm, golden sunlight. On the right side, there is a modern barn structure with a long row of cows feeding from troughs filled with grain. The barn has a sloped roof and is supported by several pillars. 
 
 To the left, there is a fenced pasture where more cows are grazing on the lush green grass. The landscape is gently rolling, with a backdrop of forested hills and a few scattered trees, one of which is prominently visible with autumn-colored leaves. 
@@ -37124,15 +37124,15 @@ dairy_farm_basic_country_no_revise_Germany_49.png,basic_country_no_revise,German
 [3] other: Any other images that either:
    - Does not clearly fit the outdoor or indoor categories
    - background is too ambiguous or unclear to classify",fp_f785eb5f47
-dairy_farm_basic_country_no_revise_Germany_50.png,basic_country_no_revise,Germany,dairy,"A dairy farm in Germany.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A dairy farm in Germany,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image features a close-up of a black and white cow with a pink nose, standing near a wooden fence. The cow has yellow ear tags and is looking directly at the camera. In the background, there is a large barn with a metal roof, and several other cows are visible, lined up along a feeding area. The sky is clear and blue with a few fluffy clouds, suggesting a sunny day. The setting appears to be a farm, with a focus on the cow in the foreground.",100,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,other,"The cows are near a barn structure, but it is not clear if they are inside or outside. The image does not clearly fit the pasture or indoor categories.",41.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+dairy_farm_basic_country_no_revise_Germany_50.png,basic_country_no_revise,Germany,dairy,"A dairy farm in Germany.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A dairy farm in Germany,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image features a close-up of a black and white cow with a pink nose, standing near a wooden fence. The cow has yellow ear tags and is looking directly at the camera. In the background, there is a large barn with a metal roof, and several other cows are visible, lined up along a feeding area. The sky is clear and blue with a few fluffy clouds, suggesting a sunny day. The setting appears to be a farm, with a focus on the cow in the foreground.",100,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,outdoor,"The image shows cows outside near a barn, indicating they are outdoors on pasture or grassland.",29.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
 
-[1] pasture: at least one cow depicted in this image is clearly standing, lying or grazing on pasture or grassland
+[1] outdoor: at least one cow depicted in this image is clearly visible outdoors on pasture or grassland
 
 [2] indoor: All visible cows are housed inside buildings or structures
 
 [3] other: Any other images that either:
-   - Does not clearly fit the pasture or indoor categories
-   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
+   - Does not clearly fit the outdoor or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 dairy_farm_basic_country_no_revise_Germany_51.png,basic_country_no_revise,Germany,dairy,"A dairy farm in Germany.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A dairy farm in Germany,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a modern dairy farm interior during sunrise or sunset, with warm light streaming through large windows. On the left, a row of black and white Holstein cows are lined up, feeding from troughs filled with hay or silage. A person, possibly a farmer, stands near the cows, wearing a light gray shirt and blue jeans, observing or tending to them.
 
 The barn has a high ceiling with exposed wooden beams and skylights, allowing natural light to illuminate the space. On the right side of the image, there is a large stainless steel vat filled with frothy milk, connected to machinery, indicating an automated milking system. The floor appears clean and well-maintained, reflecting the light from the windows. Outside, through the windows, a pastoral landscape with trees and fields is visible, enhancing the serene and productive atmosphere of the farm.",172,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,indoor,"The image shows cows inside a building or structure, as indicated by the roof and walls visible in the background.",32.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
@@ -37217,15 +37217,15 @@ dairy_farm_basic_country_no_revise_Germany_58.png,basic_country_no_revise,German
    - background is too ambiguous or unclear to classify",fp_f785eb5f47
 dairy_farm_basic_country_no_revise_Germany_59.png,basic_country_no_revise,Germany,dairy,"A dairy farm in Germany.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A dairy farm in Germany.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a picturesque dairy farm scene at sunrise. In the foreground, several black and white Holstein cows are feeding from troughs filled with hay. The cows are enclosed in a well-organized pen area with metal railings. A large, modern barn with a green roof and cupola dominates the center of the image. The barn has multiple large doors and is adorned with hanging flower baskets, adding a touch of charm.
 
-To the right, a shiny stainless steel milk tank is visible, indicating the farm's focus on dairy production. The ground is clean and wet, reflecting the early morning light. In the background, vast fields of crops stretch towards the horizon, with rolling hills and a line of trees adding depth to the landscape. The sun is rising, casting a warm golden glow over the entire scene, and the sky is partly cloudy, enhancing the serene and idyllic atmosphere of the farm.",180,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,other,"The cows are in an outdoor area adjacent to a barn, but not on pasture or grassland. They are not housed inside a building, making it unclear if they fit the 'pasture' or 'indoor' categories.",55.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+To the right, a shiny stainless steel milk tank is visible, indicating the farm's focus on dairy production. The ground is clean and wet, reflecting the early morning light. In the background, vast fields of crops stretch towards the horizon, with rolling hills and a line of trees adding depth to the landscape. The sun is rising, casting a warm golden glow over the entire scene, and the sky is partly cloudy, enhancing the serene and idyllic atmosphere of the farm.",180,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,outdoor,"The image shows cows outside on a farm with visible grassland and open sky, indicating an outdoor setting.",31.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
 
-[1] pasture: at least one cow depicted in this image is clearly standing, lying or grazing on pasture or grassland
+[1] outdoor: at least one cow depicted in this image is clearly visible outdoors on pasture or grassland
 
 [2] indoor: All visible cows are housed inside buildings or structures
 
 [3] other: Any other images that either:
-   - Does not clearly fit the pasture or indoor categories
-   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
+   - Does not clearly fit the outdoor or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 dairy_farm_basic_country_no_revise_Germany_60.png,basic_country_no_revise,Germany,dairy,"A dairy farm in Germany.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A dairy farm in Germany,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a close-up view of a Holstein cow inside a modern barn. The cow's face is prominently featured, with its large, pink nose and distinctive black and white markings. It has a yellow ear tag, indicating it might be part of a managed herd. The barn is well-lit, with natural light streaming in through skylights in the roof. The interior is clean, with metal railings lining the walkway where the cows are housed. The perspective of the image creates a sense of depth, showing more cows in the background, all aligned in their stalls. The overall atmosphere is orderly and well-maintained, suggesting a contemporary dairy farming environment.",132,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,indoor,"The image shows cows inside a structure with a roof and artificial lighting, indicating they are housed indoors.",30.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
 
 [1] outdoor: at least one cow depicted in this image is clearly visible outdoors on pasture or grassland
