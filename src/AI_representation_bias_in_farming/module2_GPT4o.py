@@ -234,9 +234,9 @@ def cluster_all_images(
 
         # if there are existing GPT4o cluster, don't regenerate
         if (
-            "GPT4o_cluter" in row.keys()
-            and pd.notna(row["GPT4o_cluter"])
-            and row["GPT4o_cluter"] != ""
+            "GPT4o_cluster" in row.keys()
+            and pd.notna(row["GPT4o_cluster"])
+            and row["GPT4o_cluster"] != ""
         ):
             megadata = megadata
         else:  # if there is no pre-existing GPT4o cluster
@@ -257,7 +257,7 @@ def cluster_all_images(
 
             # Store the results back in the dataframe
             megadata.at[index, "cluter_model"] = model
-            megadata.at[index, "GPT4o_cluter"] = category
+            megadata.at[index, "GPT4o_cluster"] = category
             megadata.at[index, "GPT4o_cluster_explanation"] = explanation
             megadata.at[index, "GPT4o_cluster_token_count"] = output_token
             megadata.at[index, "GPT4o_cluster_prompt"] = prompt
