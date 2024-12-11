@@ -102,7 +102,7 @@ Double-click any notebook to begin exploring the analysis.
     ```
 
     - **Helper Functions** (in "src/AI_representation_bias_in_farming"):**  
-    To maintain clean and modular code, I've packaged commonly used functions into a local Python package. This package has been pre-installed in the Docker environment as a dynamic version, meaning you can modify the source code and see changes reflected immediately without reinstallation.
+    To maintain clean and modular code, I've packaged commonly used functions into a local Python package. This package has been pre-installed in the Docker environment as a dynamic version, meaning you can modify the source code and see changes without reinstallation (sometimes you may need to close the project and reopen it to see changes).
 
 ### Project Cleanup
 
