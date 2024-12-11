@@ -25,8 +25,8 @@ def main():
     detail_level = "high"
     max_completion_tokens = 1000
     temperature = 0.2
-    start_index = 4800
-    end_index = None
+    start_index = 0
+    end_index = 4800
 
     megadata = module2_GPT4o.cluster_all_images(
         model,
