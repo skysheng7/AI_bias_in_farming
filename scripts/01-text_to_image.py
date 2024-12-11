@@ -67,7 +67,7 @@ def main():
     n = 10  # the total number of images you wish to generate in this batch
     max_retries = 3  # the maximum number of times we will retry prompting the model if the previous prompt failed due to safety reasons.
     retry_delay = 30  # the total number of seconds we wait to let the model reset before trying again
-    model = "sd3.5-large"  # which text-to-image generative model to use. Options: 'dall-e-3', 'sd3.5-large', 'imagen-3.0-generate-001'
+    model = "sd3.5-large"  # which text-to-image generative model to use. Options: 'dall-e-3', 'sd3.5-large'
 
     # Loop through each combination of generation_type and farm_type
     for generation_type in generation_types:
