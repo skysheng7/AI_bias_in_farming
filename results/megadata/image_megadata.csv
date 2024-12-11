@@ -5,7 +5,15 @@ Scattered around the cows are several wooden buckets filled with water, and a fe
 
 In the middle ground, there is a large, traditional red barn with a gray roof. Adjacent to the barn are silos and additional farm buildings. A windmill stands tall, adding to the rural charm.
 
-In the background, the landscape stretches into rolling fields with more cows grazing. Tractors and farm equipment are visible, along with more red barns. The sky is bright blue with fluffy white clouds, suggesting a clear, sunny day. The entire scene conveys a sense of peaceful, productive farm life.",210,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+In the background, the landscape stretches into rolling fields with more cows grazing. Tractors and farm equipment are visible, along with more red barns. The sky is bright blue with fluffy white clouds, suggesting a clear, sunny day. The entire scene conveys a sense of peaceful, productive farm life.",210,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture,"The image depicts cows standing and grazing on grassland, indicating a pasture setting.",26.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture: at least one cow depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture or grassland. It's ok if there are cows both on pasture and kept indoors.
+
+[2] indoor: All visible cows are housed inside buildings or structures
+
+[3] other: Any other images that either:
+   - Does not clearly fit the pasture or indoor categories
+   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
 dairy_farm_basic_2.png,basic,,dairy,A dairy farm.,"Picture a serene rural landscape under a clear daytime sky. In the foreground, a large dairy farm sprawls across the scene. A collection of red barns and white fences are scattered among the grassy pastures. Cows of mixed breeds -- Holstein, Jersey, and Guernsey, can be seen grazing lazily, their coats in varying shades of white, black, and brown. Farm workers of diverse ethnicities and genders are tending to the cows and carrying out daily chores. Nearby, there's a tractor and a pickup truck, along with haystacks, milk pails, and other farming tools spread out across the field.",dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a vibrant, bustling farm scene. In the foreground, several cows are grazing in fenced pastures, with farmers tending to them. The cows are black and white, typical of dairy breeds, and are scattered across the lush green fields. 
 
 There are multiple barns in the background, painted in red with white trim, and a central barn that is white with a gray roof. These barns are surrounded by various farming equipment, including tractors and hay bales. A large silo is positioned near the barns, indicating grain storage.
