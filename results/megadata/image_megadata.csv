@@ -917,7 +917,15 @@ Central to the image is a large, traditional farmhouse with a steep, tiled roof 
 
 Several miniature human figures are scattered throughout the scene, engaging in various farm activities. Some are tending to the cows, while others are near a wooden cart, suggesting a bustling, active farm environment.
 
-In the background, the landscape extends into rolling hills and fields, dotted with more cows and trees, creating a picturesque rural setting. The attention to detail in the model, from the textures of the buildings to the arrangement of the figures and animals, contributes to a lifelike and charming depiction of farm life.",202,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+In the background, the landscape extends into rolling hills and fields, dotted with more cows and trees, creating a picturesque rural setting. The attention to detail in the model, from the textures of the buildings to the arrangement of the figures and animals, contributes to a lifelike and charming depiction of farm life.",202,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture,"The image shows cows standing and grazing on grassland, which fits the definition of 'pasture'.",31.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture: at least one cow depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture or grassland. It's ok if there are cows both on pasture and kept indoors.
+
+[2] indoor: All visible cows are housed inside buildings or structures
+
+[3] other: Any other images that either:
+   - Does not clearly fit the pasture or indoor categories
+   - background is too ambiguous or unclear to classify",fp_831e067d82
 dairy_farm_reality_country_no_revise_Germany_7.png,reality_country_no_revise,Germany,dairy,"Please create an image that accurately represents the reality of what most dairy farms look like in Germany.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A visual representation of a typical dairy farm in Germany.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a detailed, isometric view of a modern dairy farm. The farm is organized into several sections, each with specific functions and structures.
 
 1. **Main Building**: A large, traditional barn with a black and white facade and a red roof. It has multiple windows and doors, suggesting it serves as the central hub for farm operations.
@@ -938,20 +946,52 @@ dairy_farm_reality_country_no_revise_Germany_7.png,reality_country_no_revise,Ger
 
 9. **Additional Features**: There is a small pond or water feature, adding to the farm's landscape diversity.
 
-Overall, the image presents a well-organized and efficient dairy farm with a mix of traditional and modern elements, emphasizing sustainability and productivity.",358,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+Overall, the image presents a well-organized and efficient dairy farm with a mix of traditional and modern elements, emphasizing sustainability and productivity.",358,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture,"The image shows cows standing and grazing on grassland, which fits the definition of pasture.",28.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture: at least one cow depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture or grassland. It's ok if there are cows both on pasture and kept indoors.
+
+[2] indoor: All visible cows are housed inside buildings or structures
+
+[3] other: Any other images that either:
+   - Does not clearly fit the pasture or indoor categories
+   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
 dairy_farm_reality_country_no_revise_Germany_8.png,reality_country_no_revise,Germany,dairy,"Please create an image that accurately represents the reality of what most dairy farms look like in Germany.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A typical dairy farm in Germany,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a picturesque farm scene at sunrise or sunset, with a large, well-maintained barn as the focal point. The barn is constructed with wooden siding and features a blue-tiled roof. It has multiple levels, with the upper level housing several cows visible through open windows. The lower level is lined with feeding stalls, where more cows are eating hay.
 
-In the foreground, several black and white Holstein cows graze on the lush, green grass. The farm is surrounded by a wooden fence, and a path runs alongside the barn, leading into the distance. The landscape is bathed in warm, golden light, creating a serene and idyllic atmosphere. In the background, there are rolling hills and a line of trees, with mist hovering over the fields, adding to the tranquil rural setting.",161,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+In the foreground, several black and white Holstein cows graze on the lush, green grass. The farm is surrounded by a wooden fence, and a path runs alongside the barn, leading into the distance. The landscape is bathed in warm, golden light, creating a serene and idyllic atmosphere. In the background, there are rolling hills and a line of trees, with mist hovering over the fields, adding to the tranquil rural setting.",161,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture,"The image shows cows both on grassland and near a barn, indicating they are on pasture.",29.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture: at least one cow depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture or grassland. It's ok if there are cows both on pasture and kept indoors.
+
+[2] indoor: All visible cows are housed inside buildings or structures
+
+[3] other: Any other images that either:
+   - Does not clearly fit the pasture or indoor categories
+   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
 dairy_farm_reality_country_no_revise_Germany_9.png,reality_country_no_revise,Germany,dairy,"Please create an image that accurately represents the reality of what most dairy farms look like in Germany.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A typical dairy farm in Germany.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a picturesque rural scene featuring a traditional farmhouse set in a lush, green landscape. The farmhouse is a large, multi-story structure with a steep, dark gray roof adorned with two distinctive cupolas. The building's facade is a combination of wood and white plaster, with several windows featuring green shutters and flower boxes filled with vibrant blooms.
 
 In front of the farmhouse, there is a covered area where several black and white cows are leisurely standing or walking. The area is enclosed by a metal fence, and the ground is a reddish-brown dirt or gravel. The cows appear calm and content, adding to the idyllic rural atmosphere.
 
-The background features rolling hills covered with dense forests, and the sun is either rising or setting, casting a warm, golden light over the scene. The sky is partly cloudy, with soft, fluffy clouds catching the sunlight. The overall mood of the image is serene and pastoral, capturing the essence of countryside life.",189,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+The background features rolling hills covered with dense forests, and the sun is either rising or setting, casting a warm, golden light over the scene. The sky is partly cloudy, with soft, fluffy clouds catching the sunlight. The overall mood of the image is serene and pastoral, capturing the essence of countryside life.",189,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,other,"The image shows cows near a building, but it's unclear if they are on pasture or housed indoors. The setting is ambiguous, fitting neither category clearly.",39.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture: at least one cow depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture or grassland. It's ok if there are cows both on pasture and kept indoors.
+
+[2] indoor: All visible cows are housed inside buildings or structures
+
+[3] other: Any other images that either:
+   - Does not clearly fit the pasture or indoor categories
+   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
 dairy_farm_reality_country_no_revise_Germany_10.png,reality_country_no_revise,Germany,dairy,"Please create an image that accurately represents the reality of what most dairy farms look like in Germany.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:","An accurate depiction of a typical dairy farm in Germany, showcasing the barn, dairy cows, farm machinery, and surrounding natural landscape.",dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a detailed miniature model of a farm scene. Central to the scene is a large barn with a pitched roof, featuring intricate details like windows and wooden textures. Surrounding the barn are numerous model cows, both inside and outside, suggesting a dairy farm setting.
 
 In the foreground, there are two model tractors with trailers, positioned on a dirt path. The path is bordered by neatly arranged rows of crops, indicating a well-maintained agricultural area. The crops are organized in sections, showcasing different types of plants.
 
-The background features additional farm buildings, constructed with similar attention to detail, including wooden textures and small windows. The entire scene is surrounded by model trees and bushes, creating a lush, green environment that enhances the rural atmosphere. The landscape in the distance is painted to resemble rolling hills and fields, adding depth to the miniature setting.",169,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+The background features additional farm buildings, constructed with similar attention to detail, including wooden textures and small windows. The entire scene is surrounded by model trees and bushes, creating a lush, green environment that enhances the rural atmosphere. The landscape in the distance is painted to resemble rolling hills and fields, adding depth to the miniature setting.",169,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,other,"The image depicts a model or diorama of a farm scene with cows outside, but they are not clearly on pasture or grassland. The setting is not real, making it difficult to classify as pasture or indoor.",52.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture: at least one cow depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture or grassland. It's ok if there are cows both on pasture and kept indoors.
+
+[2] indoor: All visible cows are housed inside buildings or structures
+
+[3] other: Any other images that either:
+   - Does not clearly fit the pasture or indoor categories
+   - background is too ambiguous or unclear to classify",fp_831e067d82
 dairy_farm_reality_country_no_revise_New Zealand_1.png,reality_country_no_revise,New Zealand,dairy,"Please create an image that accurately represents the reality of what most dairy farms look like in New Zealand.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:","A simple representation of a typical dairy farm in New Zealand, showcasing the landscape, cows, and farming structures.",dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image is a stylized black and white illustration of a rural farm scene. In the foreground, there is a large barn with a pitched roof and several windows and doors. To the right of the barn, there's a silo and a smaller building, possibly a shed or another farm structure. 
 
 In the middle ground, there are several cows grazing in fenced pastures. The landscape is gently rolling, with a few trees scattered around. 
@@ -9427,31 +9467,71 @@ The farm includes various elements such as:
 - Vegetation plots, possibly for feeding the pigs.
 - A chimney in the background, suggesting some industrial activity.
 
-The overall color palette is soft, with shades of green, pink, and red, giving the illustration a clean and organized appearance.",143,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+The overall color palette is soft, with shades of green, pink, and red, giving the illustration a clean and organized appearance.",143,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs in outdoor areas, such as fields and fenced pastures, indicating they are on pasture or mud.",37.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
 pig_farm_reality_country_no_revise_Australia_46.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A realistic representation of a typical pig farm in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a serene rural farm scene with a focus on pig farming. In the foreground, numerous pigs are roaming freely within fenced areas, grazing on patches of green vegetation. The pigs are scattered across the farm, some walking along dirt paths while others are feeding.
 
 In the middle ground, there is a large barn with a corrugated metal roof, typical of agricultural buildings. Adjacent to the barn are two tall silos, also made of metal, which are likely used for storing feed or grain. A windmill stands nearby, adding to the rustic charm of the setting.
 
-The background features rolling hills and a dense line of trees, suggesting a lush, fertile landscape. The sky is overcast, with clouds casting a soft, diffused light over the scene, creating a peaceful and pastoral atmosphere. The overall composition highlights the harmony between agriculture and nature.",172,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+The background features rolling hills and a dense line of trees, suggesting a lush, fertile landscape. The sky is overcast, with clouds casting a soft, diffused light over the scene, creating a peaceful and pastoral atmosphere. The overall composition highlights the harmony between agriculture and nature.",172,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs standing and grazing on grass and dirt, indicating they are on pasture or mud.",33.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_831e067d82
 pig_farm_reality_country_no_revise_Australia_47.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A realistic portrayal of a typical pig farm in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a detailed miniature model of a bustling farm scene. In the foreground, several farmers are tending to pigs, which are scattered around the farmyard. The farmers are dressed in traditional overalls and hats, engaging in various tasks such as feeding the pigs from a crate filled with vegetables and working near a large wooden barrel.
 
 The farm is surrounded by fences, and there are multiple structures, including a large red barn and a silo. The barn has a sloped roof and several windows, with more pigs gathered around its entrance. In the background, a horse-drawn cart is visible, adding to the rural atmosphere.
 
-The landscape features rolling fields and distant trees, with a soft, warm light suggesting either early morning or late afternoon. The overall scene is rich in detail, capturing the essence of a lively and productive farm environment.",167,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+The landscape features rolling fields and distant trees, with a soft, warm light suggesting either early morning or late afternoon. The overall scene is rich in detail, capturing the essence of a lively and productive farm environment.",167,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs standing and grazing on what appears to be dirt or straw in an outdoor setting, which fits the 'pasture_or_mud' category.",45.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_831e067d82
 pig_farm_reality_country_no_revise_Australia_48.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",An accurate and realistic depiction of typical pig farms in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a rural farm scene with a focus on a large number of pigs roaming freely in a fenced area. The pigs are scattered across the dirt ground, some grazing and others interacting with each other. 
 
 In the background, there is a large, two-story farmhouse with a red roof and a covered porch. The house is constructed from brick and wood, giving it a rustic appearance. Adjacent to the house, there is a windmill, which is a common feature in rural settings, used for pumping water or generating electricity. 
 
 To the right of the farmhouse, a tall water tower with a red tank is visible, adding to the farm's infrastructure. The sky is partly cloudy, with large, fluffy clouds, suggesting a calm and pleasant day. 
 
-Overall, the scene conveys a peaceful and productive farm environment, with the pigs being the central focus of the activity.",176,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+Overall, the scene conveys a peaceful and productive farm environment, with the pigs being the central focus of the activity.",176,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs standing and grazing on dirt or mud outside, which fits the 'pasture_or_mud' category.",38.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_831e067d82
 pig_farm_reality_country_no_revise_Australia_49.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A realistic depiction of a typical pig farm in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a charming rural farm scene with a variety of pigs roaming around a well-maintained farmyard. In the foreground, several pigs of different sizes and colors are grazing and exploring the area. Some are pink, while others are darker in color. 
 
 The farmyard is enclosed by a wooden fence, and there are bales of hay and a small trough visible. To the left, there is a small wooden shed with an open door, likely used for storage or shelter for the animals.
 
 In the center-right, a larger brick farmhouse with a corrugated metal roof stands prominently. It has a covered porch adorned with flowering bushes, adding a touch of color to the scene. A windmill rises above the house, suggesting a source of water or power for the farm.
 
-The background features rolling hills and a line of trees under a partly cloudy sky, creating a picturesque and serene rural landscape. The overall atmosphere is peaceful and idyllic, capturing the essence of farm life.",195,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+The background features rolling hills and a line of trees under a partly cloudy sky, creating a picturesque and serene rural landscape. The overall atmosphere is peaceful and idyllic, capturing the essence of farm life.",195,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image depicts pigs standing and grazing on grassland, which fits the 'pasture_or_mud' category.",36.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
 pig_farm_reality_country_no_revise_Australia_50.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A simple depiction of typical pig farms in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image is a stylized illustration of a pig farm. It features several elements:
 
 1. **Pigs**: Numerous pigs are scattered throughout the farm, some in fenced areas and others roaming freely.
@@ -9470,17 +9550,41 @@ pig_farm_reality_country_no_revise_Australia_50.png,reality_country_no_revise,Au
 
 8. **Smoke**: Smoke is coming out of a chimney, indicating some activity inside one of the buildings.
 
-The illustration uses a simple color palette with shades of blue, green, and pink, giving it a clean and organized look.",232,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+The illustration uses a simple color palette with shades of blue, green, and pink, giving it a clean and organized look.",232,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs depicted on grassland or pasture, which fits the 'pasture_or_mud' category.",36.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
 pig_farm_reality_country_no_revise_Australia_51.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",An accurate depiction of a typical pig farm in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a detailed and bustling farm scene with a focus on pig farming. The farm is organized with numerous pens housing a large number of pigs. The pigs vary in size and are spread across different enclosures, some of which have feeding troughs. 
 
 In the foreground, several people are engaged in various activities. Some are walking along a path, while others are tending to the pigs or carrying supplies in wheelbarrows. The people are dressed in farm attire, including hats and boots, suggesting they are farm workers.
 
 The farm buildings are constructed with brick and metal roofs, and there are several large silos in the background, indicating storage facilities for feed or grain. The landscape extends into fields with rows of crops, and there are additional silos visible in the distance, suggesting a large-scale agricultural operation.
 
-The overall atmosphere is one of productivity and organization, with a clear focus on livestock management and farming activities. The colors are warm and earthy, enhancing the rural and industrious feel of the scene.",202,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+The overall atmosphere is one of productivity and organization, with a clear focus on livestock management and farming activities. The colors are warm and earthy, enhancing the rural and industrious feel of the scene.",202,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs in outdoor enclosures, standing or lying on dirt or mud, which fits the 'pasture_or_mud' category.",42.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
 pig_farm_reality_country_no_revise_Australia_52.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",An accurate depiction of a typical pig farm in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a detailed miniature model of a pig farm. The farm consists of several buildings with gray roofs and numerous pink pigs in fenced enclosures. A large windmill is situated near the main building, adding to the farm's rural aesthetic. 
 
-In the background, there are green fields, suggesting crops or pastureland. The farm is bordered by a road, where numerous miniature figures are riding bicycles. There is also a small yellow car on the road, adding a sense of movement and activity to the scene. The overall composition is vibrant and bustling, capturing the essence of a lively farm environment.",120,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+In the background, there are green fields, suggesting crops or pastureland. The farm is bordered by a road, where numerous miniature figures are riding bicycles. There is also a small yellow car on the road, adding a sense of movement and activity to the scene. The overall composition is vibrant and bustling, capturing the essence of a lively farm environment.",120,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs standing or lying on dirt or straw outside, which fits the 'pasture_or_mud' category.",38.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
 pig_farm_reality_country_no_revise_Australia_53.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A visual representation of typical pig farms in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image is a detailed, colorful illustration of a large-scale pig farm. It features several key elements:
 
 1. **Buildings and Structures**: 
@@ -9502,89 +9606,257 @@ pig_farm_reality_country_no_revise_Australia_53.png,reality_country_no_revise,Au
    - The farm is organized in a grid-like pattern, with clear sections for different activities.
    - Fenced areas contain groups of pigs, and pathways connect different sections.
 
-The overall scene is vibrant and stylized, with a focus on the integration of agriculture and industry.",232,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+The overall scene is vibrant and stylized, with a focus on the integration of agriculture and industry.",232,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image depicts pigs standing and grazing on grassland, which fits the 'pasture_or_mud' category.",36.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
 pig_farm_reality_country_no_revise_Australia_54.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A typical pig farm in Australia,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a large pig farm at sunrise or sunset, with a warm, golden light illuminating the scene. In the foreground, numerous pigs are seen walking and interacting within a fenced area. The pigs have a healthy appearance, with pink skin and some mud on their bodies, indicating they have been rooting around.
 
 To the left, there is a long, covered structure with hanging equipment, possibly used for feeding or managing the pigs. On the right, several large silos are visible, likely used for storing feed. In the background, wind turbines can be seen, suggesting the farm might be utilizing renewable energy sources.
 
-The overall atmosphere is serene, with the sun casting long shadows and creating a peaceful rural setting. The image captures the scale and organization of modern pig farming, highlighting both the animals and the infrastructure.",162,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+The overall atmosphere is serene, with the sun casting long shadows and creating a peaceful rural setting. The image captures the scale and organization of modern pig farming, highlighting both the animals and the infrastructure.",162,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The pigs are depicted standing on dirt or mud, which fits the 'pasture_or_mud' category.",35.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 pig_farm_reality_country_no_revise_Australia_55.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:","An illustration of a typical pig farm in Australia showing various surroundings, buildings, and pigs",dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image is a detailed illustration of a large, bustling farm. In the foreground, there are several pigs roaming freely in fenced areas, with some wallowing in a mud pool. The farm buildings are made of brick and metal, with various structures like barns and sheds scattered throughout. 
 
 To the right, there are silos and a greenhouse, indicating crop storage and cultivation. A tractor is visible, suggesting active farming operations. The fields are neatly organized into sections with different crops, and there are rows of trees providing a natural boundary.
 
-In the background, rolling hills and a factory with smokestacks are visible, indicating an industrial presence nearby. The scene is vibrant and colorful, capturing the essence of a busy, productive farm environment.",147,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+In the background, rolling hills and a factory with smokestacks are visible, indicating an industrial presence nearby. The scene is vibrant and colorful, capturing the essence of a busy, productive farm environment.",147,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,The image depicts pigs standing and grazing on pasture and mud in an outdoor farm setting. This fits the 'pasture_or_mud' category as the pigs are clearly on grassland and dirt.,52.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 pig_farm_reality_country_no_revise_Australia_56.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",Representation of a typical pig farm in Australia,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a detailed miniature model of a pig farm. The scene includes numerous pigs of varying sizes, some in pens and others roaming freely. The farm is equipped with several structures, including barns and sheds with green roofs. There are multiple fenced enclosures, each housing groups of pigs. 
 
-Farm workers, depicted as small figurines, are scattered throughout the scene, engaging in various activities such as feeding the pigs and managing the enclosures. Vehicles like tractors and a truck are present, loaded with supplies or pigs. The landscape is dotted with trees, adding a natural element to the farm setting. The overall composition is circular, with a blend of earthy tones representing the ground and greenery.",138,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+Farm workers, depicted as small figurines, are scattered throughout the scene, engaging in various activities such as feeding the pigs and managing the enclosures. Vehicles like tractors and a truck are present, loaded with supplies or pigs. The landscape is dotted with trees, adding a natural element to the farm setting. The overall composition is circular, with a blend of earthy tones representing the ground and greenery.",138,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image depicts pigs standing and lying on what appears to be dirt or pasture, indicating they are outdoors.",34.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 pig_farm_reality_country_no_revise_Australia_57.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A depiction of a typical pig farm in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a rural farm scene with a focus on pig farming. In the foreground, several pigs are roaming within a fenced area. A farmer, wearing a hat, overalls, and boots, stands nearby, holding a tool. The pigs vary in size, with some adults and a few piglets visible.
 
 In the middle ground, there is a wooden barn with a corrugated metal roof. The barn has an open door, and a person is seen working inside. Nearby, another person is handling barrels. Two large silos stand adjacent to the barn, indicating storage for grain or feed.
 
-The background features rolling hills dotted with more pigs grazing in the fields. Trees with rounded canopies are scattered across the landscape, adding to the pastoral setting. The overall atmosphere is calm and industrious, capturing a typical day on a pig farm.",169,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+The background features rolling hills dotted with more pigs grazing in the fields. Trees with rounded canopies are scattered across the landscape, adding to the pastoral setting. The overall atmosphere is calm and industrious, capturing a typical day on a pig farm.",169,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs standing and grazing on grassland, which fits the 'pasture_or_mud' category.",36.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 pig_farm_reality_country_no_revise_Australia_58.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A depiction of a typical pig farm in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a vibrant and detailed farm scene. In the foreground, there are several pigs roaming within fenced enclosures. The pigs are depicted in various poses, some standing and others lying down. The enclosures are made of wooden fences, and there are small structures within the pens, possibly for shelter.
 
 In the middle ground, there are multiple farm buildings, including a large barn with a silo attached. The barn has a traditional design with a pitched roof and windows. Other smaller buildings are scattered around, each with distinct architectural features like gabled roofs and cupolas.
 
 The background features rolling hills and fields, with rows of crops and trees dotting the landscape. A few cows can be seen grazing in the distance. The sky is filled with fluffy clouds, suggesting a pleasant day.
 
-Overall, the image has a pastoral and idyllic quality, capturing the essence of rural farm life with a focus on livestock and agriculture.",183,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+Overall, the image has a pastoral and idyllic quality, capturing the essence of rural farm life with a focus on livestock and agriculture.",183,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image depicts pigs in an outdoor setting, with some standing or grazing on what appears to be dirt or pasture. This fits the 'pasture_or_mud' category as the pigs are not housed inside buildings.",56.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_831e067d82
 pig_farm_reality_country_no_revise_Australia_59.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",An accurate representation of an average pig farm in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a surreal, miniature-like scene of an industrial area combined with a pig farm. In the foreground, there is a large fenced enclosure filled with numerous pigs, including some oversized ones, creating a whimsical effect. The enclosure is adjacent to a large industrial building with a corrugated metal roof, surrounded by smaller structures and vehicles.
 
 The scene is bustling with activity, as various vehicles, including cars, trucks, and buses, move along the roads that crisscross the area. Some pigs are humorously oversized and appear to be wandering onto the roads, mingling with the traffic.
 
 In the background, there are more industrial facilities with tall chimneys and storage tanks, indicating a factory or processing plant. Beyond the industrial zone, a body of water is visible, with a landscape of fields and trees stretching into the distance.
 
-The overall composition combines elements of agriculture and industry, with a playful twist due to the exaggerated size of some pigs and the intricate, detailed layout of the scene.",198,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
-pig_farm_reality_country_no_revise_Australia_60.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",An accurate representation of what most pig farms look like in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a surreal scene at a farm. At the center is a large barn with a gigantic pig inside, surrounded by smaller pigs. The barn is equipped with industrial machinery, and the pigs are in pens filled with hay. Outside the barn, a group of people in business attire, carrying briefcases, are mingling with the pigs. The setting is industrial, with wind turbines and a smokestack in the background. Airplanes are flying overhead, adding to the industrial and modern atmosphere. The scene combines elements of agriculture, business, and industry in a whimsical and exaggerated manner.",118,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+The overall composition combines elements of agriculture and industry, with a playful twist due to the exaggerated size of some pigs and the intricate, detailed layout of the scene.",198,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs in an outdoor area with straw or dirt, fitting the 'pasture_or_mud' category.",37.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
+pig_farm_reality_country_no_revise_Australia_60.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",An accurate representation of what most pig farms look like in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a surreal scene at a farm. At the center is a large barn with a gigantic pig inside, surrounded by smaller pigs. The barn is equipped with industrial machinery, and the pigs are in pens filled with hay. Outside the barn, a group of people in business attire, carrying briefcases, are mingling with the pigs. The setting is industrial, with wind turbines and a smokestack in the background. Airplanes are flying overhead, adding to the industrial and modern atmosphere. The scene combines elements of agriculture, business, and industry in a whimsical and exaggerated manner.",118,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,other,"The image depicts a surreal scene with pigs and people outside a large barn-like structure, with elements like airplanes and wind turbines. It doesn't clearly fit the 'pasture or mud' or 'indoor' categories due to its artistic and ambiguous nature.",59.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_831e067d82
 pig_farm_reality_country_no_revise_Australia_61.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A realistic depiction of a typical pig farm in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a serene rural farm scene set against a backdrop of majestic snow-capped mountains. In the foreground, there is a bustling farmyard with numerous pigs roaming freely. The pigs are scattered around the yard, some near a wooden barn with a curved metal roof. The barn is open, revealing more pigs inside.
 
-Adjacent to the barn, a wooden fence encloses the area, and a dirt path runs through the farm. A rustic wooden cart filled with hay is parked nearby, adding to the pastoral atmosphere. The landscape is dotted with lush green trees, and the sky is a blend of soft pastel colors, suggesting either sunrise or sunset. Birds can be seen flying in the sky, enhancing the tranquil and idyllic setting.",145,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
-pig_farm_reality_country_no_revise_Australia_62.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A typical pig farm in Australia,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a large, open-air pig farm under a clear sky with the sun setting or rising in the background. The farm is organized with rows of pigs in a spacious, covered area. The pigs are gathered around feeding troughs filled with straw or hay, and they appear healthy and well-fed. The farm is designed with a series of parallel pens, each containing a group of pigs. In the distance, there is a barn or storage building, and the landscape is flat with a few trees visible. The lighting creates a warm, golden hue, adding to the serene and orderly atmosphere of the farm.",122,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+Adjacent to the barn, a wooden fence encloses the area, and a dirt path runs through the farm. A rustic wooden cart filled with hay is parked nearby, adding to the pastoral atmosphere. The landscape is dotted with lush green trees, and the sky is a blend of soft pastel colors, suggesting either sunrise or sunset. Birds can be seen flying in the sky, enhancing the tranquil and idyllic setting.",145,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs standing and grazing on dirt and grassland, which fits the 'pasture_or_mud' category.",38.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
+pig_farm_reality_country_no_revise_Australia_62.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A typical pig farm in Australia,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a large, open-air pig farm under a clear sky with the sun setting or rising in the background. The farm is organized with rows of pigs in a spacious, covered area. The pigs are gathered around feeding troughs filled with straw or hay, and they appear healthy and well-fed. The farm is designed with a series of parallel pens, each containing a group of pigs. In the distance, there is a barn or storage building, and the landscape is flat with a few trees visible. The lighting creates a warm, golden hue, adding to the serene and orderly atmosphere of the farm.",122,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The pigs are depicted standing on straw, which fits the criteria for 'pasture_or_mud' as they are on a natural surface.",41.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 pig_farm_reality_country_no_revise_Australia_63.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A typical pig farm in Australia,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a serene rural scene at sunset, characterized by warm, golden light. In the foreground, a group of pigs is seen grazing and interacting within a fenced area. The ground is covered with dry grass and scattered rocks, adding texture to the scene. 
 
 A large, majestic tree with a thick trunk and a canopy of leaves is prominently featured on the right side, casting shadows on the ground. Several windmills are scattered throughout the landscape, their blades silhouetted against the sky. 
 
-In the background, a barn with a corrugated metal roof stands amidst the open fields. The sky is filled with dramatic clouds, illuminated by the setting sun, creating a picturesque and tranquil atmosphere.",138,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+In the background, a barn with a corrugated metal roof stands amidst the open fields. The sky is filled with dramatic clouds, illuminated by the setting sun, creating a picturesque and tranquil atmosphere.",138,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image depicts pigs standing and grazing on a grassy or muddy area outdoors, which fits the 'pasture_or_mud' category.",40.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
 pig_farm_reality_country_no_revise_Australia_64.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A typical pig farm in Australia,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a whimsical scene inside a large barn filled with numerous pigs. In the center, there is a small, charming house with a thatched roof and a brick chimney. The house has wooden walls and a small porch with a red armchair placed on it. A wooden bucket is also visible on the porch.
 
 Surrounding the house are many pigs, some standing and others lying on the dirt floor. The barn is spacious, with high ceilings and large windows that allow natural light to stream in. Hanging from the ceiling are various suspended objects, possibly feeding or lighting equipment.
 
-The overall atmosphere is surreal, combining elements of a cozy home with the bustling activity of a pig farm.",138,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+The overall atmosphere is surreal, combining elements of a cozy home with the bustling activity of a pig farm.",138,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,indoor,"The image shows pigs inside a large structure, indicating they are housed indoors.",25.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 pig_farm_reality_country_no_revise_Australia_65.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A typical pig farm in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a large, organized pig farm set in a rural landscape. The farm is divided into several fenced enclosures, each containing numerous pigs. The enclosures are arranged in neat rows, with some pigs wandering outside the pens. A long, covered structure runs parallel to the enclosures, likely serving as a shelter or feeding area for the pigs.
 
 In the background, there are several large silos and additional farm buildings, indicating storage and operational facilities. A truck is parked nearby, suggesting transportation or delivery activities. The farm is bordered by a line of tall trees, creating a natural boundary and adding to the scenic rural setting.
 
-The landscape extends into vast fields of golden crops, under a sky filled with scattered clouds. The lighting suggests either early morning or late afternoon, casting a warm glow over the entire scene. The overall atmosphere is one of productivity and tranquility in an agricultural setting.",178,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+The landscape extends into vast fields of golden crops, under a sky filled with scattered clouds. The lighting suggests either early morning or late afternoon, casting a warm glow over the entire scene. The overall atmosphere is one of productivity and tranquility in an agricultural setting.",178,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs in an outdoor setting, with some pigs clearly standing or lying on dirt or straw, which fits the 'pasture_or_mud' category.",46.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
 pig_farm_reality_country_no_revise_Australia_66.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A simplistic representation of an average pig farm in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image is a detailed illustration of a pig farm with various agricultural and industrial elements. It features multiple buildings, including barns, sheds, and processing facilities, all interconnected by roads and pathways. 
 
 Pigs are scattered throughout the scene, some in fenced areas and others roaming freely. The farm includes several silos and smokestacks emitting smoke, indicating industrial activity. There are also vehicles like trucks and tractors, suggesting transportation and farming operations.
 
-The color palette is primarily soft greens, pinks, and whites, giving the illustration a clean, stylized look. Wind turbines and trees are also present, adding to the rural and sustainable energy theme. The overall composition is isometric, providing a three-dimensional perspective of the farm layout.",146,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+The color palette is primarily soft greens, pinks, and whites, giving the illustration a clean, stylized look. Wind turbines and trees are also present, adding to the rural and sustainable energy theme. The overall composition is isometric, providing a three-dimensional perspective of the farm layout.",146,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image depicts pigs in various outdoor settings, such as fields and fenced areas, indicating they are on pasture or grassland.",38.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
 pig_farm_reality_country_no_revise_Australia_67.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A realistic depiction of a typical pig farm in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a bustling pig farm scene with numerous pigs and farmers engaged in various activities. The farm is structured with two levels, featuring a large barn with a corrugated metal roof. 
 
 On the upper level, pigs are seen in pens filled with straw, and farmers are tending to them, some carrying buckets or using tools. A ladder connects the two levels, and a farmer is climbing it. 
 
 On the lower level, more pigs roam freely in a fenced area. Farmers are busy feeding the pigs and managing the space. There are several feeding troughs filled with grain and a large round container with feed. 
 
-In the foreground, a long table is set up with an assortment of food items, resembling a feast, with pigs gathered around it. The scene is lively, with a sense of organized chaos typical of a working farm. The sky is clear with a few clouds, suggesting a pleasant day.",182,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
-pig_farm_reality_country_no_revise_Australia_68.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A realistic representation of a typical pig farm in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a detailed miniature model of a pig farm. It features numerous pink pigs in various enclosures surrounded by wooden fences. The farm includes two red barns with gray roofs, one larger and one smaller, both with open doors showing more pigs inside. The enclosures contain troughs filled with water and feed for the pigs. The landscape is dotted with small, meticulously crafted trees and patches of grass, adding to the realism of the scene. In the background, there are fields and a distant horizon, enhancing the rural setting. The model is set on a wooden base, showcasing the intricate craftsmanship.",120,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+In the foreground, a long table is set up with an assortment of food items, resembling a feast, with pigs gathered around it. The scene is lively, with a sense of organized chaos typical of a working farm. The sky is clear with a few clouds, suggesting a pleasant day.",182,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs standing and moving around on dirt or mud outside a structure, indicating they are on pasture or mud.",37.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
+pig_farm_reality_country_no_revise_Australia_68.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A realistic representation of a typical pig farm in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a detailed miniature model of a pig farm. It features numerous pink pigs in various enclosures surrounded by wooden fences. The farm includes two red barns with gray roofs, one larger and one smaller, both with open doors showing more pigs inside. The enclosures contain troughs filled with water and feed for the pigs. The landscape is dotted with small, meticulously crafted trees and patches of grass, adding to the realism of the scene. In the background, there are fields and a distant horizon, enhancing the rural setting. The model is set on a wooden base, showcasing the intricate craftsmanship.",120,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs standing and lying on dirt and straw in an outdoor setting, which fits the 'pasture_or_mud' category.",41.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_831e067d82
 pig_farm_reality_country_no_revise_Australia_69.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",An accurate depiction of a typical pig farm in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image is a detailed and vibrant illustration featuring a smiling elderly man in the foreground. He has gray hair and is wearing a brown suit with a patterned tie. Behind him is a sprawling farm scene with lush green fields and various agricultural elements. 
 
-The farm includes several barns and silos, with pigs roaming freely in fenced areas. The landscape is meticulously organized, with rows of crops and small figures tending to the farm. The buildings are painted in shades of blue and orange, adding a pop of color to the scene. The overall composition blends the portrait of the man with the idyllic farm setting, creating a harmonious and lively depiction of rural life.",129,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
-pig_farm_reality_country_no_revise_Australia_70.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A typical pig farm in Australia,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a large, well-lit pig farm interior during sunrise or sunset. The barn is spacious, with a high ceiling and rows of pens housing numerous pigs. The pens are separated by metal railings, and the floor is covered with straw. Overhead, there are hanging lights and some ventilation or feeding systems. Sunlight streams in through the windows and skylights, casting a warm glow across the scene. A person wearing a green coat and hat is walking down the central aisle, tending to the pigs. The atmosphere is calm and orderly, with the pigs appearing healthy and active.",118,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+The farm includes several barns and silos, with pigs roaming freely in fenced areas. The landscape is meticulously organized, with rows of crops and small figures tending to the farm. The buildings are painted in shades of blue and orange, adding a pop of color to the scene. The overall composition blends the portrait of the man with the idyllic farm setting, creating a harmonious and lively depiction of rural life.",129,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image depicts pigs standing or grazing on grassland, which fits the 'pasture_or_mud' category.",36.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
+pig_farm_reality_country_no_revise_Australia_70.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A typical pig farm in Australia,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a large, well-lit pig farm interior during sunrise or sunset. The barn is spacious, with a high ceiling and rows of pens housing numerous pigs. The pens are separated by metal railings, and the floor is covered with straw. Overhead, there are hanging lights and some ventilation or feeding systems. Sunlight streams in through the windows and skylights, casting a warm glow across the scene. A person wearing a green coat and hat is walking down the central aisle, tending to the pigs. The atmosphere is calm and orderly, with the pigs appearing healthy and active.",118,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,indoor,"The image shows pigs housed inside a large barn or structure, indicating they are kept indoors.",28.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 pig_farm_reality_country_no_revise_Australia_71.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",An image depicting a typical pig farm in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a bustling pig farm set in a rural landscape. In the foreground, numerous pigs roam freely within fenced enclosures. The farm is organized with several sections, each containing groups of pigs. Workers are seen tending to the animals, ensuring their care and feeding.
 
 Central to the image are large silos and a barn-like structure, likely used for storage and shelter. The silos are tall and metallic, indicating modern agricultural practices. The barn has an open design, with visible stacks of hay or feed inside.
 
-The background features expansive fields and rolling hills, suggesting a vast and productive farmland. The sky is clear with a few fluffy clouds, adding to the serene rural setting. The overall scene is vibrant and detailed, capturing the essence of a well-maintained and active farm.",157,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+The background features expansive fields and rolling hills, suggesting a vast and productive farmland. The sky is clear with a few fluffy clouds, adding to the serene rural setting. The overall scene is vibrant and detailed, capturing the essence of a well-maintained and active farm.",157,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs standing and walking on dirt or pasture areas outside, indicating they are not confined indoors.",34.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 pig_farm_reality_country_no_revise_Australia_72.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",Depiction of a typical pig farm in Australia,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a bustling farm scene with a focus on pigs and various farm activities. In the foreground, several large pink pigs and piglets roam around, some interacting with people. There are tables set up with people enjoying meals, surrounded by pigs. The tables are laden with various dishes, indicating a communal or celebratory meal.
 
 In the midground, there are fenced areas containing more pigs and other animals, such as sheep. People are engaged in different farm tasks, including feeding animals and tending to the land. The farm buildings, including silos and barns, are visible, suggesting a well-established farm.
 
-In the background, vast fields of crops stretch out, with a tractor working the land. The sky is clear with a few clouds, adding to the serene yet lively atmosphere of the farm. The overall scene is vibrant and detailed, capturing the essence of rural farm life.",176,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+In the background, vast fields of crops stretch out, with a tractor working the land. The sky is clear with a few clouds, adding to the serene yet lively atmosphere of the farm. The overall scene is vibrant and detailed, capturing the essence of rural farm life.",176,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs standing and lying on dirt and straw in an outdoor setting, which fits the 'pasture_or_mud' category.",41.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
 pig_farm_reality_country_no_revise_Australia_73.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A typical pig farm in Australia,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a large indoor pig farm at sunrise. The scene is filled with numerous pigs, primarily pink in color, housed in spacious pens. The pigs are standing on a bed of straw, which covers the floor of the barn. The structure is made of metal and has a high roof with open sides, allowing natural light to flood in. 
 
-In the foreground, one pig stands out, leaning over the metal railing with its snout and ears prominently visible. The pig's nose is slightly dirty, likely from rooting in the straw. The lighting creates a warm glow, highlighting the pig's features and casting long shadows across the barn. The sun is visible in the background, just above the horizon, adding a golden hue to the entire scene.",150,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+In the foreground, one pig stands out, leaning over the metal railing with its snout and ears prominently visible. The pig's nose is slightly dirty, likely from rooting in the straw. The lighting creates a warm glow, highlighting the pig's features and casting long shadows across the barn. The sun is visible in the background, just above the horizon, adding a golden hue to the entire scene.",150,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,indoor,"The image shows pigs housed inside a structure, as indicated by the roof and walls visible in the background.",31.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_831e067d82
 pig_farm_reality_country_no_revise_Australia_74.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",An accurate representation of what most pig farms in Australia look like.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image is a detailed, stylized depiction of a pig farm. At the center is an enormous, exaggeratedly large pig, dominating the scene. Surrounding it are various farm structures and elements:
 
 1. **Buildings and Structures**: 
@@ -9608,94 +9880,254 @@ pig_farm_reality_country_no_revise_Australia_74.png,reality_country_no_revise,Au
    - Smoke is billowing from two chimneys, suggesting industrial activity.
    - The entire farm is enclosed by fences, creating a neat, organized layout.
 
-The image combines realistic and whimsical elements, creating a vibrant and bustling farm scene.",283,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+The image combines realistic and whimsical elements, creating a vibrant and bustling farm scene.",283,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs standing and moving around on grass and dirt, indicating they are on pasture or mud.",34.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 pig_farm_reality_country_no_revise_Australia_75.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A realistic depiction of a typical pig farm in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a detailed and vibrant scene of a pig farm at sunrise or sunset. The farm is bustling with activity, featuring numerous pigs in various pens. The pigs are large and appear healthy, with a few standing near the wooden fences. The pens are neatly arranged, with some containing feeding troughs and hay.
 
 In the foreground, two particularly large pigs are prominently positioned near a barn. The barn is rustic, with a wooden structure and a thatched roof. Hay is visible hanging from the barn's interior, adding to the rural atmosphere.
 
-In the background, farm workers are tending to the pigs, and there are several pieces of farming equipment, including a water tower and a small cart filled with hay. The landscape is lush, with trees and fields extending into the distance. Mist rises from the ground, creating a serene and picturesque setting. The lighting is warm, casting long shadows and highlighting the textures of the pigs and the farm structures.",189,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+In the background, farm workers are tending to the pigs, and there are several pieces of farming equipment, including a water tower and a small cart filled with hay. The landscape is lush, with trees and fields extending into the distance. Mist rises from the ground, creating a serene and picturesque setting. The lighting is warm, casting long shadows and highlighting the textures of the pigs and the farm structures.",189,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs in an outdoor setting with visible dirt and straw, indicating they are on pasture or mud.",35.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 pig_farm_reality_country_no_revise_Australia_76.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A simple representation of a typical pig farm in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image is a cute, cartoon-style illustration of a pig farm. It features a circular plot of land enclosed by a white fence. Inside the farm, there are several pink pigs scattered around, some grazing and others walking. 
 
 There are three main buildings with red roofs: a barn, a stable, and a smaller shed. Two silos are present, one near the barn and another near the stable. A small pond with a pig bathing in it is located on the left side. Near the pond, there is a feeding trough with several pigs eating from it.
 
-In the background, there are two rectangular pens, possibly for feeding or housing. A single tree adds a touch of greenery to the scene. The overall atmosphere is peaceful and idyllic, capturing the essence of farm life.",157,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+In the background, there are two rectangular pens, possibly for feeding or housing. A single tree adds a touch of greenery to the scene. The overall atmosphere is peaceful and idyllic, capturing the essence of farm life.",157,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image depicts pigs standing and lying on grassland, which fits the 'pasture_or_mud' category.",36.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
 pig_farm_reality_country_no_revise_Australia_77.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",An accurate depiction of a typical pig farm in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a detailed and vibrant illustration of a large pig farm. The scene is bustling with activity, featuring numerous pigs of various sizes roaming within fenced enclosures. The farm is organized with several large, metal-roofed barns and sheds, each surrounded by pens and pathways.
 
 In the foreground, there are several trucks parked near the entrance, suggesting the transportation of goods or livestock. Farm workers are scattered throughout the scene, tending to the pigs and managing the farm operations. The landscape includes fields of crops, possibly wheat or corn, and a few trees providing shade.
 
-The farm buildings are constructed with a combination of metal and wood, and the overall layout is efficient, with clear pathways for movement. The setting is rural, with a backdrop of open fields and a clear sky, indicating a typical day on a busy farm. The attention to detail in the illustration highlights the various aspects of farm life and the scale of the operation.",186,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+The farm buildings are constructed with a combination of metal and wood, and the overall layout is efficient, with clear pathways for movement. The setting is rural, with a backdrop of open fields and a clear sky, indicating a typical day on a busy farm. The attention to detail in the illustration highlights the various aspects of farm life and the scale of the operation.",186,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image depicts pigs standing and grazing on grassland and dirt areas, which fits the 'pasture_or_mud' category.",39.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
 pig_farm_reality_country_no_revise_Australia_78.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:","A depiction of a typical pig farm in Australia. The scene should include pig pens, mud, a barn, pigs, and the Australian outback.",dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a vibrant rural farm scene with a focus on pigs. In the foreground, several pigs, including piglets, are roaming and foraging in a fenced area. The soil appears freshly tilled, and there are patches of green vegetation, including cacti.
 
 In the middle ground, a large wooden barn with a metal roof houses more pigs. The barn is surrounded by lush greenery, including palm trees, and there is a small pond reflecting the sky. An old wooden wagon wheel leans against the barn, adding a rustic touch.
 
-The background features a landscape of rolling hills and distant mountains under a bright blue sky filled with fluffy clouds. Hot air balloons float in the sky, and birds are flying overhead, adding a sense of movement and tranquility to the scene. The overall atmosphere is serene and pastoral, capturing the essence of farm life.",170,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+The background features a landscape of rolling hills and distant mountains under a bright blue sky filled with fluffy clouds. Hot air balloons float in the sky, and birds are flying overhead, adding a sense of movement and tranquility to the scene. The overall atmosphere is serene and pastoral, capturing the essence of farm life.",170,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs standing and grazing on dirt and mud, which fits the 'pasture_or_mud' category.",37.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
 pig_farm_reality_country_no_revise_Australia_79.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A typical pig farm in Australia,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image is a complex and imaginative depiction of a futuristic space habitat. At the center, there is a view of Earth, surrounded by concentric rings that appear to be part of a massive space station or colony. These rings contain various sections, including agricultural fields, industrial areas, and residential zones, all intricately detailed with different textures and colors.
 
 Surrounding the central structure are numerous transparent spheres floating in space, each containing different elements. Some spheres have miniature landscapes, while others contain animals, such as pigs, suggesting a theme of biodiversity or genetic preservation. The spheres are interconnected by a network of lines, adding to the sense of a highly organized and advanced ecosystem.
 
-The overall composition is dynamic, with a sense of movement and depth, enhanced by the play of light and shadow. The image combines elements of science fiction and environmental themes, creating a vision of a self-sustaining habitat in space.",182,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+The overall composition is dynamic, with a sense of movement and depth, enhanced by the play of light and shadow. The image combines elements of science fiction and environmental themes, creating a vision of a self-sustaining habitat in space.",182,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,other,"The image is a surreal depiction with pigs in bubbles and a cosmic background, making it unclear and not fitting the 'pasture or mud' or 'indoor' categories.",44.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 pig_farm_reality_country_no_revise_Australia_80.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A realistic depiction of most pig farms in Australia,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a bustling pig farm scene with numerous pigs roaming around. In the foreground, several large pigs are gathered around large feeding troughs filled with different types of feed, including pellets and vegetables like corn and carrots. A small piglet is also visible near one of the troughs.
 
-Farm workers, dressed in overalls and hats, are actively engaged in various tasks. Some are feeding the pigs, while others are managing the farm equipment or tending to the animals. The farm buildings in the background include a large barn and several silos, indicating a well-organized agricultural setting. The landscape is expansive, with rolling hills and a clear sky, suggesting a rural environment. The overall atmosphere is busy and industrious, highlighting the daily operations of a pig farm.",153,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+Farm workers, dressed in overalls and hats, are actively engaged in various tasks. Some are feeding the pigs, while others are managing the farm equipment or tending to the animals. The farm buildings in the background include a large barn and several silos, indicating a well-organized agricultural setting. The landscape is expansive, with rolling hills and a clear sky, suggesting a rural environment. The overall atmosphere is busy and industrious, highlighting the daily operations of a pig farm.",153,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs standing and moving around on dirt or mud outside, indicating they are in a pasture-like environment.",36.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_831e067d82
 pig_farm_reality_country_no_revise_Australia_81.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A realistic depiction of typical pig farms in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a vibrant rural farm scene with numerous pigs roaming freely in a lush green field. The pigs are scattered throughout the area, some grazing on the vegetation. The field is enclosed by a wooden fence, ensuring the pigs remain within the designated area.
 
 In the background, there is a rustic barn with a corrugated metal roof, showing signs of weathering. The barn is surrounded by various farming equipment and structures, including two large silos and a windmill, which add to the pastoral atmosphere. The windmill stands tall, its blades catching the light, suggesting a gentle breeze.
 
-Beyond the farm, rolling hills stretch into the distance, covered with trees and vegetation, under a sky filled with fluffy clouds. The overall scene conveys a sense of tranquility and productivity, capturing the essence of rural farm life.",162,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+Beyond the farm, rolling hills stretch into the distance, covered with trees and vegetation, under a sky filled with fluffy clouds. The overall scene conveys a sense of tranquility and productivity, capturing the essence of rural farm life.",162,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs standing and grazing on grassland, which fits the 'pasture_or_mud' category.",36.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 pig_farm_reality_country_no_revise_Australia_82.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A realistic representation of a typical pig farm in Australia,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a vibrant farm scene with numerous pigs roaming around. The pigs are scattered across a fenced area, some feeding from a trough filled with green feed. The farm is equipped with several structures, including a large barn with a corrugated metal roof and an open shed where more pigs are visible. 
 
 In the foreground, there are stacks of hay bales and several barrels, suggesting storage and feeding supplies. A blue tractor is parked near the hay bales, indicating the farm's mechanized operations. 
 
-The background features a silo, likely used for grain storage, and additional farm buildings. The landscape is dotted with trees, and rolling hills can be seen in the distance under a partly cloudy sky, creating a serene rural atmosphere.",147,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+The background features a silo, likely used for grain storage, and additional farm buildings. The landscape is dotted with trees, and rolling hills can be seen in the distance under a partly cloudy sky, creating a serene rural atmosphere.",147,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs standing and grazing on dirt and straw, which fits the 'pasture_or_mud' category.",37.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
 pig_farm_reality_country_no_revise_Australia_83.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A realistic depiction of a typical pig farm in Australia,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a lively farm scene with numerous pigs in a fenced area. In the foreground, a large pig stands prominently, looking directly at the viewer. The pig has a pinkish hue with large, upright ears. Surrounding the pig are several other pigs, some eating from the ground and others wandering around.
 
 The farm setting includes a barn on the left side, constructed with a metal roof and wooden walls. Inside the barn, more pigs can be seen, and there are lights hanging from the ceiling, illuminating the interior. The ground is covered with straw, adding to the rustic atmosphere.
 
-In the foreground, there are wooden barrels and baskets filled with vegetables, such as carrots and squash, suggesting feed for the pigs. The background features a landscape of rolling hills and large, leafy trees, creating a serene and pastoral environment. The overall scene is warm and inviting, capturing the essence of farm life.",181,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+In the foreground, there are wooden barrels and baskets filled with vegetables, such as carrots and squash, suggesting feed for the pigs. The background features a landscape of rolling hills and large, leafy trees, creating a serene and pastoral environment. The overall scene is warm and inviting, capturing the essence of farm life.",181,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs standing and lying on straw in an outdoor setting, which fits the 'pasture_or_mud' category.",39.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
 pig_farm_reality_country_no_revise_Australia_84.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",An accurate representation of typical pig farms in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a detailed miniature model of a pig farm. The farm is enclosed by a white fence and features several structures, including a large red barn and multiple silver silos. The silos are arranged in a row, suggesting storage for feed or grain. 
 
 In the open areas, numerous pink pigs are visible, some gathered in groups, others roaming individually. The pigs are distributed across different sections of the farm, separated by fences and small patches of greenery.
 
 There are also several small vehicles, including a red tractor and a blue truck with a trailer, positioned on the roads surrounding the farm. The roads are neatly paved, with clear lane markings. 
 
-The background features dense, stylized trees, adding depth to the scene. The overall atmosphere is calm and orderly, typical of a well-maintained agricultural setting.",164,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+The background features dense, stylized trees, adding depth to the scene. The overall atmosphere is calm and orderly, typical of a well-maintained agricultural setting.",164,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs in an outdoor setting, with some standing or lying on grass or dirt, which fits the 'pasture_or_mud' category.",44.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
 pig_farm_reality_country_no_revise_Australia_85.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A realistic representation of a typical pig farm in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a bustling farm scene with numerous pigs roaming around. The setting includes several farm buildings with red and gray roofs, surrounded by lush green trees and rolling hills in the background. The pigs are gathered around feeding troughs, eating from them. 
 
 In the foreground, a variety of pigs are seen, some eating from circular troughs filled with food. There are also wooden barrels and a vintage tractor with red wheels nearby. 
 
-A few people are present in the scene: one person is sitting on the tractor, while others are standing near the buildings, possibly tending to the pigs or engaging in farm activities. The overall atmosphere is lively and pastoral, with a focus on the farm's daily routine.",141,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+A few people are present in the scene: one person is sitting on the tractor, while others are standing near the buildings, possibly tending to the pigs or engaging in farm activities. The overall atmosphere is lively and pastoral, with a focus on the farm's daily routine.",141,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs standing and grazing on dirt or mud in an outdoor setting, fitting the 'pasture_or_mud' category.",40.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 pig_farm_reality_country_no_revise_Australia_86.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",An accurate depiction of a typical pig farm in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a bustling farm scene with a focus on pig farming. In the foreground, there are numerous pigs in a fenced area, with several farmers tending to them. The pigs are actively moving around, and some are being fed by the workers. 
 
 To the left, a tractor is parked with a farmer nearby, possibly unloading supplies. There are several large barns and sheds, some housing more pigs, with workers visible inside. A large silo stands prominently near the center, indicating storage for feed or grain.
 
-In the background, the landscape extends to show more fenced areas with additional pigs grazing. A river runs through the scene, bordered by trees and fields, adding to the rural setting. The sun is setting or rising, casting a warm glow over the entire farm, and the sky is dotted with clouds, enhancing the picturesque quality of the scene.",170,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+In the background, the landscape extends to show more fenced areas with additional pigs grazing. A river runs through the scene, bordered by trees and fields, adding to the rural setting. The sun is setting or rising, casting a warm glow over the entire farm, and the sky is dotted with clouds, enhancing the picturesque quality of the scene.",170,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs standing and lying on dirt and mud in an outdoor setting, which fits the 'pasture_or_mud' category.",41.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
 pig_farm_reality_country_no_revise_Australia_87.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:","A depiction of a typical pig farm in Australia. Highlight the routine activities, natural surroundings, and overall environment without any embellishment.",dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image is a detailed illustration of a bustling pig farm set against the backdrop of a city skyline. In the foreground, numerous pigs are feeding from troughs filled with grain. The pigs are depicted in shades of pink and blue, adding a whimsical touch to the scene. 
 
 Farm workers, dressed in blue overalls and hats, are actively engaged in various tasks around the farm. Some are tending to the pigs, while others are handling equipment or managing the feed. The farm structures include several pens and a large barn, which houses more pigs.
 
-In the background, the landscape transitions from the rural farm setting to a cityscape with tall skyscrapers and industrial chimneys. The city is depicted in a monochromatic blue tone, contrasting with the colorful farm scene. A river winds through the landscape, and a windmill is visible near the skyline. Above, a bird soars in the sky, adding a sense of movement to the composition. The overall scene blends rural and urban elements, creating a dynamic and detailed visual narrative.",205,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
-pig_farm_reality_country_no_revise_Australia_88.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:","A typical pig farm in Australia. The scene depicts an outdoor farm enclosure with several pigs milling about, surrounded by wooden fencing. The landscape includes Australian vegetation in the background, and the clear blue Australian sky overhead.",dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image is an illustration of a rural farm scene featuring a group of pigs in a fenced enclosure. The pigs are depicted in various positions, some grazing and others walking around. The enclosure is made of wooden fences, and there is a gate in the foreground. In the background, a barn with a metal roof is visible, adding to the farm setting. The landscape includes rolling hills and trees, with a clear blue sky overhead. The style of the illustration is detailed, with a focus on texture and shading, giving it a classic, pastoral feel.",110,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+In the background, the landscape transitions from the rural farm setting to a cityscape with tall skyscrapers and industrial chimneys. The city is depicted in a monochromatic blue tone, contrasting with the colorful farm scene. A river winds through the landscape, and a windmill is visible near the skyline. Above, a bird soars in the sky, adding a sense of movement to the composition. The overall scene blends rural and urban elements, creating a dynamic and detailed visual narrative.",205,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,The image depicts pigs standing and grazing on what appears to be dirt or straw in an outdoor setting. This fits the 'pasture_or_mud' category as the pigs are not confined indoors and are on natural ground.,57.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_831e067d82
+pig_farm_reality_country_no_revise_Australia_88.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:","A typical pig farm in Australia. The scene depicts an outdoor farm enclosure with several pigs milling about, surrounded by wooden fencing. The landscape includes Australian vegetation in the background, and the clear blue Australian sky overhead.",dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image is an illustration of a rural farm scene featuring a group of pigs in a fenced enclosure. The pigs are depicted in various positions, some grazing and others walking around. The enclosure is made of wooden fences, and there is a gate in the foreground. In the background, a barn with a metal roof is visible, adding to the farm setting. The landscape includes rolling hills and trees, with a clear blue sky overhead. The style of the illustration is detailed, with a focus on texture and shading, giving it a classic, pastoral feel.",110,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image depicts pigs standing and grazing on grassland in an outdoor setting, which fits the 'pasture_or_mud' category.",40.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 pig_farm_reality_country_no_revise_Australia_89.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",Illustration of a typical pig farm in Australia,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a vibrant farm scene with a focus on livestock and renewable energy. In the foreground, several pigs are seen in a fenced area, some standing and others lying down. The pigs are pink and appear healthy, with a few chickens and ducks roaming around them. A rooster stands prominently on a bed of straw, adding to the lively farm atmosphere.
 
 Adjacent to the animal pens is a water trough, and a small container of feed is visible, indicating the animals are well cared for. The barn structure is large, with a curved roof and several ventilation chimneys on top. It is painted in a rustic red color, typical of traditional barns.
 
-In the background, wind turbines are lined up across the landscape, suggesting the farm utilizes wind energy. The turbines are set against a backdrop of fields and distant hills, with a couple of tractors visible, indicating active farming operations. The overall scene is a harmonious blend of agriculture and sustainable energy practices.",189,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+In the background, wind turbines are lined up across the landscape, suggesting the farm utilizes wind energy. The turbines are set against a backdrop of fields and distant hills, with a couple of tractors visible, indicating active farming operations. The overall scene is a harmonious blend of agriculture and sustainable energy practices.",189,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs standing and walking on a surface that resembles dirt or mud, which fits the 'pasture_or_mud' category.",41.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
 pig_farm_reality_country_no_revise_Australia_90.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",An accurate representation of a typical pig farm in Australia,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a detailed miniature model of a pig farm. The scene includes several small buildings with corrugated metal roofs, typical of farm structures. There are multiple pigs in a fenced area, suggesting a pigsty or pen. The pigs are light pink and vary in size, indicating different ages or breeds.
 
 In the background, there are several trees with dense, rounded canopies, adding a natural element to the scene. The farm buildings include barns and possibly a farmhouse, with some structures showing signs of rust, adding realism to the model.
 
-There are also tall silos with smoke or steam coming out, suggesting some industrial activity or processing on the farm. The ground is textured to resemble dirt or sand, and there are small patches of greenery, possibly representing grass or crops. The overall scene is highly detailed, capturing the essence of a working farm.",170,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+There are also tall silos with smoke or steam coming out, suggesting some industrial activity or processing on the farm. The ground is textured to resemble dirt or sand, and there are small patches of greenery, possibly representing grass or crops. The overall scene is highly detailed, capturing the essence of a working farm.",170,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image depicts pigs standing and moving around in an outdoor setting with visible dirt or mud, indicating they are not housed indoors.",38.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 pig_farm_reality_country_no_revise_Australia_91.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A typical Australian pig farm,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a futuristic and industrial landscape at sunset. In the foreground, there are several pig pens filled with pink pigs, illuminated by warm lights from the barns. The barns have metal roofs and are arranged in neat rows, with a person visible tending to the animals.
 
-In the background, a large industrial complex with tall smokestacks emits smoke into the sky, suggesting heavy industrial activity. Wind turbines are scattered across the landscape, indicating a mix of traditional and renewable energy sources. The sky is a gradient of warm colors, transitioning from orange to dark blue as the sun sets on the horizon. Birds are flying in the sky, adding a sense of movement to the scene. The overall atmosphere combines elements of agriculture and industry, highlighting a juxtaposition of nature and technology.",154,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+In the background, a large industrial complex with tall smokestacks emits smoke into the sky, suggesting heavy industrial activity. Wind turbines are scattered across the landscape, indicating a mix of traditional and renewable energy sources. The sky is a gradient of warm colors, transitioning from orange to dark blue as the sun sets on the horizon. Birds are flying in the sky, adding a sense of movement to the scene. The overall atmosphere combines elements of agriculture and industry, highlighting a juxtaposition of nature and technology.",154,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,other,"The image shows pigs in a setting that is not clearly pasture or fully indoors. The pigs appear to be in an outdoor pen area adjacent to buildings, making it ambiguous for classification as strictly pasture or indoor.",50.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
 pig_farm_reality_country_no_revise_Australia_92.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A look at an average pig farm in Australia,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a surreal and dystopian scene. In the foreground, there is a long dirt road flanked by numerous pig pens filled with pigs. A person on a small vehicle, possibly a tractor, is driving down the road. The pens are organized in neat rows, extending into the distance.
 
-In the background, a city skyline is visible, dominated by tall skyscrapers. The sky above the city is filled with ominous, fiery clouds and large, glowing orbs that resemble explosions or celestial bodies. Thick smoke rises from the city, blending with the fiery clouds, creating an apocalyptic atmosphere. The sun is setting or rising on the horizon, casting an orange glow over the entire scene. The contrast between the rural foreground and the chaotic urban background creates a striking visual impact.",157,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+In the background, a city skyline is visible, dominated by tall skyscrapers. The sky above the city is filled with ominous, fiery clouds and large, glowing orbs that resemble explosions or celestial bodies. Thick smoke rises from the city, blending with the fiery clouds, creating an apocalyptic atmosphere. The sun is setting or rising on the horizon, casting an orange glow over the entire scene. The contrast between the rural foreground and the chaotic urban background creates a striking visual impact.",157,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,other,"The image depicts pigs outdoors, but the setting is highly stylized and surreal with apocalyptic elements, making it difficult to classify as typical pasture or mud.",40.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 pig_farm_reality_country_no_revise_Australia_93.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:","A realistic depiction of a typical pig farm in Australia. Capture the environment, the structures used, and the pigs' interaction with this setting.",dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a serene farm scene at sunrise or sunset, with a warm, golden light casting a soft glow over the landscape. In the foreground, a group of pigs is grazing on the farm, surrounded by tufts of dry grass. The pigs appear healthy and content, with their pink skin contrasting against the golden hues of the grass.
 
 To the right, there is a long barn with a sloped roof, constructed from stone or brick. The barn has open sections, revealing stacks of hay inside. A series of wooden fences run alongside the barn, enclosing the area where the pigs are roaming.
 
-In the background, a tall, cylindrical silo stands prominently, silhouetted against the sky. The sky itself is partly cloudy, with the sun's rays filtering through, creating a picturesque and tranquil atmosphere. Trees with lush green foliage are visible in the distance, adding to the rural charm of the scene.",180,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+In the background, a tall, cylindrical silo stands prominently, silhouetted against the sky. The sky itself is partly cloudy, with the sun's rays filtering through, creating a picturesque and tranquil atmosphere. Trees with lush green foliage are visible in the distance, adding to the rural charm of the scene.",180,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image depicts pigs standing and grazing on what appears to be pasture or dirt outside, with visible grass and open sky, fitting the 'pasture_or_mud' category.",48.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 pig_farm_reality_country_no_revise_Australia_94.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A simplistic depiction of a typical pig farm in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image is a stylized illustration of a farm scene. It features several key elements:
 
 1. **Buildings**: There are multiple farm buildings, including silos with red domes and a barn with a red roof. The barn has a large door and a smaller adjacent structure.
@@ -9708,23 +10140,79 @@ pig_farm_reality_country_no_revise_Australia_94.png,reality_country_no_revise,Au
 
 5. **Color Scheme**: The image uses a muted color palette with shades of red, beige, and gray, giving it a clean and modern look.
 
-Overall, the illustration conveys a peaceful and organized farm environment.",173,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+Overall, the illustration conveys a peaceful and organized farm environment.",173,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image depicts pigs standing or grazing on a field, which appears to be pasture or dirt, fitting the 'pasture_or_mud' category.",43.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 pig_farm_reality_country_no_revise_Australia_95.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A realistic depiction of a typical pig farm in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a spacious, well-lit pig farm interior. The structure is a large barn with a high, sloped roof made of corrugated metal. Sunlight streams in through the windows, casting a warm glow across the scene. The floor is muddy, with puddles scattered throughout, indicating recent rain or regular cleaning.
 
 Numerous pigs roam freely within their fenced enclosures, some eating from the ground. The pigs are pink and appear healthy and active. The fencing is made of metal, providing a secure but open environment for the animals.
 
-A person wearing overalls and boots walks through the barn, holding a bucket, likely tending to the pigs. Overhead, there are hanging lights and some greenery, adding to the barn's rustic charm. In the background, the barn opens up to a view of trees and a bright sky, suggesting a rural setting. The overall atmosphere is serene and industrious, capturing a moment of daily life on a farm.",192,Describe the image in detail.,high,0.2,fp_72bbfa6014,,,,,,
-pig_farm_reality_country_no_revise_Australia_96.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A typical pig farm in Australia,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a close-up of a piglet in a barn or farm setting. The piglet is leaning over a metal railing, with its front hooves resting on it. Its face is covered with some dirt, giving it a playful and curious appearance. The piglet's ears are large and pink, with one ear tagged, indicating it might be part of a livestock operation. The lighting is warm, likely from the setting or rising sun, casting a golden glow over the scene. In the background, more piglets are visible, housed in similar pens, creating a sense of depth and perspective. The overall atmosphere is lively and natural, capturing a moment in the daily life of farm animals.",140,Describe the image in detail.,high,0.2,fp_45c6de4934,,,,,,
-pig_farm_reality_country_no_revise_Australia_97.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A typical pig farm in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a group of pigs inside a barn. The pigs are predominantly pink with some mud on their snouts and bodies, indicating they have been rooting around in the dirt. The barn is spacious, with a high ceiling and large windows that allow natural light to stream in, creating a warm, inviting atmosphere. The sunlight is particularly bright at the far end of the barn, casting a glow over the scene. The floor is muddy, suggesting the pigs have been active and possibly that the barn is designed to allow for natural pig behavior. The pigs are gathered closely together, some looking directly at the camera with curious expressions. The overall mood is lively and natural, capturing the essence of farm life.",140,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
-pig_farm_reality_country_no_revise_Australia_98.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:","A typical pig farm in Australia with open fields and pigs roaming freely in their natural habitat, feeding and interacting with each other. The farm has a barn, fencing, and feeding troughs. The atmosphere is dynamic with the hustle and bustle of daily farming activities.",dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a large pig farm with numerous pigs roaming in fenced enclosures. The pigs are spread out across the farm, with some gathered around feeding troughs filled with grain. The farm is organized with multiple pens, each containing groups of pigs. In the background, there is a large barn-like structure with an open entrance, where more pigs can be seen inside. The setting appears to be expansive, with rows of fences extending into the distance, and the lighting suggests it might be late afternoon or early morning, casting long shadows across the ground. The overall scene conveys a sense of a busy, well-organized agricultural operation.",126,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+A person wearing overalls and boots walks through the barn, holding a bucket, likely tending to the pigs. Overhead, there are hanging lights and some greenery, adding to the barn's rustic charm. In the background, the barn opens up to a view of trees and a bright sky, suggesting a rural setting. The overall atmosphere is serene and industrious, capturing a moment of daily life on a farm.",192,Describe the image in detail.,high,0.2,fp_72bbfa6014,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs standing and moving around on a muddy surface within a structure that appears to be open on the sides, allowing natural light in. This suggests they are on mud, fitting the 'pasture_or_mud' category.",60.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
+pig_farm_reality_country_no_revise_Australia_96.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A typical pig farm in Australia,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a close-up of a piglet in a barn or farm setting. The piglet is leaning over a metal railing, with its front hooves resting on it. Its face is covered with some dirt, giving it a playful and curious appearance. The piglet's ears are large and pink, with one ear tagged, indicating it might be part of a livestock operation. The lighting is warm, likely from the setting or rising sun, casting a golden glow over the scene. In the background, more piglets are visible, housed in similar pens, creating a sense of depth and perspective. The overall atmosphere is lively and natural, capturing a moment in the daily life of farm animals.",140,Describe the image in detail.,high,0.2,fp_45c6de4934,gpt-4o-2024-08-06,indoor,"The image shows pigs inside a structure with metal bars, indicating they are housed indoors.",27.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
+pig_farm_reality_country_no_revise_Australia_97.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",A typical pig farm in Australia.,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a group of pigs inside a barn. The pigs are predominantly pink with some mud on their snouts and bodies, indicating they have been rooting around in the dirt. The barn is spacious, with a high ceiling and large windows that allow natural light to stream in, creating a warm, inviting atmosphere. The sunlight is particularly bright at the far end of the barn, casting a glow over the scene. The floor is muddy, suggesting the pigs have been active and possibly that the barn is designed to allow for natural pig behavior. The pigs are gathered closely together, some looking directly at the camera with curious expressions. The overall mood is lively and natural, capturing the essence of farm life.",140,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,indoor,"The image shows pigs inside a structure with visible walls and a roof, indicating they are housed indoors.",30.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
+pig_farm_reality_country_no_revise_Australia_98.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:","A typical pig farm in Australia with open fields and pigs roaming freely in their natural habitat, feeding and interacting with each other. The farm has a barn, fencing, and feeding troughs. The atmosphere is dynamic with the hustle and bustle of daily farming activities.",dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a large pig farm with numerous pigs roaming in fenced enclosures. The pigs are spread out across the farm, with some gathered around feeding troughs filled with grain. The farm is organized with multiple pens, each containing groups of pigs. In the background, there is a large barn-like structure with an open entrance, where more pigs can be seen inside. The setting appears to be expansive, with rows of fences extending into the distance, and the lighting suggests it might be late afternoon or early morning, casting long shadows across the ground. The overall scene conveys a sense of a busy, well-organized agricultural operation.",126,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs standing and moving around in an outdoor area with dirt and mud, fitting the 'pasture_or_mud' category.",41.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_f785eb5f47
 pig_farm_reality_country_no_revise_Australia_99.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",Representation of a typical pig farm in Australia,dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a detailed miniature model of a pig farm. The scene includes several enclosures filled with numerous pink pigs. The farm is organized with multiple barns and sheds, each with corrugated metal roofs. There are tractors and farm equipment scattered throughout the area, indicating active farm operations.
 
-The landscape is surrounded by fields and trees, with distant hills visible in the background, suggesting a rural setting. The enclosures are fenced, and the pigs are distributed across different sections of the farm. The overall layout is orderly, with pathways and gates connecting the various parts of the farm. The attention to detail in the model captures the essence of a bustling, well-maintained pig farm.",135,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+The landscape is surrounded by fields and trees, with distant hills visible in the background, suggesting a rural setting. The enclosures are fenced, and the pigs are distributed across different sections of the farm. The overall layout is orderly, with pathways and gates connecting the various parts of the farm. The attention to detail in the model captures the essence of a bustling, well-maintained pig farm.",135,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs standing and lying on dirt or mud in an outdoor setting, which fits the 'pasture_or_mud' category.",41.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
 pig_farm_reality_country_no_revise_Australia_100.png,reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:","Depict a realistic image of a typical pig farm in Australia. Include the features commonly seen such as pig pens, feeding troughs, water systems and typical Australian countryside in the background.",dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a detailed and organized pig farm set in a rural landscape. The farm consists of several fenced enclosures, each housing groups of pigs. The pigs are depicted in various activities, such as walking, eating, and swimming in water troughs. 
 
 The enclosures are made of sturdy materials and are designed to keep the pigs contained while allowing them space to move around. There are multiple buildings with blue roofs, likely serving as barns or storage facilities. These structures are built with red brick and have large windows, suggesting they are well-ventilated.
 
-In the foreground, there is a large water tank, indicating a water supply system for the farm. The background features rolling hills and fields, adding to the rural setting. The overall scene is clean and well-maintained, illustrating a modern and efficient farming operation.",165,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
+In the foreground, there is a large water tank, indicating a water supply system for the farm. The background features rolling hills and fields, adding to the rural setting. The overall scene is clean and well-maintained, illustrating a modern and efficient farming operation.",165,Describe the image in detail.,high,0.2,fp_45cf54deae,gpt-4o-2024-08-06,pasture_or_mud,"The image shows pigs in outdoor pens with visible dirt and straw, indicating they are on pasture or mud.",34.0,"Please classify this image into one of these 3 categories. Provide a brief explanation of why you chose this category.
+
+[1] pasture_or_mud: at least one pig depicted in this image (can be a model or diorama) is clearly standing, lying or grazing on pasture, mud, dirt, straw, snow, or grassland. It's ok if there are pigs both on pasture and kept indoors.
+
+[2] indoor: All visible pigs are housed inside buildings or structures
+
+[3] other: Any other image that either:
+   - Does not clearly fit the pasture or mud or indoor categories
+   - background is too ambiguous or unclear to classify",fp_c7ca0ebaca
 dairy_farm_basic_11.png,basic,,dairy,A dairy farm.,"Visualize a classic dairy farm in full swing. There are several barns painted with bright red, with their roofs sparkling metallic silver under the sun. Chunky, contented Holstein cows are grazing in the lush green fields dotted with yellow wildflowers, against the backdrop of rolling hills. A Hispanic female farmer wearing a straw hat is walking among the cows, carrying a bucket. A windmill can be seen in the distance, its arms lazily turning under the blue sky. Hay bales are positioned at various points around the farm, suggesting the recent completion of harvest season.",dall-e-3,1024x1024,standard,b64_json,,gpt-4o-2024-08-06,"The image depicts a picturesque farm scene. In the foreground, a woman wearing a straw hat, a red checkered shirt, and a brown apron is walking through a lush green pasture. She is carrying a metal bucket and is surrounded by several black and white cows grazing peacefully. 
 
 The background features rolling green hills under a bright blue sky dotted with fluffy white clouds. A large red barn with a white roof and a silo are prominent, suggesting a well-maintained farm. A windmill stands tall to the left of the barn, adding to the rural charm. The entire scene is bathed in warm sunlight, highlighting the vibrant colors and creating a serene, idyllic atmosphere.",134,Describe the image in detail.,high,0.2,fp_45cf54deae,,,,,,
