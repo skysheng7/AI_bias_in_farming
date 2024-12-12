@@ -95,7 +95,7 @@ def cluster_farm_images(
     -------
     None
     """
-    condition_types = df["GPT4o_cluter"].unique()
+    condition_types = df["GPT4o_cluster"].unique()
     farm_types = df["farm_type"].unique()
     models = df["model"].unique()
     
@@ -110,7 +110,7 @@ def cluster_farm_images(
 
                 # Filter rows based on model, farm_type and the cluster GPT4o assigns
                 filtered_rows = df[
-                    (df["GPT4o_cluter"] == condition_type) & (df["farm_type"] == farm_type) & (df["model"] == model)
+                    (df["GPT4o_cluster"] == condition_type) & (df["farm_type"] == farm_type) & (df["model"] == model)
                 ]
                 
                 # put the images belonging to this condition into the same folder
@@ -123,7 +123,7 @@ def summarize_clusters(df, output_file="cluster_summary.csv"):
 
     Parameters
     ----------
-    df (pandas.DataFrame): Input DataFrame containing farm data with 'GPT4o_cluter' labeled
+    df (pandas.DataFrame): Input DataFrame containing farm data with 'GPT4o_cluster' labeled
                             as either 'indoor', 'outdoor', or 'other'
     output_file (str): the name of the output file
 
@@ -175,9 +175,9 @@ def summarize_clusters(df, output_file="cluster_summary.csv"):
         ]
 
         total_rows = len(matching_rows)
-        indoor_sum = len(matching_rows[matching_rows["GPT4o_cluter"] == "indoor"])
-        outdoor_sum = len(matching_rows[matching_rows["GPT4o_cluter"] == "outdoor"])
-        other_sum = len(matching_rows[matching_rows["GPT4o_cluter"] == "other"])
+        indoor_sum = len(matching_rows[matching_rows["GPT4o_cluster"] == "indoor"])
+        outdoor_sum = len(matching_rows[matching_rows["GPT4o_cluster"] == "outdoor"])
+        other_sum = len(matching_rows[matching_rows["GPT4o_cluster"] == "other"])
         indoor_pct = round((indoor_sum / total_rows), 2)
         outdoor_pct = round((outdoor_sum / total_rows), 2)
         other_pct = round((other_sum / total_rows), 2)
