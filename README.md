@@ -6,7 +6,7 @@ This project explores the representation bias about livestock farming in text-to
 
 ChatGPT’s text-to-image generative model (DALL-E 3) shows a systematic bias toward depicting cows grazing and pigs rooting in mud when prompted about dairy and pig farms. However, when its automatic prompt revision was inhibited, images shifted to modern reality of livestock farming: animals housed in metal pens on concrete floors. This suggests the base model possesses knowledge of modern farming reality but chose to systematically depict pastoral imagery.
 
-![Figure 1](results/plots/basic_dall-e-3_plot_grid.png)
+![Figure 1](results/plots/basic_pig_dall-e-3_by_country_plot_grid.png)
 
 ## Dataset Information
 
