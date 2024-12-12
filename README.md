@@ -12,7 +12,7 @@ ChatGPT’s text-to-image generative model (DALL-E 3) shows a systematic bias to
 
 - **Title of Dataset:** Replication Data for: AI's representation bias about livestock farming
 - **Paper DOI:**
-- **Dataset DOI:**
+- **Dataset DOI:** <https://doi.org/10.5683/SP3/EAWR6D>
 - **Dataset Created:** 2024-10-01
 - **Created by:** Kehan (Sky) Sheng
 - **Contact Email:** <skysheng7@gmail.com>

@@ -6,7 +6,7 @@ This directory contains generated images, analysis results, and data summaries f
 
 ### dall-e-3-images/
 
-> This folder is hidden from GitHub because images are too big. Please download the images in the databse following the link to `Dataset DOI` in the README file in the root directory.
+> This folder is hidden from GitHub because images are too big. Please download the images in the databse following the link to `Dataset DOI` <https://doi.org/10.5683/SP3/EAWR6D> in the README file in the root directory.
 
 Contains DALL-E 3 generated images organized by prompt types (100 images per unique prompt):
 
@@ -25,7 +25,7 @@ Contains DALL-E 3 generated images organized by prompt types (100 images per uni
 
 ### sd3.5-large-images/
 
-> This folder is hidden from GitHub because images are too big. Please download the images in the databse following the link to `Dataset DOI` in the README file in the root directory.
+> This folder is hidden from GitHub because images are too big. Please download the images in the databse following the link to `Dataset DOI`<https://doi.org/10.5683/SP3/EAWR6D> in the README file in the root directory.
 
 Contains Stable Diffusion 3.5 generated images organized by prompt types (10 images per unique prompt):
 
