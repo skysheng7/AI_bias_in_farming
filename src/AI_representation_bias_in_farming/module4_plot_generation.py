@@ -465,7 +465,7 @@ def plot_grid(
                     seed,
                 )
 
-    save_plt(plt, generation_types[0], model)  # save the plot
+    save_plt(plt, generation_types[0], farm_type=None, model=model)  # save the plot
     plt.show()
 
 
