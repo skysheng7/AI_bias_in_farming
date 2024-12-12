@@ -7,6 +7,7 @@ This directory contains generated images, analysis results, and data summaries f
 ### dall-e-3-images/
 
 > This folder is hidden from GitHub because images are too big. Please download the images in the databse following the link to `Dataset DOI` in the README file in the root directory.
+
 Contains DALL-E 3 generated images organized by prompt types (100 images per unique prompt):
 
 - `basic/`: Images generated with basic farming prompts: "a [farm type]"
@@ -37,34 +38,89 @@ Contains generated visualizations and plots from the analysis.
 
 ### megadata/
 
-Contains analysis results and metadata in CSV format:
+#### Common Columns Across Files
 
-- `cluster_summary.csv`: [Summary statistics and key findings from image clustering analysis]
+Many files share these base columns:
 
-- `GPT4o_description_1_2gram_bag_of_words.csv`: [Bag of words analysis for 1-2 gram combinations from GPT-4 descriptions]
+- `file`: Image file name, each image has an unique identifier
+- `generation_type`: Type of prompt used
+- `country`: Country specified in the prompt
+- `farm_type`: Type of farm, dairy or pig
+- `prompt`: Original prompt used
+- `revised_prompt`: Automatically modified version of the prompt (only for dall-e-3)
+- `model`: AI model used (e.g., dall-e-3)
+- `size`: Image dimensions
+- `quality`: Image quality setting
+- `response_format`: Format of the response
+- `finish_reason`: Reason for completion
+- `description_model`: Model used for description
 
-- `GPT4o_description_1_2gram_freq_summary.csv`: [Frequency summary of 1-2 gram combinations from GPT-4 descriptions]
+#### Detailed File Descriptions
 
-- `GPT4o_description_1gram_bag_of_words.csv`: [Bag of words analysis for 1-gram terms from GPT-4 descriptions]
+- `cluster_summary.csv`:
+Provides a statistical overview of what's the percentage of indoor/outdoor depictions we using differernt prompts and in different countries.
+  - generation_t: prompt type
+  - country: Country specified
+  - farm_type: Type of farming, dairy of pig farm
+  - prompt_model: Model used
+  - total_rows: Total number of images
+  - indoor_sum/outdoor_sum/other_sum: Counts of images depicting animals housed indoor, outdoor, or other
+  - indoor_pct/outdoor_pct/other_pct: Percentages of images depicting animals housed indoor, outdoor, or other
 
-- `GPT4o_description_1gram_freq_summary.csv`: [Frequency summary of 1-gram terms from GPT-4 descriptions]
+- `image_megadata.csv`:
+Master datasets containing all image metadata, text descriptions, and analysis results for each generated image.
+  - All common columns +
+  - GPT4o_description: GPT-4o's description of the image
+  - GPT4o_description_token_count: Token count of description
+  - GPT4o_prompt: Prompt used to generate text description for each image using GPT-4o
+  - GPT4o_image_resolution: Image resolution details
+  - GPT4o_temperature: Temperature setting
+  - GPT4o_system_fingerprint: Unique system identifier
+  - cluster_model: Model used for clustering
+  - GPT4o_cluster: GPT4o assigned cluster
+  - GPT4o_cluster_explanation: GPT4o's explanation of clustering
+  - GPT4o_cluster_token_count: Token count for cluster explanation
+  - GPT4o_cluster_prompt: Prompt used for clustering
+  - GPT4o_cluster_system_fingerprint: Unique system identifier for clustering
 
-- `GPT4o_description_2gram_bag_of_words.csv`: [Bag of words analysis for 2-gram combinations from GPT-4 descriptions]
+#### GPT-4 Description Analysis Files
 
-- `GPT4o_description_2gram_freq_summary.csv`: [Frequency summary of 2-gram combinations from GPT-4 descriptions]
+**Bag of Words Files** :
 
-- `image_megadata_v2.csv`: [Comprehensive metadata about generated images - version 2]
+- `GPT4o_description_1gram_bag_of_words.csv`: Single words that show up in > 20 image descriptions
+- `GPT4o_description_2gram_bag_of_words.csv`: Two-word phrases that show up in > 20 image descriptions
+- `GPT4o_description_1_2gram_bag_of_words.csv`: Both single words and two-word phrases that show up in > 20 image descriptions
 
-- `image_megadata.csv`: [Original comprehensive metadata about generated images]
+These files contain:
 
-- `revised_prompt_1_2gram_bag_of_words.csv`: [Bag of words analysis for 1-2 gram combinations from revised prompts]
+- All common columns
+- GPT-4o description metadata (description text, token count, prompt, resolution, temperature, system fingerprint)
+- Binary columns (0/1) for each word/phrase indicating presence in the description
 
-- `revised_prompt_1_2gram_freq_summary.csv`: [Frequency summary of 1-2 gram combinations from revised prompts]
+**Frequency Summary Files** (aggregated counts):
 
-- `revised_prompt_1gram_bag_of_words.csv`: [Bag of words analysis for 1-gram terms from revised prompts]
+- `GPT4o_description_1gram_freq_summary.csv`: Single words only
+- `GPT4o_description_2gram_freq_summary.csv`: Two-word phrases only
+- `GPT4o_description_1_2gram_freq_summary.csv`: Both single words and two-word phrases
 
-- `revised_prompt_1gram_freq_summary.csv`: [Frequency summary of 1-gram terms from revised prompts]
+These files contain:
 
-- `revised_prompt_2gram_bag_of_words.csv`: [Bag of words analysis for 2-gram combinations from revised prompts]
+- Grouping columns: generation_type, country, farm_type, model
+- Count columns: Number of images (out of 100 per prompt type) containing each word/phrase
+- top_20_words: List of the 20 most frequently occurring phrases with their counts in parentheses
 
-- `revised_prompt_2gram_freq_summary.csv`: [Frequency summary of 2-gram combinations from revised prompts]
+#### Revised Prompt Analysis Files
+
+Follow the same pattern as GPT-4 Description files, but analyze the revised prompts instead:
+
+**Bag of Words Files**:
+
+- `revised_prompt_1gram_bag_of_words.csv`
+- `revised_prompt_2gram_bag_of_words.csv`
+- `revised_prompt_1_2gram_bag_of_words.csv`
+
+**Frequency Summary Files**:
+
+- `revised_prompt_1gram_freq_summary.csv`
+- `revised_prompt_2gram_freq_summary.csv`
+- `revised_prompt_1_2gram_freq_summary.csv`
