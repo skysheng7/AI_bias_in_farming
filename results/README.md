@@ -32,6 +32,41 @@ Contains Stable Diffusion 3.5 generated images organized by prompt types (10 ima
 - `basic/`: Images generated with basic farming prompts: "a [farm type]"
 [Additional subdirectories follow same pattern as dall-e-3-images]
 
+### cluster/
+
+Contains images (quality reduced to 50% compared to original images stored in `dall-e-3-images` and `sd3.5-large-images`) organized by the cluster label, to quickly judge the legitimacy of the clutering visually.
+
+#### cluster/dall-e-3/
+Manual classification of DALL-E 3 generated images into housing categories:
+- `dairy/`
+  - `indoor/`: Images showing dairy cows in exclusively indoor/confined housing systems
+  - `outdoor/`: Images showing dairy cows that have access to pasture or grassland
+  - `other/`: Images that are ambiguous or show mixed housing conditions
+
+- `pig/`
+  - `indoor/`: Images showing pigs in indoor/confined housing systems
+  - `outdoor/`: Images showing pigs that have access to pasture, grassland, mud or snow outside
+  - `other/`: Images that are ambiguous or show mixed housing conditions
+
+#### cluster/sd3.5-large/
+Manual classification of Stable Diffusion 3.5 generated images into housing categories:
+- `dairy/`
+  - `indoor/`: Images showing dairy cows in exclusively indoor/confined housing systems
+  - `outdoor/`: Images showing dairy cows that have access to pasture or grassland
+  - `other/`: Images that are ambiguous or show mixed housing conditions
+
+- `pig/`
+  - `indoor/`: Images showing pigs in indoor/confined housing systems
+  - `outdoor/`: Images showing pigs that have access to pasture, grassland, mud or snow outside
+  - `other/`: Images that are ambiguous or show mixed housing conditions
+
+### cluster_post_manual_fix/
+
+Contains the same folder structure as the `cluster` directory, but with corrected classifications after manual verification and fixes:
+- images are reorganized based on manually verified housing conditions
+- cluster reflect corrections made in outlier_image_manual_correction.csv
+- maintains the same nested structure of model/animal/cluster name
+
 ### plots/
 
 Contains generated visualizations and plots from the analysis.
@@ -83,7 +118,7 @@ Master datasets containing all image metadata, text descriptions, and analysis r
   - GPT4o_cluster_prompt: Prompt used for clustering
   - GPT4o_cluster_system_fingerprint: Unique system identifier for clustering
 
-- `outlier_image_manual_correction.csv.csv`:
+- `outlier_image_manual_correction.csv`:
 Contains manual verification and corrections of the automated image clustering results.
   - file: Image file name, each image has a unique identifier
   - GPT4o_cluster: Original cluster label assigned by GPT-4o
