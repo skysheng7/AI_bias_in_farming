@@ -83,6 +83,13 @@ Master datasets containing all image metadata, text descriptions, and analysis r
   - GPT4o_cluster_prompt: Prompt used for clustering
   - GPT4o_cluster_system_fingerprint: Unique system identifier for clustering
 
+- `outlier_image_manual_correction.csv.csv`:
+Contains manual verification and corrections of the automated image clustering results.
+  - file: Image file name, each image has a unique identifier
+  - GPT4o_cluster: Original cluster label assigned by GPT-4o
+  - change_to_cluster: New cluster label if a correction is needed
+  - manual_note: Additional observations or reasoning for the correction
+
 #### GPT-4 Description Analysis Files
 
 **Bag of Words Files** :
