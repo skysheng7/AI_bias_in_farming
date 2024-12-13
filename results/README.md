@@ -127,8 +127,8 @@ Master datasets containing all image metadata, text descriptions, and analysis r
   - GPT4o_cluster_prompt: Prompt used for clustering
   - GPT4o_cluster_system_fingerprint: Unique system identifier for clustering
 
-- `image_megadata_post_manual_fix.csv`
-This is an updated version of `image_megadata.csv` with two main changes: [1] Updated GPT4o_cluster column using manually corrected cluster labels from change_to_cluster when available; [2] Standardizes cluster naming by changing 'pasture' and 'pasture_or_mud' to 'outdoor' in the GPT4o_cluster column.
+- `image_megadata_post_manual_fix.csv`:
+This is an updated version of `image_megadata.csv` with two main changes: [1] Standardizes cluster naming by changing 'pasture' and 'pasture_or_mud' to 'outdoor' in the GPT4o_cluster column; [2] Updated GPT4o_cluster column using manually corrected cluster labels from change_to_cluster when available
   - All columns in `image_megadata.csv` +
   - change_to_cluster: New cluster label if a correction is needed
   - manual_note: Additional observations or reasoning for the correction
