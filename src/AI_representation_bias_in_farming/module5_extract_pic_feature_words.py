@@ -432,7 +432,7 @@ def format_bar_plot_labels(ax_bottom, ax_top, x, plot_data):
     ax_top.legend(
         lines_top + lines_bottom,
         labels_top + labels_bottom,
-        bbox_to_anchor=(1.05, 1.0),
+        bbox_to_anchor=(1.1, 1.0),
         loc="lower right",
         fontsize=22,
         frameon=True,
@@ -645,21 +645,21 @@ def create_plot_grid(
     plot_image_grid(
         ax_outdoor,
         image_paths["outdoor"],
-        "Pasture or mud (Top: Dairy, Bottom: Pig)",
+        "Pasture or mud outdoor",
         num_images,
         images_per_row,
     )
     plot_image_grid(
         ax_indoor,
         image_paths["indoor"],
-        "Exclusively indoor (Top: Dairy, Bottom: Pig)",
+        "Exclusively indoor",
         num_images,
         images_per_row,
     )
     plot_image_grid(
         ax_other,
         image_paths["other"],
-        "Other (Top: Dairy, Bottom: Pig)",
+        "Other",
         num_images,
         images_per_row,
     )
