@@ -339,7 +339,7 @@ def create_bar_plot(ax, plot_data, farm_type, model):
         width=width,
         color=outdoor_color,
         alpha=0.7,
-        label="On pasture/mud %",
+        label="Pasture/mud outdoor%",
     )
     ax_bottom.set_ylim(0, 100)
     ax_bottom.set_ylabel("")
@@ -432,7 +432,7 @@ def format_bar_plot_labels(ax_bottom, ax_top, x, plot_data):
     ax_top.legend(
         lines_top + lines_bottom,
         labels_top + labels_bottom,
-        bbox_to_anchor=(1.1, 1.0),
+        bbox_to_anchor=(1.07, 1.0),
         loc="lower right",
         fontsize=22,
         frameon=True,
@@ -542,7 +542,7 @@ def create_plot_grid(
 
     # Create sub-gridspecs with increased spacing
     left_gs = main_gs[0].subgridspec(
-        2, 1, height_ratios=[1, 1], hspace=0.5 # Increased spacing between plots
+        2, 1, height_ratios=[1, 1], hspace=0.5  # Increased spacing between plots
     )
     # Modify the right gridspec to fill the available space
     right_gs = main_gs[1].subgridspec(3, 1, height_ratios=[1, 1, 1], hspace=0.1)
@@ -554,7 +554,7 @@ def create_plot_grid(
     ax_outdoor = fig.add_subplot(right_gs[0])
     ax_indoor = fig.add_subplot(right_gs[1])
     ax_other = fig.add_subplot(right_gs[2])
-    
+
     # Add subplot labels (A), (B), (C), (D)
     label_coords = [
         (0.1, 0.9, "(A)"),  # top left
