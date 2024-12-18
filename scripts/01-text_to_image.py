@@ -9,11 +9,31 @@
 from pathlib import Path
 
 import pandas as pd
+import click
 
 from AI_representation_bias_in_farming import utils
 
 
-def main():
+@click.command()
+@click.option(
+    "--start_index",
+    default=1,
+    type=int,
+    help="The starting index (ID) of images. Default is 1.",
+)
+@click.option(
+    "--total_image_num",
+    default=10,
+    type=int,
+    help="The total number of images you wish to generate in this batch. Default is 10.",
+)
+@click.option(
+    "--model",
+    default="dall-e-3",
+    type=str,
+    help="Which text-to-image generative model to use. Options: 'dall-e-3', 'sd3.5-large'. Default is 'dall-e-3'",
+)
+def main(start_index, total_image_num, model):
     # Define the prompt types
     #
     # **no_revise**:
@@ -63,11 +83,8 @@ def main():
         "pig": ["the United States", "Spain", "Australia"],
     }  # list of countries with the biggest number of dairy cows and pigs in North America, Europe and Oceania
 
-    start_index = 101  # the starting index (ID) of images
-    n = 10  # the total number of images you wish to generate in this batch
     max_retries = 3  # the maximum number of times we will retry prompting the model if the previous prompt failed due to safety reasons.
     retry_delay = 30  # the total number of seconds we wait to let the model reset before trying again
-    model = "sd3.5-large"  # which text-to-image generative model to use. Options: 'dall-e-3', 'sd3.5-large'
 
     # Loop through each combination of generation_type and farm_type
     for generation_type in generation_types:
@@ -84,7 +101,7 @@ def main():
                     farm_type,
                     generation_type,
                     start_index,
-                    n,
+                    total_image_num,
                     max_retries,
                     retry_delay,
                     model=model,

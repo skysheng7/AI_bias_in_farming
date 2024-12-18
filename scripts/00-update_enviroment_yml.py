@@ -90,9 +90,19 @@ def update_environment_yml(env_name, yml_file="./environment.yml"):
 
 
 @click.command()
-@click.option("--root_dir", type=str)
-@click.option("--env_name", type=str)
-def main(root_dir=".", env_name="ai_env"):
+@click.option(
+    "--root_dir",
+    default=".",
+    type=str,
+    help="Path to the root directory where the environment.yml is located. Default is your current directory `.`",
+)
+@click.option(
+    "--env_name",
+    default="ai_env",
+    type=str,
+    help="Name of your conda virtual environment. Default is `ai_env`",
+)
+def main(root_dir, env_name):
     """grab environment.yml, and add version numbers after each package"""
 
     # in case anyone just entered "" to indicate it's root directory
