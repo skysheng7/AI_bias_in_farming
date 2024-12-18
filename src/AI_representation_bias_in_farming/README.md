@@ -5,7 +5,6 @@ This python package contains modules for generating images of dairy and pig farm
 ## Module Descriptions
 
 - `utils.py`: Contains shared utility functions used across different modules.
-- `update_enviroment_yml.py`: automatically append version number for each package name installed in conda and pip.
 - `module0_dalle3.py`: functionalities related to generating images from text using DALL-E 3
 - `module1_sd.py`: functionalities related to generating images from text using Stable Diffusion 3.5-large
 - `module2_GPT4o.py`: Implements GPT-4o image analysis, generate descriptions for each image and cluster images.

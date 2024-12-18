@@ -76,7 +76,7 @@ ChatGPT’s text-to-image generative model (DALL-E 3) shows a systematic bias to
 
     Note: The `.env` file contains sensitive information and is automatically ignored by git (listed in .gitignore) to protect your API keys.
 
-### Starting the Analysis
+### Starting the Virtual Environment and Run Analysis
 
 1. In your terminal, ensure you're in the project's root directory, and have created your own `.env` file, then launch the Docker container:
 
@@ -113,13 +113,6 @@ Double-click any notebook to begin exploring the analysis.
 1. When you're finished, properly shut down the container and remove associated resources:
 Press `Cntrl` + `C` in your terminal where the container is running, then execute `docker compose rm`
 
-## Developer notes
-
-### Developer dependencies
-
-- `conda` (>= 24.11.0)
-- `conda-lock` (>= 2.5.7)
-
 ## Collaboration Welcome
 
 If you find this research valuable or interesting, please consider:
@@ -152,6 +145,82 @@ This repository is organized as follows:
 - `environment.yml`: Conda environment specifications for managing Python dependencies
 - `LICENSE`: Legal terms under which this project's code can be used and distributed
 - `pyproject.toml`: Python project metadata and build system requirements for Python packaging
+
+## Developer notes
+
+### Developer Dependencies
+
+- `conda` (>= 24.11.0)
+- `conda-lock` (>= 2.5.7)
+
+### Instructions for Adding New Dependencies
+
+1. Make sure your docker image is running following the instructions above in "Starting the Virtual Environment and Run Analysis" section. Open "terminal" in the docker container
+2. Use conda to install new packages (e.g., `conda install {NEW-PACKAGE-NAME}`). If you are installing a new package that is only available on PyPI (e.g., `pip install {NEW-PACKAGE-NAME}`), conda does not track pip-installed packages, you need to append a new "RUN" command to pip install that package (with version number; e.g., `RUN pip install openai==1.57.0`) at the end of the Dockerfile (living at the root of this directory).
+3. At root directory, update environment.yml using:
+
+    ```
+    conda env export --from-history > environment.yml 
+    ```
+
+4. Automatically append dependency version numbers to each of the packages you installed. The conda virtual environment I created is called "ai_env", if you are using another name, please change --env_name:
+
+    ```
+    python scripts/update_enviroment_yml.py --root_dir="." --env_name="ai_env"
+    ```
+
+5. Use Conda-lock to solve and lock the updated environment. I'm using Linux-64 because that's the operating system of my docker image
+
+    ```
+    conda-lock -k explicit --file environment.yml -p linux-64
+    ```
+
+6. Shut down the container (close the website) and remove associated resources: Press `Cntrl` + `C` in your local terminal where the container is running, then run `docker compose rm` in your terminal
+
+8. In your local terminal, re-build the docker image in root directory and use the updated container locally. Please replace {YOUR-IMAGE-NAME} with some meaningful name for your local container. If you think this new dependency should be included in my repository, please make a pull request and I'll push this new image on my docker hub.
+
+    ```
+    docker build --tag {YOUR-IMAGE-NAME} .
+    ```
+
+    Note: If you are using a M1-M3 MacBook, you may have trouble with docker build. This is a known problem when emulating x86 architectures on ARM-based systems. To solve this, you need to enable QEMU-based emulation and use docker buildx:
+    - Confirm That You Have Docker Desktop with Buildx Support (you should see version information after running this command below)
+
+        ```
+        docker buildx version
+        ```
+
+    - Create a new buildx builder
+
+        ```
+        docker buildx create --name mybuilder
+        ```
+
+    - Use the new builder
+
+        ```
+        docker buildx use mybuilder
+        ```
+
+    - Initialize the builder and make sure QEMU is active
+
+        ```
+        docker buildx inspect --bootstrap
+        ```
+
+    - Building docker buildx with Emulation
+
+        ```
+        docker buildx build --platform linux/amd64 -t {YOUR-IMAGE-NAME} --load .
+        ```
+
+    - Edit the docker-compose.yml file (living at root of directory), replace the image name with {YOUR-IMAGE-NAME}.
+    For example, replace "image: skysheng7/ai_bias:d077bb3" with "image: {YOUR-IMAGE-NAME}"
+    - Running the docker image you just built at root directory
+
+        ```
+        docker compose up
+        ```
 
 ## Copyright
 

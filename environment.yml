@@ -1,7 +1,6 @@
 name: ai_env
 channels:
 - conda-forge
-- defaults
 dependencies:
 - conda-lock=2.5.7
 - ipykernel=6.29.5
@@ -18,4 +17,6 @@ dependencies:
 - jupyter=1.1.1
 - notebook=7.2.2
 - pydantic=2.10.3
-- pip=24.3.1
+- make=4.4.1
+- pytest=8.3.4
+- click=8.1.7
