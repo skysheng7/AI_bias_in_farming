@@ -177,7 +177,7 @@ This repository is organized as follows:
 
 6. Shut down the container (close the website) and remove associated resources: Press `Cntrl` + `C` in your local terminal where the container is running, then run `docker compose rm` in your terminal
 
-8. In your local terminal, re-build the docker image in root directory and use the updated container locally. Please replace {YOUR-IMAGE-NAME} with some meaningful name for your local container. If you think this new dependency should be included in my repository, please make a pull request and I'll push this new image on my docker hub.
+7. In your local terminal, re-build the docker image in root directory and use the updated container locally. Please replace {YOUR-IMAGE-NAME} with some meaningful name for your local container. If you think this new dependency should be included in my repository, please make a pull request and I'll push this new image on my docker hub.
 
     ```
     docker build --tag {YOUR-IMAGE-NAME} .
@@ -214,13 +214,14 @@ This repository is organized as follows:
         docker buildx build --platform linux/amd64 -t {YOUR-IMAGE-NAME} --load .
         ```
 
-    - Edit the docker-compose.yml file (living at root of directory), replace the image name with {YOUR-IMAGE-NAME}.
+8. Edit the docker-compose.yml file (living at root of directory), replace the image name with {YOUR-IMAGE-NAME}.
     For example, replace "image: skysheng7/ai_bias:d077bb3" with "image: {YOUR-IMAGE-NAME}"
-    - Running the docker image you just built at root directory
 
-        ```
-        docker compose up
-        ```
+9. Running the docker image you just built at root directory
+
+    ```
+    docker compose up
+    ```
 
 ## Copyright
 
