@@ -12,7 +12,7 @@
 # example usage:
 # make env
 
-.PHONY: env temp_metadata word_freq plots cluster clean-all clean-plots clean-cluster clean-temp-megadata clean-word-freq 
+.PHONY: all env temp_metadata word_freq plots cluster clean-all clean-plots clean-cluster clean-temp-megadata clean-word-freq 
 
 # dependencies in the conda environment
 env: environment.yml
@@ -52,7 +52,31 @@ results/plots/typical_pig_sd3.5-large_by_country_plot_grid.png \
 results/plots/typical_sd3.5-large_plot_grid.png
 
 # cluster images into 3 themes
-cluster: results/plots/cluster_summary_dall-e-3.png \
+cluster : results/plots/cluster_summary_dall-e-3.png \
+results/plots/cluster_summary_sd-3.5.png\
+results/megadata/cluster_summary.csv \
+results/megadata/image_megadata_post_manual_fix.csv 
+
+# all contains all the plots and cluster summary files
+all : results/plots/basic_dairy_dall-e-3_by_country_plot_grid.png \
+results/plots/basic_dairy_sd3.5-large_by_country_plot_grid.png \
+results/plots/basic_dall-e-3_plot_grid.png \ 
+results/plots/basic_pig_dall-e-3_by_country_plot_grid.png \ 
+results/plots/basic_pig_sd3.5-large_by_country_plot_grid.png \ 
+results/plots/basic_sd3.5-large_plot_grid.png \ 
+results/plots/reality_dairy_dall-e-3_by_country_plot_grid.png \ 
+results/plots/reality_dairy_sd3.5-large_by_country_plot_grid.png \ 
+results/plots/reality_dall-e-3_plot_grid.png \ 
+results/plots/reality_pig_dall-e-3_by_country_plot_grid.png \ 
+results/plots/reality_pig_sd3.5-large_by_country_plot_grid.png \ 
+results/plots/reality_sd3.5-large_plot_grid.png \ 
+results/plots/typical_dairy_dall-e-3_by_country_plot_grid.png \ 
+results/plots/typical_dairy_sd3.5-large_by_country_plot_grid.png \ 
+results/plots/typical_dall-e-3_plot_grid.png \ 
+results/plots/typical_pig_dall-e-3_by_country_plot_grid.png \ 
+results/plots/typical_pig_sd3.5-large_by_country_plot_grid.png \ 
+results/plots/typical_sd3.5-large_plot_grid.png \
+results/plots/cluster_summary_dall-e-3.png \
 results/plots/cluster_summary_sd-3.5.png\
 results/megadata/cluster_summary.csv \
 results/megadata/image_megadata_post_manual_fix.csv 
