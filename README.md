@@ -54,7 +54,7 @@ ChatGPT’s text-to-image generative model (DALL-E 3) shows a systematic bias to
 
     - New to git and GitHub? Please follow the official [setup guide](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git) to get started.
 
-2. Download all images from this [database](https://doi.org/10.5683/SP3/EAWR6D) as a zip file. Unzip it, copy the `results/dall-e-3-images` folder and `results/sd3.5-large-images` folder and paste it into the `results` directory of this repository.
+2. Download all images from this [database](https://doi.org/10.5683/SP3/EAWR6D) as a zip file. Unzip it, copy the `results/dall-e-3-images`, `results/sd3.5-large-images`, `results/cluster`, `results/cluster_post_manual_fix` folders and paste it into the `results` directory of the local copy of this repository.
 
 3. If you only want to analyze the existing image dataset without generating new images, you can create a placeholder .env file. This ensures the Docker container runs properly without real API keys. Create a file named .env in your project's root directory and add these placeholder values:
 
@@ -88,7 +88,7 @@ Copy this URL and open it in your web browser to access the Jupyter Lab interfac
     make clean-all
     ```
 
-8. To execute the entire analysis pipeline, processing all steps from data visualization to analysis.
+8. To execute the entire analysis pipeline, processing all steps from data visualization to analysis. WARNING: this takes about 30 minutes to run on a regular laptop (M1 macbook pro).
 
     ```
     make all
@@ -145,8 +145,6 @@ If you want to generate new images, play with text-to-image(T2I) or image-to-tex
 
    This will use GPT-4 to categorize images into three thematic clusters, starting the categorization at row=(start_index+2) in `results/megadata/image_megadata.csv`.
 
-
-
 ### Project Cleanup
 
 1. When you're finished, properly shut down the container and remove associated resources:
@@ -177,7 +175,8 @@ This repository is organized as follows:
 - `scripts/`: Houses the main Python scripts that generate image from text, and generate text from images
 - `src/`: Contains the source code for our local Python package with helper functions and utilities
 - `CODE_OF_CONDUCT.md`: Guidelines for maintaining a welcoming and inclusive community atmosphere
-- `conda-linux-64.lock`: Specifies exact versions of Python dependencies for reproducible environments
+- `conda-linux-64.lock`: Conda-lock file that specifies exact versions of Python dependencies for reproducible environments. This conda-lock file is explicitly solved for linux-64 operating systems
+- `conda-lock.yml`: Conda-lock file that specifies exact versions of Python dependencies for reproducible environments. This conda-lock file is solved for the following operating systems: ['linux-64', 'osx-64', 'osx-arm64', 'win-64']
 - `CONTRIBUTING.md`: Instructions and guidelines for contributing to this project
 - `docker-compose.yml`: Docker configuration for setting up the analysis environment
 - `Dockerfile`: Instructions for building the project's Docker container
@@ -194,29 +193,40 @@ This repository is organized as follows:
 
 ### Instructions for Adding New Dependencies
 
-1. Make sure your docker image is running following the instructions above in "Starting the Virtual Environment and Run Analysis" section. Open "terminal" in the docker container
-2. Use conda to install new packages (e.g., `conda install {NEW-PACKAGE-NAME}`). If you are installing a new package that is only available on PyPI (e.g., `pip install {NEW-PACKAGE-NAME}`), conda does not track pip-installed packages, you need to append a new "RUN" command to pip install that package (with version number; e.g., `RUN pip install openai==1.57.0`) at the end of the Dockerfile (living at the root of this directory).
-3. At root directory, update environment.yml using:
+1. Open your terminal locally, direct to the root directory. Make sure you have conda and conda-lock installed on your local computer.
+2. Create a conda environment called "ai_env" using the "conda-lock.yml" by running in your terminal:
+
+    ```
+    conda-lock install --name ai_env conda-lock.yml
+    ```
+
+3. Activate the conda environment
+
+    ```
+    conda activate ai_env
+    ```
+
+4. Use conda to install new packages (e.g., `conda install {NEW-PACKAGE-NAME}`). If you are installing a new package that is only available on PyPI (e.g., `pip install {NEW-PACKAGE-NAME}`), conda does not track pip-installed packages, you need to append a new "RUN" command to pip install that package (with version number; e.g., `RUN pip install openai==1.57.0`) at the end of the Dockerfile (living at the root of this directory).
+5. At root directory, update environment.yml using:
 
     ```
     conda env export --from-history > environment.yml 
     ```
 
-4. Automatically append dependency version numbers to each of the packages you installed. The conda virtual environment I created is called "ai_env", if you are using another name, please change --env_name:
+6. Automatically append dependency version numbers to each of the packages you installed. The conda virtual environment I created is called "ai_env", if you are using another name, please change --env_name:
 
     ```
     python scripts/update_enviroment_yml.py --root_dir="." --env_name="ai_env"
     ```
 
-5. Use Conda-lock to solve and lock the updated environment. I'm using Linux-64 because that's the operating system of my docker image
+7. Use Conda-lock to solve and lock the updated environment. I'm using Linux-64 because that's the operating system of my docker image
 
     ```
+    conda-lock lock --file environment.yml
     conda-lock -k explicit --file environment.yml -p linux-64
     ```
 
-6. Shut down the container (close the website) and remove associated resources: Press `Cntrl` + `C` in your local terminal where the container is running, then run `docker compose rm` in your terminal
-
-7. In your local terminal, re-build the docker image in root directory and use the updated container locally. Please replace {YOUR-IMAGE-NAME} with some meaningful name for your local container. If you think this new dependency should be included in my repository, please make a pull request and I'll push this new image on my docker hub.
+8. Re-build the docker image in root directory and use the updated container locally. Please replace {YOUR-IMAGE-NAME} with some meaningful name for your local container. If you think this new dependency should be included in my repository, please make a pull request and I'll push this new image on my docker hub.
 
     ```
     docker build --tag {YOUR-IMAGE-NAME} .
@@ -253,10 +263,10 @@ This repository is organized as follows:
         docker buildx build --platform linux/amd64 -t {YOUR-IMAGE-NAME} --load .
         ```
 
-8. Edit the docker-compose.yml file (living at root of directory), replace the image name with {YOUR-IMAGE-NAME}.
+9. Edit the docker-compose.yml file (living at root of directory), replace the image name with {YOUR-IMAGE-NAME}.
     For example, replace "image: skysheng7/ai_bias:d077bb3" with "image: {YOUR-IMAGE-NAME}"
 
-9. Running the docker image you just built at root directory
+10. Running the docker image you just built at root directory
 
     ```
     docker compose up

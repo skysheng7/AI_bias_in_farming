@@ -161,7 +161,7 @@ clean-image-eda:
 
 clean-cluster:
 	rm -f results/plots/cluster_summary_dall-e-3.png\
-		results/plots/cluster_summary-sd-3.5.png\
+		results/plots/cluster_summary_sd-3.5.png\
 		results/megadata/cluster_summary.csv\
 		results/megadata/image_megadata_post_manual_fix.csv
 
