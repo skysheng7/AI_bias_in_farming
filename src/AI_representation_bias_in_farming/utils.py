@@ -300,6 +300,20 @@ def read_megadata():
     megadata = pd.read_csv(megadata_file, header=0)
     return megadata
 
+def read_csv_file(file_name):
+    """
+    Reads the 'image_megadata.csv' file from the 'results/megadata' directory.
+
+    This function loads the 'image_megadata.csv' file located in the specified directory
+    into a pandas DataFrame and returns it.
+
+    Returns:
+        pd.DataFrame: A DataFrame containing the contents of 'image_megadata.csv'.
+    """
+    cur_file_path = Path() / "results" / "megadata" / file_name
+    cur_file = pd.read_csv(cur_file_path, header=0)
+    return cur_file
+
 
 def save_megadata_with_description(megadata):
     """

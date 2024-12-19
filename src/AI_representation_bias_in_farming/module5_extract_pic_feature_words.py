@@ -205,7 +205,7 @@ def summarize_clusters(df, output_file="cluster_summary.csv"):
     # Create DataFrame from our summary data
     summary_df = pd.DataFrame(summary_data)
 
-    output_file = Path("..") / "results" / "megadata" / output_file
+    output_file = Path() / "results" / "megadata" / output_file
     summary_df.to_csv(output_file, index=False)
 
     return summary_df

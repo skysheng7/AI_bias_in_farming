@@ -254,10 +254,10 @@ def count_word_freq(
         output_summary = "_2_3gram_freq_summary.csv"
 
     output_bag_of_word_file = (
-        Path("..") / "results" / "megadata" / (col_of_interest + output_bag_of_word)
+        Path() / "results" / "megadata" / (col_of_interest + output_bag_of_word)
     )
     output_summary_file = (
-        Path("..") / "results" / "megadata" / (col_of_interest + output_summary)
+        Path() / "results" / "megadata" / (col_of_interest + output_summary)
     )
     n_gram_presence.to_csv(output_bag_of_word_file, index=False)
     n_gram_freq_summary.to_csv(output_summary_file, index=False)

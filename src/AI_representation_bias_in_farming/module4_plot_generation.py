@@ -447,11 +447,7 @@ def plot_grid(
                 random.seed(seed)
                 file_name = random.choice(filtered_df["file"].values)
                 image_path = (
-                    Path("..")
-                    / "results"
-                    / f"{model}-images"
-                    / generation_type
-                    / file_name
+                    Path() / "results" / f"{model}-images" / generation_type / file_name
                 )
                 cur_col += 1
                 plot_image(content_axes[row][cur_col], image_path)
@@ -593,11 +589,7 @@ def plot_grid_country(
                 random.seed(seed)
                 file_name = random.choice(filtered_df["file"].values)
                 image_path = (
-                    Path("..")
-                    / "results"
-                    / f"{model}-images"
-                    / generation_type
-                    / file_name
+                    Path() / "results" / f"{model}-images" / generation_type / file_name
                 )
                 cur_col += 1
                 plot_image(content_axes[row][cur_col], image_path)
@@ -639,7 +631,7 @@ def save_plt(plt, generation_type, farm_type=None, model="dall-e-3"):
             + "_by_country_plot_grid.png"
         )
 
-    img_dir = Path("..") / "results" / "plots"
+    img_dir = Path() / "results" / "plots"
     if not os.path.exists(img_dir):
         os.makedirs(img_dir)  # create the directory if the directory does not exist
 

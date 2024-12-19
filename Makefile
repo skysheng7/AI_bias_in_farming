@@ -12,10 +12,50 @@
 # example usage:
 # make env
 
-.PHONY: env
+.PHONY: env metadata word_freq plots cluster
 
 # dependencies in the conda environment
 env: environment.yml
+# image metadata master dataframe
+metadata: results/megadata/clustered_image_megadata.csv
+# all bag-of-words analysis files
+word_freq: results/megadata/GPT4o_description_1_2gram_bag_of_words.csv \
+	results/megadata/GPT4o_description_1_2gram_freq_summary.csv \
+	results/megadata/GPT4o_description_1gram_bag_of_words.csv \ 
+	results/megadata/GPT4o_description_1gram_freq_summary.csv \
+	results/megadata/GPT4o_description_2gram_bag_of_words.csv \ 
+	results/megadata/GPT4o_description_2gram_freq_summary.csv \
+	results/megadata/revised_prompt_1_2gram_bag_of_words.csv \
+	results/megadata/revised_prompt_1_2gram_freq_summary.csv \
+	results/megadata/revised_prompt_1gram_bag_of_words.csv \
+	results/megadata/revised_prompt_1gram_freq_summary.csv \
+	results/megadata/revised_prompt_2gram_bag_of_words.csv \
+	results/megadata/revised_prompt_2gram_freq_summary.csv
+# all plot grids for each prompt type
+plots: results/plots/basic_dairy_dall-e-3_by_country_plot_grid.png \
+results/plots/basic_dairy_sd3.5-large_by_country_plot_grid.png \
+results/plots/basic_dall-e-3_plot_grid.png \ 
+results/plots/basic_pig_dall-e-3_by_country_plot_grid.png \ 
+results/plots/basic_pig_sd3.5-large_by_country_plot_grid.png \ 
+results/plots/basic_sd3.5-large_plot_grid.png \ 
+results/plots/reality_dairy_dall-e-3_by_country_plot_grid.png \ 
+results/plots/reality_dairy_sd3.5-large_by_country_plot_grid.png \ 
+results/plots/reality_dall-e-3_plot_grid.png \ 
+results/plots/reality_pig_dall-e-3_by_country_plot_grid.png \ 
+results/plots/reality_pig_sd3.5-large_by_country_plot_grid.png \ 
+results/plots/reality_sd3.5-large_plot_grid.png \ 
+results/plots/typical_dairy_dall-e-3_by_country_plot_grid.png \ 
+results/plots/typical_dairy_sd3.5-large_by_country_plot_grid.png \ 
+results/plots/typical_dall-e-3_plot_grid.png \ 
+results/plots/typical_pig_dall-e-3_by_country_plot_grid.png \ 
+results/plots/typical_pig_sd3.5-large_by_country_plot_grid.png \ 
+results/plots/typical_sd3.5-large_plot_grid.png \
+
+# cluster images into 3 themes
+cluster: results/plots/cluster_summary_dall-e-3.png \
+results/plots/cluster_summary_sd-3.5.png\
+results/megadata/cluster_summary.csv \
+results/megadata/image_megadata_post_manual_fix.csv 
 
 # Specify version numbers for each dependency used in the current conda environment in environment.yml
 environment.yml : scripts/00-update_enviroment_yml.py
@@ -23,22 +63,71 @@ environment.yml : scripts/00-update_enviroment_yml.py
 		--root_dir="." \
 		--env_name="ai_env"
         
-# Generate batahces of images based on text descriptions
-results/megadata/image_megadata.csv : scripts/01-text_to_image.py
+# Step 1: Generate batahces of images based on text descriptions
+results/megadata/raw_image_megadata.csv : scripts/01-text_to_image.py
 	python scripts/01-text_to_image.py \
 		--start_index=1 \
 		--total_image_num=10 \
 		--model="dall-e-3"
+	cp results/megadata/image_megadata.csv results/megadata/raw_image_megadata.csv
         
-# Generate text descriptions for images in batch
-results/megadata/image_megadata.csv : scripts/02-image_to_text.py
+# Step 2: Generate text descriptions for images in batch
+results/megadata/described_image_megadata.csv : scripts/02-image_to_text.py results/megadata/raw_image_megadata.csv
 	python scripts/02-image_to_text.py \
 		--start_index=0 \
 		--end_index=None
+	cp results/megadata/image_megadata.csv results/megadata/described_image_megadata.csv
 
-# Automatically cluster images into 3 categories based on what is depicted in the image
-results/megadata/image_megadata.csv : scripts/03-image_cluster.py
+# Step 3: Prompt GPT4o to utomatically cluster images into 3 categories based on what is depicted in the image
+results/megadata/clustered_image_megadata.csv : scripts/03-image_cluster.py results/megadata/described_image_megadata.csv
 	python scripts/03-image_cluster.py \
 		--start_index=0 \
 		--end_index=None
-        
+	cp results/megadata/image_megadata.csv results/megadata/clustered_image_megadata.csv
+
+# run bag-of-words analysis
+results/megadata/GPT4o_description_1_2gram_bag_of_words.csv \
+results/megadata/GPT4o_description_1_2gram_freq_summary.csv \
+results/megadata/GPT4o_description_1gram_bag_of_words.csv \ 
+results/megadata/GPT4o_description_1gram_freq_summary.csv \
+results/megadata/GPT4o_description_2gram_bag_of_words.csv \ 
+results/megadata/GPT4o_description_2gram_freq_summary.csv \
+results/megadata/revised_prompt_1_2gram_bag_of_words.csv \
+results/megadata/revised_prompt_1_2gram_freq_summary.csv \
+results/megadata/revised_prompt_1gram_bag_of_words.csv \
+results/megadata/revised_prompt_1gram_freq_summary.csv \
+results/megadata/revised_prompt_2gram_bag_of_words.csv \
+results/megadata/revised_prompt_2gram_freq_summary.csv : scripts/04-bag_of_words.py \
+ results/megadata/image_megadata.csv
+	python scripts/04-bag_of_words.py
+
+results/plots/basic_dairy_dall-e-3_by_country_plot_grid.png \
+results/plots/basic_dairy_sd3.5-large_by_country_plot_grid.png \
+results/plots/basic_dall-e-3_plot_grid.png \ 
+results/plots/basic_pig_dall-e-3_by_country_plot_grid.png \ 
+results/plots/basic_pig_sd3.5-large_by_country_plot_grid.png \ 
+results/plots/basic_sd3.5-large_plot_grid.png \ 
+results/plots/reality_dairy_dall-e-3_by_country_plot_grid.png \ 
+results/plots/reality_dairy_sd3.5-large_by_country_plot_grid.png \ 
+results/plots/reality_dall-e-3_plot_grid.png \ 
+results/plots/reality_pig_dall-e-3_by_country_plot_grid.png \ 
+results/plots/reality_pig_sd3.5-large_by_country_plot_grid.png \ 
+results/plots/reality_sd3.5-large_plot_grid.png \ 
+results/plots/typical_dairy_dall-e-3_by_country_plot_grid.png \ 
+results/plots/typical_dairy_sd3.5-large_by_country_plot_grid.png \ 
+results/plots/typical_dall-e-3_plot_grid.png \ 
+results/plots/typical_pig_dall-e-3_by_country_plot_grid.png \ 
+results/plots/typical_pig_sd3.5-large_by_country_plot_grid.png \ 
+results/plots/typical_sd3.5-large_plot_grid.png : scripts/05-generate_plot_grid.py \
+results/megadata/revised_prompt_2gram_freq_summary.csv \
+results/megadata/GPT4o_description_2gram_freq_summary.csv \
+results/megadata/image_megadata.csv
+	python scripts/05-generate_plot_grid.py
+
+results/plots/cluster_summary_dall-e-3.png \
+results/plots/cluster_summary_sd-3.5.png \
+results/megadata/cluster_summary.csv \
+results/megadata/image_megadata_post_manual_fix.csv : scripts/06-cluster_plots.py \
+results/megadata/outlier_image_manual_correction.csv \
+results/megadata/image_megadata.csv
+	python scripts/06-cluster_plots.py
