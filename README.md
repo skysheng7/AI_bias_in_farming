@@ -98,9 +98,9 @@ Copy this URL and open it in your web browser to access the Jupyter Lab interfac
 
 ### Generating New Images and Run Generative Models
 
-If you want to generate new images and analyze them (note: this requires API keys and costs money):
+If you want to generate new images, play with text-to-image(T2I) or image-to-text(I2T) models yourself (note: this requires API keys and costs money):
 
-1. To run text-to-image(T2I) or image-to-text(I2T) models yourself, you'll need to set up API authentication:
+1. You'll need to set up API authentication:
 
     - Create a file named `.env` in the project's root directory. Add your API keys to this file in the following format:
 
@@ -113,7 +113,7 @@ If you want to generate new images and analyze them (note: this requires API key
         - For OpenAI (DALL-E 3): Follow the [OpenAI API setup guide](https://platform.openai.com/docs/quickstart)
         - For Stable Diffusion: Register and get your key from the [Stability AI platform](https://platform.stability.ai/docs/getting-started)
 
-    Note: The `.env` file contains sensitive information and is automatically ignored by git (listed in .gitignore) to protect your API keys.
+    ⚠️ **Important**: These steps require API keys for OpenAI services and will incur charges. The `.env` file contains sensitive information and is automatically ignored by git (listed in .gitignore) to protect your API keys.
 
 2. Generate images using text-to-image models:
 
@@ -145,7 +145,7 @@ If you want to generate new images and analyze them (note: this requires API key
 
    This will use GPT-4 to categorize images into three thematic clusters, starting the categorization at row=(start_index+2) in `results/megadata/image_megadata.csv`.
 
-⚠️ **Important**: These steps require API keys for OpenAI services and will incur charges. Please refer to the API key setup section above before running these commands.
+
 
 ### Project Cleanup
 
