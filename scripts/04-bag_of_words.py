@@ -1,5 +1,5 @@
 """
-Bago-of-words analysis using 1-gram, 2-gram, or 1 & 2 gram words.
+Bag-of-words analysis by counting 1-gram, 2-gram, or 1 & 2 gram words in revised prompts and in text descriptions of images
 """
 
 import click

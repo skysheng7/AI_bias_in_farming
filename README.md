@@ -132,8 +132,8 @@ I'll help create a clear repository structure section. Since you want a brief ex
 
 This repository is organized as follows:
 
+- `Makefile`: GNU make file to streamline reproducing my analysis from scratch
 - `img/`: Contains an images to demo the use of docker, inserted in README
-- `notebooks/`: Jupyter notebooks to analyze metadata of all generated images, generate wordcloud and plots
 - `results/`: Stores generated images (in database), and image metadata results from running the "scripts" and "src"
 - `scripts/`: Houses the main Python scripts that generate image from text, and generate text from images
 - `src/`: Contains the source code for our local Python package with helper functions and utilities

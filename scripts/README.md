@@ -8,6 +8,9 @@ This directory contains analysis scripts for the AI representation bias in farmi
 - `01-text_to_image.py`: Generates dairy/pig farm images using DALL-E 3 and Stable Diffusion based on text prompts.
 - `02-image_to_text.py`: Processes generated images through GPT-4o to obtain image descriptions.
 - `03-image_cluster.py`: Prompt GPT-4o to cluster images into 3 categories and provide explanation.
+- `04-bag_of_words.py`: Bag-of-words analysis by counting 1-gram, 2-gram, or 1 & 2 gram words in revised prompts and in text descriptions of images
+- `05-generate_plot_grid.py`: Generate plot grids to visualize the megadata from generaetd images
+- `06-cluster_plots.py`: Generate plot grids to summarize image clustering results
 
 ## Usage
 
