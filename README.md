@@ -121,13 +121,13 @@ If you want to generate new images, play with text-to-image(T2I) or image-to-tex
    python scripts/01-text_to_image.py --start_index=300 --total_image_num=2 --model="dall-e-3"
    ```
 
-   This will create multiple new images based on text prompts using DALL-E 3 (n images per unique prompts, we have 48 unique prompts in total, with n=total_image_num). Generated images will be in `results/dall-e-3-images`.
+   This will create multiple new images based on text prompts using DALL-E 3 (n images per unique prompts, we have 48 unique prompts in total, with n=total_image_num). Generated images will be in `results/dall-e-3-images`, image metadata will be stored in `results/megadata/image_megadata.csv`.
 
    ```bash
    python scripts/01-text_to_image.py --start_index=300 --total_image_num=2 --model="sd3.5-large"
    ```
 
-   This will create new images based on text prompts using Stable Diffusion 3.5-large (n images per unique prompts, we have 48 unique prompts in total, with n=total_image_num). Generated images will be in `results/sd3.5-large-images`.
+   This will create new images based on text prompts using Stable Diffusion 3.5-large (n images per unique prompts, we have 48 unique prompts in total, with n=total_image_num). Generated images will be in `results/sd3.5-large-images`, image metadata will be stored in `results/megadata/image_megadata.csv`.
 
 3. Generate text descriptions for the images:
 
