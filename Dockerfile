@@ -15,9 +15,9 @@ RUN mamba create --name ai_env --quiet --file /tmp/conda-linux-64.lock \
     && fix-permissions "${CONDA_DIR}" \
     && fix-permissions "/home/${NB_USER}"
 
-RUN conda activate ai_env
-
+RUN conda run -n ai_env pip install openai==1.57.0 \
+    && conda run -n ai_env python -m pip install -e /tmp
 # install openai using pip because the openai package insatlled from conda has bug
 # also install my local AI_representation_bias_in_farming as a python package
-RUN pip install openai==1.57.0 \
-    && python -m pip install -e /tmp 
+#RUN pip install openai==1.57.0 \
+#    && python -m pip install -e /tmp 
