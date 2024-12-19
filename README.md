@@ -39,7 +39,7 @@ ChatGPT’s text-to-image generative model (DALL-E 3) shows a systematic bias to
 
 ## Usage Guide
 
-### Initial Setup
+### Starting the Virtual Environment and Run Analysis
 
 > Important: For Windows and Mac users, ensure [Docker Desktop](https://docs.docker.com/get-started/) is actively running before proceeding.
 
@@ -54,7 +54,48 @@ ChatGPT’s text-to-image generative model (DALL-E 3) shows a systematic bias to
 
     - New to git and GitHub? Please follow the official [setup guide](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git) to get started.
 
-2. To run text-to-image(T2I) or image-to-text(I2T) models yourself, you'll need to set up API authentication:
+2. Download all images from this [database](https://doi.org/10.5683/SP3/EAWR6D) as a zip file. Unzip it, and copy the `results/dall-e-3-images` folder and `results/sd3.5-large-images` folder to where this local repository directory.
+
+3. If you only want to analyze the existing image dataset without generating new images, you can create a placeholder .env file. This ensures the Docker container runs properly without real API keys. Create a file named .env in your project's root directory and add these placeholder values:
+
+        ```
+        OPENAI_API_KEY=test
+        stable_diffusion_key=test
+        ```
+
+4. In your terminal, ensure you're in the project's root directory, and have created your own `.env` file, then launch the Docker container:
+
+    ```
+    docker compose up
+    ```
+    Note: To maintain clean and modular code, I've packaged commonly used functions into a local Python package `src/AI_representation_bias_in_farming`. This package has been pre-installed in the Docker environment as a dynamic version, meaning you can modify the source code and see changes without reinstallation (sometimes you may need to close the project and reopen it to see changes).
+
+5. Watch your terminal output for a unique URL beginning with
+`http://127.0.0.1:8888/lab?token=`.
+You'll see it displayed as highlighted in the example screenshot below.
+Copy this URL and open it in your web browser to access the Jupyter Lab interface.
+
+    <img src="img/docker_demo.png" width=400>
+
+In Jupyter Lab, you'll find all the scripts and code folders on the left sidebar.
+
+6. Open Terminal in JupyterLab web browser interface:
+   - Look for the "+" icon in JupyterLab's launcher
+   - Click "Terminal" from the options
+  
+7. Remove all generated summary files and reset the analysis
+    ```
+    make clean-all
+    ```
+8. To execute the entire analysis pipeline, processing all steps from data visualization to analysis.
+    ```
+    make all
+    ```
+    Note: This code only runs the analysis part after all images are generated and image metadata are collected, it does not run the text-to-image, image-to-text, and GPT4o image clustering part because API calls cost money.
+
+### Generating New Images and Run Generative Models
+If you want to generate new images and analyze them (note: this requires API keys and costs money):
+1. To run text-to-image(T2I) or image-to-text(I2T) models yourself, you'll need to set up API authentication:
 
     - Create a file named `.env` in the project's root directory. Add your API keys to this file in the following format:
 
@@ -66,48 +107,35 @@ ChatGPT’s text-to-image generative model (DALL-E 3) shows a systematic bias to
     - To obtain API keys:
         - For OpenAI (DALL-E 3): Follow the [OpenAI API setup guide](https://platform.openai.com/docs/quickstart)
         - For Stable Diffusion: Register and get your key from the [Stability AI platform](https://platform.stability.ai/docs/getting-started)
-
-    - If you only want to analyze the existing image dataset without generating new images, you can create a placeholder .env file. This ensures the Docker container runs properly without real API keys. Create a file named .env in your project's root directory and add these placeholder values:
-
-        ```
-        OPENAI_API_KEY=test
-        stable_diffusion_key=test
-        ```
-
+    
     Note: The `.env` file contains sensitive information and is automatically ignored by git (listed in .gitignore) to protect your API keys.
 
-### Starting the Virtual Environment and Run Analysis
+2. Generate images using text-to-image models:
+   ```bash
+   python scripts/01-text_to_image.py --start_index=300 --total_image_num=2 --model="dall-e-3"
+   ```
+   This will create new images based on text prompts using DALL-E 3.
 
-1. In your terminal, ensure you're in the project's root directory, and have created your own `.env` file, then launch the Docker container:
+   ```bash
+   python scripts/01-text_to_image.py --start_index=300 --total_image_num=2 --model="sd3.5-large"
+   ```
+   This will create new images based on text prompts using Stable Diffusion 3.5-large.
 
-    ```
-    docker compose up
-    ```
+3. Generate text descriptions for the images:
+   ```bash
+   python scripts/02-image_to_text.py --start_index=5280 --end_index=None
+   ```
+   This will use GPT-4V to create detailed descriptions of each image starting at row=(start_index+2)in `results/megadata/image_megadata.csv`.
 
-2. Watch your terminal output for a unique URL beginning with
-`http://127.0.0.1:8888/lab?token=`.
-You'll see it displayed as highlighted in the example screenshot below.
-Copy this URL and open it in your web browser to access the Jupyter Lab interface.
+4. Automatically cluster the images:
+   ```bash
+   python scripts/03-image_cluster.py --start_index=5280 --end_index=None
+   ```
+   This will use GPT-4 to categorize images into three thematic clusters, starting the categorization at row=(start_index+2)in `results/megadata/image_megadata.csv`.
 
-    <img src="img/docker_demo.png" width=400>
+⚠️ **Important**: These steps require API keys for OpenAI services and will incur charges. Please refer to the API key setup section above before running these commands.
 
-3. In Jupyter Lab, you'll find all analysis notebooks in the "notebooks" directory on the left sidebar.
-Double-click any notebook to begin exploring the analysis.
-
-4. The rest of the project's code is organized into two main components for clarity and reusability:
-
-    - **Core Scripts** (in the "scripts" directory):  
-    These contain the main workflow for generating images from text prompts and analyzing images using text descriptions. You can explore these scripts to understand the primary analysis pipeline. To run scripts please use (if you are at root directory):
-
-    ```
-    python "scripts/SCRIPT_NAME.py"
-    # example:
-    # python "scripts/03-image_cluster.py"
-    ```
-
-    - **Helper Functions** (in "src/AI_representation_bias_in_farming"):**  
-    To maintain clean and modular code, I've packaged commonly used functions into a local Python package. This package has been pre-installed in the Docker environment as a dynamic version, meaning you can modify the source code and see changes without reinstallation (sometimes you may need to close the project and reopen it to see changes).
-
+    
 ### Project Cleanup
 
 1. When you're finished, properly shut down the container and remove associated resources:
