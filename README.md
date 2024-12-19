@@ -56,7 +56,7 @@ ChatGPT’s text-to-image generative model (DALL-E 3) shows a systematic bias to
 
 2. Download all images from this [database](https://doi.org/10.5683/SP3/EAWR6D) as a zip file. Unzip it, copy the `results/dall-e-3-images`, `results/sd3.5-large-images`, `results/cluster`, `results/cluster_post_manual_fix` folders and paste it into the `results` directory of the local copy of this repository.
 
-3. If you only want to analyze the existing image dataset without generating new images, you can create a placeholder .env file. This ensures the Docker container runs properly without real API keys. Create a file named .env in your project's root directory and add these placeholder values:
+3. If you only want to analyze the existing image dataset without generating new images, you can create a placeholder .env file. This ensures the Docker container runs properly without real API keys. Create a file named `.env` (e.g., `nano .env`) in your project's root directory and add these placeholder values:
 
         ```
         OPENAI_API_KEY=test
