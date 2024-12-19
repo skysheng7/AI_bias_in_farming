@@ -16,6 +16,6 @@ RUN mamba update --quiet --file /tmp/conda-linux-64.lock \
     && fix-permissions "/home/${NB_USER}"
 
 # install openai using pip because the openai package insatlled from conda has bug
-# also install my local AI_representation_bias_in_farming as a python package
+# also install the local AI_representation_bias_in_farming as a python package
 RUN pip install openai==1.57.0 \
     && python -m pip install -e /tmp 
