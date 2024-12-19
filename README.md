@@ -121,13 +121,13 @@ If you want to generate new images, play with text-to-image(T2I) or image-to-tex
    python scripts/01-text_to_image.py --start_index=300 --total_image_num=2 --model="dall-e-3"
    ```
 
-   This will create multiple new images based on text prompts using DALL-E 3 (n images per unique prompts, we have 48 unique prompts in total, with n=total_image_num). 
+   This will create multiple new images based on text prompts using DALL-E 3 (n images per unique prompts, we have 48 unique prompts in total, with n=total_image_num). Generated images will be in `results/dall-e-3-images`.
 
    ```bash
    python scripts/01-text_to_image.py --start_index=300 --total_image_num=2 --model="sd3.5-large"
    ```
 
-   This will create new images based on text prompts using Stable Diffusion 3.5-large (n images per unique prompts, we have 48 unique prompts in total, with n=total_image_num).
+   This will create new images based on text prompts using Stable Diffusion 3.5-large (n images per unique prompts, we have 48 unique prompts in total, with n=total_image_num). Generated images will be in `results/sd3.5-large-images`.
 
 3. Generate text descriptions for the images:
 
@@ -135,7 +135,7 @@ If you want to generate new images, play with text-to-image(T2I) or image-to-tex
    python scripts/02-image_to_text.py --start_index=5280 --end_index=None
    ```
 
-   This will use GPT-4V to create detailed descriptions of each image starting at row=(start_index+2) in `results/megadata/image_megadata.csv`.
+   This will use GPT-4V to create detailed descriptions of each image starting at row=(start_index+2) in `results/megadata/image_megadata.csv`. `results/megadata/image_megadata.csv` will be updated to include a text description for each image
 
 4. Automatically cluster the images:
 
@@ -143,7 +143,7 @@ If you want to generate new images, play with text-to-image(T2I) or image-to-tex
    python scripts/03-image_cluster.py --start_index=5280 --end_index=None
    ```
 
-   This will use GPT-4 to categorize images into three thematic clusters, starting the categorization at row=(start_index+2) in `results/megadata/image_megadata.csv`.
+   This will use GPT-4 to categorize images into three thematic clusters, starting the categorization at row=(start_index+2) in `results/megadata/image_megadata.csv`. `results/megadata/image_megadata.csv` will be updated to include a cluster label for each image.
 
 ### Project Cleanup
 
