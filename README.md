@@ -115,13 +115,13 @@ If you want to generate new images, play with text-to-image(T2I) or image-to-tex
 
     ⚠️ **Important**: These steps require API keys for OpenAI services and will incur charges. The `.env` file contains sensitive information and is automatically ignored by git (listed in .gitignore) to protect your API keys.
 
-2. Generate images using text-to-image models:
+2. Generate images using text-to-image models (WARNING: This may take 10 minutes to a couple hours to run depending on how many images you wish to generate):
 
    ```bash
    python scripts/01-text_to_image.py --start_index=300 --total_image_num=2 --model="dall-e-3"
    ```
 
-   This will create multiple new images based on text prompts using DALL-E 3 (n images per unique prompts, we have 48 unique prompts in total, with n=total_image_num).
+   This will create multiple new images based on text prompts using DALL-E 3 (n images per unique prompts, we have 48 unique prompts in total, with n=total_image_num). 
 
    ```bash
    python scripts/01-text_to_image.py --start_index=300 --total_image_num=2 --model="sd3.5-large"
