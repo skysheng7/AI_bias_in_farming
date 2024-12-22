@@ -12,6 +12,7 @@ from PIL import Image
 import matplotlib.patches as patches
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
+import matplotlib.cm as cm
 from wordcloud import WordCloud
 
 
@@ -38,39 +39,6 @@ def filter_data(df, generation_types, farm_type=None, model="dall-e-3", country=
     return filtered_df
 
 
-def create_darker_ocean_colormap():
-    """
-    Creates a modified version of the 'ocean' colormap where the minimum blue shade
-    is darker for better visibility. This preserves the beautiful ocean color progression
-    while ensuring all text remains readable against a white background.
-
-    Returns:
-        matplotlib.colors.LinearSegmentedColormap: The modified ocean colormap
-    """
-    # Get the original ocean colormap colors
-    ocean_colors = plt.cm.ocean(np.linspace(0.45, 1, 256))
-
-    # Adjust the brightness range to ensure minimum darkness
-    # We'll compress the brightness range to stay within darker values
-    min_brightness = 0.1  # Minimum darkness level (0 is black, 1 is white)
-    max_brightness = 0.7  # Maximum brightness level
-
-    # Create new color array with adjusted brightness
-    new_colors = ocean_colors.copy()
-    for i in range(len(new_colors)):
-        # Calculate the original position in the color range (0 to 1)
-        position = i / (len(new_colors) - 1)
-        # Adjust the brightness to stay within our desired range
-        brightness = min_brightness + position * (max_brightness - min_brightness)
-        # Apply the brightness adjustment while preserving the color's hue
-        new_colors[i] = np.clip(ocean_colors[i] * brightness, 0, 1)
-
-    # Create new colormap with adjusted colors
-    darker_ocean = LinearSegmentedColormap.from_list("darker_ocean", new_colors)
-
-    return darker_ocean
-
-
 def generate_word_cloud(ngram_frequencies, seed=7):
     """
     Generate a word cloud image from a dictionary of word fre counts
@@ -82,25 +50,46 @@ def generate_word_cloud(ngram_frequencies, seed=7):
     Returns:
         PIL.Image.Image: The generated word cloud image as a PIL image object.
     """
+    darkening_factor = 0.7
 
-    # Generate the word cloud, excluding words in the prompt
+    # Create a reference to the gist_earth_r colormap
+    colormap = cm.get_cmap("gist_earth_r")
+
+    # Create a reproducible random state
+    random_state = random.Random(seed)
+
+    # Custom color function to darken the original colormap
+    def dark_color_func(*args, **kwargs):
+        # Sample a random value between 0 and 1
+        rand_val = random_state.random()
+        # Get RGBA from gist_earth_r
+        r, g, b, _ = colormap(rand_val)  # Ignore alpha channel
+        # Darken by multiplying R, G, B by the darkening_factor
+        r *= darkening_factor
+        g *= darkening_factor
+        b *= darkening_factor
+        # Return an RGB tuple (scaled to 0-255)
+        return int(r * 255), int(g * 255), int(b * 255)
+
+    # Generate the word cloud with the custom color function
     wordcloud = WordCloud(
-        colormap="gist_earth_r",
         width=400,
         height=400,
         background_color="white",
-        random_state=seed,
+        colormap="gist_earth_r",  # Specify the colormap for fallback
+        color_func=dark_color_func,  # Use the custom color function
+        random_state=seed,  # Ensure reproducibility for layout
         min_font_size=10,
         max_font_size=70,
-        prefer_horizontal=0.8,  # Allow some vertical text for better space usage
-        relative_scaling=0.5,  # Adjust size based on frequency, but not too extremely
-        collocations=False,  # Important: disable automatic collocation detection
+        prefer_horizontal=0.8,
+        relative_scaling=0.5,
+        collocations=False,
     ).generate_from_frequencies(ngram_frequencies)
 
     return wordcloud.to_image()
 
 
-def plot_text(ax, text, farm_type, country=None, max_character_per_line=23):
+def plot_text(ax, text, farm_type=None, country=None, max_character_per_line=27):
     """
     Display wrapped text in an axis with centered alignment, wrapping by number of words.
 
@@ -111,21 +100,48 @@ def plot_text(ax, text, farm_type, country=None, max_character_per_line=23):
         words_per_line (int): Number of words per line for wrapping. Defaults to 7.
         max_character_per_line (int): max number of characters per line in a plot
     """
-    # Make "dairy" or "pig" bold by using Matplotlib's mathtext
-    bold_text = text.replace(farm_type, rf"$\mathbf{{{farm_type}}}$")
+    # I have word spliting issues if there is no white space between "." and the next sentence.
+    # place a temporary white space there to fix this for the code, will revert back later
+    text = text.replace(".", ". ")
 
-    # Group words into lines based on words_per_line
-    wrapped_text = textwrap.fill(bold_text, width=max_character_per_line)
+    # Split text into words
+    words = text.split()
 
-    if country is not None:
-        # Split the country name into words, bold each word separately, and join them with spaces
-        bold_country = " ".join([rf"$\mathbf{{{word}}}$" for word in country.split()])
-        wrapped_text = wrapped_text.replace(country, bold_country)
+    # Prepare the country words as a list
+    # Ensure a space follows each period
+    country_words = (country + ".").split() if country else []
+    n_country = len(country_words)
 
-    # Display wrapped text in the center of the axis
+    bolded_words = []
+    i = 0
+
+    while i < len(words):
+        # Check if the next N words match the full country phrase
+        if (
+            country
+            and i + n_country <= len(words)
+            and words[i : i + n_country] == country_words
+        ):
+            # Bold all the words in the matched country phrase
+            for w in words[i : i + n_country]:
+                bolded_words.append(rf"$\mathbf{{{w}}}$")
+            i += n_country
+        else:
+            # If it's exactly the farm_type, bold it
+            if farm_type and words[i] == farm_type:
+                bolded_words.append(rf"$\mathbf{{{words[i]}}}$")
+            else:
+                bolded_words.append(words[i])
+            i += 1
+
+    # Join all the words back and wrap the text
+    bolded_text = " ".join(bolded_words)
+    wrapped_text = textwrap.fill(bolded_text, width=max_character_per_line)
+
+    # Display wrapped text
     ax.text(0.5, 0.5, wrapped_text, ha="center", va="center", fontsize=18, wrap=True)
     ax.axis("off")
-    ax.grid(True)
+    ax.grid(False)
 
 
 def plot_wordcloud(ax, ngram_frequencies, seed):
@@ -166,7 +182,9 @@ def plot_revised_prompt(
         None
     """
     unique_list = revised_prompt_col.unique()
-    if (len(unique_list)) <= 3:  # if there is only 1-3 unique prompts
+    if (
+        len(unique_list)
+    ) <= 3:  # if there is only 1-3 unique prompts, it's because automatic prompt revision were all killed. yielding for example "a dairy farm" & "a dairy farm."
         if country is not None:
             plot_text(ax, unique_list[0], farm_type, country)
         else:
