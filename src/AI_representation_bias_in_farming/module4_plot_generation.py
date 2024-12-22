@@ -85,7 +85,7 @@ def generate_word_cloud(ngram_frequencies, seed=7):
 
     # Generate the word cloud, excluding words in the prompt
     wordcloud = WordCloud(
-        colormap=create_darker_ocean_colormap(),
+        colormap="gist_earth_r",
         width=400,
         height=400,
         background_color="white",
