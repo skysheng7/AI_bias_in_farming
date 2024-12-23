@@ -52,7 +52,9 @@ plots: results/plots/basic_dairy_dall-e-3_by_country_plot_grid.png\
 	results/plots/typical_sd3.5-large_plot_grid.png
 
 # cluster images into 3 themes
-cluster: results/plots/cluster_summary_dall-e-3.png\
+cluster: results/cluster/* \
+    results/cluster_post_manual_fix/* \
+    results/plots/cluster_summary_dall-e-3.png\
 	results/plots/cluster_summary_sd-3.5.png\
 	results/megadata/cluster_summary.csv\
 	results/megadata/image_megadata_post_manual_fix.csv
@@ -127,6 +129,8 @@ results/megadata/image_megadata.csv
 	python scripts/05-generate_plot_grid.py
 
 # Visualize the quality of automatic clustering and manual correction
+results/cluster/* \
+results/cluster_post_manual_fix/* \
 results/plots/cluster_summary_dall-e-3.png\
 results/plots/cluster_summary_sd-3.5.png\
 results/megadata/cluster_summary.csv\
