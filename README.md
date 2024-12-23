@@ -60,10 +60,10 @@ ChatGPT’s text-to-image generative model (DALL-E 3) shows systematic bias towa
 
 3. If you only want to analyze the existing image dataset without generating new images, you can create a placeholder .env file. This ensures the Docker container runs properly without real API keys. Create a file named `.env` (e.g., by running`nano .env` in your terminal) in your project's root directory and add these placeholder values:
 
-        ```
-        OPENAI_API_KEY=test
-        stable_diffusion_key=test
-        ```
+    ```
+    OPENAI_API_KEY=test
+    stable_diffusion_key=test
+    ```
 
 4. In your terminal, ensure you're in the project's root directory, and have created your own `.env` file, then launch the Docker container:
 
