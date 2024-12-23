@@ -4,7 +4,7 @@ Kehan (Sky) Sheng, Frank Tuyttens, Marina von Keyserlingk
 
 ## Abstract
 
-ChatGPT’s text-to-image generative model (DALL-E 3) shows systematic bias toward depicting dairy cows grazing and pigs rooting in mud when prompted about dairy and pig farms. However, when its automatic prompt revision was inhibited, farm images shifted to reflect more modern livestock farming practices: animals housed intensively, and almost always indoors. Our findings suggest the base model possesses some knowledge of modern farming realities but chose to systematically depict pastoral imagery.
+In this research project, we evaluated representation bias of livestock farming in 2 state-of-the-art text-to-image generative models: DALL-E 3 and Stable Diffusion 3.5-large.
 
 ![Figure 1](results/plots/basic_dall-e-3_plot_grid.png)
 
