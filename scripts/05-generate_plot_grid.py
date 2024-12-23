@@ -69,6 +69,7 @@ def main():
         model=model,
         seed=17,
     )
+    print("Generated plot: Prompt DALL·E 3 for a realistic farm")
 
     ### Model 1 prompt type 2: basic prompt
     # Define generation types and farm types
@@ -87,6 +88,7 @@ def main():
         model=model,
         seed=707,
     )
+    print("Generated plot: Prompt DALL·E 3 for a general farm")
 
     ### Model 1 prompt type 3: typical prompt
     # Define generation types and farm types
@@ -105,6 +107,7 @@ def main():
         model=model,
         seed=678,
     )
+    print("Generated plot: Prompt DALL·E 3 for a typical farm")
 
     ### Model 1 prompt type 1 + country: reality by country for dairy prompt
     # Define generation types and farm types
@@ -124,6 +127,9 @@ def main():
         col_num=num_cols,
         model=model,
         seed=707,
+    )
+    print(
+        f"Generated plot: Prompt DALL·E 3 for realistic {farm_type} farms in 3 different countries"
     )
 
     ### Model 1 prompt type 1 + country: reality by country for pig prompt
@@ -145,6 +151,9 @@ def main():
         model=model,
         seed=108,
     )
+    print(
+        f"Generated plot: Prompt DALL·E 3 for realistic {farm_type} farms in 3 different countries"
+    )
 
     ### Model 1 prompt type 2 + country: basic by country for dairy prompt
     # Define generation types and farm types
@@ -164,6 +173,9 @@ def main():
         col_num=num_cols,
         model=model,
         seed=888,
+    )
+    print(
+        f"Generated plot: Prompt DALL·E 3 for general {farm_type} farms in 3 different countries"
     )
 
     ### Model 1 prompt type 2 + country: basic by country for pig prompt
@@ -185,6 +197,9 @@ def main():
         model=model,
         seed=788,
     )
+    print(
+        f"Generated plot: Prompt DALL·E 3 for general {farm_type} farms in 3 different countries"
+    )
 
     ### Model 1 prompt type 3 + country: typical by country for dairy prompt
     # Define generation types and farm types
@@ -205,6 +220,9 @@ def main():
         model=model,
         seed=7,
     )
+    print(
+        f"Generated plot: Prompt DALL·E 3 for typical {farm_type} farms in 3 different countries"
+    )
 
     ### Model 1 prompt type 3 + country: typical by country for pig prompt
     # Define generation types and farm types
@@ -224,6 +242,9 @@ def main():
         col_num=num_cols,
         model=model,
         seed=708,
+    )
+    print(
+        f"Generated plot: Prompt DALL·E 3 for typical {farm_type} farms in 3 different countries"
     )
 
     ##################################
@@ -253,6 +274,7 @@ def main():
         model=model,
         seed=7,
     )
+    print("Generated plot: Prompt Stable Diffusion 3.5-large for a realistic farm")
 
     ### Model 2 prompt type 2: basic prompt
     # Define generation types and farm types
@@ -271,6 +293,7 @@ def main():
         model=model,
         seed=707,
     )
+    print("Generated plot: Prompt Stable Diffusion 3.5-large for a general farm")
 
     ### Model 2 prompt type 3: typical prompt
     # Define generation types and farm types
@@ -289,6 +312,7 @@ def main():
         model=model,
         seed=7,
     )
+    print("Generated plot: Prompt Stable Diffusion 3.5-large for a typical farm")
 
     ### Model 2 prompt type 1 + country: reality by country for dairy prompt
     # Define generation types and farm types
@@ -308,6 +332,9 @@ def main():
         col_num=num_cols,
         model=model,
         seed=707,
+    )
+    print(
+        f"Generated plot: Prompt Stable Diffusion 3.5-large for realistic {farm_type} farms in 3 different countries"
     )
 
     ### Model 2 prompt type 1 + country: reality by country for pig prompt
@@ -329,6 +356,9 @@ def main():
         model=model,
         seed=800,
     )
+    print(
+        f"Generated plot: Prompt Stable Diffusion 3.5-large for realistic {farm_type} farms in 3 different countries"
+    )
 
     ### Model 2 prompt type 2 + country: basic by country for dairy prompt
     # Define generation types and farm types
@@ -349,6 +379,9 @@ def main():
         model=model,
         seed=707,
     )
+    print(
+        f"Generated plot: Prompt Stable Diffusion 3.5-large for general {farm_type} farms in 3 different countries"
+    )
 
     ### Model 2 prompt type 2 + country: basic by country for pig prompt
     # Define generation types and farm types
@@ -356,7 +389,6 @@ def main():
     farm_type = megadata["farm_type"].unique()[1]
     countries = countries_by_farm_type[farm_type]
     title = f"Prompt Stable Diffusion 3.5-large for general {farm_type} farms in 3 different countries"
-
     module4_plot_generation.plot_grid_country(
         megadata,
         gen_types,
@@ -369,6 +401,9 @@ def main():
         col_num=num_cols,
         model=model,
         seed=1,
+    )
+    print(
+        f"Generated plot: Prompt Stable Diffusion 3.5-large for general {farm_type} farms in 3 different countries"
     )
 
     ### Model 2 prompt type 3 + country: typical by country for dairy prompt
@@ -390,6 +425,9 @@ def main():
         model=model,
         seed=7,
     )
+    print(
+        f"Generated plot: Prompt Stable Diffusion 3.5-large for typical {farm_type} farms in 3 different countries"
+    )
 
     ### Model 2 prompt type 3 + country: typical by country for pig prompt
     # Define generation types and farm types
@@ -409,6 +447,9 @@ def main():
         col_num=num_cols,
         model=model,
         seed=707,
+    )
+    print(
+        f"Generated plot: Prompt Stable Diffusion 3.5-large for typical {farm_type} farms in 3 different countries"
     )
 
 

@@ -41,6 +41,14 @@ def main(start_index, end_index):
     max_completion_tokens = 1000
     temperature = 0.2
 
+    print("Start clustering images based on images provided...")
+    print(
+        "WARNING: This may take 10 minutes to a couple hours to run depending on how many images you wish to cluster."
+    )
+    print(
+        "This will use GPT-4 to categorize images into three thematic clusters, starting the categorization at row=(start_index+2) in results/megadata/image_megadata.csv. results/megadata/image_megadata.csv will be updated to include a cluster label for each image."
+    )
+
     megadata = module2_GPT4o.cluster_all_images(
         model,
         prompt_list,
@@ -50,6 +58,8 @@ def main(start_index, end_index):
         start_index,
         end_index,
     )
+
+    print("Finished clustering all images!")
 
 
 # Only execute this code if the script is run directly
