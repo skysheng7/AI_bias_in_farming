@@ -169,11 +169,12 @@ I'll help create a clear repository structure section. Since you want a brief ex
 
 This repository is organized as follows:
 
-- `Makefile`: GNU make file to streamline reproducing my analysis from scratch
 - `img/`: Contains an images to demo the use of docker, inserted in README
 - `results/`: Stores generated images (in database), and image metadata results from running the "scripts" and "src"
 - `scripts/`: Houses the main Python scripts that generate image from text, and generate text from images
 - `src/`: Contains the source code for our local Python package with helper functions and utilities
+- `tests/`: Contains tests written for functions
+- `Makefile`: GNU make file to streamline reproducing my analysis from scratch
 - `CODE_OF_CONDUCT.md`: Guidelines for maintaining a welcoming and inclusive community atmosphere
 - `conda-linux-64.lock`: Conda-lock file that specifies exact versions of Python dependencies for reproducible environments. This conda-lock file is explicitly solved for linux-64 operating systems
 - `conda-lock.yml`: Conda-lock file that specifies exact versions of Python dependencies for reproducible environments. This conda-lock file is solved for the following operating systems: ['linux-64', 'osx-64', 'osx-arm64', 'win-64']
