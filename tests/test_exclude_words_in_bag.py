@@ -8,6 +8,7 @@ standard_exclude_list = ["a", "tesT"]
 standard_expected = ["this", "IS"]
 
 # edge case: the list of words to exclude is empty
+edge_bag = ["THIS", "is", "a", "TeSt"]
 edge_exclude_list = []
 edge_expected = ["THIS", "is", "a", "TeSt"]
 
@@ -20,15 +21,13 @@ def test_exclude_words_in_bag_standard():
     output = module3_word_freq_count.exclude_words_in_bag(
         standard_bag, standard_exclude_list
     )
-    assert output.equals(standard_expected)
+    assert output == standard_expected
 
 
 # Test edge case
 def test_exclude_words_in_bag_edge():
-    output = module3_word_freq_count.exclude_words_in_bag(
-        standard_bag, edge_exclude_list
-    )
-    assert output.equals(edge_expected)
+    output = module3_word_freq_count.exclude_words_in_bag(edge_bag, edge_exclude_list)
+    assert output == edge_expected
 
 
 # Test error handling
