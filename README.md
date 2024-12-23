@@ -217,7 +217,7 @@ This repository is organized as follows:
 6. Automatically append dependency version numbers to each of the packages you installed. The conda virtual environment I created is called "ai_env", if you are using another name, please change --env_name:
 
     ```
-    python scripts/update_enviroment_yml.py --root_dir="." --env_name="ai_env"
+    python scripts/00-update_enviroment_yml.py --root_dir="." --env_name="ai_env"
     ```
 
 7. Use Conda-lock to solve and lock the updated environment. I'm using Linux-64 because that's the operating system of my docker image
