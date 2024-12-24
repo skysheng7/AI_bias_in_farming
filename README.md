@@ -12,7 +12,7 @@ In this research project, we evaluated representation bias of livestock farming 
 
 - **Title of Dataset:** Replication Data for: AI's representation bias about livestock farming
 - **Paper DOI:**
-- **Dataset DOI:** <https://doi.org/10.5683/SP3/EAWR6D>
+- **Dataset DOI:** <https://doi.org/10.6084/m9.figshare.28087691>
 - **Dataset Created:** 2024-10-01
 - **Created by:** Kehan (Sky) Sheng
 - **Contact Email:** <skysheng7@gmail.com>
