@@ -56,16 +56,48 @@ In this research project, we evaluated representation bias of livestock farming 
 
     - New to git and GitHub? Please follow the official [setup guide](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git) to get started.
 
-2. Download all images from this [database](https://doi.org/10.5683/SP3/EAWR6D) as a zip file. Unzip it, copy the `results/dall-e-3-images`, `results/sd3.5-large-images`, `results/cluster`, `results/cluster_post_manual_fix` folders and paste it into the `results` directory of the local copy of this repository.
+2. Please download all the images in zip file format from this [database](https://doi.org/10.6084/m9.figshare.28087691), you'll be working with three DALL-E 3 image zip files that need to be combined:
 
-3. If you only want to analyze the existing image dataset without generating new images, you can create a placeholder .env file. This ensures the Docker container runs properly without real API keys. Create a file named `.env` (e.g., by running`nano .env` in your terminal) in your project's root directory and add these placeholder values:
+   ```bash
+   dall-e-3-images_part1.zip
+   dall-e-3-images_part2.zip
+   dall-e-3-images_part3.zip
+   ```
+
+3. For the DALL-E 3 images, create a directory structure in your local repository like this:
+
+   ```
+   your-repository/
+    └── results/
+        ├── dall-e-3-images/
+        └── ...
+   ```
+
+4. Unzip each of the three DALL-E 3 zip files (dall-e-3-images_part1.zip, dall-e-3-images_part2.zip, dall-e-3-images_part3.zip), then:
+   - Move all the folders (e.g., "basic", "typical", etc) from these zip files into `results/dall-e-3-images`
+   - The three parts were split only because of file size limitations when uploading to the database, so they should be merged into this single directory
+
+5. For the remaining zip files, unzip them and place their contents directly in the results folder. After completing these steps, your `results` directory should look like this:
+
+   ```
+   your-repository/
+    └── results/
+        ├── dall-e-3-images/
+        ├── sd3.5-large-images/
+        ├── megadata/
+        ├── plots/
+        ├── cluster/
+        └── cluster_post_manual_fix/
+   ```
+
+6. If you only want to analyze the existing image dataset without generating new images, you can create a placeholder .env file. This ensures the Docker container runs properly without real API keys. Create a file named `.env` (e.g., by running`nano .env` in your terminal) in your project's root directory and add these placeholder values:
 
     ```
     OPENAI_API_KEY=test
     stable_diffusion_key=test
     ```
 
-4. In your terminal, ensure you're in the project's root directory, and have created your own `.env` file, then launch the Docker container:
+7. In your terminal, ensure you're in the project's root directory, and have created your own `.env` file, then launch the Docker container:
 
     ```
     docker compose up
@@ -73,24 +105,24 @@ In this research project, we evaluated representation bias of livestock farming 
 
     Note: To maintain clean and modular code, I've packaged commonly used functions into a local Python package `src/AI_representation_bias_in_farming`. This package has been pre-installed in the Docker environment as a dynamic version, meaning you can modify the source code and see changes without reinstallation (sometimes you may need to close the project and reopen it to see changes).
 
-5. Watch your terminal output for a unique URL beginning with
+8. Watch your terminal output for a unique URL beginning with
 `http://127.0.0.1:8888/lab?token=`.
 You'll see it displayed as highlighted in the example screenshot below.
 Copy this URL and open it in your web browser to access the Jupyter Lab interface. In Jupyter Lab, you'll find all the scripts and code folders on the left sidebar.
 
     <img src="img/docker_demo.png" width=400>
 
-6. Open Terminal in JupyterLab web browser interface:
+9. Open Terminal in JupyterLab web browser interface:
    - Look for the "+" icon in JupyterLab's launcher
    - Click "Terminal" from the options
   
-7. Remove all generated summary files and reset the analysis
+10. Remove all generated summary files and reset the analysis
 
     ```
     make clean-all
     ```
 
-8. To execute the entire analysis pipeline, processing all steps from data visualization to analysis. WARNING: this takes about 30 minutes to run on a regular laptop (M1 macbook pro).
+11. To execute the entire analysis pipeline, processing all steps from data visualization to analysis. WARNING: this takes about 30 minutes to run on a regular laptop (M1 macbook pro).
 
     ```
     make all
