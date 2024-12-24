@@ -30,7 +30,7 @@ In this research project, we evaluated representation bias of livestock farming 
   - Email: <skysheng7@gmail.com>
 
 - **Contributor:** Frank Tuyttens
-  - ORCID: 0000-0001-6442-5284
+  - ORCID: 0000-0002-1348-218X
   - Affiliation_1: Fisheries and Food (ILVO)
   - Affiliation_2: Ghent University
   - Email: <frank.tuyttens@ilvo.vlaanderen.be>
