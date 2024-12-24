@@ -67,7 +67,7 @@ In this research project, we evaluated representation bias of livestock farming 
 3. For the DALL-E 3 images, create a directory structure in your local repository like this:
 
    ```
-   your-repository/
+   AI_bias_in_farming/
     └── results/
         ├── dall-e-3-images/
         └── ...
