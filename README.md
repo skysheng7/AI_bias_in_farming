@@ -80,7 +80,7 @@ In this research project, we evaluated representation bias of livestock farming 
 5. For the remaining zip files, unzip them and place their contents directly in the results folder. After completing these steps, your `results` directory should look like this:
 
    ```
-   your-repository/
+   AI_bias_in_farming/
     └── results/
         ├── dall-e-3-images/
         ├── sd3.5-large-images/
