@@ -4,6 +4,7 @@
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from pathlib import Path
+import numpy as np
 
 
 def exclude_words_in_bag(bag_of_words, words_to_exclude):
@@ -20,8 +21,8 @@ def exclude_words_in_bag(bag_of_words, words_to_exclude):
     --------
     bag_of_words2 (list): a list of all relevant words extracted from text pieces, after word exclusion
     """
-    if not isinstance(bag_of_words, list):
-        raise TypeError(f"Expected a list for bag_of_words, but got {type(bag_of_words).__name__}.")
+    if not isinstance(bag_of_words, (list, np.ndarray)):
+        raise TypeError(f"Expected a list or numpy array for bag_of_words, but got {type(bag_of_words).__name__}.")
 
     #  Create a set of lowercase versions of words to exclude for efficient comparison
     # Using a set makes lookups faster than using a list
