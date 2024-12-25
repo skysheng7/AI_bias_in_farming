@@ -83,11 +83,23 @@ In this research project, we evaluated representation bias of livestock farming 
    AI_bias_in_farming/
     └── results/
         ├── dall-e-3-images/
-        ├── sd3.5-large-images/
-        ├── megadata/
-        ├── plots/
-        ├── cluster/
-        └── cluster_post_manual_fix/
+        │   ├── basic/                      # Base prompt results
+        │   ├── basic_country/              # Base prompt with country specification
+        │   ├── basic_country_no_revise/    # Base prompt with country, no revisions
+        │   ├── basic_no_revise/            # Base prompt without revisions
+        │   ├── reality/                    # Reality-focused prompt results
+        │   ├── reality_country/            # Reality prompt with country specification
+        │   ├── reality_country_no_revise/  # Reality prompt with country, no revisions
+        │   ├── reality_no_revise/          # Reality prompt without revisions
+        │   ├── typical/                    # Typical prompt results
+        │   ├── typical_country/            # Typical prompt with country specification
+        │   ├── typical_country_no_revise/  # Typical prompt with country, no revisions
+        │   └── typical_no_revise/          # Typical prompt without revisions
+        ├── sd3.5-large-images/             # Stable Diffusion 3.5 generated images
+        ├── megadata/                       # Combined or processed data
+        ├── plots/                          # Visualization outputs
+        ├── cluster/                        # Clustering analysis results
+        └── cluster_post_manual_fix/        # Post-processed clustering results
    ```
 
 6. If you only want to analyze the existing image dataset without generating new images, you can create a placeholder .env file. This ensures the Docker container runs properly without real API keys. Create a file named `.env` (e.g., by running`nano .env` in your terminal) in your project's root directory and add these placeholder values:
