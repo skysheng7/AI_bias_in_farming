@@ -2,7 +2,7 @@
 
 Kehan (Sky) Sheng, Frank Tuyttens, Marina von Keyserlingk
 
-## Abstract
+## About
 
 In this research project, we evaluated representation bias of livestock farming in 2 state-of-the-art text-to-image generative models: DALL-E 3 and Stable Diffusion 3.5-large.
 
