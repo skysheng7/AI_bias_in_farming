@@ -59,6 +59,8 @@ cluster: results/cluster/* \
 	results/megadata/cluster_summary.csv\
 	results/megadata/image_megadata_post_manual_fix.csv
 
+revision: results/megadata/revised_prompt_count.csv
+
 # all contains all the plots and cluster summary files
 all: results/plots/basic_dairy_dall-e-3_by_country_plot_grid.png\
 	results/plots/basic_dairy_sd3.5-large_by_country_plot_grid.png\
@@ -82,6 +84,8 @@ all: results/plots/basic_dairy_dall-e-3_by_country_plot_grid.png\
 	results/plots/cluster_summary_sd-3.5.png\
 	results/megadata/cluster_summary.csv\
 	results/megadata/image_megadata_post_manual_fix.csv
+	results/megadata/revised_prompt_count.csv
+
 
 # Specify version numbers for each dependency used in the current conda environment
 environment.yml: scripts/00-update_enviroment_yml.py
@@ -139,6 +143,11 @@ results/megadata/outlier_image_manual_correction.csv\
 results/megadata/image_megadata.csv
 	python scripts/06-cluster_plots.py
 
+# count the success rate of prompt revision inhibition
+results/megadata/revised_prompt_count.csv: scripts/07-revised_prompt_analysis.py\
+results/megadata/image_megadata.csv
+	python scripts/07-revised_prompt_analysis.py\
+
 # Clean up the analysis files
 clean-plots:
 	rm -f results/plots/basic_dairy_dall-e-3_by_country_plot_grid.png\
@@ -183,4 +192,7 @@ clean-bag-of-words:
 		results/megadata/revised_prompt_2gram_bag_of_words.csv\
 		results/megadata/revised_prompt_2gram_freq_summary.csv
 
-clean-all: clean-plots clean-image-eda clean-cluster clean-bag-of-words
+clean-revision:
+	rm -f results/megadata/revised_prompt_count.csv
+
+clean-all: clean-plots clean-image-eda clean-cluster clean-bag-of-words clean-revision

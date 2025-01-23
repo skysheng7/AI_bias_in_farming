@@ -11,6 +11,7 @@ This directory contains analysis scripts for the AI representation bias in farmi
 - `04-bag_of_words.py`: Bag-of-words analysis by counting 1-gram, 2-gram, or 1 & 2 gram words in revised prompts and in text descriptions of images
 - `05-generate_plot_grid.py`: Generate plot grids to visualize the megadata from generaetd images
 - `06-cluster_plots.py`: Generate plot grids to summarize image clustering results
+- `07-revised_prompt_analysis`: Generate a dataframe to show success rate of prompt revision inhibition
 
 ## Usage
 

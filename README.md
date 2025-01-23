@@ -115,7 +115,7 @@ In this research project, we evaluated representation bias of livestock farming 
     docker compose up
     ```
 
-    Note: To maintain clean and modular code, I've packaged commonly used functions into a local Python package `src/AI_representation_bias_in_farming`. This package has been pre-installed in the Docker environment as a dynamic version, meaning you can modify the source code and see changes without reinstallation (sometimes you may need to close the project and reopen it to see changes).
+    Note: To maintain clean and modular code, I've packaged commonly used functions into a local Python package `src/AI_representation_bias_in_farming`. This package has been pre-installed in the Docker environment.
 
 8. Watch your terminal output for a unique URL beginning with
 `http://127.0.0.1:8888/lab?token=`.

@@ -1,0 +1,20 @@
+generation_type,country,farm_type,prompt,cleaned_revised_prompt,count
+basic_country_no_revise,Germany,dairy,"A dairy farm in Germany.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",a dairy farm in germany,100
+basic_country_no_revise,New Zealand,dairy,"A dairy farm in New Zealand.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",a dairy farm in new zealand,100
+basic_country_no_revise,the United States,dairy,"A dairy farm in the United States.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",a dairy farm in the united states,100
+basic_no_revise,,dairy,"A dairy farm.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",a dairy farm,100
+typical_country_no_revise,Germany,dairy,"A typical dairy farm in Germany.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",a traditional dairy farm in germany,1
+typical_country_no_revise,Germany,dairy,"A typical dairy farm in Germany.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",a typical dairy farm in germany,99
+typical_country_no_revise,New Zealand,dairy,"A typical dairy farm in New Zealand.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",a typical dairy farm in new zealand,100
+typical_country_no_revise,the United States,dairy,"A typical dairy farm in the United States.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",a typical dairy farm in the united states,100
+typical_no_revise,,dairy,"A typical dairy farm.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",a typical dairy farm,100
+basic_country_no_revise,Australia,pig,"A pig farm in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",a pig farm in australia,100
+basic_country_no_revise,Spain,pig,"A pig farm in Spain.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",a pig farm in spain,100
+basic_country_no_revise,the United States,pig,"A pig farm in the United States.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",a pig farm in the united states,100
+basic_no_revise,,pig,"A pig farm.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",a pig farm,99
+basic_no_revise,,pig,"A pig farm.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",a simple scene depicting a pig farm,1
+typical_country_no_revise,Australia,pig,"A typical pig farm in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",a typical pig farm in australia,100
+typical_country_no_revise,Spain,pig,"A typical pig farm in Spain.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",a typical pig farm in spain,100
+typical_country_no_revise,the United States,pig,"A typical pig farm in the United States.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",a swine farm in the united states,1
+typical_country_no_revise,the United States,pig,"A typical pig farm in the United States.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",a typical pig farm in the united states,99
+typical_no_revise,,pig,"A typical pig farm.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",a typical pig farm,100
