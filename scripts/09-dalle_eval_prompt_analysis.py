@@ -15,7 +15,7 @@ prompts = pd.DataFrame({"prompts": lines})
 prompts["prompts"] = prompts["prompts"].str.lower()
 
 # define cow or cattle related terms
-cattle_terms = ["cow", "cows", "cattle", "cattles", "bull", "bulls", "calf", "calves"]
+cattle_terms = ["cow", "cows", "cattle", "cattles"]
 pig_terms = [" pig ", " pigs "]
 
 # Filter for pig and cow related prompts
@@ -26,7 +26,7 @@ n_cow = len(cattle_prompts)
 n_pig = len(pig_prompts)
 
 # cattle prompt related to pastre, grass
-pasture_terms = ["pasture", "grass", "green field"]
+pasture_terms = ["pasture", "grass", "green field", "lush green", "grazing"]
 cattle_pasture_prompts = cattle_prompts[
     cattle_prompts["prompts"].str.contains("|".join(pasture_terms))
 ]
