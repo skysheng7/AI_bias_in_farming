@@ -1,7 +1,7 @@
 # build on top of template of minimal notebook
 FROM quay.io/jupyter/minimal-notebook:afe30f0c9ad8
 
-# copy conda environment dependencies
+# copy the file documenting conda environment dependencies
 COPY conda-linux-64.lock /tmp/conda-linux-64.lock
 
 # copy my local python package files to pip install in docker
