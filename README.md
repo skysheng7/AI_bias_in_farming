@@ -220,6 +220,7 @@ This repository is organized as follows:
 - `scripts/`: Houses the main Python scripts that generate image from text, and generate text from images
 - `src/`: Contains the source code for our local Python package with helper functions and utilities
 - `tests/`: Contains tests written for functions
+- `dalle3_eval_data/`: the prompts extracted from MSCOCO OpenAI used to evaluate the performance of DALL-E 3.
 - `Makefile`: GNU make file to streamline reproducing my analysis from scratch
 - `CODE_OF_CONDUCT.md`: Guidelines for maintaining a welcoming and inclusive community atmosphere
 - `conda-linux-64.lock`: Conda-lock file that specifies exact versions of Python dependencies for reproducible environments. This conda-lock file is explicitly solved for linux-64 operating systems
