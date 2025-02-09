@@ -1,14 +1,6 @@
 # build on top of template of minimal notebook
 FROM quay.io/jupyter/minimal-notebook:afe30f0c9ad8
 
-# switch to root to install missing apt packages
-USER root
-RUN apt-get update && apt-get install -y libicu73 \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# switch back to the non-root user
-USER ${NB_UID}
-
 # copy all conda environment dependencies
 COPY conda-linux-64.lock /tmp/conda-linux-64.lock
 
