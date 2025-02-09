@@ -37,10 +37,11 @@ classifiers = [
     "Topic :: Scientific/Engineering",
     "Typing :: Typed",
 ]
-# TODO: add keywords
 keywords = []
-# TODO: add dependencies
 dependencies = []
+# please note I did not include dependencies in this file because i used conda and docker
+# to handle dependencies. This python package is just a local package, not intended to be
+# published on PyPI or testPyPI.
 
 [project.urls]
 Homepage = "https://github.com/skysheng7/AI_representation_bias_in_farming"
