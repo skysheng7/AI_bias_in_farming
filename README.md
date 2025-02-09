@@ -1,4 +1,4 @@
-# AI's representation bias about livestock farming
+# The erasure of intensive livestock farming in text-to-image generative AI
 
 Kehan (Sky) Sheng, Frank Tuyttens, Marina von Keyserlingk
 
@@ -10,7 +10,7 @@ In this research project, we evaluated representation bias of livestock farming 
 
 ## Dataset Information
 
-- **Title of Dataset:** Replication Data for: AI's representation bias about livestock farming
+- **Title of Dataset:** Replication Data for: The erasure of intensive livestock farming in text-to-image generative AI
 - **Paper DOI:**
 - **Dataset DOI:** <https://doi.org/10.5683/SP3/EAWR6D>
 - **Dataset Created:** 2024-10-01
