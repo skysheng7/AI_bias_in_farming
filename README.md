@@ -124,17 +124,19 @@ Copy this URL and open it in your web browser to access the Jupyter Lab interfac
 
     <img src="img/docker_demo.png" width=400>
 
-9. Open Terminal in JupyterLab web browser interface:
+9. Double click "work" directory on the left hand side
+
+10. Open Terminal in JupyterLab web browser interface:
    - Look for the "+" icon in JupyterLab's launcher
    - Click "Terminal" from the options
   
-10. Remove all generated summary files and reset the analysis
+11. Remove all generated summary files and reset the analysis
 
     ```
     make clean-all
     ```
 
-11. To execute the entire analysis pipeline, processing all steps from data visualization to analysis. WARNING: this takes about 30 minutes to run on a regular laptop (M1 macbook pro).
+12. To execute the entire analysis pipeline, processing all steps from data visualization to analysis. WARNING: this takes about 30 minutes to run on a regular laptop (M1 macbook pro).
 
     ```
     make all

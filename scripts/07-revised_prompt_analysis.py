@@ -1,3 +1,7 @@
+"""
+analyze the revised prompts to see what's the success rate of inhibiting prompt revision
+"""
+
 import pandas as pd
 from pathlib import Path
 import click
