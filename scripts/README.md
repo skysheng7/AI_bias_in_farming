@@ -13,6 +13,7 @@ This directory contains analysis scripts for the AI representation bias in farmi
 - `06-cluster_plots.py`: Generate plot grids to summarize image clustering results
 - `07-revised_prompt_analysis.py`: Generate a dataframe to show success rate of prompt revision inhibition
 - `08-reduce_img_size_for_LaTex.py`: shrink down the result plot size so that it can fit into LaTex and avoid long compilation time.
+- `09-dalle_eval_prompt_analysis.py`: counts among the MSCOCO prompts OpenAI used to evaluate DALL-E 3, how many are about cows and pigs in different context.
 
 ## Usage
 

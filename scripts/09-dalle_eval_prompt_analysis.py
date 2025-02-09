@@ -5,6 +5,10 @@ analyze the prompts OpenAI used to evaluate DALL-E 3. The prompts are image capt
 import pandas as pd
 from pathlib import Path
 
+# set pandas to display complete prompt in a row
+pd.set_option('display.max_colwidth', None)  # Show full column content
+pd.set_option('display.max_columns', None)   # Show all columns
+pd.set_option('display.width', None)         # Don't wrap to multiple lines
 
 # read in the 8k_coco.txt file
 coco_path = Path() / "dalle3_eval_data" / "8k_coco.txt"
@@ -30,7 +34,7 @@ pig_prompts = pig_prompts[~pig_prompts["prompts"].str.contains("|".join(pig_neg_
 n_cow = len(cattle_prompts)
 n_pig = len(pig_prompts)
 
-# cattle prompt related to pastre, grass
+# cattle prompt related to pastre, grass; terms related to indoor housing
 outdoor_terms = [
     "pasture",
     "grass",
@@ -42,22 +46,22 @@ outdoor_terms = [
     "beach",
     "bushes",
     "meadow",
+    "paddock"
 ]
-yard_terms = ["fence", "yard"]
-indoor_terms = ["barn", "bars", "metal", "line", "pen"]
+indoor_terms = ["bars", "metal", "pen", "stall"]
 
+# cattle prompts that are describing outdoor VS indoor, and everything else (i.e., "other")
 cattle_outdoor_prompts = cattle_prompts[
     cattle_prompts["prompts"].str.contains("|".join(outdoor_terms))
 ]
+cattle_outdoor_prompts = cattle_outdoor_prompts[~cattle_outdoor_prompts["prompts"].str.contains("|".join(indoor_terms))]
 cattle_indoor_prompts = cattle_prompts[
     cattle_prompts["prompts"].str.contains("|".join(indoor_terms))
 ]
-cattle_yard_prompts = cattle_prompts[
-    cattle_prompts["prompts"].str.contains("|".join(yard_terms))
-]
+cattle_indoor_prompts = cattle_indoor_prompts[~cattle_indoor_prompts["prompts"].str.contains("|".join(outdoor_terms))]
 cattle_other_prompts = cattle_prompts[
     ~cattle_prompts["prompts"].str.contains(
-        "|".join(outdoor_terms + indoor_terms + yard_terms)
+        "|".join(outdoor_terms + indoor_terms)
     )
 ]
 
@@ -67,6 +71,6 @@ print(pig_prompts["prompts"].iloc[0])
 
 # number of prompts about cows
 print(f"{n_cow} prompt about cows found:")
-
-for index, row in cattle_indoor_prompts.iterrows():
-    print(row["prompts"])
+print(f"{len(cattle_outdoor_prompts)} prompts are describing cows outdoor on pasture, beach etc.")
+print(f"{len(cattle_indoor_prompts)} prompts are describing cows housed indoors, inside of pens and stalls.")
+print(f"{len(cattle_other_prompts)} prompts are describing cows housed indoors, inside of pens and stalls.")
