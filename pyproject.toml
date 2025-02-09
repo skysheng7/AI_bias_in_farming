@@ -40,16 +40,9 @@ classifiers = [
 
 keywords = [ai bias, ai fairness, ai ethics, farm animal welfare, coded gaze]
 dependencies = [
-    "matplotlib>=3.9.2",
-    "nltk>=3.9.1",
-    "pandas>=2.2.3",
-    "pillow>=11.0.0",
-    "python-dotenv>=1.0.1",
-    "requests>=2.32.3",
-    "scikit-learn>=1.5.2",
-    "wordcloud>=1.9.4",
-    "pydantic>=2.10.3",
-    "click>=8.1.7",
+    # please note I did not include dependencies in this file because i used conda and docker
+    # to handle dependencies. This python package is just a local package, not intended to be
+    # published on PyPI or testPyPI.
 ]
 
 [project.urls]

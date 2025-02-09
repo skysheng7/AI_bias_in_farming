@@ -12,7 +12,7 @@ In this research project, we evaluated representation bias of livestock farming 
 
 - **Title of Dataset:** Replication Data for: AI's representation bias about livestock farming
 - **Paper DOI:**
-- **Dataset DOI:** <https://doi.org/10.6084/m9.figshare.28087691> (*Note*: this paper is under review, link is private)
+- **Dataset DOI:** <https://doi.org/10.5683/SP3/EAWR6D>
 - **Dataset Created:** 2024-10-01
 - **Created by:** Kehan (Sky) Sheng
 - **Contact Email:** <skysheng7@gmail.com>
@@ -56,7 +56,7 @@ In this research project, we evaluated representation bias of livestock farming 
 
     - New to git and GitHub? Please follow the official [setup guide](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git) to get started.
 
-2. Please download all the images in zip file format from this [database](https://doi.org/10.6084/m9.figshare.28087691), you'll be working with three DALL-E 3 image zip files that need to be combined:
+2. Please download all the images in zip file format from this [database](https://doi.org/10.5683/SP3/EAWR6D), you'll be working with three DALL-E 3 image zip files that need to be combined:
 
    ```bash
    dall-e-3-images_part1.zip
