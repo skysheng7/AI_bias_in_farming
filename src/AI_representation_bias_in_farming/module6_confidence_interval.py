@@ -4,7 +4,8 @@
 import numpy as np
 from scipy.stats import bootstrap
 
-def calculate_ci(cluster, megadata, random_seed=7):
+
+def calculate_ci(cluster, megadata, n_resamples=10000, random_seed=7):
     """
     Calculate bootstrap confidence intervals for binary classifications across different prompts and models.
 
@@ -17,6 +18,9 @@ def calculate_ci(cluster, megadata, random_seed=7):
     megadata : pandas.DataFrame
         Source data containing the classifications. Must have columns 'prompt', 'model',
         and 'GPT4o_cluster' where 'GPT4o_cluster' contains the categorical labels.
+
+    n_resamples : int, optional (default=10000)
+        Number of bootstrap resamples to perform.
 
     random_seed : int, optional (default=7)
         Random seed for reproducibility of bootstrap sampling.
@@ -71,7 +75,10 @@ def calculate_ci(cluster, megadata, random_seed=7):
                 cluster.at[index, upper_col_name] = 1
             else:
                 boot_results = bootstrap(
-                    (converted_col,), np.mean, confidence_level=0.95
+                    (converted_col,),
+                    np.mean,
+                    confidence_level=0.95,
+                    n_resamples=n_resamples,
                 )
                 cluster.at[index, lower_col_name] = boot_results.confidence_interval[0]
                 cluster.at[index, upper_col_name] = boot_results.confidence_interval[1]

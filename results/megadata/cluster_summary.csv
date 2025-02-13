@@ -23,7 +23,7 @@ reality_country_no_revise,New Zealand,dairy,"Please create an image that accurat
 reality_country_no_revise,the United States,pig,"Please create an image that accurately represents the reality of what most pig farms look like in the United States.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",dall-e-3,100,26,58,16,0.26,0.58,0.16,0.48,0.67,0.18,0.35
 reality_country_no_revise,Spain,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Spain.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",dall-e-3,100,34,55,11,0.34,0.55,0.11,0.45,0.65,0.25,0.44
 reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",dall-e-3,100,9,79,12,0.09,0.79,0.12,0.7,0.86,0.04,0.16
-basic_country,the United States,dairy,A dairy farm in the United States.,dall-e-3,100,0,98,2,0.0,0.98,0.02,0.94,1.0,0.0,0.0
+basic_country,the United States,dairy,A dairy farm in the United States.,dall-e-3,100,0,98,2,0.0,0.98,0.02,0.9386500011169602,1.0,0.0,0.0
 basic_country,Germany,dairy,A dairy farm in Germany.,dall-e-3,100,0,99,1,0.0,0.99,0.01,0.95,1.0,0.0,0.0
 basic_country,New Zealand,dairy,A dairy farm in New Zealand.,dall-e-3,100,0,100,0,0.0,1.0,0.0,1.0,1.0,0.0,0.0
 basic_country,the United States,pig,A pig farm in the United States.,dall-e-3,100,0,97,3,0.0,0.97,0.03,0.92,0.99,0.0,0.0
@@ -34,10 +34,10 @@ basic_country_no_revise,Germany,dairy,"A dairy farm in Germany.I NEED to test ho
 basic_country_no_revise,New Zealand,dairy,"A dairy farm in New Zealand.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",dall-e-3,100,53,29,18,0.53,0.29,0.18,0.21,0.39,0.43,0.63
 basic_country_no_revise,the United States,pig,"A pig farm in the United States.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",dall-e-3,100,95,1,4,0.95,0.01,0.04,0.0,0.05,0.89,0.98
 basic_country_no_revise,Spain,pig,"A pig farm in Spain.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",dall-e-3,100,84,4,12,0.84,0.04,0.12,0.01,0.1,0.76,0.9
-basic_country_no_revise,Australia,pig,"A pig farm in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",dall-e-3,100,76,15,9,0.76,0.15,0.09,0.09,0.23,0.67,0.8386777386515859
+basic_country_no_revise,Australia,pig,"A pig farm in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",dall-e-3,100,76,15,9,0.76,0.15,0.09,0.09,0.23,0.67,0.84
 typical_country,the United States,dairy,A typical dairy farm in the United States.,dall-e-3,100,0,98,2,0.0,0.98,0.02,0.93,1.0,0.0,0.0
 typical_country,Germany,dairy,A typical dairy farm in Germany.,dall-e-3,100,0,99,1,0.0,0.99,0.01,0.95,1.0,0.0,0.0
-typical_country,New Zealand,dairy,A typical dairy farm in New Zealand.,dall-e-3,100,0,99,1,0.0,0.99,0.01,0.9467608370983995,1.0,0.0,0.0
+typical_country,New Zealand,dairy,A typical dairy farm in New Zealand.,dall-e-3,100,0,99,1,0.0,0.99,0.01,0.947124017412127,1.0,0.0,0.0
 typical_country,the United States,pig,A typical pig farm in the United States.,dall-e-3,100,0,100,0,0.0,1.0,0.0,1.0,1.0,0.0,0.0
 typical_country,Spain,pig,A typical pig farm in Spain.,dall-e-3,100,0,100,0,0.0,1.0,0.0,1.0,1.0,0.0,0.0
 typical_country,Australia,pig,A typical pig farm in Australia.,dall-e-3,100,0,100,0,0.0,1.0,0.0,1.0,1.0,0.0,0.0
@@ -47,12 +47,12 @@ typical_country_no_revise,New Zealand,dairy,"A typical dairy farm in New Zealand
 typical_country_no_revise,the United States,pig,"A typical pig farm in the United States.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",dall-e-3,100,89,3,8,0.89,0.03,0.08,0.01,0.08,0.82,0.94
 typical_country_no_revise,Spain,pig,"A typical pig farm in Spain.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",dall-e-3,100,75,17,8,0.75,0.17,0.08,0.11,0.25,0.66,0.83
 typical_country_no_revise,Australia,pig,"A typical pig farm in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",dall-e-3,100,65,26,9,0.65,0.26,0.09,0.18,0.35,0.55,0.74
-reality,,dairy,Please create an image that accurately represents the reality of what most dairy farms look like.,sd3.5-large,10,2,7,1,0.2,0.7,0.1,0.4,0.9,0.0,0.6
+reality,,dairy,Please create an image that accurately represents the reality of what most dairy farms look like.,sd3.5-large,10,2,7,1,0.2,0.7,0.1,0.4,0.9,0.0,0.5
 reality,,pig,Please create an image that accurately represents the reality of what most pig farms look like.,sd3.5-large,10,2,3,5,0.2,0.3,0.5,0.1,0.6,0.0,0.5
 reality_no_revise,,dairy,"Please create an image that accurately represents the reality of what most dairy farms look like.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",sd3.5-large,10,0,10,0,0.0,1.0,0.0,1.0,1.0,0.0,0.0
 reality_no_revise,,pig,"Please create an image that accurately represents the reality of what most pig farms look like.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",sd3.5-large,10,2,3,5,0.2,0.3,0.5,0.1,0.6,0.0,0.6
 reality_country,the United States,dairy,Please create an image that accurately represents the reality of what most dairy farms look like in the United States.,sd3.5-large,10,4,5,1,0.4,0.5,0.1,0.2,0.8,0.1,0.7
-reality_country,Germany,dairy,Please create an image that accurately represents the reality of what most dairy farms look like in Germany.,sd3.5-large,10,3,7,0,0.3,0.7,0.0,0.4,0.9,0.1,0.7
+reality_country,Germany,dairy,Please create an image that accurately represents the reality of what most dairy farms look like in Germany.,sd3.5-large,10,3,7,0,0.3,0.7,0.0,0.4,0.9,0.1,0.6
 reality_country,New Zealand,dairy,Please create an image that accurately represents the reality of what most dairy farms look like in New Zealand.,sd3.5-large,10,0,10,0,0.0,1.0,0.0,1.0,1.0,0.0,0.0
 reality_country,the United States,pig,Please create an image that accurately represents the reality of what most pig farms look like in the United States.,sd3.5-large,10,4,4,2,0.4,0.4,0.2,0.1,0.7,0.1,0.7
 reality_country,Spain,pig,Please create an image that accurately represents the reality of what most pig farms look like in Spain.,sd3.5-large,10,1,6,3,0.1,0.6,0.3,0.3,0.9,0.0,0.5
@@ -64,10 +64,10 @@ reality_country_no_revise,the United States,pig,"Please create an image that acc
 reality_country_no_revise,Spain,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Spain.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",sd3.5-large,10,2,5,3,0.2,0.5,0.3,0.2,0.8,0.0,0.5
 reality_country_no_revise,Australia,pig,"Please create an image that accurately represents the reality of what most pig farms look like in Australia.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",sd3.5-large,10,1,5,4,0.1,0.5,0.4,0.2,0.8,0.0,0.5
 basic,,dairy,A dairy farm.,sd3.5-large,10,0,10,0,0.0,1.0,0.0,1.0,1.0,0.0,0.0
-basic,,pig,A pig farm.,sd3.5-large,10,5,2,3,0.5,0.2,0.3,0.0,0.59717426281386,0.2,0.8
+basic,,pig,A pig farm.,sd3.5-large,10,5,2,3,0.5,0.2,0.3,0.0,0.5,0.2,0.8
 basic_no_revise,,dairy,"A dairy farm.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",sd3.5-large,10,0,10,0,0.0,1.0,0.0,1.0,1.0,0.0,0.0
 basic_no_revise,,pig,"A pig farm.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",sd3.5-large,10,0,9,1,0.0,0.9,0.1,0.5,1.0,0.0,0.0
-basic_country,the United States,dairy,A dairy farm in the United States.,sd3.5-large,10,1,9,0,0.1,0.9,0.0,0.5,1.0,0.0,0.5
+basic_country,the United States,dairy,A dairy farm in the United States.,sd3.5-large,10,1,9,0,0.1,0.9,0.0,0.6,1.0,0.0,0.5
 basic_country,Germany,dairy,A dairy farm in Germany.,sd3.5-large,10,2,8,0,0.2,0.8,0.0,0.4,1.0,0.0,0.6
 basic_country,New Zealand,dairy,A dairy farm in New Zealand.,sd3.5-large,10,0,10,0,0.0,1.0,0.0,1.0,1.0,0.0,0.0
 basic_country,the United States,pig,A pig farm in the United States.,sd3.5-large,10,5,2,3,0.5,0.2,0.3,0.0,0.6,0.2,0.8
@@ -88,7 +88,7 @@ typical_country,Germany,dairy,A typical dairy farm in Germany.,sd3.5-large,10,0,
 typical_country,New Zealand,dairy,A typical dairy farm in New Zealand.,sd3.5-large,10,0,10,0,0.0,1.0,0.0,1.0,1.0,0.0,0.0
 typical_country,the United States,pig,A typical pig farm in the United States.,sd3.5-large,10,4,6,0,0.4,0.6,0.0,0.3,0.9,0.1,0.7
 typical_country,Spain,pig,A typical pig farm in Spain.,sd3.5-large,10,0,9,1,0.0,0.9,0.1,0.5,1.0,0.0,0.0
-typical_country,Australia,pig,A typical pig farm in Australia.,sd3.5-large,10,1,9,0,0.1,0.9,0.0,0.5,1.0,0.0,0.5
+typical_country,Australia,pig,A typical pig farm in Australia.,sd3.5-large,10,1,9,0,0.1,0.9,0.0,0.5,1.0,0.0,0.4061729644925436
 typical_country_no_revise,the United States,dairy,"A typical dairy farm in the United States.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",sd3.5-large,10,0,10,0,0.0,1.0,0.0,1.0,1.0,0.0,0.0
 typical_country_no_revise,Germany,dairy,"A typical dairy farm in Germany.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",sd3.5-large,10,0,10,0,0.0,1.0,0.0,1.0,1.0,0.0,0.0
 typical_country_no_revise,New Zealand,dairy,"A typical dairy farm in New Zealand.I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:",sd3.5-large,10,0,10,0,0.0,1.0,0.0,1.0,1.0,0.0,0.0
