@@ -8,6 +8,7 @@ import click
 
 from AI_representation_bias_in_farming import utils
 from AI_representation_bias_in_farming import module5_extract_pic_feature_words
+from AI_representation_bias_in_farming import module6_confidence_interval
 
 
 @click.command()
@@ -52,6 +53,14 @@ def main():
     cluster_summary = module5_extract_pic_feature_words.summarize_clusters(
         megadata2, output_file="cluster_summary.csv"
     )
+    
+    # calcualte CI
+    updated_cluster = module6_confidence_interval.calculate_ci(
+        cluster_summary, megadata2, random_seed=7
+    )
+    # output manually fixed cluster labels
+    updated_cluster_file = Path() / "results" / "megadata" / "cluster_summary.csv"
+    updated_cluster.to_csv(updated_cluster_file, index=False)
 
     # what's the percentage of images that got manually corrected?
     manual_pct = round(len(manual_correction) / len(megadata2), 5)
