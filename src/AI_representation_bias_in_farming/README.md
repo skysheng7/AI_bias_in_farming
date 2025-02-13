@@ -11,5 +11,6 @@ This python package contains modules for generating images of dairy and pig farm
 - `module3_word_freq_count.py`: Performs word frequency analysis on image descriptions and revised prompts.
 - `module4_plot_generation.py`: Creates visualizations and plots for analysis results.
 - `module5_extract_pic_feature_words.py`: Extracts and analyzes key features and words from image descriptions.
+- `module6_confidence_interval.py`: Calculates confidence interval for each point estimate.
 
 Note: `__init__.py` enables Python package functionality, `__pycache__` stores Python bytecode cache, and `py.typed` indicates type hint support.
