@@ -7,13 +7,13 @@ import matplotlib.pyplot as plt
 from AI_representation_bias_in_farming import module5_extract_pic_feature_words
 
 
-def plot_3d_generation_types(filtered_df, metric="indoor"):
+def plot_3d_generation_types(df, metric="indoor"):
     """
     Create a 3D bar plot showing generation types with confidence intervals.
 
     Parameters
     ----------
-    filtered_df : pandas.DataFrame
+    df : pandas.DataFrame
         DataFrame containing the data. Must have columns:
         - generation_type
         - {metric}_pct, {metric}_ci_lower, {metric}_ci_upper
@@ -25,6 +25,7 @@ def plot_3d_generation_types(filtered_df, metric="indoor"):
     fig, ax : tuple
         Matplotlib figure and axis objects
     """
+    filtered_df = df.copy()
     # Get major and minor groups for each generation type
     filtered_df["major_group"], filtered_df["minor_group"] = zip(
         *filtered_df["generation_type"].apply(

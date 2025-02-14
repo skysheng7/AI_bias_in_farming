@@ -2,7 +2,6 @@
 Generate 3d plots to summarize image clustering results
 """
 
-import pandas as pd
 from pathlib import Path
 import click
 
@@ -22,7 +21,9 @@ def main():
     for farm_type in farm_types:
         filtered_df = interest[interest["farm_type"] == farm_type]
         for metric in metrics:
-            module7_3d_plot.plot_3d_generation_types(filtered_df, metric="indoor")
+            fig, ax = module7_3d_plot.plot_3d_generation_types(
+                filtered_df, metric=metric
+            )
 
 
 # Only execute this code if the script is run directly
