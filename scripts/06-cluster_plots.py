@@ -58,9 +58,20 @@ def main():
     updated_cluster = module6_confidence_interval.calculate_ci(
         cluster_summary, megadata2, n_resamples=10000, random_seed=7
     )
+    # sort column names
+    column_order = [
+    'generation_type', 'country', 'farm_type', 'prompt', 'model',
+    'total_rows', 'indoor_sum', 'outdoor_sum', 'other_sum',
+    'indoor_ci_lower', 'indoor_pct', 'indoor_ci_upper',
+    'outdoor_ci_lower', 'outdoor_pct', 'outdoor_ci_upper',
+    'other_pct'
+    ]
+    updated_cluster = updated_cluster[column_order]
+    
     # output manually fixed cluster labels
     updated_cluster_file = Path() / "results" / "megadata" / "cluster_summary.csv"
     updated_cluster.to_csv(updated_cluster_file, index=False)
+    
 
     # what's the percentage of images that got manually corrected?
     manual_pct = round(len(manual_correction) / len(megadata2), 5)
