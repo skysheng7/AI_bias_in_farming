@@ -67,6 +67,7 @@ def main():
         example_img_num=3,
         random_seed=11,
     )
+    
     # Save or display the plot
     plt.savefig(
         (Path() / "results" / "plots" / "3d_country_plot.png"),
@@ -79,3 +80,11 @@ def main():
 # Only execute this code if the script is run directly
 if __name__ == "__main__":
     main()
+
+
+
+
+
+
+
+

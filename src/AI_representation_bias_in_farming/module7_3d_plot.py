@@ -117,7 +117,7 @@ def create_combined_farm_plot(
             # if this is a plot grid by country:
             if countries_by_farm_type is not None:
                 countries = countries_by_farm_type[farm_type]
-                plot_3d_farm_by_country(filtered_df, countries, metric="indoor", ax=ax1)
+                plot_3d_farm_by_country(filtered_df, countries, metric=metric, ax=ax1)
             else:
                 plot_3d_generation_types(filtered_df, metric=metric, ax=ax1)
 
@@ -502,7 +502,7 @@ def plot_3d_farm_by_country(dataframe, countries, metric="indoor", ax=None):
         "reality",
         "reality no revise",
     ]
-    width = depth = 0.5
+    width = depth = 0.3
 
     # Style settings
     ax.grid(False)  # Remove grid
@@ -534,7 +534,7 @@ def plot_3d_farm_by_country(dataframe, countries, metric="indoor", ax=None):
                     value,
                     color=colors,
                     shade=True,
-                    alpha=0.8,
+                    alpha=0.5,
                     zsort="max",
                     edgecolor="none",
                 )
@@ -574,16 +574,32 @@ def plot_3d_farm_by_country(dataframe, countries, metric="indoor", ax=None):
         ]
     )
     ax.set_yticks([0 + (width / 2), 2 + (width / 2), 4 + (width / 2)])
-    ax.set_xticklabels(major_group_and_revise_status, fontsize=32)
-    ax.set_yticklabels(countries, fontsize=32)
+    ax.set_xticklabels(
+        major_group_and_revise_status,
+        fontsize=28,
+        rotation=90,
+        ha="left",
+        va="center",
+    )
+    ax.set_yticklabels(
+        countries,
+        fontsize=28,
+        rotation=-20,
+        ha="right",
+        va="center",
+    )
     # Then adjust the padding
-    ax.set_zlabel("Percentage", fontsize=32, labelpad=20)
+    ax.set_zlabel("Percentage", fontsize=30, labelpad=20)
     ax.tick_params(axis="z", labelsize=24, pad=10)
 
     # Set view angle and limits
-    ax.view_init(elev=20, azim=60)
+    ax.view_init(elev=20, azim=80)
     ax.set_zlim(0, 100)
     ax.set_xlim(0, 5.6)
     ax.set_ylim(0, 5.6)
+
+    # Increase spacing between plot and labels
+    ax.tick_params(axis="x", pad=10)  # Increase padding for x labels
+    ax.tick_params(axis="y", pad=10)  # Increase padding for y labels
 
     return ax
