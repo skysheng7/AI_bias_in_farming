@@ -2,6 +2,7 @@
 Generate 3d plots to summarize image clustering results
 """
 
+import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 from pathlib import Path
@@ -49,7 +50,11 @@ def add_grouping(df):
 
 
 def create_combined_farm_plot(
-    cluster_df, filtered_mega, example_img_num=3, random_seed=11
+    cluster_df,
+    filtered_mega,
+    countries_by_farm_type=None,
+    example_img_num=3,
+    random_seed=11,
 ):
     """
     Create a combined visualization with 3D bar plots and image grids for both indoor and outdoor metrics.
@@ -63,6 +68,20 @@ def create_combined_farm_plot(
     filtered_mega: pandas.DataFrame
         DataFrame containing the raw image megadata with columns:
         - generation_type, farm_type, GPT4o_cluster
+    countries_by_farm_type : dict, default to None
+        Dictionary mapping farm types to their top countries by livestock population.
+        Contains lists of countries with the highest number of dairy cows and pigs
+        in North America, Europe, and Oceania.
+        Format:
+        {
+            "dairy": list of str,  # Top countries for dairy cow population
+            "pig": list of str     # Top countries for pig population
+        }
+        Example:
+        {
+            "dairy": ["the United States", "Germany", "New Zealand"],
+            "pig": ["the United States", "Spain", "Australia"]
+        }
     example_img_num: int, default is 3
         How many example images you wish to show for each category
     random_seed: int default is 11
@@ -90,10 +109,19 @@ def create_combined_farm_plot(
     # plot each row based on farm type
     for row_idx, farm_type in enumerate(farm_types):
         filtered_df = cluster_df[cluster_df["farm_type"] == farm_type]
+
         for col_idx, metric in enumerate(metrics):
             # Plot outdoor or indoor metrics (top row)
             ax1 = fig.add_subplot(gs[row_idx, (2 * col_idx)], projection="3d")
-            plot_3d_generation_types(filtered_df, metric=metric, ax=ax1)
+
+            # if this is a plot grid by country:
+            if countries_by_farm_type is not None:
+                countries = countries_by_farm_type[farm_type]
+                plot_3d_farm_by_country(
+                    filtered_df, countries, metric="indoor", ax=None
+                )
+            else:
+                plot_3d_generation_types(filtered_df, metric=metric, ax=ax1)
 
             # Add subplot labels (A, B, C, D)
             label = chr(65 + (2 * row_idx + col_idx))  # 65 is ASCII for 'A'
@@ -142,9 +170,20 @@ def create_combined_farm_plot(
                 )
 
             # Add 3 example images
-            selected_images = image_random_select(
-                filtered_mega, farm_type, metric, example_img_num, random_seed
-            )
+            if countries_by_farm_type is None:  # if this is not a plot by country
+                selected_images = image_random_select(
+                    filtered_mega, farm_type, metric, example_img_num, random_seed
+                )
+            else:  # if this is a plot by country
+                selected_images = image_random_select_country(
+                    filtered_mega,
+                    farm_type,
+                    metric,
+                    countries,
+                    example_img_num,
+                    random_seed,
+                )
+
             ax2 = fig.add_subplot(gs[row_idx, 2 * col_idx + 1])
             plot_3example_images(ax2, selected_images, "", num_images=example_img_num)
 
@@ -258,11 +297,11 @@ def plot_3d_generation_types(df, metric="indoor", ax=None):
                 ci_upper = df.loc[mask, f"{metric}_ci_upper"].values[0] * 100
 
                 if j == 1:
-                    j = j + 1
+                    j_position = j + 1
 
                 # Add bar
                 ax.bar3d(
-                    j,
+                    j_position,
                     i,
                     0,
                     width,
@@ -276,7 +315,7 @@ def plot_3d_generation_types(df, metric="indoor", ax=None):
                 )
 
                 # Add confidence interval
-                x_center = j + width / 2
+                x_center = j_position + width / 2
                 y_center = i + depth / 2
                 ax.plot(
                     [x_center, x_center],
@@ -354,3 +393,199 @@ def plot_3example_images(ax, image_paths, title, num_images=3):
         img = plt.imread(img_path)
         ax_sub.imshow(img)
         ax_sub.axis("off")
+
+
+def image_random_select_country(
+    filtered_mega, farm_type, metric, countries, example_img_num=3, random_seed=11
+):
+    """
+    Randomly select a specified number of image paths based on farm type and metric criteria.
+
+    Parameters
+    ----------
+    filtered_mega : pandas.DataFrame
+        DataFrame containing image metadata with columns:
+        - farm_type: type of farm
+        - GPT4o_cluster: metric cluster label
+        - model: model name
+        - generation_type: type of generation
+        - file: image filename
+    farm_type : str
+        Type of farm to filter by (e.g., 'dairy', 'pig')
+    metric : str
+        Metric to filter by (e.g., 'indoor', 'outdoor')
+    countries : list of str
+        List of target countries to analyze, representing major livestock producers
+        across North America, Europe, and Oceania.
+    example_img_num : int, defualt 3
+        Number of images to randomly select
+    random_seed : int or None, default 11
+        Random seed for reproducible sampling. If None, sampling is random
+
+    Returns
+    -------
+    list
+        List of Path objects pointing to the selected image files
+
+    Notes
+    -----
+    Images are selected from the 'results/{model}-images/{generation_type}/' directory
+    """
+    selected_images = []
+
+    cur_megadata = filtered_mega[
+        (filtered_mega["farm_type"] == farm_type)
+        & (filtered_mega["GPT4o_cluster"] == metric)
+    ]
+
+    for country in countries:
+        cur_megadata_country = cur_megadata[cur_megadata[country] == country]
+
+        # randomly select a few images
+        selected_rows = cur_megadata.sample(
+            n=1, random_state=random_seed if random_seed is not None else None
+        )
+        row = selected_rows[0]
+        new_image = (
+            Path()
+            / "results"
+            / (row["model"] + "-images")
+            / row["generation_type"]
+            / row["file"]
+        )
+        selected_images.append(new_image)
+
+    return selected_images
+
+
+def plot_3d_farm_by_country(dataframe, countries, metric="indoor", ax=None):
+    """
+    Create a 3D bar plot showing generation types with confidence intervals.
+
+    Parameters
+    ----------
+    dataframe : pandas.DataFrame
+        DataFrame containing the data
+    countries : list of str
+        List of target countries to analyze, representing major livestock producers
+        across North America, Europe, and Oceania.
+    metric : str, optional (default='indoor')
+        Which metric to plot. Either 'indoor' or 'outdoor'
+    ax : matplotlib.axes.Axes, optional
+        The axes to plot on. If None, a new figure is created
+
+    Returns
+    -------
+    ax : matplotlib.axes.Axes
+        The axes containing the plot
+    """
+    df = dataframe.copy()
+
+    df["major_group_and_revise_status"] = np.where(
+        df["revise_status"] == "no revise",
+        df["major_group"] + " " + df["revise_status"],
+        df["major_group"],
+    )
+
+    if ax is None:
+        plt.style.use("classic")
+        fig = plt.figure(figsize=(16, 20))
+        ax = fig.add_subplot(111, projection="3d")
+
+    # Set colors based on metric
+    colors = "lightskyblue" if metric == "indoor" else "yellowgreen"
+
+    # Setup bar positions
+    major_group_and_revise_status = [
+        "basic",
+        "basic no revise",
+        "typical",
+        "typical no revise",
+        "reality",
+        "reality no revise",
+    ]
+    width = depth = 0.5
+
+    # Style settings
+    ax.grid(False)  # Remove grid
+    ax.xaxis._axinfo["grid"].update({"color": (1, 1, 1, 0)})  # Remove grid lines
+    ax.yaxis._axinfo["grid"].update({"color": (1, 1, 1, 0)})
+    ax.zaxis._axinfo["grid"].update({"color": (1, 1, 1, 0)})
+    ax.set_box_aspect([1, 1, 1])
+
+    # Plot bars and confidence intervals
+    for i, country in enumerate(countries):
+        for j, status in enumerate(major_group_and_revise_status):
+            mask = (df["country"] == country) & (
+                df["major_group_and_revise_status"] == status
+            )
+            if any(mask):
+                value = df.loc[mask, f"{metric}_pct"].values[0] * 100
+                ci_lower = df.loc[mask, f"{metric}_ci_lower"].values[0] * 100
+                ci_upper = df.loc[mask, f"{metric}_ci_upper"].values[0] * 100
+
+                i_position = 2 * i
+
+                # Add bar
+                ax.bar3d(
+                    j,
+                    i_position,
+                    0,
+                    width,
+                    depth,
+                    value,
+                    color=colors,
+                    shade=True,
+                    alpha=0.8,
+                    zsort="max",
+                    edgecolor="none",
+                )
+
+                # Add confidence interval
+                x_center = j + width / 2
+                y_center = i_position + depth / 2
+                ax.plot(
+                    [x_center, x_center],
+                    [y_center, y_center],
+                    [value, ci_upper],
+                    color="orange",
+                    linewidth=5,
+                    zorder=100,
+                )
+
+                # Add CI cap
+                ci_width = 0.1
+                ax.plot(
+                    [x_center - ci_width, x_center + ci_width],
+                    [y_center, y_center],
+                    [ci_upper, ci_upper],
+                    color="orange",
+                    linewidth=5,
+                    zorder=100,
+                )
+
+    # Customize axes
+    ax.set_xticks(
+        [
+            0 + (width / 2),
+            1 + (width / 2),
+            2 + (width / 2),
+            3 + (width / 2),
+            4 + (width / 2),
+            5 + (width / 2),
+        ]
+    )
+    ax.set_yticks([0 + (width / 2), 2 + (width / 2), 4 + (width / 2)])
+    ax.set_xticklabels(major_group_and_revise_status, fontsize=32)
+    ax.set_yticklabels(countries, fontsize=32)
+    # Then adjust the padding
+    ax.set_zlabel("Percentage", fontsize=32, labelpad=20)
+    ax.tick_params(axis="z", labelsize=24, pad=10)
+
+    # Set view angle and limits
+    ax.view_init(elev=20, azim=60)
+    ax.set_zlim(0, 100)
+    ax.set_xlim(0, 5.6)
+    ax.set_ylim(0, 5.6)
+
+    return ax

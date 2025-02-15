@@ -27,7 +27,7 @@ def main():
     ]
     # Create combined plot
     fig = module7_3d_plot.create_combined_farm_plot(
-        filtered_cluster, filtered_mega, example_img_num=3, random_seed=11
+        filtered_cluster, filtered_mega, countries_by_farm_type = None, example_img_num=3, random_seed=11
     )
     # Save or display the plot
     plt.savefig(
