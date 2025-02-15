@@ -12,7 +12,7 @@
 # example usage:
 # make env
 
-.PHONY: all env bag_of_words plots cluster clean-all clean-plots clean-temp-megadata clean-cluster clean-bag-of-words
+.PHONY: all env bag_of_words plots 3d_plots cluster clean-all clean-plots clean-temp-megadata clean-cluster clean-bag-of-words
 
 # dependencies in the conda environment
 env: environment.yml
@@ -49,7 +49,7 @@ plots: results/plots/basic_dairy_dall-e-3_by_country_plot_grid.png\
 	results/plots/typical_dall-e-3_plot_grid.png\
 	results/plots/typical_pig_dall-e-3_by_country_plot_grid.png\
 	results/plots/typical_pig_sd3.5-large_by_country_plot_grid.png\
-	results/plots/typical_sd3.5-large_plot_grid.png
+	results/plots/typical_sd3.5-large_plot_grid.png\
 
 # cluster images into 3 themes
 cluster: results/cluster/* \
@@ -61,30 +61,17 @@ cluster: results/cluster/* \
 
 revision: results/megadata/revised_prompt_count.csv
 
+3d_plots: results/plots/3d_general_plot.png
+
 # all contains all the plots and cluster summary files
-all: results/plots/basic_dairy_dall-e-3_by_country_plot_grid.png\
-	results/plots/basic_dairy_sd3.5-large_by_country_plot_grid.png\
-	results/plots/basic_dall-e-3_plot_grid.png\
-	results/plots/basic_pig_dall-e-3_by_country_plot_grid.png\
-	results/plots/basic_pig_sd3.5-large_by_country_plot_grid.png\
-	results/plots/basic_sd3.5-large_plot_grid.png\
-	results/plots/reality_dairy_dall-e-3_by_country_plot_grid.png\
-	results/plots/reality_dairy_sd3.5-large_by_country_plot_grid.png\
-	results/plots/reality_dall-e-3_plot_grid.png\
-	results/plots/reality_pig_dall-e-3_by_country_plot_grid.png\
-	results/plots/reality_pig_sd3.5-large_by_country_plot_grid.png\
-	results/plots/reality_sd3.5-large_plot_grid.png\
-	results/plots/typical_dairy_dall-e-3_by_country_plot_grid.png\
-	results/plots/typical_dairy_sd3.5-large_by_country_plot_grid.png\
-	results/plots/typical_dall-e-3_plot_grid.png\
-	results/plots/typical_pig_dall-e-3_by_country_plot_grid.png\
-	results/plots/typical_pig_sd3.5-large_by_country_plot_grid.png\
-	results/plots/typical_sd3.5-large_plot_grid.png\
+all: plots\
+	results/megadata/cluster_summary.csv\
+	results/megadata/image_megadata_post_manual_fix.csv\
 	results/plots/cluster_summary_dall-e-3.png\
 	results/plots/cluster_summary_sd-3.5.png\
-	results/megadata/cluster_summary.csv\
-	results/megadata/image_megadata_post_manual_fix.csv
-	results/megadata/revised_prompt_count.csv
+	results/megadata/revised_prompt_count.csv\
+	openai_eval_dalle\
+	3d_plots
 
 
 # Specify version numbers for each dependency used in the current conda environment
@@ -148,26 +135,22 @@ results/megadata/revised_prompt_count.csv: scripts/07-revised_prompt_analysis.py
 results/megadata/image_megadata.csv
 	python scripts/07-revised_prompt_analysis.py\
 
+# analyze the prompts OpenAI used to evaluate the performance of DALL-E 3 for prompt
+# following. 
+openai_eval_dalle: scripts/09-dalle_eval_prompt_analysis.py\
+dalle3_eval_data/8k_coco.txt
+	python scripts/09-dalle_eval_prompt_analysis.py\
+
+# generate 3d plots
+results/plots/3d_general_plot.png: scripts/10-3d_plots.py\
+results/megadata/cluster_summary.csv\
+results/megadata/image_megadata_post_manual_fix.csv\
+	python scripts/10-3d_plots.py\
+
+
 # Clean up the analysis files
 clean-plots:
-	rm -f results/plots/basic_dairy_dall-e-3_by_country_plot_grid.png\
-		results/plots/basic_dairy_sd3.5-large_by_country_plot_grid.png\
-		results/plots/basic_dall-e-3_plot_grid.png\
-		results/plots/basic_pig_dall-e-3_by_country_plot_grid.png\
-		results/plots/basic_pig_sd3.5-large_by_country_plot_grid.png\
-		results/plots/basic_sd3.5-large_plot_grid.png\
-		results/plots/reality_dairy_dall-e-3_by_country_plot_grid.png\
-		results/plots/reality_dairy_sd3.5-large_by_country_plot_grid.png\
-		results/plots/reality_dall-e-3_plot_grid.png\
-		results/plots/reality_pig_dall-e-3_by_country_plot_grid.png\
-		results/plots/reality_pig_sd3.5-large_by_country_plot_grid.png\
-		results/plots/reality_sd3.5-large_plot_grid.png\
-		results/plots/typical_dairy_dall-e-3_by_country_plot_grid.png\
-		results/plots/typical_dairy_sd3.5-large_by_country_plot_grid.png\
-		results/plots/typical_dall-e-3_plot_grid.png\
-		results/plots/typical_pig_dall-e-3_by_country_plot_grid.png\
-		results/plots/typical_pig_sd3.5-large_by_country_plot_grid.png\
-		results/plots/typical_sd3.5-large_plot_grid.png
+	rm -f plots 3d_plots
 
 clean-image-eda:
 	rm -rf results/cluster results/cluster_post_manual_fix
