@@ -117,9 +117,7 @@ def create_combined_farm_plot(
             # if this is a plot grid by country:
             if countries_by_farm_type is not None:
                 countries = countries_by_farm_type[farm_type]
-                plot_3d_farm_by_country(
-                    filtered_df, countries, metric="indoor", ax=None
-                )
+                plot_3d_farm_by_country(filtered_df, countries, metric="indoor", ax=ax1)
             else:
                 plot_3d_generation_types(filtered_df, metric=metric, ax=ax1)
 
@@ -439,13 +437,13 @@ def image_random_select_country(
     ]
 
     for country in countries:
-        cur_megadata_country = cur_megadata[cur_megadata[country] == country]
+        cur_megadata_country = cur_megadata[cur_megadata["country"] == country]
 
         # randomly select a few images
-        selected_rows = cur_megadata.sample(
+        selected_rows = cur_megadata_country.sample(
             n=1, random_state=random_seed if random_seed is not None else None
         )
-        row = selected_rows[0]
+        row = selected_rows.iloc[0]
         new_image = (
             Path()
             / "results"

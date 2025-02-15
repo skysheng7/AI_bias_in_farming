@@ -27,7 +27,11 @@ def main():
     ]
     # Create combined plot
     fig = module7_3d_plot.create_combined_farm_plot(
-        filtered_cluster, filtered_mega, countries_by_farm_type = None, example_img_num=3, random_seed=11
+        filtered_cluster,
+        filtered_mega,
+        countries_by_farm_type=None,
+        example_img_num=3,
+        random_seed=11,
     )
     # Save or display the plot
     plt.savefig(
@@ -50,14 +54,18 @@ def main():
         "dairy": ["the United States", "Germany", "New Zealand"],
         "pig": ["the United States", "Spain", "Australia"],
     }
-    
+
     country_filtered_cluster = module7_3d_plot.add_grouping(country_filtered)
     country_filtered_mega = megadata[
         (megadata["model"] == "dall-e-3") & (~megadata["country"].isna())
     ]
     # Create combined plot
     fig = module7_3d_plot.create_combined_farm_plot(
-        country_filtered_cluster, country_filtered_mega, countries_by_farm_type, example_img_num=3, random_seed=11
+        country_filtered_cluster,
+        country_filtered_mega,
+        countries_by_farm_type,
+        example_img_num=3,
+        random_seed=11,
     )
     # Save or display the plot
     plt.savefig(
