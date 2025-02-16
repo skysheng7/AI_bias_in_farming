@@ -1,6 +1,6 @@
 services:
   analysis-env:
-    image: skysheng7/ai_bias:da2b5b6
+    image: skysheng7/ai_bias:b801b23
     ports:
       - "8888:8888"
     volumes:
