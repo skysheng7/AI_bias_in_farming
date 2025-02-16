@@ -61,7 +61,9 @@ cluster: results/cluster/* \
 
 revision: results/megadata/revised_prompt_count.csv
 
-3d_plots: results/plots/3d_general_plot.png
+3d_plots: results/plots/3d_general_plot.png\
+	results/plots/3d_country_plot_dairy.png\
+	results/plots/3d_country_plot_pig.png
 
 # all contains all the plots and cluster summary files
 all: plots\
@@ -142,7 +144,9 @@ dalle3_eval_data/8k_coco.txt
 	python scripts/09-dalle_eval_prompt_analysis.py\
 
 # generate 3d plots
-results/plots/3d_general_plot.png: scripts/10-3d_plots.py\
+results/plots/3d_general_plot.png\
+results/plots/3d_country_plot_dairy.png\
+results/plots/3d_country_plot_pig.png: scripts/10-3d_plots.py\
 results/megadata/cluster_summary.csv\
 results/megadata/image_megadata_post_manual_fix.csv\
 	python scripts/10-3d_plots.py\
