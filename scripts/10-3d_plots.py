@@ -82,14 +82,6 @@ def main():
         random_seed=7,
     )
     
-    fig = create_country_plot(
-        cur_cluster,
-        cur_mega,
-        countries,
-        example_img_num=3,
-        random_seed=7,
-    )
-    
     # Save or display the plot
     plt.savefig(
         (Path() / "results" / "plots" / f"3d_country_plot_{farm_type}.png"),
@@ -109,14 +101,6 @@ def main():
     countries = countries_by_farm_type[farm_type]
 
     fig = module7_3d_plot.create_country_plot(
-        cur_cluster,
-        cur_mega,
-        countries,
-        example_img_num=3,
-        random_seed=10,
-    )
-    
-    fig = create_country_plot(
         cur_cluster,
         cur_mega,
         countries,
