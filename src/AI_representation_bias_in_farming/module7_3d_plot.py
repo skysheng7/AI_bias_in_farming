@@ -310,7 +310,7 @@ def plot_3d_generation_types(df, metric="indoor", ax=None):
     ax.set_xticklabels(revise_status, fontsize=32)
     ax.set_yticklabels(major_groups, fontsize=32)
     # Then adjust the padding
-    ax.set_zlabel("Percentage", fontsize=32, labelpad=20)
+    ax.set_zlabel("Percentage", fontsize=32, labelpad=20, rotation=180)
     ax.tick_params(axis="z", labelsize=24, pad=10)
 
     # Set view angle and limits
@@ -637,7 +637,7 @@ def plot_3d_farm_by_country(df, countries, metric="indoor", ax=None):
     ax.set_xticklabels(revise_status, fontsize=32)
     ax.set_yticklabels(countries, fontsize=32)
     # Then adjust the padding
-    ax.set_zlabel("Percentage", fontsize=32, labelpad=20)
+    ax.set_zlabel("Percentage", fontsize=32, labelpad=20, rotation=180)
     ax.tick_params(axis="z", labelsize=24, pad=10)
 
     # Set view angle and limits
