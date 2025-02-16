@@ -117,8 +117,9 @@ def main():
         random_seed=10,
     )
 
+    print("Pig farm image by country 3D plot FINISHED!")
 
-print("Pig farm image by country 3D plot FINISHED!")
+
 # Only execute this code if the script is run directly
 if __name__ == "__main__":
     main()
