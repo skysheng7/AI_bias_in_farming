@@ -803,7 +803,7 @@ def create_and_save_farm_plot(
     cur_mega = country_filtered_mega[country_filtered_mega["farm_type"] == farm_type]
     countries = countries_by_farm_type[farm_type]
 
-    fig = module7_3d_plot.create_country_plot(
+    fig = create_country_plot(
         cur_cluster,
         cur_mega,
         countries,

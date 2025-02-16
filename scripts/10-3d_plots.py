@@ -22,6 +22,8 @@ def main():
     ####################### General dairy/pig farms #############################
     #############################################################################
     # generate a plot grid for general dairy/pig farm images
+    print("Start generating 3D plot for general dairy and pig farm image summary...")
+
     filtered_cluster = cluster[
         (cluster["model"] == "dall-e-3") & (cluster["country"].isna())
     ]
@@ -36,13 +38,6 @@ def main():
         random_seed=11,
     )
 
-    fig = create_combined_farm_plot(
-        filtered_cluster,
-        filtered_mega,
-        example_img_num=3,
-        random_seed=11,
-    )
-
     # Save or display the plot
     plt.savefig(
         (Path() / "results" / "plots" / "3d_general_plot.png"),
@@ -51,9 +46,12 @@ def main():
     )
     plt.close()
 
+    print("General dairy and pig farm image 3Dplot FINISHED!")
+
     #############################################################################
     ###################### Dairy/pig farms by country ###########################
     #############################################################################
+
     # real-world data
     real_world = {
         "dairy": {
@@ -88,6 +86,8 @@ def main():
     farm_types = country_filtered_mega["farm_type"].unique()
 
     ################### dairy farm by country ######################
+    print("Start generating 3D plot for dairy farm image by country summary...")
+
     farm_type = farm_types[0]  # don't plot real world data for now
     fig = module7_3d_plot.create_and_save_farm_plot(
         farm_type,
@@ -100,7 +100,10 @@ def main():
         random_seed=7,
     )
 
+    print("Dairy farm image by country 3D plot FINISHED!")
+
     ################### pig farm by country ######################
+    print("Start generating 3D plot for pig farm image by country summary...")
     farm_type = farm_types[1]  # don't plot real world data for now
 
     fig = module7_3d_plot.create_and_save_farm_plot(
@@ -115,6 +118,7 @@ def main():
     )
 
 
+print("Pig farm image by country 3D plot FINISHED!")
 # Only execute this code if the script is run directly
 if __name__ == "__main__":
     main()
