@@ -15,13 +15,16 @@ def main():
     # import manual cluster check note
     cluster = utils.read_csv_file("cluster_summary.csv")
     megadata = utils.read_csv_file("image_megadata_post_manual_fix.csv")
+    cluster = module7_3d_plot.add_grouping(cluster)
+    megadata = module7_3d_plot.add_grouping(megadata)
 
     #############################################################################
     ####################### General dairy/pig farms #############################
     #############################################################################
     # generate a plot grid for general dairy/pig farm images
-    filtered = cluster[(cluster["model"] == "dall-e-3") & (cluster["country"].isna())]
-    filtered_cluster = module7_3d_plot.add_grouping(filtered)
+    filtered_cluster = cluster[
+        (cluster["model"] == "dall-e-3") & (cluster["country"].isna())
+    ]
     filtered_mega = megadata[
         (megadata["model"] == "dall-e-3") & (megadata["country"].isna())
     ]
@@ -44,8 +47,11 @@ def main():
     ###################### Dairy/pig farms by country ###########################
     #############################################################################
     # generate a plot grid for dairy/pig farm in different countries
-    country_filtered = cluster[
+    country_filtered_cluster = cluster[
         (cluster["model"] == "dall-e-3") & (~cluster["country"].isna())
+    ]
+    country_filtered_mega = megadata[
+        (megadata["model"] == "dall-e-3") & (~megadata["country"].isna())
     ]
 
     # list of countries with the biggest number of dairy cows and pigs in North America, Europe and Oceania
@@ -54,35 +60,65 @@ def main():
         "pig": ["the United States", "Spain", "Australia"],
     }
 
-    country_filtered_cluster = module7_3d_plot.add_grouping(country_filtered)
-    country_filtered_mega = megadata[
-        (megadata["model"] == "dall-e-3") & (~megadata["country"].isna())
-    ]
-    
     # Create combined plot 1 per farm type
     farm_types = country_filtered_mega["farm_type"].unique()
-    for farm_type in farm_types:
-        cur_cluster = country_filtered_cluster[country_filtered_cluster["farm_type"] == farm_type]
-        cur_mega = country_filtered_mega[country_filtered_mega["farm_type"] == farm_type] 
-        countries = countries_by_farm_type[farm_type]
-        
-        fig = module7_3d_plot.create_country_plot(
-            cur_cluster,
-            cur_mega,
-            countries,
-            example_img_num=3,
-            random_seed=11,
-        )
+    
+    ################### dairy farm by country ######################
+    farm_type = farm_types[0]
+    cur_cluster = country_filtered_cluster[
+        country_filtered_cluster["farm_type"] == farm_type
+    ]
+    cur_mega = country_filtered_mega[
+        country_filtered_mega["farm_type"] == farm_type
+    ]
+    countries = countries_by_farm_type[farm_type]
 
-        # Save or display the plot
-        plt.savefig(
-            (Path() / "results" / "plots" / f"3d_country_plot_{farm_type}.png"),
-            bbox_inches="tight",
-            dpi=300,
-        )
-        plt.close()
+    fig = module7_3d_plot.create_country_plot(
+        cur_cluster,
+        cur_mega,
+        countries,
+        example_img_num=3,
+        random_seed=7,
+    )
+
+    # Save or display the plot
+    plt.savefig(
+        (Path() / "results" / "plots" / f"3d_country_plot_{farm_type}.png"),
+        bbox_inches="tight",
+        dpi=300,
+    )
+    plt.close()
+    
+    ################### pig farm by country ######################
+    farm_type = farm_types[1]
+    cur_cluster = country_filtered_cluster[
+        country_filtered_cluster["farm_type"] == farm_type
+    ]
+    cur_mega = country_filtered_mega[
+        country_filtered_mega["farm_type"] == farm_type
+    ]
+    countries = countries_by_farm_type[farm_type]
+
+    fig = module7_3d_plot.create_country_plot(
+        cur_cluster,
+        cur_mega,
+        countries,
+        example_img_num=3,
+        random_seed=10,
+    )
+
+    # Save or display the plot
+    plt.savefig(
+        (Path() / "results" / "plots" / f"3d_country_plot_{farm_type}.png"),
+        bbox_inches="tight",
+        dpi=300,
+    )
+    plt.close()
+        
 
 
 # Only execute this code if the script is run directly
 if __name__ == "__main__":
     main()
+
+
