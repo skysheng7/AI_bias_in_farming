@@ -13,7 +13,7 @@ In this research project, we evaluated representation bias of livestock farming 
 - **Title of Dataset:** Replication Data for: The erasure of intensive livestock farming in text-to-image generative AI
 - **Paper DOI:**
 - **Dataset DOI:** <https://doi.org/10.5683/SP3/EAWR6D>
-- **Dataset Created:** 2024-10-01
+- **Dataset Created:** 2024-10-01 - 2025-2-16
 - **Created by:** Kehan (Sky) Sheng
 - **Contact Email:** <skysheng7@gmail.com>
 
@@ -127,8 +127,9 @@ Copy this URL and open it in your web browser to access the Jupyter Lab interfac
 9. Double click "work" directory on the left hand side
 
 10. Open Terminal in JupyterLab web browser interface:
-   - Look for the "+" icon in JupyterLab's launcher
-   - Click "Terminal" from the options
+
+- Look for the "+" icon in JupyterLab's launcher
+- Click "Terminal" from the options
   
 11. Remove all generated summary files and reset the analysis
 
@@ -204,7 +205,7 @@ If you find this research valuable or interesting, please consider:
 
 - Starring this repository to help others discover this work
 - Creating a fork if you'd like to build upon or extend this research
-- Opening issues or pull requests if you have suggestions for improvements
+- Opening issues or pull requests if you have suggestions for improvements (see [CONTRIBUTING](CONTRIBUTING.md))
 
 ## Questions Welcome
 
@@ -234,97 +235,9 @@ This repository is organized as follows:
 - `LICENSE`: Legal terms under which this project's code can be used and distributed
 - `pyproject.toml`: Python project metadata and build system requirements for Python packaging
 
-## Developer notes
-
-### Developer Dependencies
-
-- `conda` (>= 24.11.0)
-- `conda-lock` (>= 2.5.7)
-
-### Instructions for Adding New Dependencies
-
-1. Open your terminal locally, direct to the root directory. Make sure you have conda and conda-lock installed on your local computer.
-2. Create a conda environment called "ai_env" using the "conda-lock.yml" by running in your terminal:
-
-    ```
-    conda-lock install --name ai_env conda-lock.yml
-    ```
-
-3. Activate the conda environment
-
-    ```
-    conda activate ai_env
-    ```
-
-4. Use conda to install new packages (e.g., `conda install {NEW-PACKAGE-NAME}`). If you are installing a new package that is only available on PyPI (e.g., `pip install {NEW-PACKAGE-NAME}`), conda does not track pip-installed packages, you need to append a new "RUN" command to pip install that package (with version number; e.g., `RUN pip install openai==1.57.0`) at the end of the Dockerfile (living at the root of this directory).
-5. At root directory, update environment.yml using:
-
-    ```
-    conda env export --from-history > environment.yml 
-    ```
-
-6. Automatically append dependency version numbers to each of the packages you installed. The conda virtual environment I created is called "ai_env", if you are using another name, please change --env_name:
-
-    ```
-    python scripts/00-update_enviroment_yml.py --root_dir="." --env_name="ai_env"
-    ```
-
-7. Use Conda-lock to solve and lock the updated environment. I'm using Linux-64 because that's the operating system of my docker image
-
-    ```
-    conda-lock lock --file environment.yml
-    conda-lock -k explicit --file environment.yml -p linux-64
-    ```
-
-8. Re-build the docker image in root directory and use the updated container locally. Please replace {YOUR-IMAGE-NAME} with some meaningful name for your local container. If you think this new dependency should be included in my repository, please make a pull request and I'll push this new image on my docker hub.
-
-    ```
-    docker build --tag {YOUR-IMAGE-NAME} .
-    ```
-
-    Note: If you are using a M1-M3 MacBook, you may have trouble with docker build. This is a known problem when emulating x86 architectures on ARM-based systems. To solve this, you need to enable QEMU-based emulation and use docker buildx:
-    - Confirm That You Have Docker Desktop with Buildx Support (you should see version information after running this command below)
-
-        ```
-        docker buildx version
-        ```
-
-    - Create a new buildx builder
-
-        ```
-        docker buildx create --name mybuilder
-        ```
-
-    - Use the new builder
-
-        ```
-        docker buildx use mybuilder
-        ```
-
-    - Initialize the builder and make sure QEMU is active
-
-        ```
-        docker buildx inspect --bootstrap
-        ```
-
-    - Building docker buildx with Emulation
-
-        ```
-        docker buildx build --platform linux/amd64 -t {YOUR-IMAGE-NAME} --load .
-        ```
-
-9. Edit the docker-compose.yml file (living at root of directory), replace the image name with {YOUR-IMAGE-NAME}.
-    For example, replace "image: skysheng7/ai_bias:d077bb3" with "image: {YOUR-IMAGE-NAME}"
-
-10. Running the docker image you just built at root directory
-
-    ```
-    docker compose up
-    ```
-
 ## Acknowledgements
 
-We thank Hanwen (Isaac) Qi for the valuable discussions about prompting techniques, his constructive feedback and tremendous support throughout this project.
+We thank Hanwen (Isaac) Qi for the valuable discussions about prompting techniques and plotting design, his constructive feedback and tremendous support throughout this project.
 
 ## Funding
 
