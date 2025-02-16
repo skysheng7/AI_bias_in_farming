@@ -29,7 +29,6 @@ def main():
     fig = module7_3d_plot.create_combined_farm_plot(
         filtered_cluster,
         filtered_mega,
-        countries_by_farm_type=None,
         example_img_num=3,
         random_seed=11,
     )
@@ -59,32 +58,31 @@ def main():
     country_filtered_mega = megadata[
         (megadata["model"] == "dall-e-3") & (~megadata["country"].isna())
     ]
-    # Create combined plot
-    fig = module7_3d_plot.create_combined_farm_plot(
-        country_filtered_cluster,
-        country_filtered_mega,
-        countries_by_farm_type,
-        example_img_num=3,
-        random_seed=11,
-    )
     
-    # Save or display the plot
-    plt.savefig(
-        (Path() / "results" / "plots" / "3d_country_plot.png"),
-        bbox_inches="tight",
-        dpi=300,
-    )
-    plt.close()
+    # Create combined plot 1 per farm type
+    farm_types = country_filtered_mega["farm_type"].unique()
+    for farm_type in farm_types:
+        cur_cluster = country_filtered_cluster[country_filtered_cluster["farm_type"] == farm_type]
+        cur_mega = country_filtered_mega[country_filtered_mega["farm_type"] == farm_type] 
+        countries = countries_by_farm_type[farm_type]
+        
+        fig = module7_3d_plot.create_country_plot(
+            cur_cluster,
+            cur_mega,
+            countries,
+            example_img_num=3,
+            random_seed=11,
+        )
+
+        # Save or display the plot
+        plt.savefig(
+            (Path() / "results" / "plots" / f"3d_country_plot_{farm_type}.png"),
+            bbox_inches="tight",
+            dpi=300,
+        )
+        plt.close()
 
 
 # Only execute this code if the script is run directly
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
-
