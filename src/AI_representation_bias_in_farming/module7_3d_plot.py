@@ -87,7 +87,7 @@ def create_combined_farm_plot(
     gs = gridspec.GridSpec(
         len(farm_types),
         4,
-        width_ratios=[1.5, 0.5, 1.5, 0.5],
+        width_ratios=[1.5, 0.7, 1.5, 0.7],
         height_ratios=[1] * len(farm_types),
     )
 
@@ -104,8 +104,8 @@ def create_combined_farm_plot(
             # Add subplot labels (A, B, C, D)
             label = chr(65 + (2 * row_idx + col_idx))  # 65 is ASCII for 'A'
             ax1.text2D(
-                -0.1,
-                0.96,
+                0,
+                1.1,
                 f"({label})",
                 transform=ax1.transAxes,
                 fontsize=35,
@@ -116,7 +116,7 @@ def create_combined_farm_plot(
                 if metric == "outdoor":
                     ax1.text2D(
                         0.65,
-                        1.2,
+                        1.3,
                         "Have access to pasture/mud outdoors",
                         transform=ax1.transAxes,
                         fontsize=45,
@@ -126,7 +126,7 @@ def create_combined_farm_plot(
                 else:
                     ax1.text2D(
                         0.65,
-                        1.2,
+                        1.3,
                         "Exclusively indoors",
                         transform=ax1.transAxes,
                         fontsize=45,
@@ -137,7 +137,7 @@ def create_combined_farm_plot(
             # Add farm type labels on the y-axis for the first column of each row
             if col_idx == 0:
                 ax1.text2D(
-                    -0.3,
+                    -0.27,
                     0.5,
                     f"{farm_type.capitalize()} farm",
                     transform=ax1.transAxes,
@@ -155,7 +155,7 @@ def create_combined_farm_plot(
             plot_3example_images(ax2, selected_images, "", num_images=example_img_num)
 
     # Adjust layout
-    plt.subplots_adjust(wspace=0.00001, hspace=0.14)
+    plt.subplots_adjust(wspace=0.05, hspace=0.06)
 
     return fig
 
@@ -307,13 +307,22 @@ def plot_3d_generation_types(df, metric="indoor", ax=None):
                 )
 
     # Customize axes
+    mapping = {"basic": "'basic'", "typical": "'typical'", "reality": "'reality'"}
+
+    # x axis and y axis
+    major_groups_update = [mapping[group] for group in major_groups]
     ax.set_xticks([0 + (width / 2), 2 + (width / 2)])
     ax.set_yticks([0 + (width / 2), 1 + (width / 2), 2 + (width / 2)])
     ax.set_xticklabels(revise_status, fontsize=32, rotation_mode="anchor", rotation=15)
     ax.set_yticklabels(
-        major_groups, fontsize=32, ha="right", rotation_mode="anchor", rotation=15
+        major_groups_update,
+        fontsize=32,
+        ha="right",
+        rotation_mode="anchor",
+        rotation=15,
     )
-    # Then adjust the padding
+
+    # z axis
     ax.zaxis.set_rotate_label(False)
     ax.set_zlabel("Percentage", fontsize=32, labelpad=28, rotation=90)
     ax.tick_params(axis="z", labelsize=24, pad=12)
@@ -406,11 +415,11 @@ def create_country_plot(
 
     # Create figure with custom layout
     plt.style.use("classic")
-    fig = plt.figure(figsize=(34, 30))
+    fig = plt.figure(figsize=(34, 45))
     gs = gridspec.GridSpec(
         len(countries),
         4,
-        width_ratios=[1.5, 0.5, 1.5, 0.5],
+        width_ratios=[1.5, 0.7, 1.5, 0.7],
         height_ratios=[1] * len(countries),
     )
 
@@ -432,8 +441,8 @@ def create_country_plot(
             # Add subplot labels (A, B, C, D)
             label = chr(65 + (2 * row_idx + col_idx))  # 65 is ASCII for 'A'
             ax1.text2D(
-                -0.1,
-                0.96,
+                0,
+                1.1,
                 f"({label})",
                 transform=ax1.transAxes,
                 fontsize=35,
@@ -444,7 +453,7 @@ def create_country_plot(
                 if metric == "outdoor":
                     ax1.text2D(
                         0.65,
-                        1.2,
+                        1.3,
                         "Have access to pasture/mud outdoors",
                         transform=ax1.transAxes,
                         fontsize=45,
@@ -454,7 +463,7 @@ def create_country_plot(
                 else:
                     ax1.text2D(
                         0.65,
-                        1.2,
+                        1.3,
                         "Exclusively indoors",
                         transform=ax1.transAxes,
                         fontsize=45,
@@ -488,7 +497,7 @@ def create_country_plot(
             plot_3example_images(ax2, selected_images, "", num_images=example_img_num)
 
     # Adjust layout
-    plt.subplots_adjust(wspace=0.00001, hspace=0.14)
+    plt.subplots_adjust(wspace=0.05, hspace=0.06)
 
     return fig
 
@@ -644,17 +653,18 @@ def plot_3d_farm_by_country(df, countries, metric="indoor", ax=None):
                 )
 
     # Customize axes
+    countries = ["U.S." if x == "the United States" else x for x in countries]
     ax.set_xticks([0 + (width / 2), 2 + (width / 2)])
     ax.set_yticks([0 + (width / 2), 1 + (width / 2), 2 + (width / 2)])
-    ax.set_xticklabels(revise_status, fontsize=32, rotation_mode="anchor", rotation=15)
-    countries = ["U.S." if x == "the United States" else x for x in countries]
+    ax.set_xticklabels(revise_status, fontsize=36, rotation_mode="anchor", rotation=15)
     ax.set_yticklabels(
-        countries, fontsize=32, ha="right", rotation_mode="anchor", rotation=15
+        countries, fontsize=36, ha="right", rotation_mode="anchor", rotation=15
     )
+
     # Then adjust the padding
     ax.zaxis.set_rotate_label(False)
-    ax.set_zlabel("Percentage", fontsize=32, labelpad=28, rotation=90)
-    ax.tick_params(axis="z", labelsize=24, pad=12)
+    ax.set_zlabel("Percentage", fontsize=36, labelpad=28, rotation=90)
+    ax.tick_params(axis="z", labelsize=26, pad=12)
 
     # Set view angle and limits
     ax.view_init(elev=20, azim=60)
