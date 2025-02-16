@@ -283,51 +283,52 @@ def plot_3d_generation_types(df, metric="indoor", ax=None):
                     edgecolor="none",
                 )
 
-                # Add confidence interval upper
-                x_center = j_position + width / 2
-                y_center = i + depth / 2
-                ax.plot(
-                    [x_center, x_center],
-                    [y_center, y_center],
-                    [value, ci_upper],
-                    color="orange",
-                    linewidth=5,
-                    zorder=100,
-                )
+                # Add confidence interval upper if there is CI (value is not 0% and not 100%)
+                if (value > 0) & (value < 100):
+                    x_center = j_position + width / 2
+                    y_center = i + depth / 2
+                    ax.plot(
+                        [x_center, x_center],
+                        [y_center, y_center],
+                        [value, ci_upper],
+                        color="orange",
+                        linewidth=5,
+                        zorder=100,
+                    )
 
-                # Add CI cap upper
-                ci_width = 0.1
-                ax.plot(
-                    [x_center - ci_width, x_center + ci_width],
-                    [y_center, y_center],
-                    [ci_upper, ci_upper],
-                    color="orange",
-                    linewidth=5,
-                    zorder=100,
-                )
+                    # Add CI cap upper
+                    ci_width = 0.1
+                    ax.plot(
+                        [x_center - ci_width, x_center + ci_width],
+                        [y_center, y_center],
+                        [ci_upper, ci_upper],
+                        color="orange",
+                        linewidth=5,
+                        zorder=100,
+                    )
 
-                # Add confidence interval lower
-                x_center = j_position + width / 2
-                y_center = i + depth / 2
-                ax.plot(
-                    [x_center, x_center],
-                    [y_center, y_center],
-                    [value, ci_lower],
-                    color="orange",
-                    linewidth=5,
-                    zorder=0,
-                )
+                    # Add confidence interval lower
+                    x_center = j_position + width / 2
+                    y_center = i + depth / 2
+                    ax.plot(
+                        [x_center, x_center],
+                        [y_center, y_center],
+                        [value, ci_lower],
+                        color="orange",
+                        linewidth=5,
+                        zorder=0,
+                    )
 
-                # Add CI cap lower
-                ci_width = 0.1
-                ax.plot(
-                    [x_center - ci_width, x_center + ci_width],
-                    [y_center, y_center],
-                    [ci_lower, ci_lower],
-                    color="orange",
-                    linewidth=5,
-                    zorder=0,
-                )
+                    # Add CI cap lower
+                    ci_width = 0.1
+                    ax.plot(
+                        [x_center - ci_width, x_center + ci_width],
+                        [y_center, y_center],
+                        [ci_lower, ci_lower],
+                        color="orange",
+                        linewidth=5,
+                        zorder=0,
+                    )
 
     # Customize axes
     mapping = {"basic": "'basic'", "typical": "'typical'", "reality": "'reality'"}
@@ -672,51 +673,52 @@ def plot_3d_farm_by_country(
                     edgecolor="none",
                 )
 
-                # Add confidence interval upper
-                x_center = j_position + width / 2
-                y_center = i + depth / 2
-                ax.plot(
-                    [x_center, x_center],
-                    [y_center, y_center],
-                    [value, ci_upper],
-                    color="orange",
-                    linewidth=5,
-                    zorder=100,
-                )
+                # Add confidence interval upper if there is CI (value is not 0% and not 100%)
+                if (value > 0) & (value < 100):
+                    x_center = j_position + width / 2
+                    y_center = i + depth / 2
+                    ax.plot(
+                        [x_center, x_center],
+                        [y_center, y_center],
+                        [value, ci_upper],
+                        color="orange",
+                        linewidth=5,
+                        zorder=100,
+                    )
 
-                # Add CI cap upper
-                ci_width = 0.1
-                ax.plot(
-                    [x_center - ci_width, x_center + ci_width],
-                    [y_center, y_center],
-                    [ci_upper, ci_upper],
-                    color="orange",
-                    linewidth=5,
-                    zorder=100,
-                )
+                    # Add CI cap upper
+                    ci_width = 0.1
+                    ax.plot(
+                        [x_center - ci_width, x_center + ci_width],
+                        [y_center, y_center],
+                        [ci_upper, ci_upper],
+                        color="orange",
+                        linewidth=5,
+                        zorder=100,
+                    )
 
-                # Add confidence interval lower
-                x_center = j_position + width / 2
-                y_center = i + depth / 2
-                ax.plot(
-                    [x_center, x_center],
-                    [y_center, y_center],
-                    [value, ci_lower],
-                    color="orange",
-                    linewidth=5,
-                    zorder=0,
-                )
+                    # Add confidence interval lower
+                    x_center = j_position + width / 2
+                    y_center = i + depth / 2
+                    ax.plot(
+                        [x_center, x_center],
+                        [y_center, y_center],
+                        [value, ci_lower],
+                        color="orange",
+                        linewidth=5,
+                        zorder=0,
+                    )
 
-                # Add CI cap lower
-                ci_width = 0.1
-                ax.plot(
-                    [x_center - ci_width, x_center + ci_width],
-                    [y_center, y_center],
-                    [ci_lower, ci_lower],
-                    color="orange",
-                    linewidth=5,
-                    zorder=0,
-                )
+                    # Add CI cap lower
+                    ci_width = 0.1
+                    ax.plot(
+                        [x_center - ci_width, x_center + ci_width],
+                        [y_center, y_center],
+                        [ci_lower, ci_lower],
+                        color="orange",
+                        linewidth=5,
+                        zorder=0,
+                    )
 
                 # add real world data as a line
                 if real_world_by_farm_cur_metric is not None:
