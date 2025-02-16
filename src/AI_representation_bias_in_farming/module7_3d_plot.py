@@ -278,12 +278,12 @@ def plot_3d_generation_types(df, metric="indoor", ax=None):
                     value,
                     color=colors,
                     shade=True,
-                    alpha=0.8,
+                    alpha=0.6,
                     zsort="max",
                     edgecolor="none",
                 )
 
-                # Add confidence interval
+                # Add confidence interval upper
                 x_center = j_position + width / 2
                 y_center = i + depth / 2
                 ax.plot(
@@ -295,7 +295,7 @@ def plot_3d_generation_types(df, metric="indoor", ax=None):
                     zorder=100,
                 )
 
-                # Add CI cap
+                # Add CI cap upper
                 ci_width = 0.1
                 ax.plot(
                     [x_center - ci_width, x_center + ci_width],
@@ -304,6 +304,29 @@ def plot_3d_generation_types(df, metric="indoor", ax=None):
                     color="orange",
                     linewidth=5,
                     zorder=100,
+                )
+
+                # Add confidence interval lower
+                x_center = j_position + width / 2
+                y_center = i + depth / 2
+                ax.plot(
+                    [x_center, x_center],
+                    [y_center, y_center],
+                    [value, ci_lower],
+                    color="orange",
+                    linewidth=5,
+                    zorder=0,
+                )
+
+                # Add CI cap lower
+                ci_width = 0.1
+                ax.plot(
+                    [x_center - ci_width, x_center + ci_width],
+                    [y_center, y_center],
+                    [ci_lower, ci_lower],
+                    color="orange",
+                    linewidth=5,
+                    zorder=0,
                 )
 
     # Customize axes
@@ -380,6 +403,7 @@ def create_country_plot(
     cluster_df,
     filtered_mega,
     countries,
+    real_world_by_farm,
     example_img_num=3,
     random_seed=11,
 ):
@@ -398,6 +422,8 @@ def create_country_plot(
     countries : list of str
         List of target countries to analyze, representing major livestock producers
         across North America, Europe, and Oceania.
+    real_world_by_farm : dict
+        Nested dictionary containing real-world data for each farm type and location
     example_img_num: int, default is 3
         How many example images you wish to show for each category
     random_seed: int default is 11
@@ -434,8 +460,16 @@ def create_country_plot(
             # Plot outdoor or indoor metrics (top row)
             ax1 = fig.add_subplot(gs[row_idx, (2 * col_idx)], projection="3d")
 
+            if real_world_by_farm is not None:
+                real_world_by_farm_cur_metric = real_world_by_farm[metric]
+            else:
+                real_world_by_farm_cur_metric = None
             plot_3d_farm_by_country(
-                cur_major_group_cluster, countries, metric=metric, ax=ax1
+                cur_major_group_cluster,
+                countries,
+                real_world_by_farm_cur_metric,
+                metric=metric,
+                ax=ax1,
             )
 
             # Add subplot labels (A, B, C, D)
@@ -560,7 +594,9 @@ def image_random_select_country(
     return selected_images
 
 
-def plot_3d_farm_by_country(df, countries, metric="indoor", ax=None):
+def plot_3d_farm_by_country(
+    df, countries, real_world_by_farm_cur_metric=None, metric="indoor", ax=None
+):
     """
     Create a 3D bar plot showing generation types with confidence intervals.
 
@@ -571,6 +607,8 @@ def plot_3d_farm_by_country(df, countries, metric="indoor", ax=None):
     countries : list of str
         List of target countries to analyze, representing major livestock producers
         across North America, Europe, and Oceania.
+    real_world_by_farm_cur_metric: dict, (default = None)
+       a dictionary containing real-world data for the current farm type, either indoor or outdoor condition
     metric : str, optional (default='indoor')
         Which metric to plot. Either 'indoor' or 'outdoor'
     ax : matplotlib.axes.Axes, optional
@@ -600,6 +638,11 @@ def plot_3d_farm_by_country(df, countries, metric="indoor", ax=None):
     ax.zaxis._axinfo["grid"].update({"color": (1, 1, 1, 0)})
     ax.set_box_aspect([1, 1, 1])
 
+    x_min = y_min = z_min = 0
+    x_max = 2.8
+    y_max = 2.6
+    z_max = 100
+
     # Plot bars and confidence intervals
     for i, country in enumerate(countries):
         for j, rev in enumerate(revise_status):
@@ -624,12 +667,12 @@ def plot_3d_farm_by_country(df, countries, metric="indoor", ax=None):
                     value,
                     color=colors,
                     shade=True,
-                    alpha=0.8,
+                    alpha=0.6,
                     zsort="max",
                     edgecolor="none",
                 )
 
-                # Add confidence interval
+                # Add confidence interval upper
                 x_center = j_position + width / 2
                 y_center = i + depth / 2
                 ax.plot(
@@ -641,7 +684,7 @@ def plot_3d_farm_by_country(df, countries, metric="indoor", ax=None):
                     zorder=100,
                 )
 
-                # Add CI cap
+                # Add CI cap upper
                 ci_width = 0.1
                 ax.plot(
                     [x_center - ci_width, x_center + ci_width],
@@ -651,6 +694,44 @@ def plot_3d_farm_by_country(df, countries, metric="indoor", ax=None):
                     linewidth=5,
                     zorder=100,
                 )
+
+                # Add confidence interval lower
+                x_center = j_position + width / 2
+                y_center = i + depth / 2
+                ax.plot(
+                    [x_center, x_center],
+                    [y_center, y_center],
+                    [value, ci_lower],
+                    color="orange",
+                    linewidth=5,
+                    zorder=0,
+                )
+
+                # Add CI cap lower
+                ci_width = 0.1
+                ax.plot(
+                    [x_center - ci_width, x_center + ci_width],
+                    [y_center, y_center],
+                    [ci_lower, ci_lower],
+                    color="orange",
+                    linewidth=5,
+                    zorder=0,
+                )
+
+                # add real world data as a line
+                if real_world_by_farm_cur_metric is not None:
+                    real_data_list = real_world_by_farm_cur_metric[country]
+                    for real_data in real_data_list:
+                        ax.plot(
+                            [x_min, x_max],
+                            [y_center, y_center],
+                            [real_data, real_data],
+                            color="lightcoral",
+                            linewidth=12,
+                            linestyle="solid",
+                            alpha=1,
+                            zorder=0,
+                        )
 
     # Customize axes
     countries = ["U.S." if x == "the United States" else x for x in countries]
@@ -668,8 +749,75 @@ def plot_3d_farm_by_country(df, countries, metric="indoor", ax=None):
 
     # Set view angle and limits
     ax.view_init(elev=20, azim=60)
-    ax.set_zlim(0, 100)
-    ax.set_xlim(0, 2.8)
-    ax.set_ylim(0, 2.6)
+    ax.set_zlim(z_min, z_max)
+    ax.set_xlim(x_min, x_max)
+    ax.set_ylim(y_min, y_max)
 
     return ax
+
+
+def create_and_save_farm_plot(
+    farm_type,
+    real_world,
+    country_filtered_cluster,
+    country_filtered_mega,
+    countries_by_farm_type,
+    save_path,
+    example_img_num=3,
+    random_seed=7,
+):
+    """
+    Creates and saves a 3D plot for a specific farm type showing country-level data.
+
+    Parameters
+    ----------
+    farm_type : str
+        Type of farm to plot (e.g. 'dairy', 'pig')
+    real_world : dict
+        Nested dictionary containing real-world data for each farm type and location
+    country_filtered_cluster : pd.DataFrame
+        DataFrame containing the filtered cluster data for all countries
+    country_filtered_mega : pd.DataFrame
+        DataFrame containing the filtered mega data for all countries
+    countries_by_farm_type : dict
+        Dictionary mapping farm types to list of countries to include
+    save_path : Path
+        Base path where plot should be saved
+    example_img_num : int, optional
+        Number of example images to show per category, by default 3
+    random_seed : int, optional
+        Random seed for reproducibility, by default 7
+
+    Returns
+    -------
+    fig
+        Saves plot to disk at specified location, and return figure
+    """
+    if real_world is not None:
+        real_world_by_farm = real_world[farm_type]
+    else:
+        real_world_by_farm = None
+    cur_cluster = country_filtered_cluster[
+        country_filtered_cluster["farm_type"] == farm_type
+    ]
+    cur_mega = country_filtered_mega[country_filtered_mega["farm_type"] == farm_type]
+    countries = countries_by_farm_type[farm_type]
+
+    fig = module7_3d_plot.create_country_plot(
+        cur_cluster,
+        cur_mega,
+        countries,
+        real_world_by_farm,
+        example_img_num=example_img_num,
+        random_seed=random_seed,
+    )
+
+    # Save plot
+    plt.savefig(
+        save_path / f"3d_country_plot_{farm_type}.png",
+        bbox_inches="tight",
+        dpi=300,
+    )
+    plt.close()
+
+    return fig

@@ -35,7 +35,14 @@ def main():
         example_img_num=3,
         random_seed=11,
     )
-    
+
+    fig = create_combined_farm_plot(
+        filtered_cluster,
+        filtered_mega,
+        example_img_num=3,
+        random_seed=11,
+    )
+
     # Save or display the plot
     plt.savefig(
         (Path() / "results" / "plots" / "3d_general_plot.png"),
@@ -47,6 +54,22 @@ def main():
     #############################################################################
     ###################### Dairy/pig farms by country ###########################
     #############################################################################
+    # real-world data
+    real_world = {
+        "dairy": {
+            "indoor": None,
+            "outdoor": {
+                "the United States": [3],
+                "Germany": [50, 5],
+                "New Zealand": [99],
+            },
+        },
+        "pig": {
+            "indoor": {"the United States": [98], "Spain": [94.9], "Australia": [90]},
+            "outdoor": None,
+        },
+    }
+
     # generate a plot grid for dairy/pig farm in different countries
     country_filtered_cluster = cluster[
         (cluster["model"] == "dall-e-3") & (~cluster["country"].isna())
@@ -63,67 +86,35 @@ def main():
 
     # Create combined plot 1 per farm type
     farm_types = country_filtered_mega["farm_type"].unique()
-    
-    ################### dairy farm by country ######################
-    farm_type = farm_types[0]
-    cur_cluster = country_filtered_cluster[
-        country_filtered_cluster["farm_type"] == farm_type
-    ]
-    cur_mega = country_filtered_mega[
-        country_filtered_mega["farm_type"] == farm_type
-    ]
-    countries = countries_by_farm_type[farm_type]
 
-    fig = module7_3d_plot.create_country_plot(
-        cur_cluster,
-        cur_mega,
-        countries,
+    ################### dairy farm by country ######################
+    farm_type = farm_types[0]  # don't plot real world data for now
+    fig = module7_3d_plot.create_and_save_farm_plot(
+        farm_type,
+        real_world=None,
+        country_filtered_cluster=country_filtered_cluster,
+        country_filtered_mega=country_filtered_mega,
+        countries_by_farm_type=countries_by_farm_type,
+        save_path=(Path() / "results" / "plots"),
         example_img_num=3,
         random_seed=7,
     )
-    
-    # Save or display the plot
-    plt.savefig(
-        (Path() / "results" / "plots" / f"3d_country_plot_{farm_type}.png"),
-        bbox_inches="tight",
-        dpi=300,
-    )
-    plt.close()
-    
-    ################### pig farm by country ######################
-    farm_type = farm_types[1]
-    cur_cluster = country_filtered_cluster[
-        country_filtered_cluster["farm_type"] == farm_type
-    ]
-    cur_mega = country_filtered_mega[
-        country_filtered_mega["farm_type"] == farm_type
-    ]
-    countries = countries_by_farm_type[farm_type]
 
-    fig = module7_3d_plot.create_country_plot(
-        cur_cluster,
-        cur_mega,
-        countries,
+    ################### pig farm by country ######################
+    farm_type = farm_types[1]  # don't plot real world data for now
+
+    fig = module7_3d_plot.create_and_save_farm_plot(
+        farm_type,
+        real_world=None,
+        country_filtered_cluster=country_filtered_cluster,
+        country_filtered_mega=country_filtered_mega,
+        countries_by_farm_type=countries_by_farm_type,
+        save_path=(Path() / "results" / "plots"),
         example_img_num=3,
         random_seed=10,
     )
-
-    # Save or display the plot
-    plt.savefig(
-        (Path() / "results" / "plots" / f"3d_country_plot_{farm_type}.png"),
-        bbox_inches="tight",
-        dpi=300,
-    )
-    plt.close()
-        
 
 
 # Only execute this code if the script is run directly
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
