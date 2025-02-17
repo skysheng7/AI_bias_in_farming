@@ -2,13 +2,9 @@
    in describing dairy and pig farm scene by default. 
 """
 
-import pandas as pd
-from pathlib import Path
 import click
 
-
 from AI_representation_bias_in_farming import utils
-from AI_representation_bias_in_farming import module7_3d_plot
 from AI_representation_bias_in_farming import module8_gpt4_describe_farm
 
 

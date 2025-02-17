@@ -1,11 +1,11 @@
 """This includes all functions used to prompt GPT-4 for descriptions of a dairy farm, a pig farm etc.
 """
 
+from pathlib import Path
 from openai import OpenAI
 from dotenv import load_dotenv
 import pandas as pd
 
-from AI_representation_bias_in_farming import utils
 from AI_representation_bias_in_farming import module7_3d_plot
 
 
@@ -45,12 +45,23 @@ def load_prompt_df(megadata):
     >>> print(prompt_df.shape)
     (100, 7)  # Example output showing 100 unique prompts with 7 columns
     """
-    
+
     megadata = module7_3d_plot.add_grouping(megadata)
     sub_df = megadata[megadata["revise_status"] == "revise"]
-    sub_df2 = sub_df[["farm_type", "major_group", "minor_group", "revise_status", "generation_type", "country",  "prompt"]].drop_duplicates()
+    sub_df2 = sub_df[
+        [
+            "farm_type",
+            "major_group",
+            "minor_group",
+            "revise_status",
+            "generation_type",
+            "country",
+            "prompt",
+        ]
+    ].drop_duplicates()
 
     return sub_df2
+
 
 def calculate_prompt_word_counts(prompts_series):
     """
@@ -81,19 +92,19 @@ def calculate_prompt_word_counts(prompts_series):
     """
     # Create a dictionary to store word counts
     word_counts = {}
-    
+
     # Calculate word count for each unique prompt
     for prompt in prompts_series.unique():
         if isinstance(prompt, str):  # Check if prompt is a string
             word_count = len(prompt.split())
             word_counts[prompt] = word_count
-    
+
     # Find the maximum word count and its corresponding prompt
     if word_counts:
         max_count = max(word_counts.values())
     else:
         max_count = 0
-    
+
     return max_count
 
 
@@ -115,7 +126,7 @@ def process_text_completions(
     ----------
     prompt_df : pandas.DataFrame
         DataFrame containing prompts and their metadata with columns:
-        farm_type, major_group, minor_group, revise_status, 
+        farm_type, major_group, minor_group, revise_status,
         generation_type, country, prompt
     repetition_per_prompt : int, optional
         Number of independent API calls to make for each prompt
@@ -152,55 +163,57 @@ def process_text_completions(
     # Initialize OpenAI client
     load_dotenv()
     client = OpenAI()
-    
+
     # Set end_index to DataFrame length if not specified
     if end_index is None:
         end_index = len(prompt_df)
-    
+
     # Initialize results storage
     results_data = []
-    
+
     # Process each prompt in the specified range
     for idx in range(start_index, end_index):
         # Get the row containing prompt and metadata
         row = prompt_df.iloc[idx]
-        
+
         # Perform multiple repetitions for each prompt
         for rep_idx in range(repetition_per_prompt):
             result = process_single_prompt(
-                prompt=row['prompt'],
+                prompt=row["prompt"],
                 model=model,
                 client=client,
                 system_prompt=system_prompt,
                 max_tokens=max_tokens,
-                temperature=temperature
+                temperature=temperature,
             )
-            
+
             # Create result dictionary with all metadata
             result_data = {
                 # Original metadata from prompt_df
-                'farm_type': row['farm_type'],
-                'major_group': row['major_group'],
-                'minor_group': row['minor_group'],
-                'revise_status': row['revise_status'],
-                'generation_type': row['generation_type'],
-                'country': row['country'],
-                'prompt': row['prompt'],
-                
+                "farm_type": row["farm_type"],
+                "major_group": row["major_group"],
+                "minor_group": row["minor_group"],
+                "revise_status": row["revise_status"],
+                "generation_type": row["generation_type"],
+                "country": row["country"],
+                "prompt": row["prompt"],
                 # API call results
-                'completion': result.choices[0].message.content,
-                'model': model,
-                'completion_tokens': result.usage.completion_tokens,
-                'system_fingerprint': result.system_fingerprint
+                "completion": result.choices[0].message.content,
+                "model": model,
+                "completion_tokens": result.usage.completion_tokens,
+                "system_fingerprint": result.system_fingerprint,
             }
-            
+
             results_data.append(result_data)
-            
+
             # Optional: Save results after each completion
             if store_results:
                 df = pd.DataFrame(results_data)
-                df.to_csv((Path() / "results" / "megadata" /"gpt4_describe_farm.csv"), index=False)
-    
+                df.to_csv(
+                    (Path() / "results" / "megadata" / "gpt4_describe_farm.csv"),
+                    index=False,
+                )
+
     return pd.DataFrame(results_data)
 
 
@@ -209,8 +222,8 @@ def process_single_prompt(
     model,
     client,
     system_prompt=None,
-    max_tokens= 150,
-    temperature= 0.2,
+    max_tokens=150,
+    temperature=0.2,
 ):
     """
     Processes a single text prompt and returns the completion result.
@@ -254,5 +267,3 @@ def process_single_prompt(
     )
 
     return response
-
-
