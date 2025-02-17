@@ -201,7 +201,6 @@ def process_text_completions(
                 "completion": result.choices[0].message.content,
                 "model": model,
                 "completion_tokens": result.usage.completion_tokens,
-                "system_fingerprint": result.system_fingerprint,
             }
 
             results_data.append(result_data)

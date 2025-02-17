@@ -140,6 +140,26 @@ Contains manual verification and corrections of the automated image clustering r
   - change_to_cluster: New cluster label if a correction is needed
   - manual_note: Additional observations or reasoning for the correction
 
+- `revised_prompt_count.csv`: Tracks the counts of unique revised prompts after attempting inhibiting prompt revision in "basic" and "typical" prompts.
+  - `generation_type`: Type of prompt formatting (e.g., basic, basic_country_no_revise, typical_country_no_revise)
+  - `country`: Country specified in the prompt (e.g., Germany, New Zealand, United States)
+  - `farm_type`: Type of farm (dairy or pig)
+  - `prompt`: Original unmodified prompt used for image generation
+  - `cleaned_revised_prompt`: DALL-E 3 generated revised prompts
+  - `count`: Number of times this specific prompt combination was used (typically 100 for full sets, with some variations having 99 or 1 entries)
+
+- `gpt4_describe_farm.csv`: A preliminary experiment testing GPT-4's responses to different farm descriptions (not included in the paper's main analysis).
+  - `farm_type`: Type of farm (dairy or pig)
+  - `major_group`: High-level prompt category (basic, typical, reality)
+  - `minor_group`: Detailed prompt category (basic, typical, reality, reality_country, basic_country, typical_country)
+  - `revise_status`: Always "revise" in this experiment
+  - `generation_type`: Combined category showing prompt type and format
+  - `country`: Country specification when applicable
+  - `prompt`: Original prompt text used
+  - `completion`: GPT-4's generated response
+  - `model`: Always "gpt-4" in this experiment
+  - `completion_tokens`: Number of tokens in GPT-4's response
+
 #### GPT-4 Description Analysis Files
 
 **Bag of Words Files** :
