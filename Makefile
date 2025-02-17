@@ -49,7 +49,7 @@ plots: results/plots/basic_dairy_dall-e-3_by_country_plot_grid.png\
 	results/plots/typical_dall-e-3_plot_grid.png\
 	results/plots/typical_pig_dall-e-3_by_country_plot_grid.png\
 	results/plots/typical_pig_sd3.5-large_by_country_plot_grid.png\
-	results/plots/typical_sd3.5-large_plot_grid.png\
+	results/plots/typical_sd3.5-large_plot_grid.png
 
 # cluster images into 3 themes
 cluster: results/cluster/* \
@@ -154,7 +154,28 @@ results/megadata/image_megadata_post_manual_fix.csv\
 
 # Clean up the analysis files
 clean-plots:
-	rm -f plots 3d_plots
+	rm -f results/plots/basic_dairy_dall-e-3_by_country_plot_grid.png\
+    	results/plots/basic_dairy_sd3.5-large_by_country_plot_grid.png\
+    	results/plots/basic_dall-e-3_plot_grid.png\
+    	results/plots/basic_pig_dall-e-3_by_country_plot_grid.png\
+    	results/plots/basic_pig_sd3.5-large_by_country_plot_grid.png\
+    	results/plots/basic_sd3.5-large_plot_grid.png\
+    	results/plots/reality_dairy_dall-e-3_by_country_plot_grid.png\
+    	results/plots/reality_dairy_sd3.5-large_by_country_plot_grid.png\
+    	results/plots/reality_dall-e-3_plot_grid.png\
+    	results/plots/reality_pig_dall-e-3_by_country_plot_grid.png\
+    	results/plots/reality_pig_sd3.5-large_by_country_plot_grid.png\
+    	results/plots/reality_sd3.5-large_plot_grid.png\
+    	results/plots/typical_dairy_dall-e-3_by_country_plot_grid.png\
+    	results/plots/typical_dairy_sd3.5-large_by_country_plot_grid.png\
+    	results/plots/typical_dall-e-3_plot_grid.png\
+    	results/plots/typical_pig_dall-e-3_by_country_plot_grid.png\
+    	results/plots/typical_pig_sd3.5-large_by_country_plot_grid.png\
+    	results/plots/typical_sd3.5-large_plot_grid.png\
+        results/plots/3d_general_plot.png\
+    	results/plots/3d_country_plot_dairy.png\
+    	results/plots/3d_country_plot_pig.png
+    
 
 clean-image-eda:
 	rm -rf results/cluster results/cluster_post_manual_fix
