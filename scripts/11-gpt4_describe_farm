@@ -1,0 +1,39 @@
+"""This script prompts GPT4 for descriptions of dairy and pig farms to test its potential bias
+   in describing dairy and pig farm scene by default. 
+"""
+
+import pandas as pd
+from pathlib import Path
+import click
+
+
+from AI_representation_bias_in_farming import utils
+from AI_representation_bias_in_farming import module7_3d_plot
+from AI_representation_bias_in_farming import module8_gpt4_describe_farm
+
+
+@click.command()
+def main():
+    megadata = utils.read_megadata()  # read in megadata
+    prompt_df = module8_gpt4_describe_farm.load_prompt_df(megadata)
+    max_prompt_word_count = module8_gpt4_describe_farm.calculate_prompt_word_counts(
+        megadata["revised_prompt"]
+    )
+
+    # prompt GPT4 for description of farm
+    gpt4_describe_farm = module8_gpt4_describe_farm.process_text_completions(
+        prompt_df,
+        repetition_per_prompt=1,
+        model="gpt-4",
+        system_prompt=None,
+        max_tokens=max_prompt_word_count,
+        temperature=0.2,
+        start_index=0,
+        end_index=None,
+        store_results=True,
+    )
+
+
+# Only execute this code if the script is run directly
+if __name__ == "__main__":
+    main()
