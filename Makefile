@@ -73,7 +73,9 @@ all: plots\
 	results/plots/cluster_summary_sd-3.5.png\
 	results/megadata/revised_prompt_count.csv\
 	openai_eval_dalle\
-	3d_plots
+	results/plots/3d_general_plot.png\
+	results/plots/3d_country_plot_dairy.png\
+	results/plots/3d_country_plot_pig.png
 
 
 # Specify version numbers for each dependency used in the current conda environment
@@ -135,21 +137,21 @@ results/megadata/image_megadata.csv
 # count the success rate of prompt revision inhibition
 results/megadata/revised_prompt_count.csv: scripts/07-revised_prompt_analysis.py\
 results/megadata/image_megadata.csv
-	python scripts/07-revised_prompt_analysis.py\
+	python scripts/07-revised_prompt_analysis.py
 
 # analyze the prompts OpenAI used to evaluate the performance of DALL-E 3 for prompt
 # following. 
 openai_eval_dalle: scripts/09-dalle_eval_prompt_analysis.py\
 dalle3_eval_data/8k_coco.txt
-	python scripts/09-dalle_eval_prompt_analysis.py\
+	python scripts/09-dalle_eval_prompt_analysis.py
 
 # generate 3d plots
 results/plots/3d_general_plot.png\
 results/plots/3d_country_plot_dairy.png\
 results/plots/3d_country_plot_pig.png: scripts/10-3d_plots.py\
 results/megadata/cluster_summary.csv\
-results/megadata/image_megadata_post_manual_fix.csv\
-	python scripts/10-3d_plots.py\
+results/megadata/image_megadata_post_manual_fix.csv
+	python scripts/10-3d_plots.py
 
 
 # Clean up the analysis files
