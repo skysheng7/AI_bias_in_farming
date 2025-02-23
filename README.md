@@ -2,7 +2,8 @@
 
 Kehan (Sky) Sheng, Frank Tuyttens, Marina von Keyserlingk
 
-To cite this data & code repository:
+*To cite this data & code repository:*
+
 Sheng, K., Tuyttens, F., & von Keyserlingk, M. (2025). Replication Data for: The erasure of intensive livestock farming in text-to-image generative AI. <https://doi.org/10.5683/SP3/EAWR6D>
 
 ## About
