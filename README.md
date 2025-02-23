@@ -15,7 +15,7 @@ In this research project, we evaluated representation bias of livestock farming 
 ## Dataset Information
 
 - **Title of Dataset:** Replication Data for: The erasure of intensive livestock farming in text-to-image generative AI
-- **Paper DOI:**
+- **Paper DOI:** *manuscript not published yet*
 - **Dataset DOI:** <https://doi.org/10.5683/SP3/EAWR6D>
 - **Dataset Created:** 2024-10-01 - 2025-2-16
 - **Created by:** Kehan (Sky) Sheng
