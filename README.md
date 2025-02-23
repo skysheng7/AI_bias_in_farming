@@ -2,6 +2,9 @@
 
 Kehan (Sky) Sheng, Frank Tuyttens, Marina von Keyserlingk
 
+To cite this data & code repository:
+Sheng, K., Tuyttens, F., & von Keyserlingk, M. (2025). Replication Data for: The erasure of intensive livestock farming in text-to-image generative AI. <https://doi.org/10.5683/SP3/EAWR6D>
+
 ## About
 
 In this research project, we evaluated representation bias of livestock farming in 2 state-of-the-art text-to-image generative models: DALL-E 3 and Stable Diffusion 3.5-large.
