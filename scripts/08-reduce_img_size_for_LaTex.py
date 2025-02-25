@@ -10,7 +10,7 @@ from AI_representation_bias_in_farming import utils
 @click.command()
 @click.option(
     "--source_folder",
-    default="/Users/skysheng/Library/CloudStorage/OneDrive-UBC/University of British Columbia/Research/PhD Project/AI representation bias/AI_bias_in_farming/results/plots",
+    default="./results/plots",
     type=str,
     help="Path to the folder of images that you wish to resize",
 )
