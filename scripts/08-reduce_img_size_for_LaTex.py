@@ -16,7 +16,7 @@ from AI_representation_bias_in_farming import utils
 )
 @click.option(
     "--dest_folder",
-    default="/Users/skysheng/Downloads/resize",
+    default="/Users/skysheng/Library/CloudStorage/OneDrive-UBC/University of British Columbia/Research/PhD Project/AI representation bias/latex_plots",
     type=str,
     help="Path to the destination folder to store resized images",
 )
