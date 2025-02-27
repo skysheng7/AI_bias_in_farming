@@ -16,7 +16,7 @@ from AI_representation_bias_in_farming import utils
 )
 @click.option(
     "--dest_folder",
-    default="/Users/skysheng/Library/CloudStorage/OneDrive-UBC/University of British Columbia/Research/PhD Project/AI representation bias/latex_plots",
+    default="./results/latex_plots",
     type=str,
     help="Path to the destination folder to store resized images",
 )
@@ -31,7 +31,7 @@ def main(source_folder, dest_folder):
         # Convert RGBA to RGB
         if img.mode == "RGBA":
             img = img.convert("RGB")
-        new_size = tuple(int(dim * 0.7) for dim in img.size)
+        new_size = tuple(int(dim * 0.3) for dim in img.size)
         img_resized = img.resize(new_size, Image.Resampling.LANCZOS)
 
         dest_file = Path(dest_folder) / source_file.name.replace(".png", ".jpg")
