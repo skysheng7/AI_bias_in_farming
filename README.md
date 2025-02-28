@@ -18,7 +18,7 @@ In this research project, we evaluated representation bias of livestock farming 
 - **Preprint:** <https://arxiv.org/abs/2502.19771>
 - **Paper DOI:** *manuscript not published yet*
 - **Dataset DOI:** <https://doi.org/10.5683/SP3/EAWR6D>
-- **Dataset Created:** 2024-10-01 - 2025-2-16
+- **Dataset Created:** 2024-10-01 -- 2025-2-16
 - **Created by:** Kehan (Sky) Sheng
 - **Contact Email:** <skysheng7@gmail.com>
 
