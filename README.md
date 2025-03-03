@@ -213,8 +213,6 @@ If you find this research valuable or interesting, please consider:
 I'm committed to making my research fully reproducible and accessible to all. If you encounter any difficulties running the code or need clarification on any part of this project, I welcome you to reach out directly at <skysheng7@gmail.com>.
 Open and reproducible data science workflow is my passion. Your ability to understand and build upon this work matters to me, and I'm here to support.
 
-I'll help create a clear repository structure section. Since you want a brief explanation for each item, I'll integrate this into your README.md:
-
 ## Repository Structure
 
 This repository is organized as follows:
