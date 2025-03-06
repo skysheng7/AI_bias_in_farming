@@ -238,7 +238,7 @@ This repository is organized as follows:
 
 We thank Hanwen (Isaac) Qi for the valuable discussions about prompting techniques and plotting design, his constructive feedback and tremendous support throughout this project.
 
-The reproducible data science workflow implemented in this project was greatly inspired by Dr. Tiffany Timbers's DSCI 522 course and her book: [Reproducible and Trustworthy Workflows for Data Science] (https://ubc-dsci.github.io/reproducible-and-trustworthy-workflows-for-data-science/)
+The reproducible data science workflow implemented in this project was greatly inspired by Dr. Tiffany Timbers's DSCI 522 course and her book: [Reproducible and Trustworthy Workflows for Data Science](https://ubc-dsci.github.io/reproducible-and-trustworthy-workflows-for-data-science/)
 
 ## Funding
 
