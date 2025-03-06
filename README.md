@@ -238,6 +238,8 @@ This repository is organized as follows:
 
 We thank Hanwen (Isaac) Qi for the valuable discussions about prompting techniques and plotting design, his constructive feedback and tremendous support throughout this project.
 
+The reproducible data science workflow implemented in this project was greatly inspired by Dr. Tiffany Timbers's DSCI 522 course and her book: [Reproducible and Trustworthy Workflows for Data Science] (https://ubc-dsci.github.io/reproducible-and-trustworthy-workflows-for-data-science/)
+
 ## Funding
 
 This research was supported by a Social Sciences and Humanities Research Council (SSHRC) Insight Grant (435-2022-0315) awarded to M.v.K. K.S also received funding from Hugo E Meilicke Memorial Fellowship (Vancouver, BC, Canada), Pei-Huang Tung and Tan-Wen Tung Graduate Fellowship (Vancouver, BC, Canada), and Mary and David Macaree Fellowship (Vancouver, BC, Canada),
