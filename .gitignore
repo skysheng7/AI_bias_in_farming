@@ -8,6 +8,8 @@ results/cluster_eda3/
 results/cluster/
 results/cluster_v2/
 results/cluster_post_manual_fix
+results/google_image_search
+results/midjourney
 
 # IDE configuration files
 .vscode/
