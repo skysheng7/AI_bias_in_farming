@@ -1,8 +1,9 @@
-# The erasure of intensive livestock farming in text-to-image generative AI
+# The Erasure of Intensive Livestock Farming in Text-to-Image Generative AI
 
-Kehan (Sky) Sheng, Frank Tuyttens, Marina von Keyserlingk
+**Kehan (Sky) Sheng**, **Frank Tuyttens**, **Marina von Keyserlingk**  
+*Accepted for publication at the ACM Conference on Fairness, Accountability, and Transparency (FAccT), 2025*
 
-## Preprint
+## 📄 Preprint
 
 Sheng, K., Tuyttens, F. A. M., & von Keyserlingk, M. A. G. (2025). The erasure of intensive livestock farming in text-to-image generative AI [Preprint]. arXiv. https://arxiv.org/abs/2502.19771
 
@@ -15,8 +16,9 @@ In this research project, we evaluated representation bias of livestock farming 
 ## Dataset Information
 
 - **Title of Dataset:** Replication Data for: The erasure of intensive livestock farming in text-to-image generative AI
+- **Conference Publication:** 2025 ACM Conference on Fairness, Accountability, and Transparency (FAccT) in Athens, Greece (Accepted)
 - **Preprint:** <https://arxiv.org/abs/2502.19771>
-- **Paper DOI:** *manuscript not published yet*
+- **Journal Paper DOI:** *manuscript in process with journal*
 - **Dataset DOI:** <https://doi.org/10.5683/SP3/EAWR6D>
 - **Dataset Created:** 2024-10-01 -- 2025-2-16
 - **Created by:** Kehan (Sky) Sheng
