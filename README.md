@@ -42,6 +42,35 @@ In this research project, we evaluated representation bias of livestock farming 
   - Affiliation_2: Ghent University
   - Email: <frank.tuyttens@ilvo.vlaanderen.be>
 
+## Acknowledgements
+
+We thank Hanwen (Isaac) Qi for the valuable discussions about prompting techniques and plotting design, his constructive feedback and tremendous support throughout this project.
+
+The reproducible data science workflow implemented in this project was greatly inspired by Dr. Tiffany Timbers's [DSCI 522 course](https://ubc-mds.github.io/course-descriptions/DSCI_522_dsci-workflows/) and her book: [Reproducible and Trustworthy Workflows for Data Science](https://ubc-dsci.github.io/reproducible-and-trustworthy-workflows-for-data-science/)
+
+
+## Repository Structure
+
+This repository is organized as follows:
+
+- `img/`: Contains an images to demo the use of docker, inserted in README
+- `results/`: Stores generated images (in database), and image metadata results from running the "scripts" and "src"
+- `scripts/`: Houses the main Python scripts that generate image from text, and generate text from images
+- `src/`: Contains the source code for our local Python package with helper functions and utilities
+- `tests/`: Contains tests written for functions
+- `dalle3_eval_data/`: the prompts extracted from MSCOCO OpenAI used to evaluate the performance of DALL-E 3.
+- `Makefile`: GNU make file to streamline reproducing my analysis from scratch
+- `CODE_OF_CONDUCT.md`: Guidelines for maintaining a welcoming and inclusive community atmosphere
+- `conda-linux-64.lock`: Conda-lock file that specifies exact versions of Python dependencies for reproducible environments. This conda-lock file is explicitly solved for linux-64 operating systems
+- `conda-lock.yml`: Conda-lock file that specifies exact versions of Python dependencies for reproducible environments. This conda-lock file is solved for the following operating systems: ['linux-64', 'osx-64', 'osx-arm64', 'win-64']
+- `CONTRIBUTING.md`: Instructions and guidelines for contributing to this project
+- `docker-compose.yml`: Docker configuration for setting up the analysis environment
+- `Dockerfile`: Instructions for building the project's Docker container
+- `environment.yml`: Conda environment specifications for managing Python dependencies
+- `LICENSE`: Legal terms under which this project's code can be used and distributed
+- `pyproject.toml`: Python project metadata and build system requirements for Python packaging
+
+
 ## Dependencies
 
 - [Docker](https://docs.docker.com/get-started/)
@@ -215,36 +244,10 @@ If you find this research valuable or interesting, please consider:
 I'm committed to making my research fully reproducible and accessible to all. If you encounter any difficulties running the code or need clarification on any part of this project, I welcome you to reach out directly at <skysheng7@gmail.com>.
 Open and reproducible data science workflow is my passion. Your ability to understand and build upon this work matters to me, and I'm here to support.
 
-## Repository Structure
-
-This repository is organized as follows:
-
-- `img/`: Contains an images to demo the use of docker, inserted in README
-- `results/`: Stores generated images (in database), and image metadata results from running the "scripts" and "src"
-- `scripts/`: Houses the main Python scripts that generate image from text, and generate text from images
-- `src/`: Contains the source code for our local Python package with helper functions and utilities
-- `tests/`: Contains tests written for functions
-- `dalle3_eval_data/`: the prompts extracted from MSCOCO OpenAI used to evaluate the performance of DALL-E 3.
-- `Makefile`: GNU make file to streamline reproducing my analysis from scratch
-- `CODE_OF_CONDUCT.md`: Guidelines for maintaining a welcoming and inclusive community atmosphere
-- `conda-linux-64.lock`: Conda-lock file that specifies exact versions of Python dependencies for reproducible environments. This conda-lock file is explicitly solved for linux-64 operating systems
-- `conda-lock.yml`: Conda-lock file that specifies exact versions of Python dependencies for reproducible environments. This conda-lock file is solved for the following operating systems: ['linux-64', 'osx-64', 'osx-arm64', 'win-64']
-- `CONTRIBUTING.md`: Instructions and guidelines for contributing to this project
-- `docker-compose.yml`: Docker configuration for setting up the analysis environment
-- `Dockerfile`: Instructions for building the project's Docker container
-- `environment.yml`: Conda environment specifications for managing Python dependencies
-- `LICENSE`: Legal terms under which this project's code can be used and distributed
-- `pyproject.toml`: Python project metadata and build system requirements for Python packaging
-
-## Acknowledgements
-
-We thank Hanwen (Isaac) Qi for the valuable discussions about prompting techniques and plotting design, his constructive feedback and tremendous support throughout this project.
-
-The reproducible data science workflow implemented in this project was greatly inspired by Dr. Tiffany Timbers's DSCI 522 course and her book: [Reproducible and Trustworthy Workflows for Data Science](https://ubc-dsci.github.io/reproducible-and-trustworthy-workflows-for-data-science/)
 
 ## Funding
 
-This research was supported by a Social Sciences and Humanities Research Council (SSHRC) Insight Grant (435-2022-0315) awarded to M.v.K. K.S also received funding from Hugo E Meilicke Memorial Fellowship (Vancouver, BC, Canada), Pei-Huang Tung and Tan-Wen Tung Graduate Fellowship (Vancouver, BC, Canada), and Mary and David Macaree Fellowship (Vancouver, BC, Canada),
+This research was supported by a Social Sciences and Humanities Research Council (SSHRC) Insight Grant (435-2022-0315) awarded to M.v.K. K.S also received funding from Hugo E Meilicke Memorial Fellowship (Vancouver, BC, Canada), Pei-Huang Tung and Tan-Wen Tung Graduate Fellowship (Vancouver, BC, Canada), and Mary and David Macaree Fellowship (Vancouver, BC, Canada).
 
 ## Copyright
 
