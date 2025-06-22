@@ -77,12 +77,12 @@ def main(start_index, total_image_num, model):
     ]"""
 
     generation_types = [
-        "reality",
-        "reality_no_revise",
-        "basic",
-        "basic_no_revise",
-        "typical",
-        "typical_no_revise",
+        "reality_country",
+        "reality_country_no_revise",
+        "basic_country",
+        "basic_country_no_revise",
+        "typical_country",
+        "typical_country_no_revise",
     ]
 
     farm_types = ["dairy", "pig"]  # type of livestock farms

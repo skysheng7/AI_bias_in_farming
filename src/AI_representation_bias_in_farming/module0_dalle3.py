@@ -99,7 +99,7 @@ def gpt_image1_prompt_for_img(
                 model=model,
                 prompt=cur_prompt,
                 size="1024x1024",
-                quality="high",  # Changed from "standard" to "auto" (valid options: "low", "medium", "high", "auto")
+                quality="medium",  # Changed from "standard" to "auto" (valid options: "low", "medium", "high", "auto")
                 n=1,
                 # Note: response_format parameter removed for gpt-image-1 - always returns b64_json
             )
