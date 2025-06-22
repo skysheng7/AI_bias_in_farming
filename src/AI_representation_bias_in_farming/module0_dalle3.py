@@ -99,9 +99,9 @@ def gpt_image1_prompt_for_img(
                 model=model,
                 prompt=cur_prompt,
                 size="1024x1024",
-                quality="standard",
-                response_format="b64_json",
+                quality="medium",  # Changed from "standard" to "auto" (valid options: "low", "medium", "high", "auto")
                 n=1,
+                # Note: response_format parameter removed for gpt-image-1 - always returns b64_json
             )
             return {"response": response, "prompt": cur_prompt}
         except (openai.BadRequestError, openai.RateLimitError) as e:
@@ -222,9 +222,8 @@ def gpt_image1_gen_image(
         cur_prompt = result["prompt"]  # generate prompt
 
         image_data = response.data[0].b64_json
-        revised_input = response.data[
-            0
-        ].revised_prompt  # get what GPT-4o automatically rephrased the prompt into
+        # Note: gpt-image-1 may not always provide revised_prompt like DALL-E 3
+        revised_input = getattr(response.data[0], 'revised_prompt', cur_prompt)
         image_bytes = base64.b64decode(image_data)  # get the image data
 
         utils.save_imag(
