@@ -10,6 +10,7 @@ results/cluster_v2/
 results/cluster_post_manual_fix
 results/google_image_search
 results/midjourney
+results/gpt-image-1-images/
 
 # IDE configuration files
 .vscode/

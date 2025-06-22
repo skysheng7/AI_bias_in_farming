@@ -99,7 +99,7 @@ def gpt_image1_prompt_for_img(
                 model=model,
                 prompt=cur_prompt,
                 size="1024x1024",
-                quality="medium",  # Changed from "standard" to "auto" (valid options: "low", "medium", "high", "auto")
+                quality="high",  # Changed from "standard" to "auto" (valid options: "low", "medium", "high", "auto")
                 n=1,
                 # Note: response_format parameter removed for gpt-image-1 - always returns b64_json
             )
@@ -223,7 +223,10 @@ def gpt_image1_gen_image(
 
         image_data = response.data[0].b64_json
         # Note: gpt-image-1 may not always provide revised_prompt like DALL-E 3
-        revised_input = getattr(response.data[0], 'revised_prompt', cur_prompt)
+        revised_input = response.data[0].revised_prompt
+        # if revised_input returns None, just print out the string "None"
+        if revised_input is None:
+            revised_input = "None"
         image_bytes = base64.b64decode(image_data)  # get the image data
 
         utils.save_imag(
