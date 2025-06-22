@@ -195,6 +195,7 @@ def get_key(model):
         model (str): The name of the AI model for which the API key is required.
                      Accepted values are:
                      - "dall-e-3"
+                     - "gpt-image-1"
                      - "sd3.5-large"
 
     Returns:
@@ -211,7 +212,7 @@ def get_key(model):
     # Load and set the API key
     load_dotenv()
 
-    if model == "dall-e-3" or model == "gpt-4o-2024-08-06":
+    if model == "dall-e-3" or model == "gpt-4o-2024-08-06" or model == "gpt-image-1":
         key = os.getenv("OPENAI_API_KEY")
     elif model == "sd3.5-large":
         key = os.getenv("stable_diffusion_key")
@@ -234,7 +235,7 @@ def gen_image(
     """
     Generate images based on specified parameters using the selected AI model.
 
-    This function interfaces with different AI models to generate images according to the provided parameters. It supports models such as DALL·E 3, Stable Diffusion 3.5 Large.
+    This function interfaces with different AI models to generate images according to the provided parameters. It supports models such as DALL·E 3, GPT-Image-1, Stable Diffusion 3.5 Large.
 
     Parameters:
         country (str): which country should the image content be based on.
@@ -244,7 +245,7 @@ def gen_image(
         n (int): how many images you want to generate starting from the start index
         max_retries (int): the maximum number of times we will retry prompting the model if the previous prompt failed due to safety reasons.
         retry_delay (int): the total number of seconds we wait to let the model reset before trying again
-        model (str, optional): The AI model to use for image generation. Defaults to 'dall-e-3'. Options: 'dall-e-3', 'sd3.5-large'
+        model (str, optional): The AI model to use for image generation. Defaults to 'dall-e-3'. Options: 'dall-e-3', 'gpt-image-1', 'sd3.5-large'
 
     Returns:
         None
@@ -268,6 +269,17 @@ def gen_image(
             retry_delay=retry_delay,
             model=model,
         )
+    elif model == "gpt-image-1":  # prompt GPT-Image-1
+        module0_dalle3.gpt_image1_gen_image(
+            country=country,
+            farm_type=farm_type,
+            generation_type=generation_type,
+            start_index=start_index,
+            n=n,
+            max_retries=max_retries,
+            retry_delay=retry_delay,
+            model=model,
+        )
     elif model == "sd3.5-large":  # prompt Stable Diffusion
         module1_sd.sd_gen_image(
             key=key,
@@ -282,7 +294,7 @@ def gen_image(
         )
     else:
         raise ValueError(
-            "Invalid model value provided. Please enter: 'dall-e-3', or 'sd3.5-large'"
+            "Invalid model value provided. Please enter: 'dall-e-3', 'gpt-image-1', or 'sd3.5-large'"
         )
 
 

@@ -17,5 +17,6 @@ RUN mamba update --quiet --file /tmp/conda-linux-64.lock \
 
 # install openai using pip because the openai package insatlled from conda has bug
 # also install my local AI_representation_bias_in_farming as a python package
+# 2025-06-22: added gpt-image-1 to the list of models
 RUN pip install openai==1.57.0 \
     && python -m pip install -e /tmp 

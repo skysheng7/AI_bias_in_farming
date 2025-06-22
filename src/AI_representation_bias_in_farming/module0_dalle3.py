@@ -66,6 +66,59 @@ def dalle3_prompt_for_img(
             time.sleep(retry_delay)  # wait for a while to let the model reset
 
 
+def gpt_image1_prompt_for_img(
+    client,
+    country,
+    farm_type,
+    generation_type,
+    max_retries=3,
+    retry_delay=30,
+    model="gpt-image-1",
+):
+    """
+    Prompt OpenAI API to generate an image response using gpt-image-1 model in base 64 encoded json format
+
+    Parameters:
+        client: openAI API client for generating images
+        country (str): which country should the image content be based on.
+        farm_type (str): which type of livestock farm should the image depict. options: dairy, pig
+        generation_type (str): what type of text prompt is this. e.g., "basic", "basic_no_revise", "typical", "typical_no_revise"
+        max_retries (int): the maximum number of times we will retry prompting the model if the previous prompt failed due to safety reasons.
+        retry_delay (int): the total number of seconds we wait to let the model reset before trying again
+        model (str): which model did we use, Options: 'gpt-image-1'
+
+    Returns:
+        response: the response from API call
+
+    """
+    cur_prompt = utils.get_prompt(country, farm_type, generation_type)
+
+    for attempt in range(max_retries):
+        try:
+            response = client.images.generate(
+                model=model,
+                prompt=cur_prompt,
+                size="1024x1024",
+                quality="standard",
+                response_format="b64_json",
+                n=1,
+            )
+            return {"response": response, "prompt": cur_prompt}
+        except (openai.BadRequestError, openai.RateLimitError) as e:
+            print(f"{generation_type} for {farm_type} in {country}:")
+            print(
+                f"Attempt {attempt + 1} in reprompting the model after last attempt failed due to {e}. Retrying..."
+            )
+
+            if attempt == (max_retries - 1):
+                print(
+                    "Maximum number of retries reached, terminating the image generation process."
+                )
+                raise e  # re-raise the error and terminate the program
+
+            time.sleep(retry_delay)  # wait for a while to let the model reset
+
+
 def dalle3_gen_image(
     country,
     farm_type,
@@ -101,6 +154,68 @@ def dalle3_gen_image(
     for img_count in range(start_index, (start_index + n)):
         # prompt API for a image response
         result = dalle3_prompt_for_img(
+            client, country, farm_type, generation_type, max_retries, retry_delay, model
+        )
+        response = result["response"]
+        cur_prompt = result["prompt"]  # generate prompt
+
+        image_data = response.data[0].b64_json
+        revised_input = response.data[
+            0
+        ].revised_prompt  # get what GPT-4o automatically rephrased the prompt into
+        image_bytes = base64.b64decode(image_data)  # get the image data
+
+        utils.save_imag(
+            generation_type, img_count, farm_type, image_bytes, country, model
+        )
+        utils.save_megadata(
+            img_count,
+            country,
+            farm_type,
+            generation_type,
+            cur_prompt,
+            revised_input,
+            model,
+            response_type="b64_json",
+            finish_reason=pd.NA,
+        )
+
+
+def gpt_image1_gen_image(
+    country,
+    farm_type,
+    generation_type,
+    start_index,
+    n,
+    max_retries=3,
+    retry_delay=30,
+    model="gpt-image-1",
+):
+    """
+    Generate n images using gpt-image-1 model, save the images into local folder, save the megadata related to each image into a csv file.
+
+    Parameters:
+        country (str): which country should the image content be based on.
+        farm_type (str): which type of livestock farm should the image depict. options: dairy, pig
+        generation_type (str): what type of text prompt is this. e.g., "basic", "basic_no_revise", "typical", "typical_no_revise"
+        start_index (int): the start index (ID) of the generated image in a roll
+        n (int): how many images you want to generate starting from the start index
+        max_retries (int): the maximum number of times we will retry prompting the model if the previous prompt failed due to safety reasons.
+        retry_delay (int): the total number of seconds we wait to let the model reset before trying again
+        model (str): which model did we use, Options: 'gpt-image-1'
+
+    Returns:
+        None
+
+    """
+    # Load and set the API key
+    load_dotenv()
+    client = OpenAI()
+
+    # generate n images
+    for img_count in range(start_index, (start_index + n)):
+        # prompt API for a image response
+        result = gpt_image1_prompt_for_img(
             client, country, farm_type, generation_type, max_retries, retry_delay, model
         )
         response = result["response"]

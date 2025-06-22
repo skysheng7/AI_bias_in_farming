@@ -31,7 +31,7 @@ from AI_representation_bias_in_farming import utils
     "--model",
     default="dall-e-3",
     type=str,
-    help="Which text-to-image generative model to use. Options: 'dall-e-3', 'sd3.5-large'. Default is 'dall-e-3'",
+    help="Which text-to-image generative model to use. Options: 'dall-e-3', 'gpt-image-1', 'sd3.5-large'. Default is 'dall-e-3'",
 )
 def main(start_index, total_image_num, model):
     # Define the prompt types
@@ -91,7 +91,7 @@ def main(start_index, total_image_num, model):
         "WARNING: This may take 10 minutes to a couple hours to run depending on how many images you wish to generate"
     )
     print(
-        "This will create multiple new images based on text prompts using DALL-E 3 or Stable Diffusion 3.5-large (n images per unique prompts, we have 48 unique prompts in total, with n=total_image_num). Generated images will be in results/dall-e-3-images, or in results/sd3.5-large-images, image metadata will be stored in results/megadata/image_megadata.csv."
+        "This will create multiple new images based on text prompts using DALL-E 3, GPT-Image-1, or Stable Diffusion 3.5-large (n images per unique prompts, we have 48 unique prompts in total, with n=total_image_num). Generated images will be in results/dall-e-3-images, results/gpt-image-1-images, or in results/sd3.5-large-images, image metadata will be stored in results/megadata/image_megadata.csv."
     )
     # Loop through each combination of generation_type and farm_type
     for generation_type in generation_types:
