@@ -225,7 +225,7 @@ def gpt_image1_gen_image(
         # Note: gpt-image-1 may not always provide revised_prompt like DALL-E 3
         revised_input = response.data[0].revised_prompt
         # if revised_input returns None, just print out the string "None"
-        if revised_input is None:
+        if revised_input is None or revised_input.strip() == "":
             revised_input = "None"
         image_bytes = base64.b64decode(image_data)  # get the image data
 
