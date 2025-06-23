@@ -224,6 +224,7 @@ def gpt_image1_gen_image(
         image_data = response.data[0].b64_json
         # Note: gpt-image-1 may not always provide revised_prompt like DALL-E 3
         revised_input = response.data[0].revised_prompt
+        print(revised_input)
         # if revised_input returns None, just print out the string "None"
         if revised_input is None or revised_input.strip() == "":
             revised_input = "None"

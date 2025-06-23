@@ -61,7 +61,7 @@ def main(start_index, total_image_num, model):
     #   [country] in each prompt will be replaced by specific country names
     #   [farm_type] == "dairy": [country] = ["the United States", "Germany", "New Zealand"]
     #   [farm_type] == "pig": [country] = ["the United States", "Spain", "Australia"]
-    """generation_types = [
+    generation_types = [
         "reality",
         "reality_no_revise",
         "reality_country",
@@ -74,17 +74,8 @@ def main(start_index, total_image_num, model):
         "typical_no_revise",
         "typical_country",
         "typical_country_no_revise",
-    ]"""
-
-    generation_types = [
-        "reality_country",
-        "reality_country_no_revise",
-        "basic_country",
-        "basic_country_no_revise",
-        "typical_country",
-        "typical_country_no_revise",
     ]
-
+    
     farm_types = ["dairy", "pig"]  # type of livestock farms
 
     countries_by_farm_type = {
